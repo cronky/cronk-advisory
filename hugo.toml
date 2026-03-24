@@ -1,0 +1,10 @@
+baseURL = "https://cronkadvisory.com"
+languageCode = "en-gb"
+title = "Cronk Advisory"
+
+[params]
+  email          = "hello@cronkadvisory.com"
+  companyNumber  = "17112535"
+
+[markup.goldmark.renderer]
+  unsafe = true

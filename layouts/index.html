@@ -1,0 +1,131 @@
+{{ define "main" }}
+{{ $h := .Params.hero }}
+{{ $s := .Params.services }}
+{{ $a := .Params.approach }}
+{{ $ab := .Params.about }}
+{{ $c := .Params.contact }}
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="label">{{ $h.label }}</div>
+      <h1>{{ $h.heading }}<br><em>{{ $h.heading_em }}</em></h1>
+      <p class="hero-sub">{{ $h.body }}</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">{{ $h.cta_primary }}</a>
+        <a href="#services" class="btn-ghost-dark">{{ $h.cta_secondary }} ↓</a>
+      </div>
+    </div>
+    <div class="hero-aside">
+      <div class="hero-card">
+        <div class="label" style="color:rgba(255,255,255,0.4);">Founded by</div>
+        <div class="hero-card-name">{{ $h.card_name }}</div>
+        <div class="hero-card-title">{{ $h.card_title }}</div>
+        <div class="hero-card-divider"></div>
+        <ul class="hero-card-list">
+          {{ range $h.card_points }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services" class="section section-cream">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="label">{{ $s.label }}</div>
+      <h2>{{ $s.heading }}</h2>
+      <div class="amber-bar"></div>
+    </div>
+    <div class="services-grid">
+      {{ range $s.items }}
+      <div class="service-card" id="{{ .id }}">
+        <div class="service-number label">{{ .number }}</div>
+        <h3>{{ .title }}</h3>
+        <div class="service-body">{{ .body | markdownify }}</div>
+        {{ with .note }}<p class="service-note">{{ . | markdownify }}</p>{{ end }}
+        <a href="#contact" class="service-link">Find out more →</a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- ═══ APPROACH ═══ -->
+<section id="approach" class="section section-navy">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="label" style="color:var(--amber);">{{ $a.label }}</div>
+      <h2 style="color:white;white-space:pre-line;">{{ $a.heading }}</h2>
+      <div class="amber-bar"></div>
+    </div>
+    <div class="approach-grid">
+      <div class="approach-content">
+        <p class="approach-lead">{{ $a.lead }}</p>
+        <div class="approach-body">{{ $a.body | markdownify }}</div>
+        <a href="{{ $a.cta_url }}" target="_blank" rel="noopener" class="btn-ghost-amber">{{ $a.cta }} →</a>
+      </div>
+      <div class="approach-pillars">
+        {{ range $a.pillars }}
+        <div class="pillar">
+          <div class="pillar-icon">{{ .icon }}</div>
+          <div class="pillar-title">{{ .title }}</div>
+          <p>{{ .body }}</p>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about" class="section section-cream">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="label">{{ $ab.label }}</div>
+      <h2>{{ $ab.heading }}</h2>
+      <div class="amber-bar"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-content">
+        <p class="about-lead">{{ $ab.lead }}</p>
+        <div class="about-body">{{ $ab.body | markdownify }}</div>
+        <p class="about-location">{{ $ab.location }}</p>
+      </div>
+      <div>
+        <div class="about-card">
+          <div class="label" style="margin-bottom:12px;">Previous positions</div>
+          <ul class="about-roles">
+            {{ range $ab.previous_roles }}<li>{{ . }}</li>{{ end }}
+          </ul>
+          <div class="label" style="margin-top:20px;margin-bottom:12px;">Community &amp; Open Source</div>
+          <ul class="about-roles">
+            {{ range $ab.links }}<li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .label }}</a></li>{{ end }}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact" class="section section-forest">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div>
+        <div class="label" style="color:rgba(255,255,255,0.5);margin-bottom:12px;">{{ $c.label }}</div>
+        <h2 style="color:white;white-space:pre-line;">{{ $c.heading }}</h2>
+        <p class="contact-lead">{{ $c.body }}</p>
+        <p class="contact-sub">{{ $c.sub }}</p>
+      </div>
+      <div class="contact-action">
+        <a href="mailto:{{ $.Site.Params.email }}" class="contact-email">{{ $.Site.Params.email }}</a>
+        <p class="contact-location">{{ $c.location }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

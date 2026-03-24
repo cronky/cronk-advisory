@@ -1,0 +1,12 @@
+# Hugo build output — Cloudflare Pages builds this itself
+public/
+
+# Hugo's local resource cache
+resources/_gen/
+
+# macOS noise
+.DS_Store
+
+# Editor directories
+.vscode/
+.idea/

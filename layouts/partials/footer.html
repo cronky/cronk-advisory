@@ -1,0 +1,44 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/images/logo-full.png" alt="Cronk Advisory" class="footer-logo">
+        <p class="footer-tagline">Senior technology leadership, when and how you need it.</p>
+        <p class="footer-reg">
+          Cronk Advisory Limited · Registered in England &amp; Wales<br>
+          Company No. {{ .Site.Params.companyNumber }}
+        </p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#fractional-cto">Fractional CTO &amp; Chief Architect</a></li>
+          <li><a href="#advisory">Technology Advisory &amp; Architecture Review</a></li>
+          <li><a href="#sustainability">Sustainable Technology &amp; Responsible AI</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#about">About Oliver Cronk</a></li>
+          <li><a href="#approach">Pragmatic Ecosystems</a></li>
+          <li><a href="https://youtube.com/ArchitectTomorrow" target="_blank" rel="noopener">Architect Tomorrow ↗</a></li>
+          <li><a href="https://techcarbonstandard.org" target="_blank" rel="noopener">Tech Carbon Standard ↗</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></li>
+          <li>Based in Newbury, Berkshire</li>
+          <li>Working across the UK<br>and internationally</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-legal">© {{ now.Year }} Cronk Advisory Limited. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+<script src="/js/main.js"></script>
