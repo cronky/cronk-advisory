@@ -14,6 +14,13 @@ If you spot something that could be better, you're welcome to raise it.
 
 ---
 
+## AI Use Disclosure
+
+AI Use Disclosure - around 3 prompts of Claude Sonnet 4.6 were used to create the initial version of this site (with human review and editing). 
+2 Prompts to Google Gemini were used to create the company logo. Meta prompting was used to improve the success rate of the prompts.
+
+---
+
 ## How it works
 
 The site is built with [Hugo](https://gohugo.io), a static site generator. Rather than running a traditional CMS — with a database, application server, and all the attack surface and energy consumption that brings — content is written in plain [Markdown](https://www.markdownguide.org/) and Hugo compiles everything into static HTML at build time.
