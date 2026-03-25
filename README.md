@@ -16,8 +16,8 @@ If you spot something that could be better, you're welcome to raise it.
 
 ## AI Use Disclosure
 
-AI Use Disclosure - around 3 prompts of Claude Sonnet 4.6 were used to create the initial version of this site (with human review and editing). 
-2 Prompts to Google Gemini were used to create the company logo. Meta prompting was used to improve the success rate of the prompts.
+Around 3 prompts of Claude Sonnet 4.6 were used to create the initial version of this site (with subsequent human review and editing). 
+2 Prompts to Google Gemini were used to create the company logo. Meta prompting (using AI to create better prompts rather than just riffing) was used to improve the success rate of the all of these prompts.
 
 ---
 
