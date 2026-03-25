@@ -70,7 +70,7 @@ about:
     - label: "Chief Architect Network (UK co-lead) ↗"
       url: "https://chiefarchitectnetwork.com"
     - label: "TCBAF - Business Architecture Forum ↗"
-      url: "https://https://tcbaf.org/"
+      url: "https://tcbaf.org/"
     - label: "GitHub ↗"
       url: "https://github.com/cronky"
     
