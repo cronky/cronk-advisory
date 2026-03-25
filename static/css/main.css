@@ -438,7 +438,7 @@ a:hover { text-decoration: underline; }
   display: inline-block;
   font-family: var(--heading);
   font-weight: 700;
-  font-size: 19px;
+  font-size: 32px;
   color: white !important;
   text-decoration: none;
   border-bottom: 2px solid rgba(255,255,255,0.3);
@@ -473,11 +473,12 @@ a:hover { text-decoration: underline; }
 }
 /* Footer logo: invert to white since footer is dark navy */
 .footer-logo {
-  height: 30px;
+  height: 90px;
   width: auto;
-  filter: brightness(0) invert(1);
-  opacity: 0.75;
-  margin-bottom: 16px;
+  /* filter: brightness(0) invert(1); */
+  /* opacity: 0.75; */
+  margin-bottom: 10px;
+  padding: 0%;
 }
 .footer-tagline {
   font-size: 14px;
