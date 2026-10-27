@@ -10,10 +10,16 @@
         <div class="about-body">{{ .Params.body | markdownify }}</div>
         {{ with .Content }}<div class="about-body">{{ . }}</div>{{ end }}
         <p class="about-location">{{ .Params.location }}</p>
-        <p class="about-more">More about Oliver, his talks and writing on his personal site, <a href="{{ site.Params.personalSite }}" target="_blank" rel="noopener">cronky.net ↗</a></p>
       </div>
       <div>
+        {{ with .Params.photo }}<img src="{{ . }}" alt="Oliver Cronk" width="300" height="300" class="about-photo">{{ end }}
         <div class="about-card">
+          {{ with .Params.more_links }}
+          <div class="label">{{ $.Params.more_heading }}</div>
+          <ul class="about-roles">
+            {{ range . }}<li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .label }}</a></li>{{ end }}
+          </ul>
+          {{ end }}
           {{ with .Params.credentials }}
           <div class="label">Credentials</div>
           <ul class="about-roles">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>

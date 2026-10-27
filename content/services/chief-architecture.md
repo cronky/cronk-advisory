@@ -1,8 +1,6 @@
 ---
 title: "Chief and Enterprise Architecture"
-number: "01"
 weight: 1
-label: "Service 01"
 # TODO: new summary and description from Ollie (spec 5.3). Both reuse the existing site copy for now.
 summary: "Part-time CTO or Chief Architect-level engagement, shaped around what you actually need, and independent architecture reviews before major decisions."
 description: "Fractional CTO and Chief Architect support, and independent technology and architecture reviews, from Cronk Advisory."

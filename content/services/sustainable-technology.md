@@ -1,8 +1,6 @@
 ---
 title: "Sustainable and Responsible Technology"
-number: "03"
 weight: 3
-label: "Service 03"
 # TODO: new summary and description from Ollie (spec 5.3). Both reuse the existing site copy for now.
 summary: "Technology has an environmental and social footprint that most organisations have not fully mapped. We help organisations understand that footprint, account for it honestly, and act on it."
 description: "Helping organisations understand, honestly account for and act on the environmental and social footprint of their technology."

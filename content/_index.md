@@ -10,6 +10,9 @@ hero:
   body: "Working with business and sustainability leaders, partners, and delivery teams to balance business performance, efficiency & holistic sustainability (people, planet & profitability)"
   cta_primary: "Start a Conversation"
   cta_secondary: "Explore Services"
+  # Background photo: path prefix of the -800.webp and -1600.webp files in static/images/photos/ (Ollie's own photo)
+  photo: "/images/photos/bark-moss"
+  card_photo: "/images/photos/oliver-cronk-160.webp"
   card_name: "Oliver Cronk"
   card_title: "Fractional CTO & Chief Architect"
   card_points:

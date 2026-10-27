@@ -14,6 +14,20 @@ previous_roles:
   - "Technology Director, Scott Logic"
   - "Chief Architect / Deputy CTO, Deloitte Risk Advisory UK"
   - "Chief Architect, Tanium"
+photo: "/images/photos/oliver-cronk-600.webp"
+# Oliver's personal site holds the full bio, talks, writing and podcasts
+more_heading: "More on cronky.net"
+more_links:
+  - label: "Full biography ↗"
+    url: "https://cronky.net/about/"
+  - label: "Talks and speaking ↗"
+    url: "https://cronky.net/speaking/"
+  - label: "Writing ↗"
+    url: "https://cronky.net/writing/"
+  - label: "Podcasts ↗"
+    url: "https://cronky.net/podcasts/"
+  - label: "Media kit: bios and headshots ↗"
+    url: "https://cronky.net/media-kit/"
 links:
   - label: "Architect Tomorrow ↗"
     url: "https://youtube.com/ArchitectTomorrow"

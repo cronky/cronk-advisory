@@ -5,6 +5,11 @@
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
+  {{ with $h.photo }}
+  <div class="hero-photo" aria-hidden="true">
+    <img src="{{ . }}-1600.webp" srcset="{{ . }}-800.webp 800w, {{ . }}-1600.webp 1600w" sizes="100vw" alt="" width="1600" height="1067" fetchpriority="high" decoding="async">
+  </div>
+  {{ end }}
   <div class="hero-inner">
     <div class="hero-content">
       <div class="label">{{ $h.label }}</div>
@@ -18,8 +23,13 @@
     <div class="hero-aside" id="about">
       <div class="hero-card">
         <div class="label">Founded by</div>
-        <div class="hero-card-name">{{ $h.card_name }}</div>
-        <div class="hero-card-title">{{ $h.card_title }}</div>
+        <div class="hero-card-person">
+          {{ with $h.card_photo }}<img src="{{ . }}" alt="" width="64" height="64" class="hero-card-photo">{{ end }}
+          <div>
+            <div class="hero-card-name">{{ $h.card_name }}</div>
+            <div class="hero-card-title">{{ $h.card_title }}</div>
+          </div>
+        </div>
         <div class="hero-card-divider"></div>
         <ul class="hero-card-list">
           {{ range $h.card_points }}<li>{{ . }}</li>{{ end }}

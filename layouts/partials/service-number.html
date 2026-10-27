@@ -1,0 +1,6 @@
+{{- /* Returns "01", "02"… for a service page by its position among published services (so drafts never leave gaps), or "" for other pages. */ -}}
+{{- $n := "" }}
+{{- range $i, $p := partial "service-pages.html" . }}
+{{- if eq $p $ }}{{ $n = printf "%02d" (add $i 1) }}{{ end }}
+{{- end }}
+{{- return $n }}

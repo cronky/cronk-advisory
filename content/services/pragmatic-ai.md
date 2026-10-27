@@ -1,8 +1,6 @@
 ---
 title: "Pragmatic AI"
-number: "02"
 weight: 2
-label: "Service 02"
 draft: true   # no copy yet: publish in Phase 3 once Ollie has approved it
 summary: "[COPY: one line for the home teaser and services index]"
 description: "[COPY: meta description, under 155 characters]"

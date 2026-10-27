@@ -1,9 +1,7 @@
 ---
 title: "Speaking, Chairing and Facilitation"
 linkTitle: "Speaking"
-number: "04"
 weight: 4
-label: "Service 04"
 draft: true   # intro copy and evidence still to come: publish in Phase 5 with the cronky.net feed
 summary: "[COPY: one line for the home teaser and services index]"
 description: "[COPY: meta description, under 155 characters]"
@@ -53,4 +51,4 @@ Email [hello@cronkadvisory.com](mailto:hello@cronkadvisory.com?subject=Speaking%
 - your fee or budget
 - whether it is a community or charity event
 
-Bios and headshots are in the [media kit on cronky.net](https://cronky.net/). <!-- TODO: exact media kit URL -->
+Bios and headshots are in the [media kit on cronky.net](https://cronky.net/media-kit/).

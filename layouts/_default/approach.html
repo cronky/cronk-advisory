@@ -1,9 +1,15 @@
 {{ define "main" }}
-{{ partial "page-header.html" . }}
-<section class="section section-navy page-header-continued">
+{{/* Own header (not page-header.html) so the pillars sit level with the heading, as on the old home page */}}
+<section class="page-header approach-hero">
   <div class="section-inner">
+    {{ partial "breadcrumbs.html" . }}
     <div class="approach-grid">
       <div class="approach-content">
+        <div class="section-header">
+          {{ with .Params.label }}<div class="label">{{ . }}</div>{{ end }}
+          <h1 class="heading-lines">{{ .Params.page_heading | default .Title }}</h1>
+          <div class="amber-bar"></div>
+        </div>
         <p class="approach-lead">{{ .Params.lead }}</p>
         <div class="approach-body">{{ .Params.body | markdownify }}</div>
       </div>

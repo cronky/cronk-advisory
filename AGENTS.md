@@ -48,7 +48,7 @@ The site practises what the business preaches: sustainable, secure, minimal tech
 The site follows `docs/v2-spec.md`, built in phases. Pages still waiting for copy or for a later phase have `draft: true`: they build with `hugo server -D` but not in production. Nav, footer and service lists only link to pages that exist, so drafts never leave broken links.
 
 - **Home** (`content/_index.md`): `hero`, `services` (label and heading only), `approach` (teaser), `contact`. The `contact` block also feeds the "Start a conversation" band on other pages (`layouts/partials/cta-band.html`).
-- **Services**: each page in `content/services/` plus `content/speaking.md` becomes a service card, ordered by `weight`. Front matter: `title`, `number`, `weight`, `label`, `summary` (card text and page intro), `description` (meta), `who_for`, `engagements` (`title`, `body`, `note`), `outcomes`, `related_topics`, `legacy_ids`. Empty lists hide their section.
+- **Services**: each page in `content/services/` plus `content/speaking.md` becomes a service card, ordered by `weight`. The "01", "02"… numbers come from position among published services (`layouts/partials/service-number.html`), so a draft never leaves a gap. Front matter: `title`, `weight`, `summary` (card text and page intro), `description` (meta), `who_for`, `engagements` (`title`, `body`, `note`), `outcomes`, `related_topics`, `legacy_ids`. Empty lists hide their section.
 - **Legacy anchors**: `legacy_ids` keep old links such as `/#fractional-cto` working: the home page card gets the first id plus empty anchors for the rest. `id="contact"`, `id="services"`, `id="approach"` and `id="about"` also stay on the home page. Keep them stable.
 - `page_heading` overrides the `<h1>` in the page title band when it should differ from the nav title (Approach does this). `summary` shows under the `<h1>`.
 
@@ -75,6 +75,16 @@ All logos are transparent PNGs (8-bit palette with alpha).
 
 The white circuit lines inside the green mark are part of the logo and must stay opaque. The original white-background masters are in git history before October 2026 if a re-export is ever needed.
 Brand assets are **not** covered by the MIT licence; don't redistribute or alter the mark's design.
+
+### Photos (`static/images/photos/`)
+
+All photos are Ollie's own or of Ollie. Before committing one:
+
+- strip all metadata, including camera and GPS (`magick in.jpg -auto-orient -strip ...`);
+- convert to WebP at the sizes the template uses (the hero uses `<name>-800.webp` and `<name>-1600.webp`; aim for under 160 KB at 1600px);
+- don't commit originals, and don't publish photos where other people can be identified without their agreement.
+
+The home hero photo is set by `hero.photo` in `content/_index.md`. The navy shade over it (`.hero::after`) is what keeps the hero text at 4.5:1 or better, so re-measure contrast if you lighten the shade or pick a brighter photo.
 
 Brand colours (from `main.css`): forest `#3B6352`, navy `#1C2C3A`, amber `#C9893A`, cream `#F7F4EE`. Fonts: Jost (headings), Source Serif 4 (body).
 
