@@ -56,13 +56,13 @@
 <!-- ═══ APPROACH ═══ -->
 <section id="approach" class="section section-navy">
   <div class="section-inner">
-    <div class="section-header">
-      <div class="label">{{ $a.label }}</div>
-      <h2 class="heading-lines">{{ $a.heading }}</h2>
-      <div class="amber-bar"></div>
-    </div>
     <div class="approach-grid">
       <div class="approach-content">
+        <div class="section-header">
+          <div class="label">{{ $a.label }}</div>
+          <h2 class="heading-lines">{{ $a.heading }}</h2>
+          <div class="amber-bar"></div>
+        </div>
         <p class="approach-lead">{{ $a.lead }}</p>
         <div class="approach-body">{{ $a.body | markdownify }}</div>
         {{ with $a.cta }}<a href="{{ $a.cta_url }}" target="_blank" rel="noopener" class="btn-ghost-amber">{{ . }} →</a>{{ end }}
