@@ -66,6 +66,10 @@ Brand assets are **not** covered by the MIT licence; don't redistribute or alter
 
 Brand colours (from `main.css`): forest `#3B6352`, navy `#1C2C3A`, amber `#C9893A`, cream `#F7F4EE`. Fonts: Jost (headings), Source Serif 4 (body).
 
+Text must meet WCAG AA contrast (at least 4.5:1). Amber `#C9893A` fails as text on cream or white, so labels on light backgrounds use `--amber-text` (`#935F1E`); keep `--amber` for bars, accents and text on navy. Semi-transparent white text needs at least 60% opacity on navy (65% on the translucent cards) and at least 80% on forest. Check any new colour pair with a contrast checker.
+
+No inline `style=""` attributes or `<style>` blocks in layouts: put styles in `main.css` (a strict Content Security Policy is planned).
+
 ## Working locally
 
 ```bash

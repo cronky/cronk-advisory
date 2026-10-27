@@ -10,3 +10,6 @@ resources/_gen/
 # Editor directories
 .vscode/
 .idea/
+
+# Hugo lock file
+.hugo_build.lock

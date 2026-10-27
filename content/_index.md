@@ -35,7 +35,7 @@ services:
       id: "sustainability"
       title: "Sustainable Technology & Responsible AI"
       body: "Technology has an environmental and social footprint that most organisations have not fully mapped. Partly because the tech industry has been very effective at abstracting physical reality away from digital work. We help organisations understand that footprint, account for it honestly, and act on it."
-      note: "Our approach draws on the open-source [Tech Carbon Standard](https://techcarbonstandard.org) co developed by our founder"
+      note: "Our approach draws on the open-source [Tech Carbon Standard](https://techcarbonstandard.org) co-developed by our founder"
 
 approach:
   label: "Our Approach"
