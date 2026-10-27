@@ -1,0 +1,35 @@
+{{ define "main" }}
+{{ partial "page-header.html" . }}
+<section class="section section-cream">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-content">
+        <h2 class="about-name">{{ .Params.heading }}</h2>
+        <div class="amber-bar"></div>
+        <p class="about-lead">{{ .Params.lead }}</p>
+        <div class="about-body">{{ .Params.body | markdownify }}</div>
+        {{ with .Content }}<div class="about-body">{{ . }}</div>{{ end }}
+        <p class="about-location">{{ .Params.location }}</p>
+        <p class="about-more">More about Oliver, his talks and writing on his personal site, <a href="{{ site.Params.personalSite }}" target="_blank" rel="noopener">cronky.net ↗</a></p>
+      </div>
+      <div>
+        <div class="about-card">
+          {{ with .Params.credentials }}
+          <div class="label">Credentials</div>
+          <ul class="about-roles">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+          {{ end }}
+          <div class="label">Previous positions</div>
+          <ul class="about-roles">
+            {{ range .Params.previous_roles }}<li>{{ . }}</li>{{ end }}
+          </ul>
+          <div class="label">Community &amp; Open Source</div>
+          <ul class="about-roles">
+            {{ range .Params.links }}<li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .label }}</a></li>{{ end }}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ partial "cta-band.html" . }}
+{{ end }}

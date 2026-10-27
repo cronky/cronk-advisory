@@ -21,6 +21,7 @@ Around 3 prompts of Claude Sonnet 4.6 were used to create the initial version of
 1 Prompt to Claude Sonnet 4.6 was used to create the first version of this readme from the GitHub content.
 In October 2026 one Claude Code session (Claude Opus 5.5) was used to review the site, fix a few bugs (missing favicon, broken links, footer anchors), make the logo backgrounds transparent and write the AI agent guidance (`AGENTS.md`) and `llms.txt` (with human review).
 A further Claude Code session (Claude Opus 5.5) carried out Phase 0 of the v2 spec: colour contrast fixes for WCAG AA, moving inline styles into `main.css`, and minor housekeeping (with human review).
+The same session built Phase 2 of the v2 spec: the multi-page structure, page templates, navigation, breadcrumbs, metadata and JSON-LD. Page copy was moved from the existing site rather than written by AI; the Pragmatic Ecosystems section is a placeholder that rearranges existing copy until the owner replaces it (with human review).
 
 ---
 
@@ -38,7 +39,7 @@ This is a considerably more efficient and secure approach for a site of this nat
 
 - **No database** : nothing to query, nothing to breach
 - **No application server** : pages don't get "generated" on each visit
-- **Minimal energy footprint** : static files served from a CDN use a fraction of the compute of a dynamic stack (consistent with our [sustainable technology](https://cronkadvisory.com/#sustainability) practice)
+- **Minimal energy footprint** : static files served from a CDN use a fraction of the compute of a dynamic stack (consistent with our [sustainable technology](https://cronkadvisory.com/services/sustainable-technology/) practice)
 - **Fast** : genuinely, measurably fast
 
 Hosting is via [Cloudflare Pages](https://pages.cloudflare.com/), which builds and deploys automatically on push to `main`.
@@ -50,13 +51,17 @@ Hosting is via [Cloudflare Pages](https://pages.cloudflare.com/), which builds a
 ```
 .
 ├── AGENTS.md         # Guidance for AI coding agents (CLAUDE.md points here)
+├── docs/v2-spec.md   # Build spec for the multi-page site (phased)
 ├── content/          # Site content as Markdown
 │   ├── _index.md     # Homepage content and front matter
-│   └── privacy.md    # Privacy policy
+│   ├── services/     # One page per service, plus the services index
+│   └── *.md          # About, approach, contact, speaking, privacy and other pages
 ├── layouts/          # Hugo HTML templates
-│   ├── _default/     # Base layout and single-page template
+│   ├── _default/     # Base layout, generic page/list and the about/approach/contact layouts
+│   ├── services/     # Services index and service page templates
 │   ├── index.html    # Homepage template
-│   └── partials/     # Reusable components (header, footer, head)
+│   ├── 404.html      # Not found page
+│   └── partials/     # Header, footer, head, page header, breadcrumbs, cards, JSON-LD
 ├── static/           # Copied verbatim to the built site
 │   ├── css/main.css  # All styles
 │   ├── js/main.js    # Minimal JS (mobile nav toggle only)
@@ -96,7 +101,7 @@ hugo
 
 ## Making content changes
 
-Almost everything visible on the site lives in `content/_index.md` as structured front matter (YAML). Editing the site means editing Markdown : no GUI, no plugin updates, no surprise database migrations.
+Almost everything visible on the site lives in `content/` as Markdown with structured front matter (YAML): the home page in `content/_index.md`, services in `content/services/`, and one file per other page. Editing the site means editing Markdown : no GUI, no plugin updates, no surprise database migrations.
 
 The privacy policy lives in `content/privacy.md` and follows the same pattern.
 
@@ -133,6 +138,6 @@ The **brand assets** (logos, name, visual identity) and **written content** rema
 
 ## About Cronk Advisory
 
-[Cronk Advisory Ltd](https://cronkadvisory.com) is a technology leadership and architecture consultancy founded by [Oliver Cronk](https://cronkadvisory.com/#about). We work with business and sustainability leaders on fractional CTO engagements, architecture reviews, and responsible AI and sustainable technology practice.
+[Cronk Advisory Ltd](https://cronkadvisory.com) is a technology leadership and architecture consultancy founded by [Oliver Cronk](https://cronkadvisory.com/about/). We work with business and sustainability leaders on fractional CTO engagements, architecture reviews, and responsible AI and sustainable technology practice.
 
 Registered in England and Wales · Company No. 17112535 · [hello@cronkadvisory.com](mailto:hello@cronkadvisory.com)

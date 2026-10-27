@@ -1,0 +1,14 @@
+{{ define "main" }}
+{{ partial "page-header.html" . }}
+<section class="section section-cream">
+  <div class="section-inner">
+    {{ with .Content }}<div class="prose page-intro">{{ . }}</div>{{ end }}
+    <div class="services-grid">
+      {{ range partial "service-pages.html" . }}
+      {{ partial "service-card.html" . }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ partial "cta-band.html" . }}
+{{ end }}

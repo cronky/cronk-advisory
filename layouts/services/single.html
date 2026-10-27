@@ -1,0 +1,40 @@
+{{ define "main" }}
+{{ partial "page-header.html" . }}
+<section class="section section-cream service-detail">
+  <div class="section-inner">
+    {{ with .Params.who_for }}
+    <div class="service-block">
+      <h2>Who it is for</h2>
+      <ul class="tick-list">{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+    </div>
+    {{ end }}
+
+    {{ with .Params.engagements }}
+    <div class="service-block">
+      <h2>Typical engagements</h2>
+      <div class="engagement-grid">
+        {{ range . }}
+        <div class="engagement-card">
+          <h3>{{ .title }}</h3>
+          <div class="service-body">{{ .body | markdownify }}</div>
+          {{ with .note }}<p class="service-note">{{ . | markdownify }}</p>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{ with .Params.outcomes }}
+    <div class="service-block">
+      <h2>Outcomes</h2>
+      <ul class="tick-list">{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+    </div>
+    {{ end }}
+
+    {{ with .Content }}<div class="service-block prose">{{ . }}</div>{{ end }}
+
+    {{/* TODO (Phase 5): related talks and writing from the cronky.net feed, matched on related_topics, max 3 */}}
+  </div>
+</section>
+{{ partial "cta-band.html" . }}
+{{ end }}

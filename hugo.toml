@@ -2,11 +2,20 @@ baseURL = "https://cronkadvisory.com"
 languageCode = "en-gb"
 title = "Cronk Advisory"
 disableKinds = ["taxonomy", "term"]
+enableRobotsTXT = true
 
 [params]
-  description    = "Responsible technology leadership: aligning technology with sustainability."
-  email          = "hello@cronkadvisory.com"
-  companyNumber  = "17112535"
+  description      = "Responsible technology leadership: aligning technology with sustainability."
+  legalName        = "Cronk Advisory Limited"
+  companyNumber    = "17112535"
+  registeredIn     = "England and Wales"
+  registeredOffice = ""    # TODO (Phase 1): exact Companies House address. Footer and /company/ only, never in JSON-LD
+  vatNumber        = ""    # renders only when non-empty
+  email            = "hello@cronkadvisory.com"
+  founder          = "Oliver Cronk"
+  linkedin         = "https://www.linkedin.com/in/cronky/"
+  personalSite     = "https://cronky.net/"
+  insightsFeed     = "https://cronky.net/feeds/advisory.json"
 
 [markup.goldmark.renderer]
   unsafe = true

@@ -1,0 +1,13 @@
+{{ define "main" }}
+{{ partial "page-header.html" . }}
+<section class="section section-cream page-section">
+  <div class="section-inner">
+    {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+    <ul class="page-list">
+      {{ range .Pages }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Params.summary }}<span>{{ . }}</span>{{ end }}</li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
+{{ end }}

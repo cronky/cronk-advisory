@@ -3,8 +3,6 @@ title: "Privacy Policy"
 description: "How Cronk Advisory handles your personal data."
 ---
 
-# Privacy Policy
-
 **Cronk Advisory Limited** (Company No. 17112535, registered in England and Wales) is committed to protecting and respecting your privacy.
 
 ## What data we collect

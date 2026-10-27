@@ -1,0 +1,50 @@
+{{ define "main" }}
+{{ partial "page-header.html" . }}
+<section class="section section-navy page-header-continued">
+  <div class="section-inner">
+    <div class="approach-grid">
+      <div class="approach-content">
+        <p class="approach-lead">{{ .Params.lead }}</p>
+        <div class="approach-body">{{ .Params.body | markdownify }}</div>
+      </div>
+      <div class="approach-pillars">
+        {{ range .Params.pillars }}
+        <div class="pillar">
+          <div class="pillar-icon" aria-hidden="true">{{ .icon }}</div>
+          <div class="pillar-title">{{ .title }}</div>
+          <p>{{ .body }}</p>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ with .Params.ecosystems }}
+<section id="pragmatic-ecosystems" class="section section-cream">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="label">{{ .label }}</div>
+      <h2>{{ .heading }}</h2>
+      <div class="amber-bar"></div>
+    </div>
+    <div class="ecosystems-intro">{{ .intro | markdownify }}</div>
+    {{ with .systems }}
+    <p class="ecosystems-systems-label">{{ $.Params.ecosystems.systems_label }}</p>
+    <ul class="ecosystems-systems">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+    {{ end }}
+    <div class="engagement-grid">
+      {{ range .points }}
+      <div class="engagement-card">
+        <h3>{{ .title }}</h3>
+        <p class="service-body">{{ .body | markdownify }}</p>
+      </div>
+      {{ end }}
+    </div>
+    {{ with .note }}<p class="ecosystems-note">{{ . | markdownify }}</p>{{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ partial "cta-band.html" . }}
+{{ end }}

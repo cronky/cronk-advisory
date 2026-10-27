@@ -25,30 +25,41 @@ The site practises what the business preaches: sustainable, secure, minimal tech
 
 | You want to change… | Edit |
 |---|---|
-| Homepage copy (hero, services, approach, about, contact) | Front matter in `content/_index.md` |
+| Homepage copy (hero, services heading, approach teaser, "Start a conversation" band) | Front matter in `content/_index.md` |
 | Homepage markup | `layouts/index.html` |
+| A service | `content/services/<name>.md` (front matter, see below); speaking is `content/speaking.md` |
+| Service index and service page markup | `layouts/services/list.html`, `layouts/services/single.html` |
+| About, Approach, Contact | `content/about.md`, `content/approach.md`, `content/contact.md` (front matter) with `layouts/_default/about.html`, `approach.html`, `contact.html` |
 | Privacy policy | `content/privacy.md` (update the "Last updated" line) |
+| Plain text pages | `content/<name>.md`, rendered by `layouts/_default/single.html` |
 | Header / nav | `layouts/partials/header.html` |
 | Footer | `layouts/partials/footer.html` |
+| Page title band and breadcrumbs | `layouts/partials/page-header.html`, `breadcrumbs.html` |
 | `<head>` meta, favicon, fonts | `layouts/partials/head.html` |
-| Generic content pages | `layouts/_default/single.html` |
+| Organization JSON-LD | `layouts/partials/schema.html` (built from params; never add the address) |
+| 404 page | `layouts/404.html` |
 | Styles | `static/css/main.css` (design tokens are CSS custom properties in `:root`) |
-| Site-wide params (email, company number, description) | `hugo.toml` |
+| Site-wide params (legal name, email, company number, LinkedIn, description) | `hugo.toml` |
 | HTTP headers / caching | `static/_headers` (Cloudflare Pages format) |
 | Summary for LLMs that read the site | `static/llms.txt` |
 
-### Homepage content model
+### Content model
 
-`layouts/index.html` reads everything from `.Params` in `content/_index.md`, grouped as `hero`, `services`, `approach`, `about`, `contact`.
-Fields rendered with `markdownify` accept inline Markdown (links, bold): `services.items[].body`, `services.items[].note`, `approach.body`, `about.body`. Other fields are plain text.
-Use `\n\n` inside a quoted YAML string to start a new paragraph in a `markdownify` field. `approach.heading` and `contact.heading` honour `\n` as a line break (`white-space: pre-line`).
-Optional fields are wrapped in `{{ with }}` so leaving them out renders nothing (e.g. `approach.cta` / `approach.cta_url`).
+The site follows `docs/v2-spec.md`, built in phases. Pages still waiting for copy or for a later phase have `draft: true`: they build with `hugo server -D` but not in production. Nav, footer and service lists only link to pages that exist, so drafts never leave broken links.
 
-Service `id`s (`fractional-cto`, `advisory`, `sustainability`) are anchor targets linked from the footer, so keep them stable.
+- **Home** (`content/_index.md`): `hero`, `services` (label and heading only), `approach` (teaser), `contact`. The `contact` block also feeds the "Start a conversation" band on other pages (`layouts/partials/cta-band.html`).
+- **Services**: each page in `content/services/` plus `content/speaking.md` becomes a service card, ordered by `weight`. Front matter: `title`, `number`, `weight`, `label`, `summary` (card text and page intro), `description` (meta), `who_for`, `engagements` (`title`, `body`, `note`), `outcomes`, `related_topics`, `legacy_ids`. Empty lists hide their section.
+- **Legacy anchors**: `legacy_ids` keep old links such as `/#fractional-cto` working: the home page card gets the first id plus empty anchors for the rest. `id="contact"`, `id="services"`, `id="approach"` and `id="about"` also stay on the home page. Keep them stable.
+- `page_heading` overrides the `<h1>` in the page title band when it should differ from the nav title (Approach does this). `summary` shows under the `<h1>`.
+
+Fields rendered with `markdownify` accept inline Markdown (links, bold): service `engagements[].body` and `.note`, `who_for`, `outcomes`, `approach.md` `body` and `ecosystems` text, `about.md` `body`. Other fields are plain text.
+Use `\n\n` inside a quoted YAML string to start a new paragraph in a `markdownify` field. Headings with the `heading-lines` class (home approach and contact headings, `page_heading`) honour `\n` as a line break.
+
+Copy that is missing gets a `# TODO` comment in front matter or `<!-- TODO: copy from Ollie -->` in the body, and `[COPY: ...]` placeholder text only on draft pages.
 
 ### Links
 
-Header and footer links point at `/#section` (not `#section`) so they work from non-home pages such as `/privacy/`. Keep that pattern for new in-page links in partials.
+Link to pages by their own URL (`/services/`, `/about/`). In templates, prefer `site.GetPage` so the link disappears if the page is a draft.
 
 ## Brand assets (`static/images/`)
 

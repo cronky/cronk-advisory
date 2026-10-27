@@ -25,6 +25,8 @@
 
 - No CMS, framework, bundler, analytics, cookies or third-party embeds (unchanged from `AGENTS.md`).
 - Most long-form writing stays on cronky.net and external outlets.
+
+**Search** is wanted (owner decision, 27 October 2026), mainly for the insights area. Build it with Phase 5, once there is content to search. Choose between Pagefind (needs a post-build step on Cloudflare Pages) and a Hugo-generated JSON index with a small vanilla script, keeping within the no-framework, no-bundler principles.
 - No dark mode for now (optional later).
 
 ---

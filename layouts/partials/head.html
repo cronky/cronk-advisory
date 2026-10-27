@@ -1,13 +1,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  {{- $desc := .Description | default .Params.summary | default site.Params.description }}
+  {{- $title := cond .IsHome .Title (printf "%s · %s" .Title site.Title) }}
+  <title>{{ $title }}</title>
+  <meta name="description" content="{{ $desc }}">
   <link rel="canonical" href="{{ .Permalink }}">
-  <meta property="og:title" content="{{ .Title }}">
-  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta property="og:site_name" content="{{ site.Title }}">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:description" content="{{ $desc }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ .Permalink }}">
+  {{- /* TODO: og-default.png artwork (1200 × 630). The tags appear once the file exists. */}}
+  {{- if os.FileExists "static/images/og-default.png" }}
+  <meta property="og:image" content="{{ "images/og-default.png" | absURL }}">
+  <meta name="twitter:card" content="summary_large_image">
+  {{- else }}
+  <meta name="twitter:card" content="summary">
+  {{- end }}
   <link rel="icon" type="image/png" href="/images/logo-mark.png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,4 +26,5 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
   {{/* Version query from the file contents: /css/* is cached as immutable in static/_headers */}}
   <link rel="stylesheet" href="/css/main.css?v={{ os.ReadFile "static/css/main.css" | md5 | truncate 10 "" }}">
+  {{- if .IsHome }}{{ partial "schema.html" . }}{{ end }}
 </head>
