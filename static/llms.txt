@@ -10,7 +10,7 @@ Contact: hello@cronkadvisory.com
 
 - [Fractional CTO and Chief Architect](https://cronkadvisory.com/#fractional-cto): Part-time CTO or Chief Architect-level engagement covering technology strategy tied to business outcomes, independent architecture oversight, board-ready communication and mentoring for technical teams. Typically from two days per month; longer-term retainers available; each engagement scoped individually.
 - [Technology Advisory and Architecture Review](https://cronkadvisory.com/#advisory): An independent assessment of a technology estate, where it needs to go and a realistic path between the two. Useful before major investment decisions (particularly AI investment), platform changes, or to stress-test an existing plan.
-- [Sustainable Technology and Responsible AI](https://cronkadvisory.com/#sustainability): Helping organisations understand, honestly account for and act on the environmental and social footprint of their technology, drawing on the open-source Tech Carbon Standard.
+- [Sustainable Technology and Responsible AI](https://cronkadvisory.com/#sustainability): Helping organisations understand, honestly account for and act on the environmental and social footprint of their technology, drawing on the Green Web Foundation's open-source Digital Impacts Schema and Taxonomy (DIST).
 
 ## Approach
 
@@ -18,11 +18,11 @@ Contact: hello@cronkadvisory.com
 
 ## About
 
-- [Oliver Cronk](https://cronkadvisory.com/#about): Founder. Over 25 years as a practitioner and technology leader across energy, financial services, central and regional government, and professional services. Previously Technology Director at Scott Logic, Chief Architect / Deputy CTO at Deloitte Risk Advisory UK, and Chief Architect at Tanium. Created the Architect Tomorrow community (2019), co-developed the Tech Carbon Standard, and is UK co-lead of the Chief Architect Network.
+- [Oliver Cronk](https://cronkadvisory.com/#about): Founder. Over 25 years as a practitioner and technology leader across energy, financial services, central and regional government, and professional services. Previously Technology Director at Scott Logic, Chief Architect / Deputy CTO at Deloitte Risk Advisory UK, and Chief Architect at Tanium. Created the Architect Tomorrow community (2019), contributes to the Digital Impacts Schema and Taxonomy (DIST), previously co-developed the Tech Carbon Standard, and is UK co-lead of the Chief Architect Network.
 
 ## Optional
 
-- [Tech Carbon Standard](https://techcarbonstandard.org): Open-source standard for assessing the carbon footprint of technology, co-developed by Oliver Cronk.
+- [Digital Impacts Schema and Taxonomy (DIST)](https://dist.greenweb.org): Open-source guidance from the Green Web Foundation for categorising, structuring and reporting digital technology sustainability data. Oliver Cronk contributes to it.
 - [Architect Tomorrow](https://youtube.com/ArchitectTomorrow): Community and YouTube channel on architecture, emerging technology and sustainability.
 - [Privacy Policy](https://cronkadvisory.com/privacy/)
 - [Website source code](https://github.com/cronky/cronk-advisory)

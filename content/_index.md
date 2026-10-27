@@ -35,7 +35,7 @@ services:
       id: "sustainability"
       title: "Sustainable Technology & Responsible AI"
       body: "Technology has an environmental and social footprint that most organisations have not fully mapped. Partly because the tech industry has been very effective at abstracting physical reality away from digital work. We help organisations understand that footprint, account for it honestly, and act on it."
-      note: "Our approach draws on the open-source [Tech Carbon Standard](https://techcarbonstandard.org) co developed by our founder"
+      note: "Our approach draws on the Green Web Foundation's open-source [Digital Impacts Schema and Taxonomy (DIST)](https://dist.greenweb.org), which our founder contributes to."
 
 approach:
   label: "Our Approach"
@@ -58,7 +58,7 @@ about:
   label: "About"
   heading: "Oliver Cronk"
   lead: "Oliver is the founder of Cronk Advisory. He has held CTO / Technology Director, Chief, Enterprise and Technology Architect and Engineering positions across energy, financial services, central and regional government, and professional services. Over 25 years as a practitioner and a leader."
-  body: "He created the [Architect Tomorrow](https://youtube.com/ArchitectTomorrow) community in 2019, co-developed the open-source [Tech Carbon Standard](https://techcarbonstandard.org), and is a regular speaker internationally on architecture, emerging technology, and sustainability.\n\nHe brings breadth and buy/sell-side experience to every engagement, alongside a network of specialists and partners who join where the work calls for it."
+  body: "He created the [Architect Tomorrow](https://youtube.com/ArchitectTomorrow) community in 2019, contributes to the Green Web Foundation's [Digital Impacts Schema and Taxonomy (DIST)](https://dist.greenweb.org), previously co-developed the Tech Carbon Standard, and is a regular speaker internationally on architecture, emerging technology, and sustainability.\n\nHe brings breadth and buy/sell-side experience to every engagement, alongside a network of specialists and partners who join where the work calls for it."
   location: "Based in Newbury, Berkshire. Working across the UK and internationally."
   previous_roles:
     - "Technology Director, Scott Logic"

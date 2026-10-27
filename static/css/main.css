@@ -8,13 +8,14 @@
   --forest-lt:   #D4E6DB;
   --navy:        #1C2C3A;
   --navy-m:      #2D4359;
-  --amber:       #C9893A;
+  --amber:       #C9893A;   /* bars, accents, text on navy */
+  --amber-text:  #935F1E;   /* amber text on cream/white (4.9:1 on cream) */
   --amber-lt:    #F5E6CF;
   --cream:       #F7F4EE;
   --white:       #FFFFFF;
   --ink:         #1C2C3A;
   --ink-m:       #4A5A68;
-  --ink-lt:      #8A9BAA;
+  --ink-lt:      #5F6E7B;
   --rule:        #D8DFE4;
 
   --heading:     'Jost', sans-serif;
@@ -59,10 +60,15 @@ a:hover { text-decoration: underline; }
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--amber-text);
   display: block;
   margin-bottom: 8px;
 }
+.section-navy .label { color: var(--amber); }
+
+/* Headings whose content uses 
+ for line breaks */
+.heading-lines { white-space: pre-line; }
 
 .amber-bar {
   width: 40px; height: 3px;
@@ -199,6 +205,8 @@ a:hover { text-decoration: underline; }
 .section-navy   { background: var(--navy); }
 .section-forest { background: var(--forest); }
 .section-header { margin-bottom: 0; }
+.section-navy h2,
+.section-forest h2 { color: white; }
 
 /* ══════════════════════════════════════════
    HERO
@@ -237,7 +245,7 @@ a:hover { text-decoration: underline; }
   position: relative;
   z-index: 1;
 }
-.hero .label { color: rgba(255,255,255,0.35); margin-bottom: 20px; }
+.hero .label { color: rgba(255,255,255,0.65); margin-bottom: 20px; }
 .hero h1 { color: white; margin-bottom: 28px; }
 .hero h1 em { font-style: normal; color: var(--amber); }
 .hero-sub {
@@ -257,6 +265,7 @@ a:hover { text-decoration: underline; }
   border-radius: 8px;
   padding: 32px;
 }
+.hero-card .label { color: rgba(255,255,255,0.65); }
 .hero-card-name {
   font-family: var(--heading);
   font-size: 26px;
@@ -269,7 +278,7 @@ a:hover { text-decoration: underline; }
   font-family: var(--heading);
   font-size: 13px;
   font-weight: 500;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.65);
   margin-bottom: 20px;
 }
 .hero-card-divider {
@@ -282,7 +291,7 @@ a:hover { text-decoration: underline; }
   font-family: var(--heading);
   font-size: 13px;
   font-weight: 500;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.7);
   padding: 7px 0 7px 18px;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   position: relative;
@@ -372,7 +381,7 @@ a:hover { text-decoration: underline; }
   color: white;
   margin-bottom: 8px;
 }
-.pillar p { font-size: 13px; color: rgba(255,255,255,0.5); margin: 0; }
+.pillar p { font-size: 13px; color: rgba(255,255,255,0.65); margin: 0; }
 
 /* ══════════════════════════════════════════
    ABOUT
@@ -405,6 +414,8 @@ a:hover { text-decoration: underline; }
   border-radius: 8px;
   padding: 28px;
 }
+.about-card .label { margin-bottom: 12px; }
+.about-card .about-roles + .label { margin-top: 20px; }
 .about-roles { list-style: none; padding: 0; }
 .about-roles li {
   font-family: var(--heading);
@@ -432,7 +443,8 @@ a:hover { text-decoration: underline; }
   margin-top: 20px;
   line-height: 1.65;
 }
-.contact-sub { color: rgba(255,255,255,0.45); margin-top: 12px; font-size: 15px; }
+.section-forest .label { color: rgba(255,255,255,0.85); margin-bottom: 12px; }
+.contact-sub { color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 15px; }
 .contact-action { text-align: right; }
 .contact-email {
   display: inline-block;
@@ -447,7 +459,7 @@ a:hover { text-decoration: underline; }
 }
 .contact-email:hover { border-color: white; text-decoration: none; }
 .contact-location {
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.85);
   font-size: 13px;
   margin-top: 12px;
   font-family: var(--heading);
@@ -479,7 +491,7 @@ a:hover { text-decoration: underline; }
 }
 .footer-tagline {
   font-size: 14px;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.7);
   line-height: 1.6;
   max-width: 260px;
   margin-bottom: 12px;
@@ -488,7 +500,7 @@ a:hover { text-decoration: underline; }
   font-family: var(--heading);
   font-size: 11px;
   font-weight: 500;
-  color: rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.6);
   letter-spacing: 0.03em;
   line-height: 1.7;
 }
@@ -498,7 +510,7 @@ a:hover { text-decoration: underline; }
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.6);
   margin-bottom: 16px;
 }
 .footer-links { list-style: none; padding: 0; }
@@ -506,11 +518,11 @@ a:hover { text-decoration: underline; }
   font-family: var(--heading);
   font-size: 13px;
   font-weight: 500;
-  color: rgba(255,255,255,0.42);
+  color: rgba(255,255,255,0.7);
   padding: 5px 0;
   line-height: 1.5;
 }
-.footer-links a { color: rgba(255,255,255,0.42); text-decoration: none; transition: color 0.15s; }
+.footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.15s; }
 .footer-links a:hover { color: white; }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.07);
@@ -520,8 +532,27 @@ a:hover { text-decoration: underline; }
   font-family: var(--heading);
   font-size: 12px;
   font-weight: 500;
-  color: rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.6);
 }
+
+/* ══════════════════════════════════════════
+   CONTENT PAGES (privacy etc.)
+   ══════════════════════════════════════════ */
+.page-section { min-height: 60vh; }
+.page-section .section-inner { max-width: 720px; }
+.page-back { padding-top: 24px; margin-bottom: 20px; }
+.page-back a {
+  font-family: var(--heading);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-lt);
+}
+.prose h1 { font-size: clamp(26px, 4vw, 38px); margin-bottom: 8px; }
+.prose h2 { font-size: 20px; margin-top: 40px; margin-bottom: 12px; }
+.prose p  { color: var(--ink-m); margin-bottom: 16px; }
+.prose a  { color: var(--forest); }
+.prose ul { color: var(--ink-m); padding-left: 20px; margin-bottom: 16px; }
+.prose li { margin-bottom: 6px; }
 
 /* ══════════════════════════════════════════
    RESPONSIVE
@@ -564,6 +595,7 @@ a:hover { text-decoration: underline; }
   .nav-toggle { display: flex; }
 
   .hero-actions  { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .contact-email { font-size: 22px; overflow-wrap: anywhere; }
   .footer-grid   { grid-template-columns: 1fr; gap: 28px; }
   .footer-brand  { grid-column: auto; }
 }

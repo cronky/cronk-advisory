@@ -18,6 +18,7 @@ The site practises what the business preaches: sustainable, secure, minimal tech
 - **Mind the bytes.** Optimise images before committing (palette PNGs or WebP/SVG where possible). Avoid adding web fonts or font weights.
 - **British English** throughout content (organisation, colour, licence).
 - **Don't invent claims.** Biography, client sectors, roles and credentials are factual statements about a real person and company. Never add or embellish them; ask the owner.
+- **DIST, not the Tech Carbon Standard.** For technology footprint work, reference the Green Web Foundation's [Digital Impacts Schema and Taxonomy (DIST)](https://dist.greenweb.org). The Tech Carbon Standard is a Scott Logic project kept for the archive: mention it only as a past achievement in Oliver's biography, without a link.
 - **AI use is disclosed.** If you make a material contribution, add a line to the "AI Use Disclosure" section of `README.md` (tool, model, rough scope).
 
 ## Where things live
@@ -65,6 +66,10 @@ The white circuit lines inside the green mark are part of the logo and must stay
 Brand assets are **not** covered by the MIT licence; don't redistribute or alter the mark's design.
 
 Brand colours (from `main.css`): forest `#3B6352`, navy `#1C2C3A`, amber `#C9893A`, cream `#F7F4EE`. Fonts: Jost (headings), Source Serif 4 (body).
+
+Text must meet WCAG AA contrast (at least 4.5:1). Amber `#C9893A` fails as text on cream or white, so labels on light backgrounds use `--amber-text` (`#935F1E`); keep `--amber` for bars, accents and text on navy. Semi-transparent white text needs at least 60% opacity on navy (65% on the translucent cards) and at least 80% on forest. Check any new colour pair with a contrast checker.
+
+No inline `style=""` attributes or `<style>` blocks in layouts: put styles in `main.css` (a strict Content Security Policy is planned).
 
 ## Working locally
 

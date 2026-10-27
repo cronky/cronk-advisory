@@ -10,3 +10,10 @@ resources/_gen/
 # Editor directories
 .vscode/
 .idea/
+
+# Hugo lock file
+.hugo_build.lock
+
+# Private spec notes (testimonials, personal addresses)
+docs/v2-spec-private.md
+.claude/prompt-for-claude-code.md

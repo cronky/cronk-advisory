@@ -20,6 +20,7 @@ Around 3 prompts of Claude Sonnet 4.6 were used to create the initial version of
 2 Prompts to Google Gemini were used to create the company logo. Meta prompting (using AI to create better prompts rather than just riffing) was used to improve the success rate of the all of these prompts.
 1 Prompt to Claude Sonnet 4.6 was used to create the first version of this readme from the GitHub content.
 In October 2026 one Claude Code session (Claude Opus 5.5) was used to review the site, fix a few bugs (missing favicon, broken links, footer anchors), make the logo backgrounds transparent and write the AI agent guidance (`AGENTS.md`) and `llms.txt` (with human review).
+A further Claude Code session (Claude Opus 5.5) carried out Phase 0 of the v2 spec: colour contrast fixes for WCAG AA, moving inline styles into `main.css`, and minor housekeeping (with human review).
 
 ---
 

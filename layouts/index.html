@@ -19,7 +19,7 @@
     </div>
     <div class="hero-aside">
       <div class="hero-card">
-        <div class="label" style="color:rgba(255,255,255,0.4);">Founded by</div>
+        <div class="label">Founded by</div>
         <div class="hero-card-name">{{ $h.card_name }}</div>
         <div class="hero-card-title">{{ $h.card_title }}</div>
         <div class="hero-card-divider"></div>
@@ -56,13 +56,13 @@
 <!-- ═══ APPROACH ═══ -->
 <section id="approach" class="section section-navy">
   <div class="section-inner">
-    <div class="section-header">
-      <div class="label" style="color:var(--amber);">{{ $a.label }}</div>
-      <h2 style="color:white;white-space:pre-line;">{{ $a.heading }}</h2>
-      <div class="amber-bar"></div>
-    </div>
     <div class="approach-grid">
       <div class="approach-content">
+        <div class="section-header">
+          <div class="label">{{ $a.label }}</div>
+          <h2 class="heading-lines">{{ $a.heading }}</h2>
+          <div class="amber-bar"></div>
+        </div>
         <p class="approach-lead">{{ $a.lead }}</p>
         <div class="approach-body">{{ $a.body | markdownify }}</div>
         {{ with $a.cta }}<a href="{{ $a.cta_url }}" target="_blank" rel="noopener" class="btn-ghost-amber">{{ . }} →</a>{{ end }}
@@ -96,11 +96,11 @@
       </div>
       <div>
         <div class="about-card">
-          <div class="label" style="margin-bottom:12px;">Previous positions</div>
+          <div class="label">Previous positions</div>
           <ul class="about-roles">
             {{ range $ab.previous_roles }}<li>{{ . }}</li>{{ end }}
           </ul>
-          <div class="label" style="margin-top:20px;margin-bottom:12px;">Community &amp; Open Source</div>
+          <div class="label">Community &amp; Open Source</div>
           <ul class="about-roles">
             {{ range $ab.links }}<li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .label }}</a></li>{{ end }}
           </ul>
@@ -115,8 +115,8 @@
   <div class="section-inner">
     <div class="contact-grid">
       <div>
-        <div class="label" style="color:rgba(255,255,255,0.5);margin-bottom:12px;">{{ $c.label }}</div>
-        <h2 style="color:white;white-space:pre-line;">{{ $c.heading }}</h2>
+        <div class="label">{{ $c.label }}</div>
+        <h2 class="heading-lines">{{ $c.heading }}</h2>
         <p class="contact-lead">{{ $c.body }}</p>
         <p class="contact-sub">{{ $c.sub }}</p>
       </div>
