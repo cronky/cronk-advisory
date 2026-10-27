@@ -3,7 +3,7 @@ title: "Pragmatic Ecosystems"
 linkTitle: "Approach"
 label: "Our Approach"
 layout: approach
-draft: true   # Ollie's draft: publish once the headline, milestones and wording are confirmed
+draft: false
 description: "Cronk Advisory's approach to technology decisions: seeing where your organisation sits in the wider system, focusing on what is material, and designing for viability."
 # Headline options (pick one for page_heading):
 #   A. Balanced systems thinking for technology decisions   (from the earlier PE draft)
