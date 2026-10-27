@@ -39,6 +39,7 @@
 | SEGRO | Not named anywhere. Anonymised mention only if Ollie confirms the NDA allows it. |
 | Modern slavery policy | Publish (HTML page plus PDF) once the reporting route is fixed (see section 7.3). |
 | Content source of truth | cronky.net owns talks, writing and podcasts. This site shows a curated, flagged subset via a JSON feed. |
+| Footprint framework | Promote DIST (Digital Impacts Schema and Taxonomy, Green Web Foundation). The Tech Carbon Standard is a Scott Logic project kept for the archive: mention only as a past achievement in the biography, without a link. |
 | Services | Four: Chief and Enterprise Architecture; Pragmatic AI; Sustainable and Responsible Technology; Speaking, Chairing and Facilitation. |
 | Format for policies | HTML page is primary (accessible, searchable). PDF is an optional download. |
 
@@ -77,7 +78,7 @@ Yes all subdomains will use HTTPS.
 | `/services/` | Services | Overview of all four services | `content/services/_index.md` |
 | `/services/chief-architecture/` | Chief and Enterprise Architecture | Fractional chief architect or CTO, architecture review, EA function set-up and maturity, governance that enables | service front matter |
 | `/services/pragmatic-ai/` | Pragmatic AI | AI readiness, stress-testing AI investment, agentic AI governance, right-sized AI | service front matter |
-| `/services/sustainable-technology/` | Sustainable and Responsible Technology | Footprint measurement (Tech Carbon Standard, DIST), procurement, responsible AI | service front matter |
+| `/services/sustainable-technology/` | Sustainable and Responsible Technology | Footprint measurement (DIST), procurement, responsible AI | service front matter |
 | `/speaking/` | Speaking, Chairing and Facilitation | Formats, topics, evidence, booking | `content/speaking.md` + feed |
 | `/approach/` | Approach | Pragmatic Ecosystems | `content/approach.md` |
 | `/work/` | Clients and organisations | Clients, previous roles, spoken at, short case studies when available | `data/organisations.yml` |
@@ -380,7 +381,7 @@ Port cronky.net's `video-facade.html` approach: a local thumbnail with a play bu
 ### 8.8 Housekeeping
 
 - Add `.hugo_build.lock` to `.gitignore` and remove it from the repo.
-- Fix "co developed" to "co-developed". Use one name consistently: "Tech Carbon Standard" or "Technology Carbon Standard" (TODO: Ollie to choose; the media kit uses the latter).
+- Fix "co developed" to "co-developed". Decided: reference DIST (Digital Impacts Schema and Taxonomy, https://dist.greenweb.org) instead of the Tech Carbon Standard. TCS stays only as a past achievement in Oliver's biography, unlinked.
 - Update `AGENTS.md` "Where things live" and the README repository structure for the new layout.
 
 ---
