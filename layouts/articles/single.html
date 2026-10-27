@@ -1,0 +1,21 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="section-inner">
+    {{ partial "breadcrumbs.html" . }}
+    <div class="label">{{ with .Params.series }}{{ . }}{{ else }}Article{{ end }}</div>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="page-summary">{{ . }}</p>{{ end }}
+    <p class="article-meta">
+      {{ site.Params.founder }}
+      {{- if not .Date.IsZero }} · <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>{{ end }}
+      {{- with .Params.canonical }} · First published at <a href="{{ . }}" target="_blank" rel="noopener">{{ (urls.Parse .).Host | strings.TrimPrefix "www." }} ↗</a>{{ end }}
+    </p>
+  </div>
+</section>
+<section class="section section-cream page-section">
+  <div class="section-inner">
+    <article class="prose prose-long">{{ partial "content.html" . }}</article>
+  </div>
+</section>
+{{ partial "cta-band.html" . }}
+{{ end }}

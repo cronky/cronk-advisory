@@ -1,0 +1,11 @@
+{{- /* Markdown links. A link to one of this site's pages that is not published (a draft) renders as plain text instead of a broken link. External links open as normal. */ -}}
+{{- $u := urls.Parse .Destination }}
+{{- $missing := false }}
+{{- if and (not $u.IsAbs) (hasPrefix $u.Path "/") (ne $u.Path "/") }}
+  {{- $missing = not (site.GetPage (strings.TrimSuffix "/" $u.Path)) }}
+{{- end }}
+{{- if $missing -}}
+{{ .Text }}
+{{- else -}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if in (slice "http" "https") $u.Scheme }} target="_blank" rel="noopener"{{ end }}>{{ .Text }}</a>
+{{- end -}}

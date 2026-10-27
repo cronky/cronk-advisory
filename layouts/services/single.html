@@ -31,7 +31,7 @@
     </div>
     {{ end }}
 
-    {{ with .Content }}<div class="service-block prose">{{ . }}</div>{{ end }}
+    {{ with trim (partial "content.html" .) " \n" }}<div class="service-block prose">{{ . | safeHTML }}</div>{{ end }}
 
     {{/* TODO (Phase 5): related talks and writing from the cronky.net feed, matched on related_topics, max 3 */}}
   </div>

@@ -10,7 +10,8 @@
       <span></span><span></span><span></span>
     </button>
     <div class="nav-links" id="nav-links">
-      {{- range slice "/services" "/speaking" "/work" "/insights" "/about" }}
+      {{- /* Approach and Work are linked from About and the footer, not the top nav */}}
+      {{- range slice "/services" "/speaking" "/insights" "/about" }}
       {{- with site.GetPage . }}
       <a href="{{ .RelPermalink }}"{{ if or (eq . $current) (.IsAncestor $current) }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a>
       {{- end }}

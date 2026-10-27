@@ -1,0 +1,484 @@
+{
+  "lensNotes": {
+    "relies": "Outside-in: what each layer provides to you, and the risks if it falters (financial materiality).",
+    "affects": "Inside-out: what your decisions push onto each layer (impact materiality)."
+  },
+  "layers": [
+    {
+      "id": "biosphere",
+      "name": "Biosphere",
+      "tag": "The foundation",
+      "summary": "Climate, water, land, living systems and the materials we dig up. Its limits are set by physics, chemistry and ecology, not by policy. Seven of the nine planetary boundaries are now breached.",
+      "question": "Which natural limits does your technology lean on hardest: energy, water, minerals or land?",
+      "lenses": [
+        {
+          "name": "Planetary boundaries",
+          "url": "https://www.stockholmresilience.org/research/planetary-boundaries.html",
+          "note": "nine Earth system limits"
+        },
+        {
+          "name": "Doughnut Economics",
+          "url": "https://doughnuteconomics.org/",
+          "note": "the ecological ceiling"
+        },
+        {
+          "name": "DIST",
+          "url": "https://dist.greenweb.org/",
+          "note": "for technology's share: digital impacts beyond carbon"
+        }
+      ]
+    },
+    {
+      "id": "society",
+      "name": "Society",
+      "tag": "The social foundation",
+      "summary": "People, communities and the institutions that hold them together: health, education, rights, work, trust and democracy.",
+      "question": "Who is affected by your systems without ever choosing to use them?",
+      "lenses": [
+        {
+          "name": "Doughnut Economics",
+          "url": "https://doughnuteconomics.org/",
+          "note": "the social foundation"
+        },
+        {
+          "name": "UN Sustainable Development Goals",
+          "url": "https://sdgs.un.org/goals",
+          "note": ""
+        },
+        {
+          "name": "Ostrom's commons",
+          "url": "https://en.wikipedia.org/wiki/Elinor_Ostrom",
+          "note": "governing shared resources"
+        }
+      ]
+    },
+    {
+      "id": "economy",
+      "name": "Economy and sectors",
+      "tag": "Markets and infrastructure",
+      "summary": "Industries, markets, energy grids, supply chains, finance and regulation. Every sector depends on the others, and on the two layers beneath.",
+      "question": "Which other sectors does yours quietly depend on, and what happens when they are constrained?",
+      "lenses": [
+        {
+          "name": "Circular economy",
+          "url": "https://www.ellenmacarthurfoundation.org/topics/circular-economy-introduction/overview",
+          "note": ""
+        },
+        {
+          "name": "Wardley Mapping",
+          "url": "https://learnwardleymapping.com/",
+          "note": "how value chains evolve"
+        },
+        {
+          "name": "Industry reference models",
+          "url": "",
+          "note": "BIAN, TM Forum, HL7 FHIR, IEC CIM"
+        }
+      ]
+    },
+    {
+      "id": "business",
+      "name": "Business ecosystem",
+      "tag": "Influence, not control",
+      "summary": "Customers, suppliers, partners, competitors, regulators and the technology you build on: cloud, SaaS, AI models and open source.",
+      "question": "Where do you shape the ecosystem through what you buy, build, share and standardise on?",
+      "lenses": [
+        {
+          "name": "Ecosystem Architecture",
+          "url": "",
+          "note": "participant, not centre (2017)"
+        },
+        {
+          "name": "Build, buy or participate",
+          "url": "",
+          "note": "for every capability"
+        },
+        {
+          "name": "Wardley Mapping",
+          "url": "https://learnwardleymapping.com/",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "organisation",
+      "name": "Your organisation",
+      "tag": "You are here",
+      "summary": "Teams, systems, data and decisions. The only layer you control directly, and it rests on everything beneath it.",
+      "question": "Do you have the feedback loops to see what your decisions do to the layers below, and to respond in time?",
+      "lenses": [
+        {
+          "name": "Viable System Model",
+          "url": "https://en.wikipedia.org/wiki/Viable_system_model",
+          "note": "Stafford Beer"
+        },
+        {
+          "name": "Cynefin",
+          "url": "https://thecynefin.co/about-us/about-cynefin-framework/",
+          "note": "sense-making before deciding"
+        },
+        {
+          "name": "Dynamic Architecture",
+          "url": "",
+          "note": "guardrails for fast change"
+        }
+      ]
+    }
+  ],
+  "sectors": [
+    {
+      "id": "any",
+      "name": "Any organisation",
+      "summary": "Every organisation runs on digital systems, and every digital system has a physical footprint somewhere beneath it.",
+      "layers": {
+        "biosphere": {
+          "chips": [
+            "Energy",
+            "Water",
+            "Minerals",
+            "Climate"
+          ],
+          "material": true,
+          "relies": "Electricity for devices, networks and data centres; water for cooling and chip making; minerals in every piece of hardware.",
+          "affects": "Carbon emissions, water stress, e-waste and mining impacts, much of it upstream in hardware supply chains."
+        },
+        "society": {
+          "chips": [
+            "Staff",
+            "Customers",
+            "Communities",
+            "Trust"
+          ],
+          "relies": "Skilled people, healthy communities and enough public trust to keep operating.",
+          "affects": "Jobs and skills, accessibility, privacy, and how AI shapes what people see and decide."
+        },
+        "economy": {
+          "chips": [
+            "Energy grid",
+            "Supply chains",
+            "Finance",
+            "Regulation"
+          ],
+          "relies": "Stable energy, working supply chains, capital and predictable regulation.",
+          "affects": "Demand for compute, hardware and energy, adding to pressure on grids and supply chains."
+        },
+        "business": {
+          "chips": [
+            "Customers",
+            "Suppliers",
+            "Cloud and SaaS",
+            "AI models"
+          ],
+          "material": true,
+          "relies": "Cloud platforms, SaaS, AI model providers and open source that you do not control.",
+          "affects": "What you buy and standardise on nudges suppliers, partners and competitors."
+        },
+        "organisation": {
+          "chips": [
+            "Teams",
+            "Systems",
+            "Data",
+            "Decisions"
+          ],
+          "relies": "Feedback from every layer below, if you have built the loops to hear it.",
+          "affects": "Architecture decisions here set what every layer below has to carry."
+        }
+      }
+    },
+    {
+      "id": "financial-services",
+      "name": "Financial services",
+      "summary": "Your biggest footprint is rarely your own data centres. It is what your money and your models make possible.",
+      "layers": {
+        "biosphere": {
+          "chips": [
+            "Financed emissions",
+            "Physical climate risk",
+            "Data centre energy",
+            "Hardware"
+          ],
+          "material": true,
+          "relies": "Reliable power and cooling for trading and core systems; a stable climate underneath loan books and insurance portfolios.",
+          "affects": "Financed emissions usually far exceed operational ones; compute for risk, fraud and AI models adds to the total."
+        },
+        "society": {
+          "chips": [
+            "Financial inclusion",
+            "Trust",
+            "Fraud victims",
+            "Skills"
+          ],
+          "material": true,
+          "relies": "Public trust in the system and a skilled, accountable workforce.",
+          "affects": "Who gets credit and on what terms; automated decisions can widen or narrow exclusion."
+        },
+        "economy": {
+          "chips": [
+            "Capital markets",
+            "Payments",
+            "Energy markets",
+            "Regulators"
+          ],
+          "relies": "Market infrastructure, payment networks and stable energy prices.",
+          "affects": "Capital allocation decides which sectors grow, including the energy and data centre build-out."
+        },
+        "business": {
+          "chips": [
+            "Fintechs",
+            "Core platform vendors",
+            "Cloud providers",
+            "Data vendors"
+          ],
+          "relies": "A few concentrated cloud and platform providers, which is why operational resilience rules focus on third parties.",
+          "affects": "Shared standards such as open banking APIs and BIAN shape how the whole ecosystem integrates."
+        },
+        "organisation": {
+          "chips": [
+            "Risk",
+            "Trading",
+            "Operations",
+            "Technology"
+          ],
+          "relies": "Clear accountability for models and for the third parties behind them.",
+          "affects": "Architecture choices fix how much compute each product and model consumes for years."
+        }
+      }
+    },
+    {
+      "id": "energy",
+      "name": "Energy and utilities",
+      "summary": "You sit closest to the foundation. Every other sector's digital footprint passes through your networks.",
+      "layers": {
+        "biosphere": {
+          "chips": [
+            "Generation mix",
+            "Weather",
+            "Water",
+            "Land"
+          ],
+          "material": true,
+          "relies": "Weather for renewables, water for generation and cooling, land for networks and new capacity.",
+          "affects": "Your generation mix sets the carbon intensity of everyone else's electricity, data centres included."
+        },
+        "society": {
+          "chips": [
+            "Bill payers",
+            "Fuel poverty",
+            "Critical services",
+            "Skills"
+          ],
+          "material": true,
+          "relies": "Public consent for new infrastructure and a skilled engineering workforce.",
+          "affects": "Affordability, security of supply and the fairness of the transition."
+        },
+        "economy": {
+          "chips": [
+            "Data centre demand",
+            "Electrified transport",
+            "Heat",
+            "Industry"
+          ],
+          "relies": "Investment, supply chains for grid equipment and clear policy.",
+          "affects": "New demand from data centres and electrification competes for the same grid connections."
+        },
+        "business": {
+          "chips": [
+            "Network operators",
+            "Suppliers",
+            "Regulator",
+            "OT and IT vendors"
+          ],
+          "relies": "Operational technology vendors, telemetry and forecasting platforms, and a regulator.",
+          "affects": "Data standards such as the Common Information Model shape how the whole system shares data."
+        },
+        "organisation": {
+          "chips": [
+            "Control room",
+            "Asset management",
+            "Customer",
+            "Data"
+          ],
+          "relies": "Operational data you can trust, from sensors to settlement.",
+          "affects": "Digital decisions in operational systems carry safety, resilience and carbon consequences."
+        }
+      }
+    },
+    {
+      "id": "public-sector",
+      "name": "Public sector",
+      "summary": "You serve everyone, including people who cannot choose another provider. That raises the bar at every layer.",
+      "layers": {
+        "biosphere": {
+          "chips": [
+            "Estate energy",
+            "Device fleets",
+            "Climate adaptation",
+            "Procurement"
+          ],
+          "relies": "Energy for estates and services, and resilience to flooding and heat.",
+          "affects": "Large device estates and buying power give government real influence over hardware lifecycles."
+        },
+        "society": {
+          "chips": [
+            "Citizens",
+            "Accessibility",
+            "Public trust",
+            "Democracy"
+          ],
+          "material": true,
+          "relies": "Public trust and legitimacy.",
+          "affects": "Access to essential services, accessibility, and the fairness of automated decisions."
+        },
+        "economy": {
+          "chips": [
+            "Supplier market",
+            "Local economies",
+            "Skills",
+            "Policy"
+          ],
+          "material": true,
+          "relies": "A healthy supplier market and a national digital skills base.",
+          "affects": "Procurement and policy shape whole markets, from cloud to AI."
+        },
+        "business": {
+          "chips": [
+            "Strategic suppliers",
+            "Cloud",
+            "Other departments",
+            "Arm's-length bodies"
+          ],
+          "relies": "A small number of large suppliers and platforms shared across departments.",
+          "affects": "Standards such as the GDS Service Standard set expectations for suppliers and other public bodies."
+        },
+        "organisation": {
+          "chips": [
+            "Policy",
+            "Delivery",
+            "Legacy systems",
+            "Data"
+          ],
+          "relies": "Data shared safely across organisational boundaries.",
+          "affects": "Legacy and architecture decisions lock in costs and footprints for decades."
+        }
+      }
+    },
+    {
+      "id": "technology",
+      "name": "Technology and SaaS",
+      "summary": "Your product's footprint lives mostly in other people's data centres and on your users' devices.",
+      "layers": {
+        "biosphere": {
+          "chips": [
+            "Cloud energy",
+            "Water",
+            "Hardware",
+            "Critical minerals"
+          ],
+          "material": true,
+          "relies": "Cloud regions with power and cooling, and hardware made from mined materials.",
+          "affects": "Growth in compute and storage, especially AI features, drives energy, water and hardware demand."
+        },
+        "society": {
+          "chips": [
+            "Users",
+            "Attention",
+            "Privacy",
+            "Developers"
+          ],
+          "relies": "Users' trust and a healthy developer and open source community.",
+          "affects": "Design choices shape attention, privacy and wellbeing at scale."
+        },
+        "economy": {
+          "chips": [
+            "Customers' sectors",
+            "Energy markets",
+            "Capital",
+            "Talent"
+          ],
+          "relies": "Investment and a market for skilled people.",
+          "affects": "Your platform changes how your customers' industries operate."
+        },
+        "business": {
+          "chips": [
+            "Hyperscalers",
+            "AI model vendors",
+            "Open source",
+            "Customers"
+          ],
+          "material": true,
+          "relies": "Hyperscalers, model providers, and open source maintainers you may not pay.",
+          "affects": "The defaults you ship become your customers' footprint and their lock-in."
+        },
+        "organisation": {
+          "chips": [
+            "Product",
+            "Engineering",
+            "Platform",
+            "Data"
+          ],
+          "relies": "Measurement of what each feature actually costs to run.",
+          "affects": "Every default, retention period and model choice multiplies across every customer."
+        }
+      }
+    },
+    {
+      "id": "property",
+      "name": "Property and infrastructure",
+      "summary": "Buildings and infrastructure last for decades. The digital decisions made around them last almost as long.",
+      "layers": {
+        "biosphere": {
+          "chips": [
+            "Embodied carbon",
+            "Land",
+            "Water",
+            "Biodiversity"
+          ],
+          "material": true,
+          "relies": "Land, materials and a stable climate for assets designed to last decades.",
+          "affects": "Materials, land use and building energy, with smart building systems and digital twins layered on top."
+        },
+        "society": {
+          "chips": [
+            "Occupiers",
+            "Communities",
+            "Workforce",
+            "Safety"
+          ],
+          "relies": "Communities that accept development and a skilled construction workforce.",
+          "affects": "Where people live and work, and the safety and health of the buildings they use."
+        },
+        "economy": {
+          "chips": [
+            "Grid connections",
+            "Construction",
+            "Logistics",
+            "Finance"
+          ],
+          "material": true,
+          "relies": "Grid connections, finance and construction supply chains.",
+          "affects": "Demand for grid capacity and materials, which other sectors are competing for too."
+        },
+        "business": {
+          "chips": [
+            "Occupiers",
+            "Contractors",
+            "PropTech platforms",
+            "Planners"
+          ],
+          "relies": "Contractors, consultants and platforms that hold your asset data.",
+          "affects": "Data standards and contract terms decide what information survives across an asset's life."
+        },
+        "organisation": {
+          "chips": [
+            "Asset management",
+            "Development",
+            "Sustainability",
+            "Data"
+          ],
+          "relies": "Asset data that survives handovers between owners and contractors.",
+          "affects": "Digital choices decide whether asset data helps or hinders decarbonisation."
+        }
+      }
+    }
+  ]
+}

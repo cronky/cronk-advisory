@@ -2,7 +2,7 @@
 {{ partial "page-header.html" . }}
 <section class="section section-cream page-section">
   <div class="section-inner">
-    <article class="prose">{{ .Content }}</article>
+    <article class="prose">{{ partial "content.html" . }}</article>
   </div>
 </section>
 {{ end }}

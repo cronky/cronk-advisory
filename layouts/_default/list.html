@@ -2,10 +2,10 @@
 {{ partial "page-header.html" . }}
 <section class="section section-cream page-section">
   <div class="section-inner">
-    {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+    {{ with trim (partial "content.html" .) " \n" }}<div class="prose">{{ . | safeHTML }}</div>{{ end }}
     <ul class="page-list">
       {{ range .Pages }}
-      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Params.summary }}<span>{{ . }}</span>{{ end }}</li>
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Params.summary | default .Description }}<span>{{ . }}</span>{{ end }}</li>
       {{ end }}
     </ul>
   </div>

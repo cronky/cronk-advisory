@@ -2,7 +2,7 @@
 {{ partial "page-header.html" . }}
 <section class="section section-cream">
   <div class="section-inner">
-    {{ with .Content }}<div class="prose page-intro">{{ . }}</div>{{ end }}
+    {{ with trim (partial "content.html" .) " \n" }}<div class="prose page-intro">{{ . | safeHTML }}</div>{{ end }}
     <div class="services-grid">
       {{ range partial "service-pages.html" . }}
       {{ partial "service-card.html" . }}

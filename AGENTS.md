@@ -13,7 +13,7 @@ Cloudflare Pages builds and deploys on every push to `main`, so **anything merge
 
 The site practises what the business preaches: sustainable, secure, minimal technology.
 
-- **Keep it static and lightweight.** Don't add frameworks, bundlers, CSS libraries, analytics scripts, trackers or third-party embeds. The only JavaScript is the mobile nav toggle in `static/js/main.js`.
+- **Keep it static and lightweight.** Don't add frameworks, bundlers, CSS libraries, analytics scripts, trackers or third-party embeds. JavaScript is progressive enhancement only: the mobile nav toggle (`static/js/main.js`) and the Pragmatic Ecosystems map (`static/js/ecosystem-map.js`, loaded only by its shortcode). Pages must work without it.
 - **No new cookies.** The privacy policy states only strictly necessary cookies are used. Anything that would change that needs the privacy policy updating and the owner's sign-off.
 - **Mind the bytes.** Optimise images before committing (palette PNGs or WebP/SVG where possible). Avoid adding web fonts or font weights.
 - **British English** throughout content (organisation, colour, licence).
@@ -32,6 +32,9 @@ The site practises what the business preaches: sustainable, secure, minimal tech
 | About, Approach, Contact | `content/about.md`, `content/approach.md`, `content/contact.md` (front matter) with `layouts/_default/about.html`, `approach.html`, `contact.html` |
 | Privacy policy | `content/privacy.md` (update the "Last updated" line) |
 | Plain text pages | `content/<name>.md`, rendered by `layouts/_default/single.html` |
+| Articles | `content/articles/<name>.md` (`title`, `date`, `description` as the standfirst, `series`, `topics`, `canonical` if first published elsewhere), rendered by `layouts/articles/single.html` |
+| Pragmatic Ecosystems map | Data in `data/ecosystem-map.json`; markup and no-JS fallback in `layouts/shortcodes/ecosystem-map.html`; script `static/js/ecosystem-map.js`; styles under `.eco-` in `main.css`. The Copernican diagram is `layouts/shortcodes/copernican-shift.html` |
+| Markdown links | `layouts/_default/_markup/render-link.html`: links to unpublished pages render as plain text; http(s) links open in a new tab |
 | Header / nav | `layouts/partials/header.html` |
 | Footer | `layouts/partials/footer.html` |
 | Page title band and breadcrumbs | `layouts/partials/page-header.html`, `breadcrumbs.html` |
@@ -50,6 +53,8 @@ The site follows `docs/v2-spec.md`, built in phases. Pages still waiting for cop
 - **Home** (`content/_index.md`): `hero`, `services` (label and heading only), `approach` (teaser), `contact`. The `contact` block also feeds the "Start a conversation" band on other pages (`layouts/partials/cta-band.html`).
 - **Services**: each page in `content/services/` plus `content/speaking.md` becomes a service card, ordered by `weight`. The "01", "02"… numbers come from position among published services (`layouts/partials/service-number.html`), so a draft never leaves a gap. Front matter: `title`, `weight`, `summary` (card text and page intro), `description` (meta), `who_for`, `engagements` (`title`, `body`, `note`), `outcomes`, `related_topics`, `legacy_ids`. Empty lists hide their section.
 - **Legacy anchors**: `legacy_ids` keep old links such as `/#fractional-cto` working: the home page card gets the first id plus empty anchors for the rest. `id="contact"`, `id="services"`, `id="approach"` and `id="about"` also stay on the home page. Keep them stable.
+- Rendered page content goes through `layouts/partials/content.html`, which strips HTML comments, so `<!-- TODO -->` notes never reach the published source.
+- Don't use `type` in front matter (Hugo reserves it for choosing layouts); use a different name such as `article_type`.
 - `page_heading` overrides the `<h1>` in the page title band when it should differ from the nav title (Approach does this). `summary` shows under the `<h1>`.
 
 Fields rendered with `markdownify` accept inline Markdown (links, bold): service `engagements[].body` and `.note`, `who_for`, `outcomes`, `approach.md` `body` and `ecosystems` text, `about.md` `body`. Other fields are plain text.

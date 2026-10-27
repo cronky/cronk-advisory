@@ -5,7 +5,8 @@
   {{- $title := cond .IsHome .Title (printf "%s · %s" .Title site.Title) }}
   <title>{{ $title }}</title>
   <meta name="description" content="{{ $desc }}">
-  <link rel="canonical" href="{{ .Permalink }}">
+  {{- /* Articles first published elsewhere point search engines at the original */}}
+  <link rel="canonical" href="{{ .Params.canonical | default .Permalink }}">
   <meta property="og:site_name" content="{{ site.Title }}">
   <meta property="og:locale" content="en_GB">
   <meta property="og:title" content="{{ $title }}">

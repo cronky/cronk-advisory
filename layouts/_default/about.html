@@ -8,7 +8,7 @@
         <div class="amber-bar"></div>
         <p class="about-lead">{{ .Params.lead }}</p>
         <div class="about-body">{{ .Params.body | markdownify }}</div>
-        {{ with .Content }}<div class="about-body">{{ . }}</div>{{ end }}
+        {{ with trim (partial "content.html" .) " \n" }}<div class="about-body">{{ . | safeHTML }}</div>{{ end }}
         <p class="about-location">{{ .Params.location }}</p>
       </div>
       <div>
