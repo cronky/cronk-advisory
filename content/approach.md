@@ -1,6 +1,7 @@
 ---
 title: "Pragmatic Ecosystems"
-linkTitle: "Approach"
+linkTitle: "Pragmatic Ecosystems"
+breadcrumb_parent: "/insights"
 label: "Our Approach"
 layout: approach
 draft: false

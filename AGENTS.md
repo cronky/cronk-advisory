@@ -32,6 +32,7 @@ The site practises what the business preaches: sustainable, secure, minimal tech
 | About, Approach, Contact | `content/about.md`, `content/approach.md`, `content/contact.md` (front matter) with `layouts/_default/about.html`, `approach.html`, `contact.html` |
 | Privacy policy | `content/privacy.md` (update the "Last updated" line) |
 | Plain text pages | `content/<name>.md`, rendered by `layouts/_default/single.html` |
+| Insights hub | `content/insights.md` (featured page, cronky.net links) with `layouts/_default/insights.html`; published articles are listed automatically |
 | Articles | `content/articles/<name>.md` (`title`, `date`, `description` as the standfirst, `series`, `topics`, `canonical` if first published elsewhere), rendered by `layouts/articles/single.html` |
 | Pragmatic Ecosystems map | Data in `data/ecosystem-map.json`; markup and no-JS fallback in `layouts/shortcodes/ecosystem-map.html`; script `static/js/ecosystem-map.js`; styles under `.eco-` in `main.css`. The Copernican diagram is `layouts/shortcodes/copernican-shift.html` |
 | Markdown links | `layouts/_default/_markup/render-link.html`: links to unpublished pages render as plain text; http(s) links open in a new tab |
@@ -55,6 +56,7 @@ The site follows `docs/v2-spec.md`, built in phases. Pages still waiting for cop
 - **Legacy anchors**: `legacy_ids` keep old links such as `/#fractional-cto` working: the home page card gets the first id plus empty anchors for the rest. `id="contact"`, `id="services"`, `id="approach"` and `id="about"` also stay on the home page. Keep them stable.
 - Rendered page content goes through `layouts/partials/content.html`, which strips HTML comments, so `<!-- TODO -->` notes never reach the published source.
 - Don't use `type` in front matter (Hugo reserves it for choosing layouts); use a different name such as `article_type`.
+- `breadcrumb_parent` (for example `"/insights"`) puts a page under another one in the breadcrumbs and nav highlighting without moving its URL. Pragmatic Ecosystems (`/approach/`) uses it; articles sit under Insights automatically.
 - `page_heading` overrides the `<h1>` in the page title band when it should differ from the nav title (Approach does this). `summary` shows under the `<h1>`.
 
 Fields rendered with `markdownify` accept inline Markdown (links, bold): service `engagements[].body` and `.note`, `who_for`, `outcomes`, `approach.md` `body` and `ecosystems` text, `about.md` `body`. Other fields are plain text.

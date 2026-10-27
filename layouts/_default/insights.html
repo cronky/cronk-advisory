@@ -1,0 +1,49 @@
+{{ define "main" }}
+{{ partial "page-header.html" . }}
+<section class="section section-cream">
+  <div class="section-inner">
+
+    {{ with site.GetPage .Params.featured }}
+    <a class="insight-feature" href="{{ .RelPermalink }}">
+      <span class="label">Our approach</span>
+      <span class="insight-feature-title">{{ .LinkTitle }}</span>
+      <span class="insight-feature-heading">{{ .Params.page_heading | default .Title }}</span>
+      {{ with .Description }}<span class="insight-feature-body">{{ . }}</span>{{ end }}
+      <span class="service-link">{{ $.Params.featured_cta }} →</span>
+    </a>
+    {{ end }}
+
+    {{/* Articles appear here once published (draft: false); with hugo server -D drafts show too */}}
+    {{ $articles := where site.RegularPages "Section" "articles" }}
+    {{ with $articles.ByDate.Reverse }}
+    <div class="service-block">
+      <h2>Articles</h2>
+      <div class="engagement-grid">
+        {{ range . }}
+        <a class="engagement-card insight-card" href="{{ .RelPermalink }}">
+          {{ with .Params.series }}<span class="label">{{ . }}</span>{{ end }}
+          <h3>{{ .Title }}</h3>
+          {{ with .Description }}<p class="service-body">{{ . }}</p>{{ end }}
+          {{ if not .Date.IsZero }}<span class="insight-date">{{ .Date.Format "January 2006" }}</span>{{ end }}
+        </a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{ with .Params.more_links }}
+    <div class="service-block">
+      <h2>{{ $.Params.more_heading }}</h2>
+      <ul class="insight-links">
+        {{ range . }}
+        <li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .label }} ↗</a>{{ with .note }}<span>{{ . }}</span>{{ end }}</li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    {{/* TODO (Phase 5): curated talks, writing and podcasts from the cronky.net feed */}}
+  </div>
+</section>
+{{ partial "cta-band.html" . }}
+{{ end }}

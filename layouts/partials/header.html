@@ -13,7 +13,9 @@
       {{- /* Approach and Work are linked from About and the footer, not the top nav */}}
       {{- range slice "/services" "/speaking" "/insights" "/about" }}
       {{- with site.GetPage . }}
-      <a href="{{ .RelPermalink }}"{{ if or (eq . $current) (.IsAncestor $current) }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a>
+      {{- $parent := partial "breadcrumb-parent.html" $current }}
+      {{- $inSection := or (eq . $current) (.IsAncestor $current) (and $parent (eq $parent .)) }}
+      <a href="{{ .RelPermalink }}"{{ if $inSection }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a>
       {{- end }}
       {{- end }}
       {{- with site.GetPage "/contact" }}

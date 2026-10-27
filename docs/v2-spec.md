@@ -86,7 +86,7 @@ Yes all subdomains will use HTTPS.
 | `/speaking/` | Speaking, Chairing and Facilitation | Formats, topics, evidence, booking | `content/speaking.md` + feed |
 | `/approach/` | Approach | Pragmatic Ecosystems, with the interactive ecosystem map | `content/approach.md` (`layout: approach`, `ecosystem-map` and `copernican-shift` shortcodes) |
 | `/work/` | Clients and organisations | Clients, previous roles, spoken at, short case studies when available | `data/organisations.yml` |
-| `/insights/` | Insights | Curated talks, writing and podcasts, linking to cronky.net for the full archive, plus Cronk Advisory articles | feed + `content/articles/` |
+| `/insights/` | Insights | Pragmatic Ecosystems as the featured item, Cronk Advisory articles, links to cronky.net writing, talks and podcasts. Built early (Phase 2) at the owner's request; Phase 5 adds the curated feed | `content/insights.md` + `content/articles/` + feed |
 | `/articles/` | Articles | Cronk Advisory-authored articles, canonical here. cronky.net lists them via `_data/writing.yml` with `outlet: Cronk Advisory`. Articles first published elsewhere set `canonical` to the original URL | `content/articles/` |
 | `/about/` | About | Oliver, credentials, partner network | `content/about.md` |
 | `/contact/` | Contact | Email, LinkedIn, what to include in an enquiry | `content/contact.md` |
