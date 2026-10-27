@@ -19,6 +19,7 @@ If you spot something that could be better, you're welcome to raise it.
 Around 3 prompts of Claude Sonnet 4.6 were used to create the initial version of this site (with subsequent human review and editing). 
 2 Prompts to Google Gemini were used to create the company logo. Meta prompting (using AI to create better prompts rather than just riffing) was used to improve the success rate of the all of these prompts.
 1 Prompt to Claude Sonnet 4.6 was used to create the first version of this readme from the GitHub content.
+In October 2026 one Claude Code session (Claude Opus 5.5) was used to review the site, fix a few bugs (missing favicon, broken links, footer anchors), make the logo backgrounds transparent and write the AI agent guidance (`AGENTS.md`) and `llms.txt` (with human review).
 
 ---
 
@@ -47,6 +48,7 @@ Hosting is via [Cloudflare Pages](https://pages.cloudflare.com/), which builds a
 
 ```
 .
+├── AGENTS.md         # Guidance for AI coding agents (CLAUDE.md points here)
 ├── content/          # Site content as Markdown
 │   ├── _index.md     # Homepage content and front matter
 │   └── privacy.md    # Privacy policy
@@ -57,7 +59,9 @@ Hosting is via [Cloudflare Pages](https://pages.cloudflare.com/), which builds a
 ├── static/           # Copied verbatim to the built site
 │   ├── css/main.css  # All styles
 │   ├── js/main.js    # Minimal JS (mobile nav toggle only)
-│   └── images/       # Logos and assets
+│   ├── images/       # Logos (transparent PNGs) and icons
+│   ├── llms.txt      # Plain-text site summary for LLMs (llmstxt.org)
+│   └── _headers      # Cloudflare Pages security and cache headers
 └── hugo.toml         # Site configuration
 ```
 
@@ -69,8 +73,8 @@ You'll need [Hugo installed](https://gohugo.io/installation/) (the extended edit
 
 ```bash
 # Clone the repo
-git clone https://github.com/cronky/cronkadvisory-website.git
-cd cronkadvisory-website
+git clone https://github.com/cronky/cronk-advisory.git
+cd cronk-advisory
 
 # Start the local dev server
 hugo server -D
@@ -94,6 +98,14 @@ hugo
 Almost everything visible on the site lives in `content/_index.md` as structured front matter (YAML). Editing the site means editing Markdown : no GUI, no plugin updates, no surprise database migrations.
 
 The privacy policy lives in `content/privacy.md` and follows the same pattern.
+
+If you change services, biography or contact details, update `static/llms.txt` to match: it's the plain-text summary offered to LLMs and AI agents that read the site.
+
+---
+
+## Working with AI agents
+
+[`AGENTS.md`](AGENTS.md) holds the conventions for AI coding agents working on this repo: where things live, the content model, brand assets, the "keep it static and lightweight" principles and how to check a change before it goes live. `CLAUDE.md` simply imports it, so Claude Code and other agents read the same guidance.
 
 ---
 

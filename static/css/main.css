@@ -471,14 +471,11 @@ a:hover { text-decoration: underline; }
   gap: 48px;
   margin-bottom: 48px;
 }
-/* Footer logo: invert to white since footer is dark navy */
+/* Footer logo: uses the light-wordmark variant (transparent PNG) since footer is dark navy */
 .footer-logo {
   height: 90px;
   width: auto;
-  /* filter: brightness(0) invert(1); */
-  /* opacity: 0.75; */
   margin-bottom: 10px;
-  padding: 0%;
 }
 .footer-tagline {
   font-size: 14px;

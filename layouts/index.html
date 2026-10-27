@@ -65,7 +65,7 @@
       <div class="approach-content">
         <p class="approach-lead">{{ $a.lead }}</p>
         <div class="approach-body">{{ $a.body | markdownify }}</div>
-        <a href="{{ $a.cta_url }}" target="_blank" rel="noopener" class="btn-ghost-amber">{{ $a.cta }} →</a>
+        {{ with $a.cta }}<a href="{{ $a.cta_url }}" target="_blank" rel="noopener" class="btn-ghost-amber">{{ . }} →</a>{{ end }}
       </div>
       <div class="approach-pillars">
         {{ range $a.pillars }}

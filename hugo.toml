@@ -1,8 +1,10 @@
 baseURL = "https://cronkadvisory.com"
 languageCode = "en-gb"
 title = "Cronk Advisory"
+disableKinds = ["taxonomy", "term"]
 
 [params]
+  description    = "Responsible technology leadership: aligning technology with sustainability."
   email          = "hello@cronkadvisory.com"
   companyNumber  = "17112535"
 
