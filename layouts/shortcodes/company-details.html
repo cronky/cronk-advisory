@@ -9,6 +9,9 @@
     {{- with $p.incorporated }}
     <tr><th scope="row">Incorporated</th><td>{{ . }}</td></tr>
     {{- end }}
+    {{- with $p.directors }}
+    <tr><th scope="row">Directors</th><td>{{ delimit . "<br>" | safeHTML }}</td></tr>
+    {{- end }}
     {{- with $p.natureOfBusiness }}
     <tr><th scope="row">Nature of business</th><td>{{ delimit . "<br>" | safeHTML }}</td></tr>
     {{- end }}

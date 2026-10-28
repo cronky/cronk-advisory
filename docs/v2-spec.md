@@ -283,7 +283,7 @@ Clients · short case studies (placeholder section, hidden until content exists)
 
 ### 6.7 Company information (`/company/`)
 
-Legal name, company number, registered in, registered office, directors (TODO: confirm listing both directors), VAT number when set, links to governance policies, privacy and security.txt.
+Legal name, company number, registered in, registered office, directors (both Oliver and Kathryn Cronk, confirmed by Ollie on 28 October 2026), VAT number when set, links to governance policies, privacy and security.txt.
 
 ---
 

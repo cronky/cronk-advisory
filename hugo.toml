@@ -12,6 +12,7 @@ enableRobotsTXT = true
   registeredOffice = "3 Faville Oaks, Hampstead Norreys Road, Hermitage, Thatcham, England, RG18 9RZ"    # as on Companies House. Footer and /company/ only, never in JSON-LD
   vatNumber        = ""    # renders only when non-empty
   incorporated     = "24 March 2026"
+  directors        = ["Oliver Cronk", "Kathryn Cronk"]
   natureOfBusiness = ["Information technology consultancy (SIC 62020)", "Management consultancy (SIC 70229)"]
   email            = "hello@cronkadvisory.com"
   founder          = "Oliver Cronk"

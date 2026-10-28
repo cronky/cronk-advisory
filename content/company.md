@@ -5,7 +5,7 @@ draft: false   # built in Phase 1
 description: "Legal and registration details for Cronk Advisory Limited."
 summary: "Registration details for Cronk Advisory, as held at Companies House."
 ---
-<!-- TODO (Phase 1): directors (Companies House lists Oliver and Kathryn Cronk; confirm with Ollie whether to name both, spec 6.7). Add links to the governance policies, accessibility statement and security.txt once they are published. -->
+<!-- TODO (Phase 1): add links to the governance policies, accessibility statement and security.txt once they are published. -->
 
 Cronk Advisory is a technology leadership and architecture consultancy, founded by [Oliver Cronk](/about/). The details below match the company's entry on the Companies House register, where its filings are also public.
 
