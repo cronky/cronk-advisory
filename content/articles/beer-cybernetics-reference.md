@@ -1,16 +1,16 @@
 ---
-title: "Beer's Cybernetics: A Quick Reference for Architects"
-date: 2026-04-01  # TODO: date
-description: "Translating Stafford Beer's 1973 systems thinking into 2026 architectural practice: terms, laws and diagnostic questions."
+title: "Cybernetics: A Quick Reference for Architects"
+date: 2026-10-01
+description: "Translating Stafford Beer's 1973 systems thinking into 2026+ architectural practice: terms, laws and diagnostic questions."
 topics: [architecture, ai]
 series: "Ecosystem Architecture 2.0"
 article_type: reference   # "type" is reserved by Hugo for choosing layouts
-draft: true
+draft: false
 ---
 
 ## Core Terminology Translation
 
-| Beer's Term | Plain English | Modern Equivalent |
+| Term | Plain English | Modern Equivalent |
 |-------------|---------------|-------------------|
 | **Variety** | The number of possible states a system can be in | Complexity, degrees of freedom, state space cardinality |
 | **Requisite Variety** | Having enough capacity to handle the complexity you face | Complexity parity, matching bandwidth |
@@ -64,35 +64,35 @@ Beer's most radical insight: **you need less data, not more**.
 
 If your model is good, most data just confirms what you already know. Only exceptions are worth processing. Everything else can be discarded at source.
 
-| Conventional Wisdom | Beer's Insight |
+| Conventional Wisdom | Different Perspective |
 |--------------------|--------------| 
 | Collect everything, analyse later | Filter at source, process exceptions |
 | Data lakes as strategic assets | Models as strategic assets |
-| More data = better decisions | Right data = better decisions |
+| More data = better decisions | **Right data = better decisions** |
 | Store then query | Alert on deviation |
 
-**Implication for AI:** Use AI to identify exceptions, not to process everything. The goal is smarter filtering, not bigger pipelines.
+**Implication for AI:** Use AI to identify exceptions, not to process everything. The goal is smarter filtering, not bigger pipelines (not to mention throwing yet more money and resources to tech companies!).
 
 ---
 
 ## Nested Autonomy
 
-Systems contain subsystems contain subsystems. Each level is autonomous within constraints from the level above.
+Systems contain subsystems contain subsystems. Each level is autonomous within constraints from the larger system that contains it.
 
 **The Full Picture (Usually Ignored)**
 
-Most business thinking treats the economy as the outermost layer. This is the fundamental error.
+Most business thinking treats the economy as the outermost layer. This is the fundamental error as it sits within a series of complex systems:
 
 ```
-Individual
-Team
-Department
-Organisation
-Sector
-Economy (markets, production)
-Human Society (civilisation, culture)
-Ecosystems (forests, oceans, atmosphere)
-Biosphere            ← the foundation
+- Individual
+-- Team
+--- Department
+---- Organisation
+----- Sector
+------ Economy (markets, production, consumption)
+------- Human Society (civilisation, culture, institutions)
+-------- Natural Ecosystems (forests, oceans, watersheds, atmosphere)
+--------- Biosphere     ← the foundation everything rests on
 ```
 
 **Constraints come from the foundation.** Each level rests on the ones beneath it (Beer would call them higher levels of recursion). The ultimate constraints are physics, chemistry, and ecology, not policy. See the [interactive version](/approach/).
@@ -103,14 +103,14 @@ At civilisational scale, we're violating Ashby's Law in both directions:
 
 Climate relaxation time: decades to centuries. Perturbation rate: years. System cannot stabilise.
 
-**Key insight:** Central coordination should specify *patterns*, not *content*. But "central" at the highest level means planetary boundaries.
+**Key insight:** Central coordination should specify *patterns*, not *content*. But "central" at the foundation means planetary boundaries.
 
 | Wrong Approach | Right Approach |
 |----------------|----------------|
 | "Use these specific technologies" | "Meet these interface contracts" |
 | "This is the salary for that role" | "This is the salary budget for your team" |
 | "Cut all inventories by 10%" | "Stay within this working capital limit" |
-| "Environment is an externality" | "Ecological boundaries are the top-level constraint" |
+| "Environment is an externality" | **"Ecological boundaries are the top-level constraint"** |
 
 Pattern specification enables autonomy. Content specification destroys it. Ignoring the levels you rest on doesn't make you autonomous; it makes you unviable.
 
@@ -127,8 +127,6 @@ Beer distinguishes between:
 - Grows while value delivered shrinks
 - Creates work that justifies its own existence
 - Optimises for auditability over outcomes
-
-**The brutal test:** Count heads. What percentage of your architecture function serves delivery teams vs perpetuates itself?
 
 ---
 
@@ -201,8 +199,8 @@ For any system or governance framework:
 - **Stafford Beer**, *Brain of the Firm* (1972) - The full Viable System Model
 - **W. Ross Ashby**, *An Introduction to Cybernetics* (1956) - The mathematical foundations
 - **Donella Meadows**, *Thinking in Systems* (2008) - Accessible systems thinking
-- **Dave Snowden**, Cynefin Framework - Modern complexity-aware decision making
+- **Dave Snowden**, [Cynefin Framework - Modern complexity-aware decision making](https://thecynefin.co/about-us/about-cynefin-framework/)
 
 ---
 
-*A companion to [Designing Freedom in the Age of Autonomous Systems](/articles/designing-freedom/). Part of the Ecosystem Architecture 2.0 work, developed with the [Architect Tomorrow](https://architecttomorrow.com) community.*
+*A companion to [Designing Freedom in the Age of Autonomy](/articles/designing-freedom/). Part of the Ecosystem Architecture 2.0 work, developed with the [Architect Tomorrow](https://architecttomorrow.com) community.*

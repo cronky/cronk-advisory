@@ -23,6 +23,7 @@ In October 2026 one Claude Code session (Claude Opus 5.5) was used to review the
 A further Claude Code session (Claude Opus 5.5) carried out Phase 0 of the v2 spec: colour contrast fixes for WCAG AA, moving inline styles into `main.css`, and minor housekeeping (with human review).
 The same session built Phase 2 of the v2 spec: the multi-page structure, page templates, navigation, breadcrumbs, metadata and JSON-LD. Page copy was moved from the existing site rather than written by AI; the Pragmatic Ecosystems section is a placeholder that rearranges existing copy until the owner replaces it (with human review).
 The Pragmatic Ecosystems page, its interactive ecosystem map and four articles were drafted with Claude (claude.ai) under the owner's direction; the same Claude Code session ported the map into Hugo (shortcode, script, styles, no-JS fallback) and added the article layouts (with human review).
+When the owner published the articles, the same session added the context-stack diagram, cross-links between the articles and the Pragmatic Ecosystems page, and typo and consistency fixes; the owner wrote and edited the article text.
 
 ---
 

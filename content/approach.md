@@ -11,19 +11,14 @@ description: "Cronk Advisory's approach to technology decisions: seeing where yo
 #   B. Everything rests on the biosphere                    (matches the visual)
 #   C. See the whole system. Act on what matters.
 #   D. Systems don't revolve around us                      (the Copernican shift, made the headline)
-page_heading: "Balanced systems thinking for technology decisions"
+page_heading: "Pragmatic systems thinking for architecture decisions"
 ---
-Business and technology decisions are usually made in abstraction. Supply chains, outsourcing, platforms, the cloud and AI models make organisations productive, but they also hide what sits underneath: the suppliers you depend on, the people affected by what you do, and the energy, materials, water and land that every product, process and service consumes. Pragmatic Ecosystems is our way of making those connections visible again, then focusing on the few that really matter to you.
 
-It is how we approach every engagement, whether the question is an architecture review, an AI investment or a sustainability commitment.
+For centuries people believed the Earth sat at the centre of the universe, with the Sun, planets and stars circling it. In 1543 Copernicus made progress by putting the Sun at the centre instead. Ultimately resulting in a massive (and controversial) point of view shift.
 
-## The biggest shift
+Most organisations still hold an overly "geocentric" type view of themselves. Strategy and business architecture is drawn with the organisation in the middle and everything else orbiting it: customers, suppliers, regulators, society and, somewhere on the outer ring, "the environment", usually filed as an externality. As individuals we do the same.
 
-For centuries people believed the Earth sat at the centre of the universe, with the Sun, planets and stars circling it. In 1543 Copernicus put the Sun at the centre instead. The sky did not change; the point of view did, and almost everything that followed in astronomy depended on it.
-
-Most organisations still hold a geocentric view of themselves. Strategy is drawn with the organisation in the middle and everything else orbiting it: customers, suppliers, regulators, society and, somewhere on the outer ring, "the environment", usually filed as an externality. As individuals we do the same.
-
-Pragmatic Ecosystems starts with the equivalent shift. Systems do not revolve around us. We take part in much larger ecosystems, and we depend on them. Once you see that, different questions become obvious. What do we rely on that we do not control? What are we pushing onto systems we cannot do without?
+Ecosystem Architecture starts with a similar adjustment. Things do not revolve around us. We take part in much larger ecosystems, and we depend on them. Once you see that, different questions become obvious. What do we rely on that we do not control? What are we pushing onto systems we cannot do without?
 
 {{< copernican-shift >}}
 
@@ -47,7 +42,7 @@ Plenty of organisations have excellent sustainability and responsible AI intenti
 The biggest lever is rarely a switch of supplier or a purchase of offsets. It is the structural decisions, in business and technology architecture alike, that determine what an organisation consumes, what it depends on and what it enables downstream, for years after they are made.
 
 **4. Govern patterns, not content.**
-Rapid change, from vibe-coded tools to fleets of AI agents, overwhelms governance that tries to approve every decision. Good governance sets constraints at the right level and lets teams move freely within them: guardrails that enable, not gates that block. We call this Dynamic Architecture.
+Rapid change, from vibe-coded tools to fleets of AI agents, overwhelms governance that tries to approve every decision. Good governance sets constraints at the right level and lets teams move freely within them: guardrails that enable, not gates that block. We call this [Dynamic Architecture](/articles/dynamic-architecture/).
 
 ## How it works in practice
 
@@ -81,8 +76,7 @@ Pragmatic Ecosystems has grown out of nearly a decade of practice and community 
 
 We draw on established traditions, adapt what is useful and drop what does not survive contact with real organisations.
 
-- **Cybernetics and the Viable System Model:** Stafford Beer and W. Ross Ashby on viability, feedback and requisite variety.
-- **Complexity science and Cynefin:** Dave Snowden's sense-making framework.
+- **Cybernetics and the Viable System Model:** Stafford Beer and W. Ross Ashby on viability, feedback and requisite variety (see our [quick reference for architects](/articles/beer-cybernetics-reference/)).
 - **Doughnut Economics:** Kate Raworth's safe and just space between a social foundation and an ecological ceiling.
 - **Planetary boundaries:** the nine Earth system processes that define that ceiling. The [Planetary Health Check 2025](https://www.stockholmresilience.org/news--events/general-news/2025-09-24-seven-of-nine-planetary-boundaries-now-breached) found seven of the nine already breached.
 - **Circular economy:** designing for longevity, repair and recovery, extended from hardware to software and data.
@@ -94,10 +88,12 @@ We draw on established traditions, adapt what is useful and drop what does not s
 - **Not performative sustainability.** Offsets and distant pledges are not the work.
 - **Not idealism.** It has to work inside real organisations, with real budgets and real constraints.
 - **Not anti-technology.** We are firmly pro-technology. We are against decisions made in abstraction from their consequences.
-- **Not a certification.** No badges. Open, opinionated and designed to be useful.
+- **Not a certification.**
 
-<!-- OPTION: if you want the framework itself to be openly licensed (your earlier draft said CC BY-SA 4.0), add a line here, e.g. "The Pragmatic Ecosystems framework is published under CC BY-SA 4.0; detailed methods and client assessments are delivered through Cronk Advisory engagements." TODO: confirm before adding. -->
+The Pragmatic Ecosystems framework is published under CC BY-NC-SA 4.0; detailed methods and client assessments are delivered through Cronk Advisory engagements.
 
-## Start with your viewpoint
+## The biggest shift
 
-If you would like to see what your organisation's stack looks like, and which few connections matter most, [get in touch](/contact/). No obligation, no hard sell.
+Business and technology decisions don't have to be made in abstraction. Supply chains, outsourcing, platforms, the cloud and AI models make organisations productive, but they also hide what sits underneath: the suppliers you depend on, the people affected by what you do, and the energy, materials, water and land that every product, process and service consumes. Pragmatic Ecosystems is our way of making those connections visible again, then focusing on the few that really matter to you.
+
+If you would like to see what your organisation's stack looks like, and which few connections matter most, [get in touch](/contact/). 
