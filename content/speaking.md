@@ -45,7 +45,7 @@ Current talks include [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fa
 
 ## Practicalities
 
-In person across the UK and Europe, and online. <!-- TODO: link the travel approach to the environmental policy once published -->
+In person across the UK, Europe, occasionally the US and online.
 
 ## Booking
 
@@ -55,6 +55,6 @@ Email [hello@cronkadvisory.com](mailto:hello@cronkadvisory.com?subject=Speaking%
 - the audience
 - the format and length
 - your fee or budget
-- whether it is a community or charity event
+- whether it is a commercial, community or charity event
 
 Bios and headshots are in the [media kit on cronky.net](https://cronky.net/media-kit/).
