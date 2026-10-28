@@ -31,6 +31,7 @@ The site practises what the business preaches: sustainable, secure, minimal tech
 | Service index and service page markup | `layouts/services/list.html`, `layouts/services/single.html` |
 | About, Approach, Contact | `content/about.md`, `content/approach.md`, `content/contact.md` (front matter) with `layouts/_default/about.html`, `approach.html`, `contact.html` |
 | Privacy policy | `content/privacy.md` (update the "Last updated" line) |
+| Company information | `content/company.md`; the registration table is the `company-details` shortcode, built from `hugo.toml` params that match Companies House |
 | Plain text pages | `content/<name>.md`, rendered by `layouts/_default/single.html` |
 | Insights hub | `content/insights.md` (featured page, cronky.net links) with `layouts/_default/insights.html`; published articles are listed automatically |
 | Speaking engagements | `data/speaking.yml` (2026 entries copied from cronky.net, newest first), rendered by the `speaking-2026` shortcode in `content/speaking.md`; role counts are computed from it. Replaced by the cronky.net feed later (spec section 9) |

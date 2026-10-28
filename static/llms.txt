@@ -27,4 +27,4 @@ Contact: hello@cronkadvisory.com ([contact page](https://cronkadvisory.com/conta
 - [Architect Tomorrow](https://youtube.com/ArchitectTomorrow): Community and YouTube channel on architecture, emerging technology and sustainability.
 - [All services](https://cronkadvisory.com/services/)
 - [Privacy Policy](https://cronkadvisory.com/privacy/)
-- [Website source code](https://github.com/cronky/cronk-advisory)
+- [Company information](https://cronkadvisory.com/company/): registration details for Cronk Advisory Ltd.
