@@ -107,7 +107,7 @@ hugo server -D            # http://localhost:1313, live reload
 hugo                      # build to ./public (git-ignored; Cloudflare builds its own)
 ```
 
-Cloudflare Pages builds with **Hugo 0.145** (its `HUGO_VERSION` setting), which may be older than your local Hugo. Don't use features added after 0.145: for example, use `site.Data`, not `hugo.Data` (0.156). Local builds on newer Hugo log `site.Data` as deprecated at INFO level only.
+Cloudflare Pages builds with **Hugo 0.158.0** (the `HUGO_VERSION` variable in the Pages settings). Build locally with the same version, and if you upgrade Hugo, ask the owner to update that variable first: a feature your local Hugo has and Cloudflare's doesn't fails the deploy, not the local build. Templates use `site.Data` (logged as deprecated at INFO level only), which also builds on older Hugo.
 
 There are no tests. Before finishing a change:
 
