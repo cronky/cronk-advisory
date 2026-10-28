@@ -574,6 +574,9 @@ a:hover { text-decoration: underline; }
 .prose th, .prose td { border-bottom: 1px solid var(--rule); padding: 8px 10px; text-align: left; vertical-align: top; }
 .prose th { font-family: var(--heading); color: var(--ink); }
 .prose li { margin-bottom: 6px; }
+.prose-figure { margin: 28px 0; }
+.prose-figure img { border: 1px solid var(--rule); }
+.prose-figure figcaption { font-size: 14px; line-height: 1.5; color: var(--ink-m); margin-top: 10px; }
 .page-intro { margin-bottom: 40px; }
 .page-list { list-style: none; padding: 0; max-width: 720px; }
 .page-list li { padding: 14px 0; border-bottom: 1px solid var(--rule); }
