@@ -200,7 +200,7 @@ a:hover { text-decoration: underline; }
 /* ══════════════════════════════════════════
    SECTIONS
    ══════════════════════════════════════════ */
-.section { padding: 96px 48px; }
+.section { padding: 48px 48px; }
 .section-inner { max-width: var(--max-width); margin: 0 auto; }
 .section-cream  { background: var(--cream); }
 .section-navy   { background: var(--navy); }
