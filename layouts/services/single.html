@@ -33,7 +33,18 @@
 
     {{ with trim (partial "content.html" .) " \n" }}<div class="service-block prose">{{ . | safeHTML }}</div>{{ end }}
 
-    {{/* TODO (Phase 5): related talks and writing from the cronky.net feed, matched on related_topics, max 3 */}}
+    {{- $related := slice }}
+    {{- range .Params.related_articles }}{{ with site.GetPage . }}{{ $related = $related | append . }}{{ end }}{{ end }}
+    {{ with first 3 $related }}
+    <div class="service-block">
+      <h2>Related reading</h2>
+      <div class="engagement-grid">
+        {{ range . }}{{ partial "article-card.html" . }}{{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{/* TODO (Phase 5): related talks from the cronky.net feed, matched on related_topics */}}
   </div>
 </section>
 {{ partial "cta-band.html" . }}

@@ -9,6 +9,10 @@ who_for: []
 engagements: []
 outcomes: []
 related_topics: [sustainability]
+related_articles:
+  - "/articles/dynamic-architecture"
+  - "/articles/designing-freedom"
+  - "/articles/the-ai-efficiency-fallacy"
 legacy_ids: [sustainability]
 ---
 Technology has an environmental and social footprint that most organisations have not fully mapped. Partly because the tech industry has been very effective at abstracting physical reality away from digital work. We help organisations understand that footprint, account for it honestly, and act on it.

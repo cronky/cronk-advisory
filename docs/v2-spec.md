@@ -83,7 +83,7 @@ Yes all subdomains will use HTTPS.
 | `/services/chief-architecture/` | Chief and Enterprise Architecture | Fractional chief architect or CTO, architecture review, EA function set-up and maturity, governance that enables | service front matter |
 | `/services/pragmatic-ai/` | Pragmatic AI | AI readiness, stress-testing AI investment, agentic AI governance, right-sized AI | service front matter |
 | `/services/sustainable-technology/` | Sustainable and Responsible Technology | Footprint measurement (DIST), procurement, responsible AI | service front matter |
-| `/speaking/` | Speaking, Chairing and Facilitation | Formats, topics, evidence, booking | `content/speaking.md` + feed |
+| `/speaking/` | Speaking, Chairing and Facilitation | Formats, topics, evidence, booking. Until the feed exists, 2026 engagements come from `data/speaking.yml` (owner decision, 28 October 2026) | `content/speaking.md` + feed |
 | `/approach/` | Approach | Pragmatic Ecosystems, with the interactive ecosystem map | `content/approach.md` (`layout: approach`, `ecosystem-map` and `copernican-shift` shortcodes) |
 | `/work/` | Clients and organisations | Clients, previous roles, spoken at, short case studies when available | `data/organisations.yml` |
 | `/insights/` | Insights | Pragmatic Ecosystems as the featured item, Cronk Advisory articles, links to cronky.net writing, talks and podcasts. Built early (Phase 2) at the owner's request; Phase 5 adds the curated feed | `content/insights.md` + `content/articles/` + feed |

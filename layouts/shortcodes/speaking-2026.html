@@ -1,0 +1,32 @@
+{{- /* 2026 speaking engagements from data/speaking.yml (copied from cronky.net), newest first, with counts by role computed at build time. */ -}}
+{{- $items := sort hugo.Data.speaking "date" "desc" }}
+{{- $roles := slice
+  (dict "id" "keynote" "one" "keynote" "many" "keynotes")
+  (dict "id" "talk" "one" "talk" "many" "talks")
+  (dict "id" "panel" "one" "panel" "many" "panels")
+  (dict "id" "chair" "one" "event chaired" "many" "events chaired")
+  (dict "id" "workshop" "one" "workshop" "many" "workshops")
+  (dict "id" "podcast-live" "one" "live podcast recording" "many" "live podcast recordings")
+  (dict "id" "documentary" "one" "documentary film" "many" "documentary films") }}
+{{- $labels := dict "keynote" "Keynote" "talk" "Talk" "panel" "Panel" "chair" "Chair" "workshop" "Workshop" "podcast-live" "Live podcast" "documentary" "Documentary" }}
+{{- $counts := slice }}
+{{- range $roles }}
+  {{- $n := len (where $items "role" .id) }}
+  {{- if $n }}{{ $counts = $counts | append (printf "%d %s" $n (cond (eq $n 1) .one .many)) }}{{ end }}
+{{- end }}
+<div class="speaking-list">
+  <p class="speaking-counts"><strong>{{ len $items }} engagements in 2026:</strong> {{ delimit $counts ", " " and " }}.</p>
+  <ul class="page-list">
+    {{- range $items }}
+    {{- $date := time .date }}
+    <li>
+      <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }} ↗</a>
+      <span>{{ if $date.After now }}Upcoming · {{ end }}{{ index $labels .role }} · {{ .event }}{{ with .location }} · {{ . }}{{ end }} · {{ $date.Format "2 January 2006" }}</span>
+      {{- with .article }}{{ with site.GetPage . }}
+      <span>Read the article: <a href="{{ .RelPermalink }}">{{ .Title }}</a></span>
+      {{- end }}{{ end }}
+    </li>
+    {{- end }}
+  </ul>
+  <p class="speaking-more">Earlier talks, recordings and slides are on <a href="https://cronky.net/speaking/" target="_blank" rel="noopener">cronky.net ↗</a>.</p>
+</div>

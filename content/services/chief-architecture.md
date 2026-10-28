@@ -15,6 +15,10 @@ engagements:
     body: "An independent assessment of where your technology estate actually is, where it needs to go, and the realistic path between the two. Useful as a standalone piece of work or as the foundation for an ongoing engagement.\n\nEffective before major investment decisions (particularly any major AI investment), platform changes, or when an existing plan needs stress-testing by someone with independence from the current or proposed answer."
   # TODO: EA function set-up and maturity; governance that enables (spec 4.1)
 related_topics: [architecture]
+related_articles:
+  - "/articles/dynamic-architecture"
+  - "/articles/reference-architecture-consequential-ai"
+  - "/articles/designing-freedom"
 legacy_ids: [fractional-cto, advisory]
 ---
 <!-- TODO: copy from Ollie (body, optional) -->

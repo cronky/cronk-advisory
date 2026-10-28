@@ -2,14 +2,14 @@
 title: "Speaking, Chairing and Facilitation"
 linkTitle: "Speaking"
 weight: 4
-draft: true   # intro copy and evidence still to come: publish in Phase 5 with the cronky.net feed
-summary: "[COPY: one line for the home teaser and services index]"
-description: "[COPY: meta description, under 155 characters]"
+# TODO: Claude's first draft from cronky.net/speaking and the media kit (October 2026), for Ollie to review and approve before this branch merges.
+summary: "Keynotes, talks, panels and facilitated sessions on architecture, AI and sustainable technology, for conferences, communities and leadership teams."
+description: "Book Oliver Cronk to speak, chair or facilitate on architecture, pragmatic AI and sustainable technology."
 related_topics: [speaking]
 ---
-<!-- TODO: copy from Ollie (spec 6.3). Evidence (counts, featured talks, spoken-at logos, testimonials) comes from the feed in Phase 5. -->
+Oliver speaks, chairs and facilitates on architecture, AI and sustainable technology. The aim on stage is the same as in client work: cut through the hype, make the trade-offs visible, and leave the room with something it can act on.
 
-[COPY: what Ollie offers on stage and in the room]
+He has been speaking since 2008. Running the [Architect Tomorrow](https://architecttomorrow.com) podcast led to more chairing and facilitation, which is a related but different skill: drawing out other people's contributions, keeping the conversation moving and keeping the audience with it.
 
 ## Formats
 
@@ -25,15 +25,21 @@ related_topics: [speaking]
 
 ## Topics
 
-<!-- TODO: four areas from the cronky.net media kit, plus current signature talks -->
-- Architecture
-- AI
-- Sustainable technology
-- Open source and responsible tech
+- **Enterprise and business architecture:** the role of the chief architect, governance that enables innovation, and ecosystem architecture.
+- **AI strategy and architecture:** pragmatic enterprise AI, the risks of sleepwalking into AI's societal challenges, and human-centred AI.
+- **Sustainable technology:** measuring and reducing the environmental impact of digital services, [DIST](https://dist.greenweb.org/), and greener AI.
+- **Open source and responsible technology.**
+
+Current talks include [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fallacy/), Shifting to Regenerative Architecture, and AI Readiness vs Human Readiness.
+
+## 2026 engagements
+
+{{< speaking-2026 >}}
+
+<!-- TODO (Phase 5): featured talks with video facades, "Spoken at" logo strip and testimonials (once permission to publish is confirmed). -->
 
 ## Fees
 
-<!-- TODO: confirm wording with Ollie (spec question 7) -->
 - **Community and charity events:** no fee; travel costs appreciated.
 - **Commercial events:** price on application, with a discount for sustainability-related events.
 

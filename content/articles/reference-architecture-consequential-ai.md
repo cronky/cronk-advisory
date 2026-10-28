@@ -23,7 +23,7 @@ In the [companion conceptual piece](/articles/artificial-intelligence-is-not-art
 
 Call it the judgement line. Above it, a named human owns the output. Below it, the machine can run (in many cases autonomously).
 
-Several people arrived at the same metaphor independently in the last year or so, which tells you the idea is probably along the right lines?! [Marina Cortazzo writes in CIO about the decision line](https://www.cio.com/article/4212022/the-decision-line.html). The security community has settled on *judgment boundary* for the control point between decision support and delegated action.
+Several people arrived at the same metaphor independently in the last year or so, which tells you the idea is probably along the right lines?! [Marina Cortazzo writes in CIO about the decision line](https://www.cio.com/article/4212022/the-decision-line.html). Security researchers have started using *judgement boundary* for a close relative: [the point where deterministic rules stop and judgement has to take over](https://arxiv.org/abs/2610.07657).
 
 The rest of this piece is an attempt at the architecture that enforces it, because the architecture is the governance. If the judgement line only exists in a policy document, it does not exist.
 
@@ -133,11 +133,11 @@ If the honest answer is "the system", it's likely there is actually a person who
 - [Designing Freedom in the Age of Autonomy](/articles/designing-freedom/), on Beer, variety and getting your amplifiers on the right side of the equation.
 - [Why More AI Might Ultimately Equal More People](/articles/the-pendulum-swings-back/), on what happens to staffing when verification work scales with generated volume.
 
-The diagrams in this piece are released under a [Creative Commons Attribution 4.0 International Licence](https://creativecommons.org/licenses/by/4.0/). If you use or evolve them I would genuinely like to hear about it, so they can be improved.
+The diagrams in this piece are © 2026 Cronk Advisory Ltd and released under a [Creative Commons Attribution 4.0 International Licence](https://creativecommons.org/licenses/by/4.0/), excluding the Cronk Advisory logo. If you use or evolve them I would genuinely like to hear about it, so they can be improved.
 
 ---
 
-*Oliver Cronk is an independent chief architect and the founder of [Cronk Advisory](/about/). He coined Ecosystem Architecture in 2017 and founded the [Architect Tomorrow](https://architecttomorrow.com) community in 2019, which informed and validated much of this thinking. An earlier and much simpler version of this was published in 2023, before harnesses, agent protocols and machine-speed demand made most of it insufficient; this piece replaces it.*
+*Oliver Cronk is an independent chief architect and the founder of [Cronk Advisory](/about/). He coined Ecosystem Architecture in 2017 and founded the [Architect Tomorrow](https://architecttomorrow.com) community in 2019, which informed and validated much of this thinking. An earlier and much simpler version of this was [published in 2023](https://www.architectureandgovernance.com/artificial-intelligence/generative-ai-solution-architecture-for-complex-enterprises/), before harnesses, agent protocols and machine-speed demand made most of it insufficient; this piece replaces it.*
 
 *Where does the judgement line fall in your own processes, and does your architecture respect it? Feel free to [get in touch](/contact/).*
 
