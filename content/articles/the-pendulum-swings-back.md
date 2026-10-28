@@ -84,7 +84,7 @@ The original [eight sleepwalking risks](https://www.linkedin.com/pulse/we-sleepw
 
 **Mean Reversion.** Because model outputs regress towards the statistical average, an organisation where everyone leans on AI for everything will drift, gradually and unnoticed, towards sameness. Each individual artefact looks perfectly competent. The aggregate effect is the slow erosion of whatever made the organisation distinctive. Differentiation does not fail loudly. It just quietly stops happening.
 
-I would frame all three as hypotheses. There is also an open question of housekeeping: whether these belong as risks nine, ten and eleven alongside the IP and know-how leakage risk, or whether the labour cluster deserves its own grouping.
+I would frame all three as hypotheses. There is also an open question of housekeeping: whether these belong as risks ten, eleven and twelve, after the IP and know-how leakage risk that became the ninth, or whether the labour cluster deserves its own grouping.
 
 ## Things that could prove this wrong
 
@@ -100,4 +100,6 @@ If your AI business case assumes you will need fewer people, have you stress-tes
 
 ---
 
-*Written with some AI augmentation (Claude Opus 5.5) for research synthesis and drafting. All framing, judgement, argument and any errors are ours. Sources are linked inline. This piece builds on [Are we sleepwalking into tomorrow's AI challenges?](https://www.linkedin.com/pulse/we-sleepwalking-tomorrows-ai-challenges-oliver-cronk-4rcge/) and connects to the cone of uncertainty and the controlled-versus-agentic architecture spectrum explored in earlier [Architect Tomorrow](https://architecttomorrow.com) work. [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fallacy/) takes the Bainbridge and oversight argument further.*
+*Sources are linked inline. This piece builds on [Are we sleepwalking into tomorrow's AI challenges?](https://www.linkedin.com/pulse/we-sleepwalking-tomorrows-ai-challenges-oliver-cronk-4rcge/) and connects to the [cone of possibilities](/articles/dynamic-architecture/#the-cone-of-possibilities) and the controlled-versus-agentic architecture spectrum explored in earlier [Architect Tomorrow](https://architecttomorrow.com) work. [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fallacy/) takes the Bainbridge and oversight argument further.*
+
+*AI use: AI augmented this piece rather than replacing the author. Claude Opus 5.5 helped with research synthesis and drafting; the ideas, framing, judgement and any errors are mine.*

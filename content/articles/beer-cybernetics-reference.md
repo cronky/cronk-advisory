@@ -152,8 +152,8 @@ You're free to make decisions within your bounded context *because* the context 
 
 The question isn't "should we use AI?" It's "which side of the equation?"
 
-| Wrong Side (Amplifying System Variety) | Right Side (Amplifying Regulator Variety) |
-|---------------------------------------|------------------------------------------|
+| Wrong Side (Amplifying System Variety) | Right Side (Attenuating System Variety, Amplifying the Regulator) |
+|---------------------------------------|------------------------------------------------------------------|
 | Generating more content | Filtering to exceptions |
 | Creating more options | Identifying what matters |
 | Automating everything | Automating pattern recognition |
@@ -204,3 +204,5 @@ For any system or governance framework:
 ---
 
 *A companion to [Designing Freedom in the Age of Autonomy](/articles/designing-freedom/). Part of the Ecosystem Architecture 2.0 work, developed with the [Architect Tomorrow](https://architecttomorrow.com) community.*
+
+*AI use: AI augmented this piece rather than replacing the author. Claude helped with research synthesis and drafting; the ideas, framing, judgement and any errors are mine.*

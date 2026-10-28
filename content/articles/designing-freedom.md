@@ -114,7 +114,7 @@ Beer's analysis of bureaucracy identifies a specific issue: **systems that exist
 
 A simple test for this: How much of your architecture governance function exists to serve delivery teams, and how much exists to perpetuate the governance function?
 
-Beer's term for this is "autopoiesis": self-production. A bureaucracy accepts change, acknowledges novel conditions, makes modifications. But the changes are superficial. The underlying organisation that makes the system the system it is remains untouched. There is, as Beer puts it, "change without alteration."
+Beer borrows a term from the biologists Humberto Maturana and Francisco Varela for this: "autopoiesis", self-production. A bureaucracy accepts change, acknowledges novel conditions, makes modifications. But the changes are superficial. The underlying organisation that makes the system the system it is remains untouched. There is, as Beer puts it, "change without alteration."
 
 ## Freedom Through Constraint
 
@@ -171,7 +171,7 @@ Here is where they align with Beer (he was a major influence):
 
 **Ecosystems Over Enterprises** maps onto Beer's levels of recursion. The "castle and moat" mentality of optimising within organisational boundaries while treating external relationships as supplier transactions or externalities won't work for ecosystem problems requiring ecosystem thinking.
 
-**Variety Amplification Over Attenuation** is Beer's core distinction, reframed. Systems can either simplify humans to make them easier to predict and control (variety attenuation) or enhance human capacity for self-determination and collective action (variety amplification). The dominant platforms chose attenuation. I'd like to think we can choose differently even if that requires quite a bit of imagination.
+**Variety Amplification Over Attenuation** is Beer's core distinction, reframed. Systems can either simplify humans to make them easier to predict and control (variety attenuation) or enhance human capacity for self-determination and collective action (variety amplification). Note that the variety here is human: filtering the noise that reaches people is good, simplifying the people themselves is not. The dominant platforms chose the latter. I'd like to think we can choose differently even if that requires quite a bit of imagination.
 
 **Viability Over Optimisation** is Beer's homeostasis principle. Optimisation for one metric (engagement, efficiency, cost) creates fragility and externalises costs. Viability (the capacity to maintain existence across multiple dimensions over time) is a more robust goal.
 
@@ -186,7 +186,7 @@ If you're an architect trying to apply this:
 Stop treating AI as a general-purpose capability multiplier. It's a variety handler. The question is: which side of the equation are you putting it on?
 
 - Using AI to generate more content, more options, more complexity? That's amplification on the wrong side.
-- Using AI to identify exceptions, filter noise, surface what matters? That's attenuation.
+- Using AI to identify exceptions, filter noise, surface what matters? That's attenuation on the right side: it cuts the variety reaching you down to what your capacity can handle.
 
 The [AI Autumn](https://www.linkedin.com/pulse/practical-pragmatic-ai-principles-autumn-oliver-cronk-jkwfe/) framing is useful here: harvest what works (exception detection, pattern matching, content transformation with good data), drop what doesn't (AGI promises, general reasoning claims, autonomous decision-making without oversight).
 
@@ -216,10 +216,11 @@ The technical elements of our roles are increasingly being automated. GenAI can 
 
 As implementation (arguably) becomes commoditised, our distinctive value shifts from technical problem-solving to something harder (if not impossible?) to automate: taste and judgement. Not [just] aesthetic preference, but the cultivated capacity to distinguish systems that serve from systems that extract, architectures that empower from those that manipulate, solutions that endure from those that merely scale.
 
-Beer's cybernetics gives us a rigorous foundation for that taste. Not rules to follow, but principles to reason from. Sadly just as I was; I suspect not many architects are aware of cybernetics and holistic systems thinking (rather than just technical systems). As a result there will be some painful years ahead as we clean up the mess that is being built rather rapidly!
+Beer's cybernetics gives us a rigorous foundation for that taste. Not rules to follow, but principles to reason from. Sadly, I suspect that, like me until recently, not many architects are aware of cybernetics and holistic systems thinking (rather than just technical systems). As a result there will be some painful years ahead as we clean up the mess that is being built rather rapidly!
 
 ---
 
 *This piece draws on Stafford Beer's "Designing Freedom" (1974), my own work on AI Autumn and responsible AI deployment, and the community-developed Principles for Regenerative Architecture. It's part of the Ecosystem Architecture work exploring how architecture practice needs to evolve for the age of autonomous systems. The terms and laws are summarised in [Cybernetics: A Quick Reference for Architects](/articles/beer-cybernetics-reference/).*
 
+*AI use: AI augmented this piece rather than replacing the author. Claude helped with research synthesis and drafting; the ideas, framing, judgement and any errors are mine.*
 *What aspects cause most concern for your organisation? Where do you see AI on the wrong side of the equation? Feel free to [get in touch](/contact/).*

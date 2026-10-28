@@ -53,7 +53,7 @@ When a vendor says the system "reasons about" your contracts, the sentence does 
 
 My ask here is modest: be precise in architecture documents. Say "pattern matching over retrieved context" rather than "understands your business". Whilst it reads less impressively, it will potentially save you an argument with a regulator later.
 
-## Fallacy three: a human can supervise this
+## Fallacy three: automation is a clean swap
 
 Here are the three automation fallacies as I frame them in the talk.
 
@@ -82,7 +82,7 @@ Her findings, in brief: speed is not clarity, because AI removes the data bottle
 
 A competence illusion opens up between what you can produce and what you understand, and organisations cannot yet detect that gap. People stop deciding and start forwarding what looks acceptable enough. And the collegial exchange and mentorship that judgement grows from quietly disappears.
 
-The fifth of those is the one I keep returning to. The scarce resource becomes the judgement to say no to something plausible. Everything in these systems is optimised to produce plausible. Very little in them is optimised to produce the capacity to refuse it, generally you specifically need to prompt it to do so.
+The shift from deciding to forwarding is the one I keep returning to. The scarce resource becomes the judgement to say no to something plausible. Everything in these systems is optimised to produce plausible. Very little in them is optimised to produce the capacity to refuse it, generally you specifically need to prompt it to do so.
 
 There is now hard evidence pointing the same way. [Cheng and colleagues in *Science*](https://doi.org/10.1126/science.aec8352) found that across eleven leading models, AI affirmed users' actions roughly 49% more often than humans did, and that a single interaction with a sycophantic model reduced people's willingness to take responsibility while increasing their conviction that they were right. Users trusted and preferred those models. Which gives developers every incentive to keep building them.
 
@@ -102,7 +102,7 @@ The diagram I use in the talk stacks nine layers, from infrastructure at the bas
 
 Risk and governance runs down the right-hand side and changes character as it climbs: controls at the base, quality and provenance in the middle, decision rights above the line, assurance at the top. Most organisations have thoroughly industrialised the bottom and have almost nothing formal in the middle two. That gap is where AI adoption actually comes unstuck.
 
-Full transparency this stack is a synthesis of mine rather than an invention. It sits downstream of [Ackoff's 1989 DIKW hierarchy](https://isko.org/cyclo/dikw) and Zeleny's 1987 work, with the layers above wisdom being my attempt to name what the apex of that pyramid usually gestures at and never specifies.
+In full transparency, this stack is a synthesis of mine rather than an invention. It sits downstream of [Ackoff's 1989 DIKW hierarchy](https://isko.org/cyclo/dikw) and Zeleny's 1987 work, with the human layers around wisdom (judgement, empathy, accountability and trusted relationships) being my attempt to name what the apex of that pyramid usually gestures at and never specifies.
 
 ## Possible architectural responses
 
@@ -147,3 +147,5 @@ Architecture is the discipline that decides where the boundary goes. That makes 
 ---
 
 *Where / how have you seen these fallacies of efficiency playing out? And if you ran a chaos anti-AI monkey through your AI powered processes this week, what do you think you would discover?! Feel free to [get in touch](/contact/).*
+
+*AI use: AI augmented this piece rather than replacing the author. Claude helped with research synthesis and drafting; the ideas, framing, judgement and any errors are mine.*

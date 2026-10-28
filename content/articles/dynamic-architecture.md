@@ -2,8 +2,8 @@
 title: "Dynamic Architecture: The Governed Response to Vibed Code and Agent Proliferation"
 date: 2026-10-27
 description: "Vibe coding and agentic AI are creating a Cambrian explosion of point solutions. Dynamic Architecture is the governed, ecosystem-aware response."
-topics: [architecture, ai, sustainability]
-series: "Governance"
+topics: [architecture, ai, sustainability, governance]
+series: "Dynamic Architecture"
 canonical: ""  # TODO: original URL if first published elsewhere (LinkedIn, Substack)
 draft: false
 ---
@@ -98,3 +98,5 @@ The organisations that understand this won't just navigate the next few years mo
 *Oliver Cronk is an independent chief architect and the founder of [Cronk Advisory](/about/). He coined Ecosystem Architecture in 2017, founded the [Architect Tomorrow](https://architecttomorrow.com) community in 2019, and is working on the [Pragmatic Ecosystems](/approach/) approach.*
 
 *This is the first in a series exploring Dynamic Architecture.*
+
+*AI use: AI augmented this piece rather than replacing the author. Claude helped with research synthesis and drafting; the ideas, framing, judgement and any errors are mine.*
