@@ -1,0 +1,45 @@
+<svg width="680" height="700" viewBox="0 0 680 700" role="img" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" xmlns="http://www.w3.org/2000/svg"><title>Generative AI reference architecture 2026, harness and three planes</title><desc>Demand management feeds an agent harness containing a plan, act and observe loop plus context assembly and budgeting. The harness draws on a context plane holding knowledge, memory, retrieval and entitlements, and an action plane holding tools via MCP and peer agents via A2A. Both planes feed output checking, which produces either a machine owned response with citations or an escalation to a human who owns the decision. Telemetry, evaluation, cost and energy metering runs across everything.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#898781" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+<g><rect x="190" y="40" width="300" height="44" rx="8" stroke-width="0.5" fill="rgb(241, 239, 232)" stroke="rgb(95, 94, 90)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="340" y="62" text-anchor="middle" dominant-baseline="central" fill="rgb(68, 68, 65)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Demand management</text></g>
+
+<line x1="340" y1="84" x2="340" y2="118" marker-end="url(#arrow)" fill="none" stroke="rgb(137, 135, 129)" stroke-width="1.5" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+
+<rect x="40" y="124" width="600" height="110" rx="20" stroke-width="0.5" fill="rgb(241, 239, 232)" stroke="rgb(95, 94, 90)" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+<text x="64" y="150" fill="rgb(11, 11, 11)" stroke="none" stroke-width="1" font-size="14" font-weight="500" text-anchor="start" dominant-baseline="auto">Agent harness</text>
+<g><rect x="70" y="170" width="260" height="44" rx="8" stroke-width="0.5" fill="rgb(252, 252, 251)" stroke="rgba(11, 11, 11, 0.2)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="200" y="192" text-anchor="middle" dominant-baseline="central" fill="rgb(11, 11, 11)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Plan, act, observe loop</text></g>
+<g><rect x="350" y="170" width="260" height="44" rx="8" stroke-width="0.5" fill="rgb(252, 252, 251)" stroke="rgba(11, 11, 11, 0.2)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="480" y="192" text-anchor="middle" dominant-baseline="central" fill="rgb(11, 11, 11)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Context assembly and budget</text></g>
+
+<line x1="185" y1="234" x2="185" y2="268" marker-end="url(#arrow)" fill="none" stroke="rgb(137, 135, 129)" stroke-width="1.5" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+<line x1="485" y1="234" x2="485" y2="268" marker-end="url(#arrow)" fill="none" stroke="rgb(137, 135, 129)" stroke-width="1.5" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+
+<rect x="40" y="274" width="290" height="150" rx="20" stroke-width="0.5" fill="rgb(225, 245, 238)" stroke="rgb(15, 110, 86)" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+<text x="64" y="300" fill="rgb(11, 11, 11)" stroke="none" stroke-width="1" font-size="14" font-weight="500" text-anchor="start" dominant-baseline="auto">Context plane</text>
+<g><rect x="64" y="316" width="242" height="40" rx="8" stroke-width="0.5" fill="rgb(252, 252, 251)" stroke="rgba(11, 11, 11, 0.2)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="185" y="336" text-anchor="middle" dominant-baseline="central" fill="rgb(11, 11, 11)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Knowledge and memory</text></g>
+<g><rect x="64" y="364" width="242" height="40" rx="8" stroke-width="0.5" fill="rgb(252, 252, 251)" stroke="rgba(11, 11, 11, 0.2)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="185" y="384" text-anchor="middle" dominant-baseline="central" fill="rgb(11, 11, 11)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Retrieval and entitlements</text></g>
+
+<rect x="350" y="274" width="290" height="150" rx="20" stroke-width="0.5" fill="rgb(250, 236, 231)" stroke="rgb(153, 60, 29)" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+<text x="374" y="300" fill="rgb(11, 11, 11)" stroke="none" stroke-width="1" font-size="14" font-weight="500" text-anchor="start" dominant-baseline="auto">Action plane</text>
+<g><rect x="374" y="316" width="242" height="40" rx="8" stroke-width="0.5" fill="rgb(252, 252, 251)" stroke="rgba(11, 11, 11, 0.2)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="495" y="336" text-anchor="middle" dominant-baseline="central" fill="rgb(11, 11, 11)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Tools via MCP</text></g>
+<g><rect x="374" y="364" width="242" height="40" rx="8" stroke-width="0.5" fill="rgb(252, 252, 251)" stroke="rgba(11, 11, 11, 0.2)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="495" y="384" text-anchor="middle" dominant-baseline="central" fill="rgb(11, 11, 11)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Peer agents via A2A</text></g>
+
+<line x1="185" y1="424" x2="185" y2="458" marker-end="url(#arrow)" fill="none" stroke="rgb(137, 135, 129)" stroke-width="1.5" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+<line x1="485" y1="424" x2="485" y2="458" marker-end="url(#arrow)" fill="none" stroke="rgb(137, 135, 129)" stroke-width="1.5" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+
+<g><rect x="70" y="464" width="540" height="56" rx="8" stroke-width="0.5" fill="rgb(241, 239, 232)" stroke="rgb(95, 94, 90)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="340" y="482" text-anchor="middle" dominant-baseline="central" fill="rgb(68, 68, 65)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Output and action checking</text><text x="340" y="500" text-anchor="middle" dominant-baseline="central" fill="rgb(95, 94, 90)" stroke="none" stroke-width="1" font-size="12">groundedness, citations, legal, reversibility</text></g>
+
+<line x1="195" y1="520" x2="195" y2="554" marker-end="url(#arrow)" fill="none" stroke="rgb(137, 135, 129)" stroke-width="1.5" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+<line x1="485" y1="520" x2="485" y2="554" marker-end="url(#arrow)" fill="none" stroke="rgb(137, 135, 129)" stroke-width="1.5" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+
+<g><rect x="70" y="560" width="250" height="44" rx="8" stroke-width="0.5" fill="rgb(225, 245, 238)" stroke="rgb(15, 110, 86)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="195" y="582" text-anchor="middle" dominant-baseline="central" fill="rgb(8, 80, 65)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Response with citations</text></g>
+<g><rect x="360" y="560" width="250" height="44" rx="8" stroke-width="0.5" fill="rgb(238, 237, 254)" stroke="rgb(83, 74, 183)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="485" y="582" text-anchor="middle" dominant-baseline="central" fill="rgb(60, 52, 137)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Escalation to a human</text></g>
+
+<g><rect x="70" y="624" width="540" height="36" rx="8" stroke-width="0.5" fill="rgb(241, 239, 232)" stroke="rgb(95, 94, 90)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="340" y="642" text-anchor="middle" dominant-baseline="central" fill="rgb(68, 68, 65)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Telemetry, evals, cost and energy metering</text></g>
+
+<rect x="70" y="668" width="12" height="12" rx="3" stroke-width="0.5" fill="rgb(225, 245, 238)" stroke="rgb(15, 110, 86)" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+<text x="88" y="674" dominant-baseline="central" fill="rgb(82, 81, 78)" stroke="none" stroke-width="1" font-size="12" text-anchor="start">Context and machine output</text>
+<rect x="290" y="668" width="12" height="12" rx="3" stroke-width="0.5" fill="rgb(250, 236, 231)" stroke="rgb(153, 60, 29)" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+<text x="308" y="674" dominant-baseline="central" fill="rgb(82, 81, 78)" stroke="none" stroke-width="1" font-size="12" text-anchor="start">Tools and agents</text>
+<rect x="450" y="668" width="12" height="12" rx="3" stroke-width="0.5" fill="rgb(238, 237, 254)" stroke="rgb(83, 74, 183)" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+<text x="468" y="674" dominant-baseline="central" fill="rgb(82, 81, 78)" stroke="none" stroke-width="1" font-size="12" text-anchor="start">Human owned</text>
+</svg>
