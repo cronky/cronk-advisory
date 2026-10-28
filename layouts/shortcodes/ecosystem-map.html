@@ -3,7 +3,7 @@
   Without JavaScript this renders the default view ("Any organisation", "What you rely on", Biosphere selected);
   the script then takes over and adds the viewpoint and lens controls. Deep links such as #energy open a viewpoint.
 */ -}}
-{{- $d := index hugo.Data "ecosystem-map" }}
+{{- $d := index site.Data "ecosystem-map" }}
 {{- $sector := index $d.sectors 0 }}
 {{- $layer := index $d.layers 0 }}
 {{- $info := index $sector.layers $layer.id }}

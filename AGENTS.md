@@ -107,6 +107,8 @@ hugo server -D            # http://localhost:1313, live reload
 hugo                      # build to ./public (git-ignored; Cloudflare builds its own)
 ```
 
+Cloudflare Pages builds with **Hugo 0.145** (its `HUGO_VERSION` setting), which may be older than your local Hugo. Don't use features added after 0.145: for example, use `site.Data`, not `hugo.Data` (0.156). Local builds on newer Hugo log `site.Data` as deprecated at INFO level only.
+
 There are no tests. Before finishing a change:
 
 1. `hugo` builds with no errors or warnings.

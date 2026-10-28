@@ -1,5 +1,5 @@
 {{- /* 2026 speaking engagements from data/speaking.yml (copied from cronky.net), newest first, with counts by role computed at build time. */ -}}
-{{- $items := sort hugo.Data.speaking "date" "desc" }}
+{{- $items := sort site.Data.speaking "date" "desc" }}
 {{- $roles := slice
   (dict "id" "keynote" "one" "keynote" "many" "keynotes")
   (dict "id" "talk" "one" "talk" "many" "talks")
