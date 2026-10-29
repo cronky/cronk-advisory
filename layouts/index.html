@@ -39,10 +39,11 @@
 <!-- ═══ SERVICES ═══ -->
 <section id="services" class="section section-cream">
   <div class="section-inner">
-    <div class="section-header">
-      <div class="label">{{ $s.label }}</div>
-      <h2>{{ $s.heading }}</h2>
-      <div class="amber-bar"></div>
+    <div class="section-header section-header-tight">
+      <div>
+        <div class="label">{{ $s.label }}</div>
+        <h2>{{ $s.heading }}</h2>
+      </div>
     </div>
     <div class="services-grid">
       {{ range partial "service-pages.html" . }}
@@ -61,16 +62,17 @@
 {{ if or $articles $talk }}
 <section id="latest" class="section section-white">
   <div class="section-inner">
-    <div class="section-header">
-      <div class="label">{{ $l.label }}</div>
-      <h2>{{ $l.heading }}</h2>
-      <div class="amber-bar"></div>
+    <div class="section-header section-header-tight">
+      <div>
+        <div class="label">{{ $l.label }}</div>
+        <h2>{{ $l.heading }}</h2>
+      </div>
+      {{ with site.GetPage "/insights" }}<a href="{{ .RelPermalink }}" class="service-link">{{ $l.cta }} →</a>{{ end }}
     </div>
     <div class="engagement-grid latest-grid">
       {{ range $articles }}{{ partial "article-card.html" . }}{{ end }}
       {{ with $talk }}{{ partial "talk-card.html" (dict "item" . "kind" "talk") }}{{ end }}
     </div>
-    {{ with site.GetPage "/insights" }}<p class="latest-more"><a href="{{ .RelPermalink }}" class="service-link">{{ $l.cta }} →</a></p>{{ end }}
   </div>
 </section>
 {{ end }}

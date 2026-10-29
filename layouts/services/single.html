@@ -66,7 +66,7 @@
     {{/* Related talks and writing from the cronky.net feed, matched on related_topics (spec 5.3) */}}
     {{ with .Params.related_topics }}
     {{ $topics := . }}
-    {{ range $block := slice (dict "type" "speaking" "heading" "Related talks by Oliver") (dict "type" "writing" "heading" "Related writing by Oliver") }}
+    {{ range $block := slice (dict "type" "speaking" "heading" "Related talks by Oliver") (dict "type" "writing" "heading" "Related external writing by Oliver") }}
     {{ with trim (partial "insight-list.html" (dict "type" $block.type "topics" $topics "limit" 3)) " \n" }}
     <div class="service-block">
       <h2>{{ $block.heading }}</h2>
