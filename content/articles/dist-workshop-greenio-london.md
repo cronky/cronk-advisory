@@ -1,5 +1,5 @@
 ---
-title: "DIST workshops at Green IO London 2026"
+title: "DIST workshop at Green IO London 2026"
 date: 2026-09-30
 description: "Notes from Green IO London 2026, where I ran a workshop on DIST, the Digital Impacts Schema and Taxonomy."
 topics: [sustainability]
