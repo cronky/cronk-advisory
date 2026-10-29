@@ -23,6 +23,12 @@ outcomes:
   - "Named owners for the decisions that matter, with the information and the capacity to own them."
   - "Governance that lets teams build quickly within agreed guardrails, instead of approving every change."
   - "AI costs, energy use and risks that are visible and managed, not discovered after the fact."
+# "See also" cards for closely related services: page, optional anchor, and why it is relevant
+see_also:
+  - page: "/services/sustainable-technology"
+    anchor: "responsible-technology"
+    link_label: "Responsible Technology"
+    body: "Sustainable AI is not only about energy. AI that wears away the human judgement it depends on is not sustainable either. Our responsible technology work keeps human review real as automation scales: deciding where the judgement line falls, designing for augmentation rather than substitution, testing that reviewers can still catch plausible-but-wrong outputs, and planning for the skills and people that judgement depends on."
 related_topics: [ai]
 related_articles:
   - "/articles/the-ai-efficiency-fallacy"

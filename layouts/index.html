@@ -15,10 +15,6 @@
       <div class="label">{{ $h.label }}</div>
       <h1>{{ $h.heading }}<br><em>{{ $h.heading_em }}</em></h1>
       <p class="hero-sub">{{ $h.body }}</p>
-      <div class="hero-actions">
-        <a href="{{ with site.GetPage "/contact" }}{{ .RelPermalink }}{{ else }}#contact{{ end }}" class="btn-primary">{{ $h.cta_primary }}</a>
-        <a href="#services" class="btn-ghost-dark">{{ $h.cta_secondary }} ↓</a>
-      </div>
     </div>
     <div class="hero-aside" id="about">
       <div class="hero-card">
@@ -56,16 +52,50 @@
   </div>
 </section>
 
+<!-- ═══ LATEST: newest articles and talk ═══ -->
+{{- $l := .Params.latest }}
+{{- $articles := first ($l.articles | default 2) (where site.RegularPages "Section" "articles").ByDate.Reverse }}
+{{- $talks := where (index (partialCached "insights-feed.html" . "feed") "speaking" | default slice) "advisory" true }}
+{{- $talk := false }}
+{{- with first 1 (sort $talks "date" "desc") }}{{ $talk = index . 0 }}{{ end }}
+{{ if or $articles $talk }}
+<section id="latest" class="section section-white">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="label">{{ $l.label }}</div>
+      <h2>{{ $l.heading }}</h2>
+      <div class="amber-bar"></div>
+    </div>
+    <div class="engagement-grid latest-grid">
+      {{ range $articles }}{{ partial "article-card.html" . }}{{ end }}
+      {{ with $talk }}{{ partial "talk-card.html" (dict "item" . "kind" "talk") }}{{ end }}
+    </div>
+    {{ with site.GetPage "/insights" }}<p class="latest-more"><a href="{{ .RelPermalink }}" class="service-link">{{ $l.cta }} →</a></p>{{ end }}
+  </div>
+</section>
+{{ end }}
+
 <!-- ═══ APPROACH TEASER ═══ -->
 <section id="approach" class="section section-navy">
   <div class="section-inner approach-teaser">
-    <div class="section-header">
-      <div class="label">{{ $a.label }}</div>
-      <h2 class="heading-lines">{{ $a.heading }}</h2>
-      <div class="amber-bar"></div>
+    <div class="approach-grid">
+      <div>
+        <div class="section-header">
+          <div class="label">{{ $a.label }}</div>
+          <h2 class="heading-lines">{{ $a.heading }}</h2>
+          <div class="amber-bar"></div>
+        </div>
+        <p class="approach-lead">{{ $a.teaser }}</p>
+        {{ with site.GetPage "/approach" }}<a href="{{ .RelPermalink }}" class="btn-ghost-amber">{{ $a.cta }} →</a>{{ end }}
+      </div>
+      {{ with site.GetPage "/approach" }}
+      <a href="{{ .RelPermalink }}" class="approach-thumb">
+        {{ partial "ecosystem-stack.html" }}
+        <span class="approach-thumb-title">{{ $a.thumb_title }}</span>
+        <span class="approach-thumb-body">{{ $a.thumb_body }}</span>
+      </a>
+      {{ end }}
     </div>
-    <p class="approach-lead">{{ $a.teaser }}</p>
-    {{ with site.GetPage "/approach" }}<a href="{{ .RelPermalink }}" class="btn-ghost-amber">{{ $a.cta }} →</a>{{ end }}
   </div>
 </section>
 

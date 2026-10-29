@@ -8,8 +8,6 @@ hero:
   heading: "Innovative Tech"
   heading_em: "Aligned with Sustainability Goals"
   body: "Working with business and sustainability leaders, partners, and delivery teams to balance business performance, efficiency & holistic sustainability (people, planet & profitability)"
-  cta_primary: "Start a Conversation"
-  cta_secondary: "Explore Services"
   # Background photo: path prefix of the -800.webp and -1600.webp files in static/images/photos/ (Ollie's own photo)
   photo: "/images/photos/bark-moss"
   card_photo: "/images/photos/oliver-cronk-160.webp"
@@ -32,6 +30,16 @@ approach:
   heading: "The bigger,\ninterconnected picture."
   teaser: "Technology advisors often help you tactically with single point issues. At Cronk Advisory we look at the bigger interconnected picture and often ask the difficult yet constructive questions."
   cta: "More on our approach"
+  # The ecosystem stack thumbnail beside the teaser links to /approach/
+  thumb_title: "Pragmatic Ecosystems"
+  thumb_body: "Explore the stack and the interactive map →"
+
+# The newest articles plus the latest talk flagged for Cronk Advisory on cronky.net (spec 6.1)
+latest:
+  label: "Latest"
+  heading: "New thinking."
+  articles: 2
+  cta: "All insights"
 
 # Used by the "Start a conversation" band on every page (layouts/partials/cta-band.html).
 contact:

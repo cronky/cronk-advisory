@@ -33,6 +33,25 @@
 
     {{ with trim (partial "content.html" .) " \n" }}<div class="service-block prose">{{ . | safeHTML }}</div>{{ end }}
 
+    {{- $seeAlso := slice }}
+    {{- range .Params.see_also }}{{ $item := . }}{{ with site.GetPage .page }}{{ $seeAlso = $seeAlso | append (dict "page" . "item" $item) }}{{ end }}{{ end }}
+    {{ with $seeAlso }}
+    <div class="service-block">
+      <h2>See also</h2>
+      <div class="engagement-grid see-also-grid">
+        {{ range . }}
+        {{ $href := .page.RelPermalink }}{{ with .item.anchor }}{{ $href = printf "%s#%s" $href . }}{{ end }}
+        <a class="engagement-card insight-card see-also-card" href="{{ $href }}">
+          <span class="label">Service</span>
+          <h3>{{ .page.Title }}</h3>
+          {{ with .item.body }}<p class="service-body">{{ . }}</p>{{ end }}
+          <span class="service-link">{{ .item.link_label | default .page.Title }} →</span>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
     {{- $related := slice }}
     {{- range .Params.related_articles }}{{ with site.GetPage . }}{{ $related = $related | append . }}{{ end }}{{ end }}
     {{ with first 3 $related }}
