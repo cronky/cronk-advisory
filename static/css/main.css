@@ -397,6 +397,13 @@ a:hover { text-decoration: underline; }
 }
 .about-roles li:last-child { border-bottom: none; }
 .about-roles a { color: var(--forest); }
+.section-white { background: white; }
+.section-white .about-card { background: var(--cream); }
+.about-content > .label { margin-bottom: 8px; }
+.about-content .about-body a { color: var(--forest); text-decoration: underline; }
+.about-site { max-width: 760px; }
+.about-site .tick-list { margin-top: 16px; }
+.about-site-link { margin-top: 20px; }
 
 /* ══════════════════════════════════════════
    CONTACT

@@ -1,15 +1,52 @@
 {{ define "main" }}
 {{ partial "page-header.html" . }}
-<section class="section section-cream">
+{{- $p := site.Params }}
+
+{{/* 1. The company */}}
+{{ with .Params.company }}
+<section class="section section-cream" id="company">
   <div class="section-inner">
     <div class="about-grid">
       <div class="about-content">
+        {{ with .label }}<div class="label">{{ . }}</div>{{ end }}
+        <h2 class="about-name">{{ .heading }}</h2>
+        <div class="amber-bar"></div>
+        <p class="about-lead">{{ .lead }}</p>
+        <div class="about-body">{{ .body | markdownify }}</div>
+        {{ with .location }}<p class="about-location">{{ . }}</p>{{ end }}
+      </div>
+      <div class="about-card">
+        {{ with partial "service-pages.html" $ }}
+        <div class="label">What we do</div>
+        <ul class="about-roles">
+          {{ range . }}<li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>{{ end }}
+        </ul>
+        {{ end }}
+        <div class="label">Company</div>
+        <ul class="about-roles">
+          <li>{{ $p.legalName }}</li>
+          <li>Registered in {{ $p.registeredIn }}</li>
+          <li>Company No. {{ $p.companyNumber }}</li>
+          {{ with site.GetPage "/company" }}<li><a href="{{ .RelPermalink }}">Company information →</a></li>{{ end }}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{/* 2. The founder */}}
+<section class="section section-white" id="founder">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-content">
+        <div class="label">The founder</div>
         <h2 class="about-name">{{ .Params.heading }}</h2>
         <div class="amber-bar"></div>
         <p class="about-lead">{{ .Params.lead }}</p>
         <div class="about-body">{{ .Params.body | markdownify }}</div>
         {{ with trim (partial "content.html" .) " \n" }}<div class="about-body">{{ . | safeHTML }}</div>{{ end }}
-        <p class="about-location">{{ .Params.location }}</p>
+        {{ with .Params.location }}<p class="about-location">{{ . }}</p>{{ end }}
       </div>
       <div>
         {{ with .Params.photo }}<img src="{{ . }}" alt="Oliver Cronk" width="300" height="300" class="about-photo">{{ end }}
@@ -37,5 +74,23 @@
     </div>
   </div>
 </section>
+
+{{/* 3. This website */}}
+{{ with .Params.website }}
+<section class="section section-cream" id="this-website">
+  <div class="section-inner">
+    <div class="about-content about-site">
+      {{ with .label }}<div class="label">{{ . }}</div>{{ end }}
+      <h2 class="about-name">{{ .heading }}</h2>
+      <div class="amber-bar"></div>
+      <div class="about-body">{{ .body | markdownify }}</div>
+      {{ with .points }}<ul class="tick-list">{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>{{ end }}
+      {{ $label := .link_label }}
+      {{ with site.GetPage .link }}<p class="about-site-link"><a class="service-link" href="{{ .RelPermalink }}">{{ $label }} →</a></p>{{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
 {{ partial "cta-band.html" . }}
 {{ end }}
