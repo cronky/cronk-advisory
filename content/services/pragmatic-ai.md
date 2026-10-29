@@ -1,7 +1,7 @@
 ---
 title: "Pragmatic AI"
 weight: 2
-# TODO: Claude's first draft from the articles (October 2026), for Ollie to review and approve before this branch merges.
+
 summary: "Using AI where it genuinely helps: testing the business case, governing agents at the speed they are built, and keeping people accountable where the consequences are real."
 description: "Pragmatic AI advice from Cronk Advisory: AI readiness, stress-testing AI investment, agentic AI governance and right-sized AI."
 who_for:
