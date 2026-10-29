@@ -2,8 +2,7 @@
 {{- $ids := .Params.legacy_ids | default slice }}
 <div class="service-card"{{ with $ids }} id="{{ index . 0 }}"{{ end }}>
   {{- range after 1 $ids }}<span id="{{ . }}"></span>{{ end }}
-  <div class="service-number label">{{ partial "service-number.html" . }}</div>
-  <h3>{{ .Title }}</h3>
+    <h3>{{ .Title }}</h3>
   {{ with .Params.summary }}<p class="service-body">{{ . }}</p>{{ end }}
   <a href="{{ .RelPermalink }}" class="service-link">Find out more<span class="visually-hidden"> about {{ .Title }}</span> →</a>
 </div>
