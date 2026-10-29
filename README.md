@@ -24,7 +24,7 @@ A further Claude Code session (Claude Opus 5.5) carried out Phase 0 of the v2 sp
 The same session built Phase 2 of the v2 spec: the multi-page structure, page templates, navigation, breadcrumbs, metadata and JSON-LD. Page copy was moved from the existing site rather than written by AI; the Pragmatic Ecosystems section is a placeholder that rearranges existing copy until the owner replaces it (with human review).
 The Pragmatic Ecosystems page, its interactive ecosystem map and four articles were drafted with Claude (claude.ai) under the owner's direction; the same Claude Code session ported the map into Hugo (shortcode, script, styles, no-JS fallback) and added the article layouts (with human review).
 When the owner published the articles, the same session added the context-stack diagram, cross-links between the articles and the Pragmatic Ecosystems page, typo and consistency fixes, and the AI-use footnotes on each article; for the reference architecture piece it also cleaned the three diagrams (Claude-generated SVGs, metadata and inline styles removed), checked the protocol dates and added the lethal trifecta reference. The owner wrote and edited the article text.
-The same session drafted the Pragmatic AI service copy from the owner's articles and the Speaking page from cronky.net, added related reading to the service pages and a 2026 engagements list, and drafted the DIST categories overview on the Sustainable Technology page from dist.greenweb.org, for the owner to review and approve before merging.
+The same session drafted the Pragmatic AI service copy from the owner's articles and the Speaking page from cronky.net, added related reading to the service pages and a 2026 engagements list, and drafted the DIST categories overview on the Sustainable Technology page from dist.greenweb.org, for the owner to review and approve before merging. It then built the Cronk Advisory side of the cronky.net content feed (build-time fetch with a snapshot fallback, local talk images, and the talk lists on Speaking, Insights and the service pages).
 
 ---
 
@@ -109,6 +109,12 @@ Almost everything visible on the site lives in `content/` as Markdown with struc
 The privacy policy lives in `content/privacy.md` and follows the same pattern.
 
 If you change services, biography or contact details, update `static/llms.txt` to match: it's the plain-text summary offered to LLMs and AI agents that read the site.
+
+Talks, writing and podcasts aren't edited here: they come from [cronky.net](https://cronky.net)'s feed at build time, and only items flagged `advisory: true` there appear. If cronky.net is down, the build falls back to `data/insights-snapshot.json`. Refresh it now and then (Git Bash on Windows) and commit the result:
+
+```bash
+sh scripts/refresh-insights
+```
 
 ---
 

@@ -33,8 +33,9 @@ The site practises what the business preaches: sustainable, secure, minimal tech
 | Privacy policy | `content/privacy.md` (update the "Last updated" line) |
 | Company information | `content/company.md`; the registration table is the `company-details` shortcode, built from `hugo.toml` params that match Companies House |
 | Plain text pages | `content/<name>.md`, rendered by `layouts/_default/single.html` |
-| Insights hub | `content/insights.md` (featured page, cronky.net links) with `layouts/_default/insights.html`; published articles are listed automatically |
-| Speaking engagements | `data/speaking.yml` (2026 entries copied from cronky.net, newest first), rendered by the `speaking-2026` shortcode in `content/speaking.md`; role counts are computed from it. Replaced by the cronky.net feed later (spec section 9) |
+| Insights hub | `content/insights.md` (featured page, `feed_blocks` for talks, writing and podcasts) with `layouts/_default/insights.html`; published articles are listed automatically |
+| Talks, writing and podcasts | Owned by cronky.net and read from its feed (see "The cronky.net feed" below). Don't copy them into this repo |
+| Speaking page lists | `{{< featured-talks >}}` and `{{< speaking-year 2026 >}}` in `content/speaking.md`; `talk_articles` in its front matter links a talk (by feed slug) to an article here; role labels and count wording in `layouts/partials/speaking-roles.html` |
 | Articles | `content/articles/<name>.md` (`title`, `date`, `description` as the standfirst, `series`, `topics`, `canonical` if first published elsewhere), rendered by `layouts/articles/single.html` |
 | Pragmatic Ecosystems map | Data in `data/ecosystem-map.json`; markup and no-JS fallback in `layouts/shortcodes/ecosystem-map.html`; script `static/js/ecosystem-map.js`; styles under `.eco-` in `main.css`. The Copernican diagram is `layouts/shortcodes/copernican-shift.html` |
 | Markdown links | `layouts/_default/_markup/render-link.html`: links to unpublished pages render as plain text; http(s) links open in a new tab |
@@ -109,6 +110,16 @@ hugo                      # build to ./public (git-ignored; Cloudflare builds it
 ```
 
 Cloudflare Pages builds with **Hugo 0.158.0** (the `HUGO_VERSION` variable in the Pages settings). Build locally with the same version, and if you upgrade Hugo, ask the owner to update that variable first: a feature your local Hugo has and Cloudflare's doesn't fails the deploy, not the local build. Templates use `site.Data` (logged as deprecated at INFO level only), which also builds on older Hugo.
+
+### The cronky.net feed
+
+Talks, writing and podcasts come from `https://cronky.net/feeds/advisory.json` (spec section 9), fetched at build time by `layouts/partials/insights-feed.html`:
+
+- If cronky.net is unreachable or the feed is invalid, the build uses `data/insights-snapshot.json` and prints a warning, so it still deploys. Refresh the snapshot with `sh scripts/refresh-insights` and commit it when it changes.
+- Item images and YouTube thumbnails are fetched at build time and published under `/images/feed/` as 480px WebP (`feed-image.html`), so visitors make no third-party requests. Don't hotlink feed images.
+- `insight-list.html` renders a filtered list (type, topics, advisory, featured, limit) as `talk-card.html` cards or a link list; service pages use it for "Related talks" and "Related writing" by `related_topics`.
+- Only items cronky.net flags `advisory: true` show, except role counts, which use every talk. Talks before March 2026 predate the company: present them as Oliver's track record, not Cronk Advisory work.
+- Remote fetches are cached for 15 minutes locally (`[caches.getresource]` in `hugo.toml`). A failed image fetch warns, which fails `--panicOnWarning`; rerun when cronky.net is back.
 
 There are no tests. Before finishing a change:
 

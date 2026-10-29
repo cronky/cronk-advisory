@@ -1,0 +1,27 @@
+{{- /* A talk or podcast episode from the cronky.net feed as a card linking to its page there.
+  Takes a dict: item (the feed entry) and kind ("talk" or "podcast"). */ -}}
+{{- $i := .item }}
+{{- $podcast := eq .kind "podcast" }}
+{{- $name := $i.slug }}
+{{- if $podcast }}{{ $name = printf "podcast-%s" ($i.youtube_id | default (urlize $i.title)) }}{{ end }}
+{{- $img := partialCached "feed-image.html" (dict "src" $i.image "youtube" $i.youtube_id "name" $name) $name }}
+{{- $label := "" }}
+{{- if $podcast }}
+  {{- $label = index (dict "host" "Podcast host" "co-host" "Podcast co-host" "guest" "Podcast guest" "cast" "Podcast cast") $i.role | default "Podcast" }}
+{{- else }}
+  {{- $label = $i.role | humanize }}
+  {{- range partialCached "speaking-roles.html" "roles" }}{{ if eq .id $i.role }}{{ $label = .label }}{{ end }}{{ end }}
+{{- end }}
+<a class="engagement-card talk-card" href="{{ $i.url }}" target="_blank" rel="noopener">
+  {{- with $img }}
+  <img src="{{ .RelPermalink }}" alt=""{{ with .Width }} width="{{ . }}"{{ end }}{{ with .Height }} height="{{ . }}"{{ end }} loading="lazy" class="talk-card-img{{ if in ($i.image | default "") "/logos/" }} is-logo{{ end }}">
+  {{- end }}
+  <span class="label">{{ $label }} · {{ (time $i.date).Format "January 2006" }}</span>
+  <h3>{{ $i.title }}</h3>
+  {{- if $podcast }}
+  <p class="service-body">{{ $i.show_title }}</p>
+  {{- else }}
+  <p class="service-body">{{ $i.event }}{{ with $i.location }}, {{ . }}{{ end }}</p>
+  {{- end }}
+  <span class="talk-card-more">{{ if $podcast }}Listen ↗{{ else if $i.youtube_id }}Watch the recording ↗{{ else }}More on cronky.net ↗{{ end }}</span>
+</a>

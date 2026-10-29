@@ -6,6 +6,10 @@ weight: 4
 summary: "Keynotes, talks, panels and facilitated sessions on architecture, AI and sustainable technology, for conferences, communities and leadership teams."
 description: "Book Oliver Cronk to speak, chair or facilitate on architecture, pragmatic AI and sustainable technology."
 related_topics: [speaking]
+# Articles on this site that go with a talk, by the talk's slug in the cronky.net feed
+talk_articles:
+  2026-baf-summit-keynote: "/articles/the-ai-efficiency-fallacy"
+  2026-green-io-london: "/articles/dist-workshop-greenio-london"
 ---
 Oliver speaks, chairs and facilitates on architecture, AI and sustainable technology. The aim on stage is the same as in client work: cut through the hype, make the trade-offs visible, and leave the room with something it can act on.
 
@@ -32,11 +36,15 @@ He has been speaking since 2008. Running the [Architect Tomorrow](https://archit
 
 Current talks include [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fallacy/), Shifting to Regenerative Architecture, and AI Readiness vs Human Readiness.
 
+## Featured talks
+
+{{< featured-talks >}}
+
 ## 2026 engagements
 
-{{< speaking-2026 >}}
+{{< speaking-year 2026 >}}
 
-<!-- TODO (Phase 5): featured talks with video facades, "Spoken at" logo strip and testimonials (once permission to publish is confirmed). -->
+<!-- TODO (Phase 5): "Spoken at" logo strip, and testimonials once permission to publish is confirmed. Playing recordings in the page (video facades, spec 8.5) needs a privacy policy update and Ollie's sign-off first; until then the cards link to cronky.net. -->
 
 ## Fees
 

@@ -26,18 +26,17 @@
     </div>
     {{ end }}
 
-    {{ with .Params.more_links }}
+    {{/* Talks, writing and podcasts from the cronky.net feed; a block with no items is hidden */}}
+    {{ range $block := .Params.feed_blocks }}
+    {{ with trim (partial "insight-list.html" (dict "type" $block.type)) " \n" }}
     <div class="service-block">
-      <h2>{{ $.Params.more_heading }}</h2>
-      <ul class="insight-links">
-        {{ range . }}
-        <li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .label }} ↗</a>{{ with .note }}<span>{{ . }}</span>{{ end }}</li>
-        {{ end }}
-      </ul>
+      <h2>{{ $block.heading }}</h2>
+      {{ with $block.intro }}<p class="feed-intro">{{ . }}</p>{{ end }}
+      {{ . | safeHTML }}
+      <p class="feed-archive"><a href="{{ $block.archive }}" target="_blank" rel="noopener">Full archive on cronky.net ↗</a></p>
     </div>
     {{ end }}
-
-    {{/* TODO (Phase 5): curated talks, writing and podcasts from the cronky.net feed */}}
+    {{ end }}
   </div>
 </section>
 {{ partial "cta-band.html" . }}

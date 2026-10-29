@@ -1,0 +1,23 @@
+{{- /* A feed item's image, fetched at build time and published locally as a 480px WebP, so
+  visitors make no third-party requests and the CSP can stay img-src 'self'. Takes a dict:
+  src (the item's image URL), youtube (a YouTube id, used when there is no image) and name
+  (the local file name). Returns the image resource, or false if there is none.
+  Call it with partialCached and the name as the variant. */ -}}
+{{- $src := .src }}
+{{- if and (not $src) .youtube }}{{ $src = printf "https://i.ytimg.com/vi/%s/hqdefault.jpg" .youtube }}{{ end }}
+{{- $img := false }}
+{{- with $src }}
+  {{- with try (resources.GetRemote .) }}
+    {{- with .Err }}
+      {{- warnf "Feed image %s: %s" $src . }}
+    {{- else with .Value }}
+      {{- if strings.Contains .MediaType.SubType "svg" }}
+        {{- $img = . | resources.Copy (printf "images/feed/%s.svg" $.name) }}
+      {{- else }}
+        {{- if gt .Width 480 }}{{ $img = .Resize "480x webp q80" }}{{ else }}{{ $img = .Process "webp q80" }}{{ end }}
+        {{- $img = $img | resources.Copy (printf "images/feed/%s.webp" $.name) }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- return $img }}

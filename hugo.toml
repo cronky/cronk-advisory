@@ -18,7 +18,12 @@ enableRobotsTXT = true
   founder          = "Oliver Cronk"
   linkedin         = "https://www.linkedin.com/in/cronky/"
   personalSite     = "https://cronky.net/"
-  insightsFeed     = "https://cronky.net/feeds/advisory.json"
+  insightsFeed     = "https://cronky.net/feeds/advisory.json"   # fetched at build; data/insights-snapshot.json is the fallback
+
+# Remote resources (the cronky.net feed and its images) are fetched at build time.
+# Hugo's default keeps them forever, so expire them to pick up feed changes on local builds.
+[caches.getresource]
+  maxAge = "15m"
 
 [markup.goldmark.renderer]
   unsafe = true

@@ -1,0 +1,32 @@
+{{- /* Items from the cronky.net feed, newest first: talk cards for speaking and podcasts, a
+  link list for writing. Takes a dict:
+    type      "speaking", "writing" or "podcasts"
+    topics    optional slice; keeps items sharing at least one topic
+    advisory  false to include items cronky.net has not flagged for Cronk Advisory (default true)
+    featured  true to keep only featured items
+    limit     default 6
+  Renders nothing when no items match. */ -}}
+{{- $feed := partialCached "insights-feed.html" . "feed" }}
+{{- $items := index $feed .type | default slice }}
+{{- if ne .advisory false }}{{ $items = where $items "advisory" true }}{{ end }}
+{{- if .featured }}{{ $items = where $items "featured" true }}{{ end }}
+{{- with .topics }}{{ $items = where $items "topics" "intersect" . }}{{ end }}
+{{- $items = first (.limit | default 6) (sort $items "date" "desc") }}
+{{- with $items }}
+  {{- if eq $.type "writing" }}
+<ul class="page-list feed-list">
+  {{- range . }}
+  <li>
+    <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }} ↗</a>
+    <span>{{ .outlet }} · {{ (time .date).Format "January 2006" }}</span>
+  </li>
+  {{- end }}
+</ul>
+  {{- else }}
+<div class="engagement-grid talk-grid">
+  {{- range . }}
+  {{ partial "talk-card.html" (dict "item" . "kind" (cond (eq $.type "podcasts") "podcast" "talk")) }}
+  {{- end }}
+</div>
+  {{- end }}
+{{- end }}

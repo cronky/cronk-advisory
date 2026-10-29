@@ -670,10 +670,28 @@ a:hover { text-decoration: underline; }
 .speaking-list .page-list span a { font-family: var(--serif); font-weight: 400; }
 .speaking-counts { margin-bottom: 8px; }
 .speaking-more { margin-top: 20px; }
-.insight-links { list-style: none; padding: 0; max-width: 720px; }
-.insight-links li { padding: 12px 0; border-bottom: 1px solid var(--rule); }
-.insight-links a { font-family: var(--heading); font-weight: 700; }
-.insight-links span { display: block; color: var(--ink-m); font-size: 15px; }
+
+/* Talks, writing and podcasts from the cronky.net feed */
+.feed-intro { color: var(--ink-m); margin: -8px 0 20px; max-width: 720px; }
+.feed-archive { margin-top: 20px; }
+.feed-archive a, .feed-list a { color: var(--forest); }
+.talk-card { padding: 0 0 24px; gap: 10px; overflow: hidden; text-decoration: none; color: inherit; }
+.talk-card:hover { text-decoration: none; border-color: var(--ink-lt); }
+.talk-card > :not(img) { margin: 0 24px; }
+.talk-card .label { margin-bottom: 0; }
+.talk-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin-bottom: 6px;
+  border-bottom: 1px solid var(--rule);
+}
+.talk-card-img.is-logo { object-fit: contain; padding: 20px; background: white; }
+.talk-card-more { font-family: var(--heading); font-size: 14px; font-weight: 600; color: var(--forest); margin-top: auto !important; }
+.prose .talk-grid { margin: 0 0 16px; }
+.prose .talk-card { text-decoration: none; }
+.prose .talk-card h3 { margin-top: 0; margin-bottom: 0; }
+.prose .talk-card p { margin-bottom: 0; }
 
 .contact-page-grid {
   display: grid;
