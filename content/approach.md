@@ -18,13 +18,17 @@ For centuries people believed the Earth sat at the centre of the universe, with 
 
 Most organisations still hold an overly "geocentric" type view of themselves. Strategy and business architecture is drawn with the organisation in the middle and everything else orbiting it: customers, suppliers, regulators, society and, somewhere on the outer ring, "the environment", usually filed as an externality. As individuals we do the same.
 
-Ecosystem Architecture starts with a similar adjustment. Things do not revolve around us. We take part in much larger ecosystems, and we depend on them. Once you see that, different questions become obvious. What do we rely on that we do not control? What are we pushing onto systems we cannot do without?
+Ecosystem Architecture starts with a similar adjustment. Things do not revolve around us. We take part in much larger ecosystems, and we depend on them. 
+
+Once you see that, different questions become obvious: What do we rely on that we do not control? What are we pushing onto systems we cannot do without? What natural capital are we dependant on yet undervaluing?
 
 {{< copernican-shift >}}
 
-## The picture, the right way up
+## What might a shifted perspective look like?
 
-Most diagrams still put the organisation at the centre. We draw it at the top of a stack. Your organisation rests on a business ecosystem, which rests on an economy, which rests on society, which rests on the biosphere. Each layer sits wholly on the one beneath it: nothing above can be bigger than its foundation.
+Many will still think of their own organisation as being at the centre. We've chosen to draw it at the top of a stack. Your organisation rests on a business ecosystem, which rests on an economy, which rests on society, which rests on the biosphere. 
+
+**Note that this is tech focussed.** You could use this approach to consider broader business impacts across these layers, but this just uses mainly digital technology to illustrate the concept (and as this tends to be the focus of our advisory).
 
 {{< ecosystem-map >}}
 
@@ -33,12 +37,12 @@ Resources and constraints rise from the bottom. Impacts settle back down onto it
 ## Four positions
 
 **1. Every system has a footprint somewhere real.**
-Every product, process and digital service depends on energy, materials, water, land and people, somewhere real. Supply chains, outsourcing and the cloud make those dependencies invisible. We make them visible, starting with the ones that are material to you.
+Every product, process and digital service depends on energy, materials, water, land and people, somewhere real. Supply chains, outsourcing and the cloud make those dependencies invisible. We strive to make them more visible, starting with the ones that are material to you.
 
 **2. Viability needs feedback loops, not just intentions.**
-Plenty of organisations have excellent sustainability and responsible AI intentions. Without the feedback loops to detect their own impacts, and the governance to respond in time, those intentions are decorative. Stafford Beer's Viable System Model gives us the diagnostic questions; Cynefin helps us work out what kind of problem we are facing before deciding how to respond.
+Plenty of organisations have excellent sustainability and responsible AI intentions. Without the feedback loops to detect their own impacts, and the governance to respond in time, those intentions are decorative.
 
-**3. Architecture is the highest-leverage intervention.**
+**3. Architecture can be a high leverage intervention.**
 The biggest lever is rarely a switch of supplier or a purchase of offsets. It is the structural decisions, in business and technology architecture alike, that determine what an organisation consumes, what it depends on and what it enables downstream, for years after they are made.
 
 **4. Govern patterns, not content.**
@@ -69,8 +73,6 @@ Pragmatic Ecosystems has grown out of nearly a decade of practice and community 
 - **2019: Architect Tomorrow.** A global community and podcast where these ideas are tested, challenged and extended, including the community's Principles for Regenerative Architecture.
 - **Digital impacts.** Oliver works with the Green Web Foundation on [DIST](https://dist.greenweb.org/), an open standard for reporting the impacts of digital services beyond carbon.
 - **2026: Dynamic Architecture.** Applying the same principles to a world where software and agents can be created in hours rather than months.
-
-<!-- TODO: confirm any further milestones or years you want shown. -->
 
 ## Intellectual foundations
 

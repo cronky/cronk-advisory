@@ -9,7 +9,7 @@
 {{- $info := index $sector.layers $layer.id }}
 <div class="eco-map" id="ecosystem-map">
   <div class="eco-controls" hidden>
-    <p class="eco-intro">Pick a viewpoint to see what the stack means for your sector.</p>
+    <p class="eco-intro">Pick a viewpoint to see suggestions and examples of what the stack might means for your sector.</p>
     <div>
       <div class="eco-control-label" id="eco-sector-label">Viewpoint</div>
       <div class="eco-pills" role="group" aria-labelledby="eco-sector-label" id="eco-sectors"></div>
@@ -32,7 +32,7 @@
         {{- $li := index $sector.layers $l.id }}
         <li>
           <div class="eco-band eco-band--l{{ add $i 1 }}{{ if $li.material }} is-material{{ end }}">
-            {{- if $li.material }}<span class="eco-badge">Most material</span>{{ end }}
+            {{- if $li.material }}<span class="eco-badge">Arguably Most material?</span>{{ end }}
             <span class="eco-band-head"><span class="eco-band-name">{{ $l.name }}</span><span class="eco-band-tag">{{ $l.tag }}</span></span>
             <span class="eco-chips">{{ range $li.chips }}<span class="eco-chip">{{ . }}</span>{{ end }}</span>
             <span class="eco-band-line"><span class="eco-arrow" aria-hidden="true">↑</span>{{ $li.relies }}</span>
@@ -45,7 +45,7 @@
     </div>
     <aside class="eco-detail" id="eco-detail" aria-live="polite">
       <h3>{{ $layer.name }}</h3>
-      <p class="eco-tagline">{{ $layer.tag }}{{ if $info.material }} · Most material for {{ lower $sector.name }}{{ end }}</p>
+      <p class="eco-tagline">{{ $layer.tag }}{{ if $info.material }} · Arguably Most material for {{ lower $sector.name }}{{ end }}</p>
       <p>{{ $layer.summary }}</p>
       <h4>For any organisation</h4>
       <div class="eco-flows">
@@ -64,7 +64,7 @@
   </div>
 
   <div class="eco-foot">
-    <span>Illustrative, not prescriptive: what is material varies by organisation. Highlights mark the layers usually most material for each sector.</span>
+    <span>Illustrative, not definitively correct: what is material will vary by organisation. Highlights mark the layers usually most material for each sector.</span>
     <span>Planetary boundaries figure from the <a href="https://www.stockholmresilience.org/news--events/general-news/2025-09-24-seven-of-nine-planetary-boundaries-now-breached" target="_blank" rel="noopener">Planetary Health Check 2025</a>.</span>
   </div>
 
