@@ -7,7 +7,7 @@ hero:
   label: "Technology leadership · Architecture · Sustainability"
   heading: "Innovative Tech"
   heading_em: "Aligned with Sustainability Goals"
-  body: "Working with business and sustainability leaders, partners, and delivery teams to balance business performance, efficiency & holistic sustainability (people, planet & profitability)"
+  body: "Working with leaders, sustainability, architecture and delivery teams to balance performance & holistic sustainability (people, planet & profitability)"
   # Background photo: path prefix of the -800.webp and -1600.webp files in static/images/photos/ (Ollie's own photo)
   photo: "/images/photos/bark-moss"
   card_photo: "/images/photos/oliver-cronk-160.webp"
@@ -43,9 +43,8 @@ latest:
 
 # Used by the "Start a conversation" band on every page (layouts/partials/cta-band.html).
 contact:
-  label: "Start a conversation"
-  heading: "No obligation.\nNo hard sell."
-  body: "If you are figuring out whether fractional CTO support, an architecture review, or a sustainability assessment makes sense for your organisation: the first step is a conversation."
-  sub: "A no obligation discussion about where you are and your needs."
+  label: "Want to Discuss Further?"
+  heading: "Let's Talk!"
+  body: "If you are figuring out whether fractional CTO support, an architecture review, or a sustainability assessment makes sense for your organisation - lets chat!"
   location: "Based in Newbury, Berkshire · Working across the UK and internationally"
 ---

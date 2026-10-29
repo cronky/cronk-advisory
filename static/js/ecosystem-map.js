@@ -66,7 +66,7 @@
 
       if (info.material) {
         b.classList.add('is-material');
-        b.appendChild(el('span', 'eco-badge', 'Most material'));
+        b.appendChild(el('span', 'eco-badge', 'Most material?'));
       }
       var head = el('span', 'eco-band-head');
       head.appendChild(el('span', 'eco-band-name', layer.name));

@@ -104,19 +104,21 @@
       "id": "organisation",
       "name": "Your organisation",
       "tag": "You are here",
-      "summary": "Teams, systems, data and decisions. The only layer you control directly, and it rests on everything beneath it.",
+      "summary": "Teams, systems, processes, data and decisions. The only layer you control directly, and it rests on everything beneath it.",
       "question": "Do you have the feedback loops to see what your decisions do to the layers below, and to respond in time?",
       "lenses": [
+        {
+          "name": "Business Capability Models",
+          "url": "https://en.wikipedia.org/wiki/Business_capability_model",
+          "note": "Business Architecture"
+        },
+        
         {
           "name": "Viable System Model",
           "url": "https://en.wikipedia.org/wiki/Viable_system_model",
           "note": "Stafford Beer"
         },
-        {
-          "name": "Cynefin",
-          "url": "https://thecynefin.co/about-us/about-cynefin-framework/",
-          "note": "sense-making before deciding"
-        },
+        
         {
           "name": "Dynamic Architecture",
           "url": "",
@@ -176,6 +178,7 @@
         "organisation": {
           "chips": [
             "Teams",
+            "Processes",
             "Systems",
             "Data",
             "Decisions"
