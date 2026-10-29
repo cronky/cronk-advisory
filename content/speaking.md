@@ -6,6 +6,50 @@ weight: 4
 summary: "Keynotes, talks, panels and facilitated sessions on architecture, AI and sustainable technology, for conferences, communities and leadership teams."
 description: "Book Oliver Cronk to speak, chair or facilitate on architecture, pragmatic AI and sustainable technology."
 related_topics: [speaking]
+wide: true   # lets the card grids use the full page width
+# Formats and Topics render as cards with {{< icon-cards formats >}} and {{< icon-cards topics >}}.
+# icon: a name from layouts/partials/icon.html. TODO: Claude's one-line format descriptions, for Ollie to review.
+formats:
+  - title: "Keynote"
+    icon: presentation
+    body: "A headline talk that sets the theme for the event."
+  - title: "Talk"
+    icon: speech
+    body: "A focused talk for a conference, community or meetup."
+  - title: "Panel chair"
+    icon: panel
+    body: "Drawing out the panellists and keeping the audience involved."
+  - title: "MC and host"
+    icon: microphone
+    body: "Holding the day together, from the opening welcome to the close."
+  - title: "Roundtable facilitation"
+    icon: roundtable
+    body: "Making sure every voice is heard and the discussion gets somewhere useful."
+  - title: "Workshop"
+    icon: workshop
+    body: "Hands-on sessions that work through a framework or problem with the group, such as DIST."
+  - title: "Live podcast recording"
+    icon: broadcast
+    body: "An [Architect Tomorrow](https://architecttomorrow.com) episode recorded in front of your audience."
+  - title: "In-house sessions and away days"
+    icon: building
+    body: "Sessions for leadership and technology teams, from a briefing to a facilitated away day."
+  - title: "Podcast guest"
+    icon: headphones
+    body: "Joining your podcast or webinar as a guest."
+topics:
+  - title: "Enterprise and business architecture"
+    icon: layers
+    body: "The role of the chief architect, governance that enables innovation, and ecosystem architecture."
+  - title: "AI strategy and architecture"
+    icon: sparkle
+    body: "Pragmatic enterprise AI, the risks of sleepwalking into AI's societal challenges, and human-centred AI."
+  - title: "Sustainable technology"
+    icon: leaf
+    body: "Measuring and reducing the environmental impact of digital services, [DIST](https://dist.greenweb.org/), and greener AI."
+  - title: "Open source and responsible technology"
+    icon: code
+    body: "The role of open source in sustainable technology, and building technology that serves people."
 # Articles on this site that go with a talk, by the talk's slug in the cronky.net feed
 talk_articles:
   2026-baf-summit-keynote: "/articles/the-ai-efficiency-fallacy"
@@ -17,22 +61,11 @@ He has been speaking since 2008. Running the [Architect Tomorrow](https://archit
 
 ## Formats
 
-- Keynote
-- Talk
-- Panel chair
-- MC and host
-- Roundtable facilitation
-- Workshop
-- Live podcast recording
-- In-house sessions and away days
-- Podcast guest
+{{< icon-cards formats >}}
 
 ## Topics
 
-- **Enterprise and business architecture:** the role of the chief architect, governance that enables innovation, and ecosystem architecture.
-- **AI strategy and architecture:** pragmatic enterprise AI, the risks of sleepwalking into AI's societal challenges, and human-centred AI.
-- **Sustainable technology:** measuring and reducing the environmental impact of digital services, [DIST](https://dist.greenweb.org/), and greener AI.
-- **Open source and responsible technology.**
+{{< icon-cards topics >}}
 
 Current talks include [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fallacy/), Shifting to Regenerative Architecture, and AI Readiness vs Human Readiness.
 

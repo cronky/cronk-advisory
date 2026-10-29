@@ -581,6 +581,42 @@ a:hover { text-decoration: underline; }
 .prose th, .prose td { border-bottom: 1px solid var(--rule); padding: 8px 10px; text-align: left; vertical-align: top; }
 .prose th { font-family: var(--heading); color: var(--ink); }
 .prose li { margin-bottom: 6px; }
+/* wide: true in front matter lets card grids use the full width; text stays at reading width */
+.prose.prose-wide { max-width: none; }
+.prose-wide > :not(.icon-grid):not(.talk-grid) { max-width: 720px; }
+
+/* Cards with icons ({{< icon-cards >}}) */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 0 0 24px;
+}
+.icon-grid-formats { grid-template-columns: repeat(3, 1fr); }   /* nine formats: a 3 x 3 grid */
+.icon-grid-topics  { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+@media (max-width: 900px) { .icon-grid-formats { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .icon-grid-formats { grid-template-columns: 1fr; } }
+.icon-card {
+  background: white;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--forest);
+}
+.prose .icon-card h3 { margin: 4px 0 0; font-size: 17px; color: var(--navy); }
+.prose .icon-card p { margin: 0; font-size: 15px; line-height: 1.55; }
+
 .prose-figure { margin: 28px 0; }
 .prose-figure img { border: 1px solid var(--rule); }
 .prose-figure figcaption { font-size: 14px; line-height: 1.5; color: var(--ink-m); margin-top: 10px; }
