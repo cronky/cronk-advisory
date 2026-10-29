@@ -326,8 +326,9 @@ a:hover { text-decoration: underline; }
   margin-top: 0;
 }
 .service-card {
+  position: relative;
   background: white;
-  padding: 32px;
+  padding: 24px 32px 26px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -338,6 +339,8 @@ a:hover { text-decoration: underline; }
 .service-number { color: var(--forest); margin-bottom: 0; }
 .service-card h3 { color: var(--navy); transition: color 0.15s ease; }
 /* The whole card is a link: an arrow badge in the corner fills in on hover and focus */
+/* Extra legacy ids (old /#advisory links): kept at the card's top edge but out of the layout */
+.legacy-anchor { position: absolute; top: 0; left: 0; }
 .service-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
 .service-card-arrow {
   display: inline-flex;
