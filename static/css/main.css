@@ -327,13 +327,42 @@ a:hover { text-decoration: underline; }
 }
 .service-card {
   background: white;
-  padding: 40px 32px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
 }
 .service-number { color: var(--forest); margin-bottom: 0; }
-.service-card h3 { color: var(--navy); }
+.service-card h3 { color: var(--navy); transition: color 0.15s ease; }
+/* The whole card is a link: an arrow badge in the corner fills in on hover and focus */
+.service-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.service-card-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid var(--forest);
+  color: var(--forest);
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.service-card-arrow .icon { width: 18px; height: 18px; }
+.service-card:hover, .service-card:focus-visible { background: #FBFAF6; text-decoration: none; }
+.service-card:hover h3, .service-card:focus-visible h3 { color: var(--forest); }
+.service-card:hover .service-card-arrow, .service-card:focus-visible .service-card-arrow {
+  background: var(--forest);
+  color: white;
+  transform: translateX(3px);
+}
+.service-card:focus-visible { outline: 3px solid var(--amber); outline-offset: -3px; }
+@media (prefers-reduced-motion: reduce) {
+  .service-card, .service-card h3, .service-card-arrow { transition: none; }
+  .service-card:hover .service-card-arrow { transform: none; }
+}
 .service-body { color: var(--ink-m); font-size: 15px; }
 .service-body p { margin-bottom: 12px; }
 .service-body p:last-child { margin-bottom: 0; }

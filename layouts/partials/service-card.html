@@ -1,8 +1,10 @@
-{{- /* Teaser card for a service page. The first legacy_id becomes the card id and the rest get empty anchors, so old /#fractional-cto style links still land. */ -}}
+{{- /* Teaser card for a service page; the whole card is the link, with an arrow badge as the cue. The first legacy_id becomes the card id and the rest get empty anchors, so old /#fractional-cto style links still land. */ -}}
 {{- $ids := .Params.legacy_ids | default slice }}
-<div class="service-card"{{ with $ids }} id="{{ index . 0 }}"{{ end }}>
+<a class="service-card" href="{{ .RelPermalink }}"{{ with $ids }} id="{{ index . 0 }}"{{ end }}>
   {{- range after 1 $ids }}<span id="{{ . }}"></span>{{ end }}
+  <div class="service-card-top">
     <h3>{{ .Title }}</h3>
+    <span class="service-card-arrow">{{ partial "icon.html" "arrow" }}</span>
+  </div>
   {{ with .Params.summary }}<p class="service-body">{{ . }}</p>{{ end }}
-  <a href="{{ .RelPermalink }}" class="service-link">Find out more<span class="visually-hidden"> about {{ .Title }}</span> →</a>
-</div>
+</a>
