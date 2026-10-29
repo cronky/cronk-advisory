@@ -1,0 +1,2 @@
+# Shell scripts must keep Unix line endings to run, including from Git Bash on Windows
+scripts/* text eol=lf
