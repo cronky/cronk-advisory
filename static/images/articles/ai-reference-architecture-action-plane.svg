@@ -1,0 +1,28 @@
+<svg width="680" height="470" viewBox="0 0 680 470" role="img" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" xmlns="http://www.w3.org/2000/svg"><title>The action plane: MCP, A2A and the agent gateway</title><desc>The agent harness calls out through an agent gateway that applies policy, authorisation, quotas and audit. From there, two paths: tools and data via MCP, backed by a tool registry and scopes, and peer agents via A2A, backed by an explicit delegation boundary. Every action is logged to telemetry with the requesting identity.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#898781" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+<g><rect x="190" y="40" width="300" height="44" rx="8" stroke-width="0.5" fill="rgb(241, 239, 232)" stroke="rgb(95, 94, 90)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="340" y="62" text-anchor="middle" dominant-baseline="central" fill="rgb(68, 68, 65)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Agent harness</text></g>
+
+<line x1="340" y1="84" x2="340" y2="98" marker-end="url(#arrow)" fill="none" stroke="rgb(137, 135, 129)" stroke-width="1.5" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+
+<g><rect x="170" y="104" width="340" height="56" rx="8" stroke-width="0.5" fill="rgb(250, 236, 231)" stroke="rgb(153, 60, 29)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="340" y="122" text-anchor="middle" dominant-baseline="central" fill="rgb(113, 43, 19)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Agent gateway</text><text x="340" y="140" text-anchor="middle" dominant-baseline="central" fill="rgb(153, 60, 29)" stroke="none" stroke-width="1" font-size="12">policy, authz, quotas, audit</text></g>
+
+<line x1="180" y1="160" x2="180" y2="194" marker-end="url(#arrow)" fill="none" stroke="rgb(137, 135, 129)" stroke-width="1.5" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+<line x1="500" y1="160" x2="500" y2="194" marker-end="url(#arrow)" fill="none" stroke="rgb(137, 135, 129)" stroke-width="1.5" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+
+<g><rect x="40" y="200" width="280" height="56" rx="8" stroke-width="0.5" fill="rgb(250, 236, 231)" stroke="rgb(153, 60, 29)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="180" y="218" text-anchor="middle" dominant-baseline="central" fill="rgb(113, 43, 19)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Tools and data via MCP</text><text x="180" y="236" text-anchor="middle" dominant-baseline="central" fill="rgb(153, 60, 29)" stroke="none" stroke-width="1" font-size="12">read and write, vertical</text></g>
+
+<g><rect x="360" y="200" width="280" height="56" rx="8" stroke-width="0.5" fill="rgb(250, 236, 231)" stroke="rgb(153, 60, 29)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="500" y="218" text-anchor="middle" dominant-baseline="central" fill="rgb(113, 43, 19)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Peer agents via A2A</text><text x="500" y="236" text-anchor="middle" dominant-baseline="central" fill="rgb(153, 60, 29)" stroke="none" stroke-width="1" font-size="12">agent cards, tasks, horizontal</text></g>
+
+<line x1="180" y1="256" x2="180" y2="284" marker-end="url(#arrow)" fill="none" stroke="rgb(137, 135, 129)" stroke-width="1.5" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+<line x1="500" y1="256" x2="500" y2="284" marker-end="url(#arrow)" fill="none" stroke="rgb(137, 135, 129)" stroke-width="1.5" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+
+<g><rect x="40" y="290" width="280" height="56" rx="8" stroke-width="0.5" fill="rgb(241, 239, 232)" stroke="rgb(95, 94, 90)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="180" y="308" text-anchor="middle" dominant-baseline="central" fill="rgb(68, 68, 65)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Tool registry and scopes</text><text x="180" y="326" text-anchor="middle" dominant-baseline="central" fill="rgb(95, 94, 90)" stroke="none" stroke-width="1" font-size="12">approved servers, permissions</text></g>
+
+<g><rect x="360" y="290" width="280" height="56" rx="8" stroke-width="0.5" fill="rgb(241, 239, 232)" stroke="rgb(95, 94, 90)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="500" y="308" text-anchor="middle" dominant-baseline="central" fill="rgb(68, 68, 65)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Delegation boundary</text><text x="500" y="326" text-anchor="middle" dominant-baseline="central" fill="rgb(95, 94, 90)" stroke="none" stroke-width="1" font-size="12">which agent may read what</text></g>
+
+<g><rect x="40" y="380" width="600" height="36" rx="8" stroke-width="0.5" fill="rgb(241, 239, 232)" stroke="rgb(95, 94, 90)" font-size="16" text-anchor="start" dominant-baseline="auto"/><text x="340" y="398" text-anchor="middle" dominant-baseline="central" fill="rgb(68, 68, 65)" stroke="none" stroke-width="1" font-size="14" font-weight="500">Every action logged with the requesting identity</text></g>
+
+<rect x="40" y="436" width="12" height="12" rx="3" stroke-width="0.5" fill="rgb(250, 236, 231)" stroke="rgb(153, 60, 29)" font-size="16" text-anchor="start" dominant-baseline="auto"/>
+<text x="58" y="442" dominant-baseline="central" fill="rgb(82, 81, 78)" stroke="none" stroke-width="1" font-size="12" text-anchor="start">Not present in the 2023 version</text>
+</svg>

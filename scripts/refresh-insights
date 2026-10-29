@@ -1,0 +1,23 @@
+#!/bin/sh
+# Download the cronky.net content feed into data/insights-snapshot.json, the fallback
+# the build uses when cronky.net is unreachable (spec section 9.2). Commit the snapshot
+# when it changes. Run from the repo root: sh scripts/refresh-insights
+set -eu
+
+url="https://cronky.net/feeds/advisory.json"
+out="data/insights-snapshot.json"
+tmp="$(mktemp)"
+trap 'rm -f "$tmp"' EXIT
+
+curl -fsSL "$url" -o "$tmp"
+
+# Refuse anything that isn't valid JSON with schema_version 1
+if command -v python3 >/dev/null 2>&1; then py=python3; else py=python; fi
+"$py" -I -c 'import json, sys
+feed = json.load(open(sys.argv[1], encoding="utf-8"))
+assert feed.get("schema_version") == 1, "unexpected schema_version"
+print("speaking %d, writing %d, podcasts %d" % (len(feed["speaking"]), len(feed["writing"]), len(feed["podcasts"])))' "$tmp"
+
+mv "$tmp" "$out"
+trap - EXIT
+echo "Updated $out. Commit it if git shows a change."

@@ -2,30 +2,35 @@
 {{ $h := .Params.hero }}
 {{ $s := .Params.services }}
 {{ $a := .Params.approach }}
-{{ $ab := .Params.about }}
-{{ $c := .Params.contact }}
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
+  {{ with $h.photo }}
+  <div class="hero-photo" aria-hidden="true">
+    <img src="{{ . }}-1600.webp" srcset="{{ . }}-800.webp 800w, {{ . }}-1600.webp 1600w" sizes="100vw" alt="" width="1600" height="1067" fetchpriority="high" decoding="async">
+  </div>
+  {{ end }}
   <div class="hero-inner">
     <div class="hero-content">
       <div class="label">{{ $h.label }}</div>
       <h1>{{ $h.heading }}<br><em>{{ $h.heading_em }}</em></h1>
       <p class="hero-sub">{{ $h.body }}</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-primary">{{ $h.cta_primary }}</a>
-        <a href="#services" class="btn-ghost-dark">{{ $h.cta_secondary }} ↓</a>
-      </div>
     </div>
-    <div class="hero-aside">
+    <div class="hero-aside" id="about">
       <div class="hero-card">
         <div class="label">Founded by</div>
-        <div class="hero-card-name">{{ $h.card_name }}</div>
-        <div class="hero-card-title">{{ $h.card_title }}</div>
+        <div class="hero-card-person">
+          {{ with $h.card_photo }}<img src="{{ . }}" alt="" width="64" height="64" class="hero-card-photo">{{ end }}
+          <div>
+            <div class="hero-card-name">{{ $h.card_name }}</div>
+            <div class="hero-card-title">{{ $h.card_title }}</div>
+          </div>
+        </div>
         <div class="hero-card-divider"></div>
         <ul class="hero-card-list">
           {{ range $h.card_points }}<li>{{ . }}</li>{{ end }}
         </ul>
+        {{ with site.GetPage "/about" }}<a href="{{ .RelPermalink }}" class="hero-card-link">About Oliver →</a>{{ end }}
       </div>
     </div>
   </div>
@@ -34,98 +39,67 @@
 <!-- ═══ SERVICES ═══ -->
 <section id="services" class="section section-cream">
   <div class="section-inner">
-    <div class="section-header">
-      <div class="label">{{ $s.label }}</div>
-      <h2>{{ $s.heading }}</h2>
-      <div class="amber-bar"></div>
+    <div class="section-header section-header-tight">
+      <div>
+        <div class="label">{{ $s.label }}</div>
+        <h2>{{ $s.heading }}</h2>
+      </div>
     </div>
     <div class="services-grid">
-      {{ range $s.items }}
-      <div class="service-card" id="{{ .id }}">
-        <div class="service-number label">{{ .number }}</div>
-        <h3>{{ .title }}</h3>
-        <div class="service-body">{{ .body | markdownify }}</div>
-        {{ with .note }}<p class="service-note">{{ . | markdownify }}</p>{{ end }}
-        <a href="#contact" class="service-link">Find out more →</a>
-      </div>
+      {{ range partial "service-pages.html" . }}
+      {{ partial "service-card.html" . }}
       {{ end }}
     </div>
   </div>
 </section>
 
-<!-- ═══ APPROACH ═══ -->
-<section id="approach" class="section section-navy">
+<!-- ═══ LATEST: newest articles and talk ═══ -->
+{{- $l := .Params.latest }}
+{{- $articles := first ($l.articles | default 2) (where site.RegularPages "Section" "articles").ByDate.Reverse }}
+{{- $talks := where (index (partialCached "insights-feed.html" . "feed") "speaking" | default slice) "advisory" true }}
+{{- $talk := false }}
+{{- with first 1 (sort $talks "date" "desc") }}{{ $talk = index . 0 }}{{ end }}
+{{ if or $articles $talk }}
+<section id="latest" class="section section-white">
   <div class="section-inner">
+    <div class="section-header section-header-tight">
+      <div>
+        <div class="label">{{ $l.label }}</div>
+        <h2>{{ $l.heading }}</h2>
+      </div>
+      {{ with site.GetPage "/insights" }}<a href="{{ .RelPermalink }}" class="service-link">{{ $l.cta }} →</a>{{ end }}
+    </div>
+    <div class="engagement-grid latest-grid">
+      {{ range $articles }}{{ partial "article-card.html" . }}{{ end }}
+      {{ with $talk }}{{ partial "talk-card.html" (dict "item" . "kind" "talk") }}{{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- ═══ APPROACH TEASER ═══ -->
+<section id="approach" class="section section-navy">
+  <div class="section-inner approach-teaser">
     <div class="approach-grid">
-      <div class="approach-content">
+      <div>
         <div class="section-header">
           <div class="label">{{ $a.label }}</div>
           <h2 class="heading-lines">{{ $a.heading }}</h2>
           <div class="amber-bar"></div>
         </div>
-        <p class="approach-lead">{{ $a.lead }}</p>
-        <div class="approach-body">{{ $a.body | markdownify }}</div>
-        {{ with $a.cta }}<a href="{{ $a.cta_url }}" target="_blank" rel="noopener" class="btn-ghost-amber">{{ . }} →</a>{{ end }}
+        <p class="approach-lead">{{ $a.teaser }}</p>
+        {{ with site.GetPage "/approach" }}<a href="{{ .RelPermalink }}" class="btn-ghost-amber">{{ $a.cta }} →</a>{{ end }}
       </div>
-      <div class="approach-pillars">
-        {{ range $a.pillars }}
-        <div class="pillar">
-          <div class="pillar-icon">{{ .icon }}</div>
-          <div class="pillar-title">{{ .title }}</div>
-          <p>{{ .body }}</p>
-        </div>
-        {{ end }}
-      </div>
+      {{ with site.GetPage "/approach" }}
+      <a href="{{ .RelPermalink }}" class="approach-thumb">
+        {{ partial "ecosystem-stack.html" }}
+        <span class="approach-thumb-title">{{ $a.thumb_title }}</span>
+        <span class="approach-thumb-body">{{ $a.thumb_body }}</span>
+      </a>
+      {{ end }}
     </div>
   </div>
 </section>
 
-<!-- ═══ ABOUT ═══ -->
-<section id="about" class="section section-cream">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="label">{{ $ab.label }}</div>
-      <h2>{{ $ab.heading }}</h2>
-      <div class="amber-bar"></div>
-    </div>
-    <div class="about-grid">
-      <div class="about-content">
-        <p class="about-lead">{{ $ab.lead }}</p>
-        <div class="about-body">{{ $ab.body | markdownify }}</div>
-        <p class="about-location">{{ $ab.location }}</p>
-      </div>
-      <div>
-        <div class="about-card">
-          <div class="label">Previous positions</div>
-          <ul class="about-roles">
-            {{ range $ab.previous_roles }}<li>{{ . }}</li>{{ end }}
-          </ul>
-          <div class="label">Community &amp; Open Source</div>
-          <ul class="about-roles">
-            {{ range $ab.links }}<li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .label }}</a></li>{{ end }}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CONTACT ═══ -->
-<section id="contact" class="section section-forest">
-  <div class="section-inner">
-    <div class="contact-grid">
-      <div>
-        <div class="label">{{ $c.label }}</div>
-        <h2 class="heading-lines">{{ $c.heading }}</h2>
-        <p class="contact-lead">{{ $c.body }}</p>
-        <p class="contact-sub">{{ $c.sub }}</p>
-      </div>
-      <div class="contact-action">
-        <a href="mailto:{{ $.Site.Params.email }}" class="contact-email">{{ $.Site.Params.email }}</a>
-        <p class="contact-location">{{ $c.location }}</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+{{ partial "cta-band.html" . }}
 {{ end }}

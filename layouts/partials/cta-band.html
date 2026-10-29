@@ -1,0 +1,18 @@
+{{- /* "Start a conversation" band. Copy lives in the home page front matter (contact). id="contact" keeps old /#contact links working. */ -}}
+{{- $c := site.Home.Params.contact }}
+<section{{ if .IsHome }} id="contact"{{ end }} class="section section-forest">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div>
+        <div class="label">{{ $c.label }}</div>
+        <h2 class="heading-lines">{{ $c.heading }}</h2>
+        <p class="contact-lead">{{ $c.body }}</p>
+        <p class="contact-sub">{{ $c.sub }}</p>
+      </div>
+      <div class="contact-action">
+        <a href="mailto:{{ site.Params.email }}" class="contact-email">{{ site.Params.email }}</a>
+        <p class="contact-location">{{ $c.location }}</p>
+      </div>
+    </div>
+  </div>
+</section>

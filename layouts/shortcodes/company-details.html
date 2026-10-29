@@ -1,0 +1,25 @@
+{{- /* Registration details from site params, as on Companies House. The registered office appears here and in the footer only, never in JSON-LD. */ -}}
+{{- $p := site.Params }}
+<table class="company-details">
+  <tbody>
+    <tr><th scope="row">Company name</th><td>{{ $p.legalName }}</td></tr>
+    <tr><th scope="row">Company number</th><td><a href="https://find-and-update.company-information.service.gov.uk/company/{{ $p.companyNumber }}" target="_blank" rel="noopener">{{ $p.companyNumber }} ↗</a></td></tr>
+    <tr><th scope="row">Registered in</th><td>{{ $p.registeredIn }}</td></tr>
+    <tr><th scope="row">Company type</th><td>Private limited company</td></tr>
+    {{- with $p.incorporated }}
+    <tr><th scope="row">Incorporated</th><td>{{ . }}</td></tr>
+    {{- end }}
+    {{- with $p.directors }}
+    <tr><th scope="row">Directors</th><td>{{ delimit . "<br>" | safeHTML }}</td></tr>
+    {{- end }}
+    {{- with $p.natureOfBusiness }}
+    <tr><th scope="row">Nature of business</th><td>{{ delimit . "<br>" | safeHTML }}</td></tr>
+    {{- end }}
+    {{- with $p.registeredOffice }}
+    <tr><th scope="row">Registered office<br>(not a trading address)</th><td>{{ . }}</td></tr>
+    {{- end }}
+    {{- with $p.vatNumber }}
+    <tr><th scope="row">VAT number</th><td>{{ . }}</td></tr>
+    {{- end }}
+  </tbody>
+</table>

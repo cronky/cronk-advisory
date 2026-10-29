@@ -2,11 +2,28 @@ baseURL = "https://cronkadvisory.com"
 languageCode = "en-gb"
 title = "Cronk Advisory"
 disableKinds = ["taxonomy", "term"]
+enableRobotsTXT = true
 
 [params]
-  description    = "Responsible technology leadership: aligning technology with sustainability."
-  email          = "hello@cronkadvisory.com"
-  companyNumber  = "17112535"
+  description      = "Responsible technology leadership: aligning technology with sustainability."
+  legalName        = "Cronk Advisory Limited"
+  companyNumber    = "17112535"
+  registeredIn     = "England and Wales"
+  registeredOffice = "3 Faville Oaks, Hampstead Norreys Road, Hermitage, Thatcham, England, RG18 9RZ"    # as on Companies House. Footer and /company/ only, never in JSON-LD
+  vatNumber        = ""    # renders only when non-empty
+  incorporated     = "24 March 2026"
+  directors        = ["Oliver Cronk", "Kathryn Cronk"]
+  natureOfBusiness = ["Information technology consultancy (SIC 62020)", "Management consultancy (SIC 70229)"]
+  email            = "hello@cronkadvisory.com"
+  founder          = "Oliver Cronk"
+  linkedin         = "https://www.linkedin.com/in/cronky/"
+  personalSite     = "https://cronky.net/"
+  insightsFeed     = "https://cronky.net/feeds/advisory.json"   # fetched at build; data/insights-snapshot.json is the fallback
+
+# Remote resources (the cronky.net feed and its images) are fetched at build time.
+# Hugo's default keeps them forever, so expire them to pick up feed changes on local builds.
+[caches.getresource]
+  maxAge = "15m"
 
 [markup.goldmark.renderer]
   unsafe = true

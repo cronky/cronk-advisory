@@ -1,0 +1,13 @@
+{{- /* Speaking roles used by the cronky.net feed, in the order the counts list them:
+  label for a single item, one and many for counts. A role not listed here falls back to its
+  id, so add it when cronky.net adds one. */ -}}
+{{- return slice
+  (dict "id" "keynote" "label" "Keynote" "one" "keynote" "many" "keynotes")
+  (dict "id" "talk" "label" "Talk" "one" "talk" "many" "talks")
+  (dict "id" "panel" "label" "Panel" "one" "panel" "many" "panels")
+  (dict "id" "chair" "label" "Chair" "one" "event chaired" "many" "events chaired")
+  (dict "id" "mc" "label" "MC and host" "one" "event hosted" "many" "events hosted")
+  (dict "id" "workshop" "label" "Workshop" "one" "workshop" "many" "workshops")
+  (dict "id" "webinar" "label" "Webinar" "one" "webinar" "many" "webinars")
+  (dict "id" "podcast-live" "label" "Live podcast" "one" "live podcast recording" "many" "live podcast recordings")
+  (dict "id" "documentary" "label" "Documentary" "one" "documentary film" "many" "documentary films") }}

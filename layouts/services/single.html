@@ -1,0 +1,81 @@
+{{ define "main" }}
+{{ partial "page-header.html" . }}
+<section class="section section-cream service-detail">
+  <div class="section-inner">
+    {{ with .Params.who_for }}
+    <div class="service-block">
+      <h2>Who it is for</h2>
+      <ul class="tick-list">{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+    </div>
+    {{ end }}
+
+    {{ with .Params.engagements }}
+    <div class="service-block">
+      <h2>Typical engagements</h2>
+      <div class="engagement-grid">
+        {{ range . }}
+        <div class="engagement-card">
+          <h3>{{ .title }}</h3>
+          <div class="service-body">{{ .body | markdownify }}</div>
+          {{ with .note }}<p class="service-note">{{ . | markdownify }}</p>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{ with .Params.outcomes }}
+    <div class="service-block">
+      <h2>Outcomes</h2>
+      <ul class="tick-list">{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+    </div>
+    {{ end }}
+
+    {{ with trim (partial "content.html" .) " \n" }}<div class="service-block prose">{{ . | safeHTML }}</div>{{ end }}
+
+    {{- $seeAlso := slice }}
+    {{- range .Params.see_also }}{{ $item := . }}{{ with site.GetPage .page }}{{ $seeAlso = $seeAlso | append (dict "page" . "item" $item) }}{{ end }}{{ end }}
+    {{ with $seeAlso }}
+    <div class="service-block">
+      <h2>See also</h2>
+      <div class="engagement-grid see-also-grid">
+        {{ range . }}
+        {{ $href := .page.RelPermalink }}{{ with .item.anchor }}{{ $href = printf "%s#%s" $href . }}{{ end }}
+        <a class="engagement-card insight-card see-also-card" href="{{ $href }}">
+          <span class="label">Service</span>
+          <h3>{{ .page.Title }}</h3>
+          {{ with .item.body }}<p class="service-body">{{ . }}</p>{{ end }}
+          <span class="service-link">{{ .item.link_label | default .page.Title }} →</span>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{- $related := slice }}
+    {{- range .Params.related_articles }}{{ with site.GetPage . }}{{ $related = $related | append . }}{{ end }}{{ end }}
+    {{ with first 3 $related }}
+    <div class="service-block">
+      <h2>Related reading</h2>
+      <div class="engagement-grid">
+        {{ range . }}{{ partial "article-card.html" . }}{{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{/* Related talks and writing from the cronky.net feed, matched on related_topics (spec 5.3) */}}
+    {{ with .Params.related_topics }}
+    {{ $topics := . }}
+    {{ range $block := slice (dict "type" "speaking" "heading" "Related talks by Oliver") (dict "type" "writing" "heading" "Related external writing by Oliver") }}
+    {{ with trim (partial "insight-list.html" (dict "type" $block.type "topics" $topics "limit" 3)) " \n" }}
+    <div class="service-block">
+      <h2>{{ $block.heading }}</h2>
+      {{ . | safeHTML }}
+    </div>
+    {{ end }}
+    {{ end }}
+    {{ end }}
+  </div>
+</section>
+{{ partial "cta-band.html" . }}
+{{ end }}

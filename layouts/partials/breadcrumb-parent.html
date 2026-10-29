@@ -1,0 +1,7 @@
+{{- /* Returns the page a page belongs under when that isn't its folder: breadcrumb_parent in front matter,
+       or Insights for articles. Used by breadcrumbs and to highlight the right nav item. Returns nil if none. */ -}}
+{{- $path := .Params.breadcrumb_parent }}
+{{- if and (not $path) (eq .Section "articles") }}{{ $path = "/insights" }}{{ end }}
+{{- $parent := false }}
+{{- with $path }}{{ with site.GetPage . }}{{ $parent = . }}{{ end }}{{ end }}
+{{- return $parent }}

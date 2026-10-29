@@ -1,3 +1,4 @@
+{{- $p := site.Params }}
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-grid">
@@ -5,39 +6,43 @@
         <img src="/images/logo-full-logo-light.png" alt="Cronk Advisory" class="footer-logo">
         <p class="footer-tagline">Responsible Technology Leadership: Aligning Tech with Sustainability</p>
         <p class="footer-reg">
-          Cronk Advisory Limited · Registered in England &amp; Wales<br>
-          Company No. {{ .Site.Params.companyNumber }}
+          {{ $p.legalName }} · Registered in {{ $p.registeredIn }}<br>
+          Company No. {{ $p.companyNumber }}
         </p>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Services</div>
         <ul class="footer-links">
-          <li><a href="/#fractional-cto">Fractional CTO &amp; Chief Architect</a></li>
-          <li><a href="/#advisory">Technology Advisory &amp; Architecture Review</a></li>
-          <li><a href="/#sustainability">Sustainable Technology &amp; Responsible AI</a></li>
+          {{- range partial "service-pages.html" . }}
+          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+          {{- end }}
         </ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Company</div>
         <ul class="footer-links">
-          <li><a href="/#about">About Oliver Cronk</a></li>
-          <li><a href="/#approach">Pragmatic Ecosystems</a></li>
-          <li><a href="https://youtube.com/ArchitectTomorrow" target="_blank" rel="noopener">Architect Tomorrow ↗</a></li>
-          <li><a href="https://dist.greenweb.org" target="_blank" rel="noopener">Digital Impacts Schema &amp; Taxonomy (DIST) ↗</a></li>
-          <li><a href="/privacy/">Privacy Policy</a></li>
+          {{- range slice "/about" "/approach" "/work" "/insights" "/company" "/governance" "/privacy" "/accessibility" "/about-this-site" }}
+          {{- with site.GetPage . }}
+          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+          {{- end }}
+          {{- end }}
         </ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Contact</div>
         <ul class="footer-links">
-          <li><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></li>
-          <li>Based in Newbury, Berkshire</li>
-          <li>Working across the UK<br>and internationally</li>
+          <li><a href="mailto:{{ $p.email }}">{{ $p.email }}</a></li>
+          {{- with $p.linkedin }}
+          <li><a href="{{ . }}" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          {{- end }}
+          <li>Based in Newbury, Berkshire<br>Working across the UK and internationally</li>
+          <li><a href="https://youtube.com/ArchitectTomorrow" target="_blank" rel="noopener">Architect Tomorrow ↗</a></li>
+          <li><a href="https://dist.greenweb.org" target="_blank" rel="noopener">Digital Impacts Schema &amp; Taxonomy (DIST) ↗</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-legal">© {{ now.Year }} Cronk Advisory Limited. All rights reserved.
+      <span class="footer-legal">© {{ now.Year }} {{ $p.legalName }}. All rights reserved.
         <img src="https://app.greenweb.org/api/v3/greencheckimage/cronkadvisory.com?nocache=true" alt="This website runs on green hosting - verified by thegreenwebfoundation.org" width="200" height="95">
       </span>
     </div>

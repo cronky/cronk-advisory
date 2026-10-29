@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="section-inner">
+    <div class="label">Error 404</div>
+    <h1>Page not found</h1>
+    <p class="page-summary">The page you were looking for has moved or no longer exists. The site was reorganised in 2026, so older links may point to the wrong place.</p>
+  </div>
+</section>
+<section class="section section-cream page-section">
+  <div class="section-inner">
+    <div class="prose">
+      <h2>Try one of these</h2>
+      <ul>
+        <li><a href="/">Home</a></li>
+        {{- range slice "/services" "/speaking" "/approach" "/work" "/insights" "/about" "/contact" }}
+        {{- with site.GetPage . }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{- end }}
+        {{- end }}
+      </ul>
+      <p>Or email <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>.</p>
+    </div>
+  </div>
+</section>
+{{ end }}

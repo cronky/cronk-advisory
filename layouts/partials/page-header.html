@@ -1,0 +1,11 @@
+{{- /* Navy band at the top of every inner page: breadcrumbs, optional label, title and summary. Service pages get a "Service 0n" label from their position. */ -}}
+{{- $label := .Params.label }}
+{{- with partial "service-number.html" . }}{{ $label = printf "Service %s" . }}{{ end }}
+<section class="page-header">
+  <div class="section-inner">
+    {{ partial "breadcrumbs.html" . }}
+    {{ with $label }}<div class="label">{{ . }}</div>{{ end }}
+    <h1 class="heading-lines">{{ .Params.page_heading | default .Title }}</h1>
+    {{ with .Params.summary }}<p class="page-summary">{{ . }}</p>{{ end }}
+  </div>
+</section>

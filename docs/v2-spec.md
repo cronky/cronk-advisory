@@ -24,8 +24,12 @@
 **Non-goals**
 
 - No CMS, framework, bundler, analytics, cookies or third-party embeds (unchanged from `AGENTS.md`).
-- Most long-form writing stays on cronky.net and external outlets.
+- No high-volume blog: a small set of substantive articles in `content/articles/`. Other long-form writing stays on cronky.net and external outlets.
+
+**Search** is wanted (owner decision, 27 October 2026), mainly for the insights area. Build it with Phase 5, once there is content to search. Choose between Pagefind (needs a post-build step on Cloudflare Pages) and a Hugo-generated JSON index with a small vanilla script, keeping within the no-framework, no-bundler principles.
 - No dark mode for now (optional later).
+
+**Later visual:** the drivers, activities and impacts diagram (the "technology socio-environmental system" prototype) would suit the Sustainable Technology service page once its impact categories are mapped to DIST's lifecycle categories (Upstream, Operational direct and indirect, Downstream).
 
 ---
 
@@ -79,10 +83,11 @@ Yes all subdomains will use HTTPS.
 | `/services/chief-architecture/` | Chief and Enterprise Architecture | Fractional chief architect or CTO, architecture review, EA function set-up and maturity, governance that enables | service front matter |
 | `/services/pragmatic-ai/` | Pragmatic AI | AI readiness, stress-testing AI investment, agentic AI governance, right-sized AI | service front matter |
 | `/services/sustainable-technology/` | Sustainable and Responsible Technology | Footprint measurement (DIST), procurement, responsible AI | service front matter |
-| `/speaking/` | Speaking, Chairing and Facilitation | Formats, topics, evidence, booking | `content/speaking.md` + feed |
-| `/approach/` | Approach | Pragmatic Ecosystems | `content/approach.md` |
+| `/speaking/` | Speaking, Chairing and Facilitation | Formats, topics, evidence, booking. Lists 2026 engagements only (owner decision, 28 October 2026), from the feed | `content/speaking.md` + feed |
+| `/approach/` | Approach | Pragmatic Ecosystems, with the interactive ecosystem map | `content/approach.md` (`layout: approach`, `ecosystem-map` and `copernican-shift` shortcodes) |
 | `/work/` | Clients and organisations | Clients, previous roles, spoken at, short case studies when available | `data/organisations.yml` |
-| `/insights/` | Insights | Curated talks, writing and podcasts, linking to cronky.net for the full archive | feed |
+| `/insights/` | Insights | Pragmatic Ecosystems as the featured item, Cronk Advisory articles, links to cronky.net writing, talks and podcasts. Built early (Phase 2) at the owner's request; Phase 5 adds the curated feed | `content/insights.md` + `content/articles/` + feed |
+| `/articles/` | Articles | Cronk Advisory-authored articles, canonical here. cronky.net lists them via `_data/writing.yml` with `outlet: Cronk Advisory`. Articles first published elsewhere set `canonical` to the original URL | `content/articles/` |
 | `/about/` | About | Oliver, credentials, partner network | `content/about.md` |
 | `/contact/` | Contact | Email, LinkedIn, what to include in an enquiry | `content/contact.md` |
 | `/company/` | Company information | Legal name, number, registered office, directors, VAT (when set), links to policies | `content/company.md` + params |
@@ -123,7 +128,8 @@ content/
     pragmatic-ai.md
     sustainable-technology.md
   speaking.md               # layout: speaking
-  approach.md
+  approach.md               # layout: approach, with the ecosystem-map shortcode
+  articles/                 # Cronk Advisory articles (draft until approved)
   work.md                   # layout: work
   insights.md               # layout: insights
   about.md
@@ -138,6 +144,7 @@ content/
   accessibility.md
   about-this-site.md
 data/
+  ecosystem-map.json        # layers and sector viewpoints for the Pragmatic Ecosystems map
   organisations.yml
   insights-snapshot.json    # fallback copy of the cronky.net feed
 layouts/
@@ -276,7 +283,7 @@ Clients · short case studies (placeholder section, hidden until content exists)
 
 ### 6.7 Company information (`/company/`)
 
-Legal name, company number, registered in, registered office, directors (TODO: confirm listing both directors), VAT number when set, links to governance policies, privacy and security.txt.
+Legal name, company number, registered in, registered office, directors (both Oliver and Kathryn Cronk, confirmed by Ollie on 28 October 2026), VAT number when set, links to governance policies, privacy and security.txt.
 
 ---
 

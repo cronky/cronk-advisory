@@ -1,0 +1,17 @@
+{{- /* A grid of cards with icons, from a list in the page's front matter.
+  Usage: {{< icon-cards formats >}}. Each item has title, icon (a name from
+  layouts/partials/icon.html) and an optional body, which accepts inline Markdown. */ -}}
+{{- $key := .Get 0 }}
+{{- with index .Page.Params $key }}
+<div class="icon-grid icon-grid-{{ $key }}">
+  {{- range . }}
+  <div class="icon-card">
+    {{ with .icon }}<span class="icon-badge">{{ partial "icon.html" . }}</span>{{ end }}
+    <h3>{{ .title }}</h3>
+    {{- with .body }}
+    <p>{{ . | markdownify }}</p>
+    {{- end }}
+  </div>
+  {{- end }}
+</div>
+{{- end }}

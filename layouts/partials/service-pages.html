@@ -1,0 +1,5 @@
+{{- /* Returns the published service pages in weight order: everything in /services/ plus /speaking/. */ -}}
+{{- $pages := slice }}
+{{- with site.GetPage "/services" }}{{ $pages = .Pages }}{{ end }}
+{{- with site.GetPage "/speaking" }}{{ $pages = $pages | append . }}{{ end }}
+{{- return sort $pages "Weight" }}

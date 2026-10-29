@@ -13,7 +13,7 @@ Cloudflare Pages builds and deploys on every push to `main`, so **anything merge
 
 The site practises what the business preaches: sustainable, secure, minimal technology.
 
-- **Keep it static and lightweight.** Don't add frameworks, bundlers, CSS libraries, analytics scripts, trackers or third-party embeds. The only JavaScript is the mobile nav toggle in `static/js/main.js`.
+- **Keep it static and lightweight.** Don't add frameworks, bundlers, CSS libraries, analytics scripts, trackers or third-party embeds. JavaScript is progressive enhancement only: the mobile nav toggle (`static/js/main.js`) and the Pragmatic Ecosystems map (`static/js/ecosystem-map.js`, loaded only by its shortcode). Pages must work without it.
 - **No new cookies.** The privacy policy states only strictly necessary cookies are used. Anything that would change that needs the privacy policy updating and the owner's sign-off.
 - **Mind the bytes.** Optimise images before committing (palette PNGs or WebP/SVG where possible). Avoid adding web fonts or font weights.
 - **British English** throughout content (organisation, colour, licence).
@@ -25,30 +25,52 @@ The site practises what the business preaches: sustainable, secure, minimal tech
 
 | You want to change… | Edit |
 |---|---|
-| Homepage copy (hero, services, approach, about, contact) | Front matter in `content/_index.md` |
+| Homepage copy (hero, services heading, latest, approach teaser and stack thumbnail, "Start a conversation" band) | Front matter in `content/_index.md` |
 | Homepage markup | `layouts/index.html` |
+| A service | `content/services/<name>.md` (front matter, see below); speaking is `content/speaking.md` |
+| Service index and service page markup | `layouts/services/list.html`, `layouts/services/single.html` |
+| About, Approach, Contact | `content/about.md`, `content/approach.md`, `content/contact.md` (front matter) with `layouts/_default/about.html`, `approach.html`, `contact.html` |
 | Privacy policy | `content/privacy.md` (update the "Last updated" line) |
+| Company information | `content/company.md`; the registration table is the `company-details` shortcode, built from `hugo.toml` params that match Companies House |
+| Plain text pages | `content/<name>.md`, rendered by `layouts/_default/single.html` |
+| Insights hub | `content/insights.md` (featured page, `feed_blocks` for talks, writing and podcasts) with `layouts/_default/insights.html`; published articles are listed automatically |
+| Talks, writing and podcasts | Owned by cronky.net and read from its feed (see "The cronky.net feed" below). Don't copy them into this repo |
+| Speaking page lists | `{{< featured-talks >}}` and `{{< speaking-year 2026 >}}` in `content/speaking.md`; `talk_articles` in its front matter links a talk (by feed slug) to an article here; role labels and count wording in `layouts/partials/speaking-roles.html` |
+| Cards with icons | `{{< icon-cards formats >}}` renders a front matter list (`title`, `icon`, `body`) as cards; Speaking uses it for `formats` and `topics`. Icons are inline SVG in `layouts/partials/icon.html` (add new ones there, drawn as simple line icons; no icon libraries or fonts). `wide: true` in front matter lets card grids on a plain page use the full width |
+| Articles | `content/articles/<name>.md` (`title`, `date`, `description` as the standfirst, `series`, `topics`, `canonical` if first published elsewhere), rendered by `layouts/articles/single.html` |
+| Pragmatic Ecosystems map | Data in `data/ecosystem-map.json`; markup and no-JS fallback in `layouts/shortcodes/ecosystem-map.html`; script `static/js/ecosystem-map.js`; styles under `.eco-` in `main.css`. The Copernican diagram is `layouts/shortcodes/copernican-shift.html` |
+| Markdown links | `layouts/_default/_markup/render-link.html`: links to unpublished pages render as plain text; http(s) links open in a new tab |
 | Header / nav | `layouts/partials/header.html` |
 | Footer | `layouts/partials/footer.html` |
+| Page title band and breadcrumbs | `layouts/partials/page-header.html`, `breadcrumbs.html` |
 | `<head>` meta, favicon, fonts | `layouts/partials/head.html` |
-| Generic content pages | `layouts/_default/single.html` |
+| Organization JSON-LD | `layouts/partials/schema.html` (built from params; never add the address) |
+| 404 page | `layouts/404.html` |
 | Styles | `static/css/main.css` (design tokens are CSS custom properties in `:root`) |
-| Site-wide params (email, company number, description) | `hugo.toml` |
+| Site-wide params (legal name, email, company number, LinkedIn, description) | `hugo.toml` |
 | HTTP headers / caching | `static/_headers` (Cloudflare Pages format) |
 | Summary for LLMs that read the site | `static/llms.txt` |
 
-### Homepage content model
+### Content model
 
-`layouts/index.html` reads everything from `.Params` in `content/_index.md`, grouped as `hero`, `services`, `approach`, `about`, `contact`.
-Fields rendered with `markdownify` accept inline Markdown (links, bold): `services.items[].body`, `services.items[].note`, `approach.body`, `about.body`. Other fields are plain text.
-Use `\n\n` inside a quoted YAML string to start a new paragraph in a `markdownify` field. `approach.heading` and `contact.heading` honour `\n` as a line break (`white-space: pre-line`).
-Optional fields are wrapped in `{{ with }}` so leaving them out renders nothing (e.g. `approach.cta` / `approach.cta_url`).
+The site follows `docs/v2-spec.md`, built in phases. Pages still waiting for copy or for a later phase have `draft: true`: they build with `hugo server -D` but not in production. Nav, footer and service lists only link to pages that exist, so drafts never leave broken links.
 
-Service `id`s (`fractional-cto`, `advisory`, `sustainability`) are anchor targets linked from the footer, so keep them stable.
+- **Home** (`content/_index.md`): `hero`, `services` (label and heading only), `latest` (the newest articles plus the latest advisory talk from the feed), `approach` (teaser, and the Pragmatic Ecosystems stack thumbnail from `layouts/partials/ecosystem-stack.html`), `contact`. The `contact` block also feeds the "Start a conversation" band on other pages (`layouts/partials/cta-band.html`).
+- **Services**: each page in `content/services/` plus `content/speaking.md` becomes a service card, ordered by `weight`. The "01", "02"… numbers come from position among published services (`layouts/partials/service-number.html`), so a draft never leaves a gap. Front matter: `title`, `weight`, `summary` (card text and page intro), `description` (meta), `who_for`, `engagements` (`title`, `body`, `note`), `outcomes`, `related_topics`, `related_articles` (up to three article paths, shown as "Related reading" cards via `layouts/partials/article-card.html`), `see_also` (`page`, optional `anchor`, `link_label`, `body`: a card pointing to a closely related service), `legacy_ids`. Empty lists hide their section.
+- **Legacy anchors**: `legacy_ids` keep old links such as `/#fractional-cto` working: the home page card gets the first id plus empty anchors for the rest. `id="contact"`, `id="services"`, `id="approach"` and `id="about"` also stay on the home page. Keep them stable.
+- Rendered page content goes through `layouts/partials/content.html`, which strips HTML comments, so `<!-- TODO -->` notes never reach the published source.
+- Don't use `type` in front matter (Hugo reserves it for choosing layouts); use a different name such as `article_type`.
+- `breadcrumb_parent` (for example `"/insights"`) puts a page under another one in the breadcrumbs and nav highlighting without moving its URL. Pragmatic Ecosystems (`/approach/`) uses it; articles sit under Insights automatically.
+- `page_heading` overrides the `<h1>` in the page title band when it should differ from the nav title (Approach does this). `summary` shows under the `<h1>`.
+
+Fields rendered with `markdownify` accept inline Markdown (links, bold): service `engagements[].body` and `.note`, `who_for`, `outcomes`, `approach.md` `body` and `ecosystems` text, `about.md` `body`. Other fields are plain text.
+Use `\n\n` inside a quoted YAML string to start a new paragraph in a `markdownify` field. Headings with the `heading-lines` class (home approach and contact headings, `page_heading`) honour `\n` as a line break.
+
+Copy that is missing gets a `# TODO` comment in front matter or `<!-- TODO: copy from Ollie -->` in the body, and `[COPY: ...]` placeholder text only on draft pages.
 
 ### Links
 
-Header and footer links point at `/#section` (not `#section`) so they work from non-home pages such as `/privacy/`. Keep that pattern for new in-page links in partials.
+Link to pages by their own URL (`/services/`, `/about/`). In templates, prefer `site.GetPage` so the link disappears if the page is a draft.
 
 ## Brand assets (`static/images/`)
 
@@ -65,6 +87,16 @@ All logos are transparent PNGs (8-bit palette with alpha).
 The white circuit lines inside the green mark are part of the logo and must stay opaque. The original white-background masters are in git history before October 2026 if a re-export is ever needed.
 Brand assets are **not** covered by the MIT licence; don't redistribute or alter the mark's design.
 
+### Photos (`static/images/photos/`)
+
+All photos are Ollie's own or of Ollie. Before committing one:
+
+- strip all metadata, including camera and GPS (`magick in.jpg -auto-orient -strip ...`);
+- convert to WebP at the sizes the template uses (the hero uses `<name>-800.webp` and `<name>-1600.webp`; aim for under 160 KB at 1600px);
+- don't commit originals, and don't publish photos where other people can be identified without their agreement.
+
+The home hero photo is set by `hero.photo` in `content/_index.md`. The navy shade over it (`.hero::after`) is what keeps the hero text at 4.5:1 or better, so re-measure contrast if you lighten the shade or pick a brighter photo.
+
 Brand colours (from `main.css`): forest `#3B6352`, navy `#1C2C3A`, amber `#C9893A`, cream `#F7F4EE`. Fonts: Jost (headings), Source Serif 4 (body).
 
 Text must meet WCAG AA contrast (at least 4.5:1). Amber `#C9893A` fails as text on cream or white, so labels on light backgrounds use `--amber-text` (`#935F1E`); keep `--amber` for bars, accents and text on navy. Semi-transparent white text needs at least 60% opacity on navy (65% on the translucent cards) and at least 80% on forest. Check any new colour pair with a contrast checker.
@@ -77,6 +109,18 @@ No inline `style=""` attributes or `<style>` blocks in layouts: put styles in `m
 hugo server -D            # http://localhost:1313, live reload
 hugo                      # build to ./public (git-ignored; Cloudflare builds its own)
 ```
+
+Cloudflare Pages builds with **Hugo 0.158.0** (the `HUGO_VERSION` variable in the Pages settings). Build locally with the same version, and if you upgrade Hugo, ask the owner to update that variable first: a feature your local Hugo has and Cloudflare's doesn't fails the deploy, not the local build. Templates use `site.Data` (logged as deprecated at INFO level only), which also builds on older Hugo.
+
+### The cronky.net feed
+
+Talks, writing and podcasts come from `https://cronky.net/feeds/advisory.json` (spec section 9), fetched at build time by `layouts/partials/insights-feed.html`:
+
+- If cronky.net is unreachable or the feed is invalid, the build uses `data/insights-snapshot.json` and prints a warning, so it still deploys. Refresh the snapshot with `sh scripts/refresh-insights` and commit it when it changes.
+- Item images and YouTube thumbnails are fetched at build time and published under `/images/feed/` as 480px WebP (`feed-image.html`), so visitors make no third-party requests. Don't hotlink feed images.
+- `insight-list.html` renders a filtered list (type, topics, advisory, featured, limit) as `talk-card.html` cards or a link list; service pages use it for "Related talks" and "Related writing" by `related_topics`.
+- Only items cronky.net flags `advisory: true` show, except role counts, which use every talk. Talks before March 2026 predate the company: present them as Oliver's track record, not Cronk Advisory work.
+- Remote fetches are cached for 15 minutes locally (`[caches.getresource]` in `hugo.toml`). A failed image fetch warns, which fails `--panicOnWarning`; rerun when cronky.net is back.
 
 There are no tests. Before finishing a change:
 

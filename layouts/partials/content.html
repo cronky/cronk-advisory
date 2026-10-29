@@ -1,0 +1,3 @@
+{{- /* Page content with HTML comments removed, so TODO notes left in Markdown never reach the published source. */ -}}
+{{- $c := replaceRE `(?s)<!--.*?-->` "" .Content }}
+{{- return (safeHTML $c) }}

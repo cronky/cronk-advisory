@@ -1,0 +1,26 @@
+{{- /* The cronky.net content feed (spec section 9), fetched once per build: call it with
+  partialCached "insights-feed.html" . "feed". If cronky.net is unreachable or the feed is
+  invalid, it falls back to data/insights-snapshot.json with a build warning, so an outage
+  never blocks a deploy. scripts/refresh-insights updates the snapshot. */ -}}
+{{- $url := site.Params.insightsFeed }}
+{{- $feed := dict }}
+{{- $problem := "" }}
+{{- with try (resources.GetRemote $url) }}
+  {{- with .Err }}
+    {{- $problem = . }}
+  {{- else with .Value }}
+    {{- with try (transform.Unmarshal .) }}
+      {{- with .Err }}{{ $problem = . }}{{ else }}{{ $feed = .Value }}{{ end }}
+    {{- end }}
+  {{- else }}
+    {{- $problem = "not found" }}
+  {{- end }}
+{{- end }}
+{{- if and (not $problem) (ne (int (index $feed "schema_version" | default 0)) 1) }}
+  {{- $problem = "unexpected schema_version (this site reads version 1)" }}
+{{- end }}
+{{- with $problem }}
+  {{- warnf "Insights feed %s: %s. Using data/insights-snapshot.json instead." $url . }}
+  {{- $feed = index site.Data "insights-snapshot" | default dict }}
+{{- end }}
+{{- return $feed }}

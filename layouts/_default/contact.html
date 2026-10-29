@@ -1,0 +1,28 @@
+{{ define "main" }}
+{{ partial "page-header.html" . }}
+<section class="section section-cream">
+  <div class="section-inner">
+    <div class="contact-page-grid">
+      <div>
+        <p class="about-lead">{{ .Params.body }}</p>
+        <p class="about-body">{{ .Params.sub }}</p>
+        {{ with .Params.enquiry_tips }}
+        <h2 class="contact-page-h2">{{ $.Params.enquiry_heading }}</h2>
+        <ul class="tick-list">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+        {{ end }}
+        {{ with site.GetPage "/speaking" }}<p class="about-body">Booking a talk, panel or workshop? See <a href="{{ .RelPermalink }}#booking">speaking enquiries</a>.</p>{{ end }}
+      </div>
+      <div class="about-card contact-card">
+        <div class="label">Email</div>
+        <p><a href="mailto:{{ site.Params.email }}" class="contact-card-email">{{ site.Params.email }}</a></p>
+        {{ with site.Params.linkedin }}
+        <div class="label">LinkedIn</div>
+        <p><a href="{{ . }}" target="_blank" rel="noopener">Oliver Cronk on LinkedIn ↗</a></p>
+        {{ end }}
+        <div class="label">Location</div>
+        <p>{{ .Params.location }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

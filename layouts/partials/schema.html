@@ -1,0 +1,18 @@
+{{- /* Organization structured data, built from site params. Never add the registered office address here. */ -}}
+{{- $p := site.Params }}
+{{- $sameAs := slice $p.personalSite }}
+{{- with $p.linkedin }}{{ $sameAs = $sameAs | append . }}{{ end }}
+{{- $founder := dict "@type" "Person" "name" $p.founder "sameAs" $sameAs }}
+{{- with site.GetPage "/about" }}{{ $founder = merge $founder (dict "url" .Permalink) }}{{ end }}
+{{- $org := dict
+  "@context" "https://schema.org"
+  "@type" "Organization"
+  "name" site.Title
+  "legalName" $p.legalName
+  "url" site.Home.Permalink
+  "logo" ("images/logo-full-logo.png" | absURL)
+  "email" $p.email
+  "description" $p.description
+  "founder" $founder
+}}
+  <script type="application/ld+json">{{ $org | jsonify | safeJS }}</script>

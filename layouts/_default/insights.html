@@ -1,0 +1,43 @@
+{{ define "main" }}
+{{ partial "page-header.html" . }}
+<section class="section section-cream">
+  <div class="section-inner">
+
+    {{ with site.GetPage .Params.featured }}
+    <a class="insight-feature" href="{{ .RelPermalink }}">
+      <span class="label">Our approach</span>
+      <span class="insight-feature-title">{{ .LinkTitle }}</span>
+      <span class="insight-feature-heading">{{ .Params.page_heading | default .Title }}</span>
+      {{ with .Description }}<span class="insight-feature-body">{{ . }}</span>{{ end }}
+      <span class="service-link">{{ $.Params.featured_cta }} →</span>
+    </a>
+    {{ end }}
+
+    {{/* Articles appear here once published (draft: false); with hugo server -D drafts show too */}}
+    {{ $articles := where site.RegularPages "Section" "articles" }}
+    {{ with $articles.ByDate.Reverse }}
+    <div class="service-block">
+      <h2>Articles</h2>
+      <div class="engagement-grid">
+        {{ range . }}
+        {{ partial "article-card.html" . }}
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{/* Talks, writing and podcasts from the cronky.net feed; a block with no items is hidden */}}
+    {{ range $block := .Params.feed_blocks }}
+    {{ with trim (partial "insight-list.html" (dict "type" $block.type)) " \n" }}
+    <div class="service-block">
+      <h2>{{ $block.heading }}</h2>
+      {{ with $block.intro }}<p class="feed-intro">{{ . }}</p>{{ end }}
+      {{ . | safeHTML }}
+      <p class="feed-archive"><a href="{{ $block.archive }}" target="_blank" rel="noopener">Full archive on cronky.net ↗</a></p>
+    </div>
+    {{ end }}
+    {{ end }}
+  </div>
+</section>
+{{ partial "cta-band.html" . }}
+{{ end }}
