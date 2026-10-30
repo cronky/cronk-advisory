@@ -1,0 +1,85 @@
+name: Rebuild cronky.net when the articles feed changes
+
+# Cloudflare Pages deploys this site and doesn't tell GitHub when it has finished, so this
+# reads the live feed. After a push it waits for the deploy; the daily run catches anything
+# a push run missed. The hash ignores "generated", so a rebuild alone never fires the hook.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/articles/**"
+      - "layouts/_default/insights.insightsfeed.json"
+      - "layouts/partials/published-articles.html"
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cronky-net-rebuild
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    env:
+      FEED_URL: https://cronkadvisory.com/feeds/insights.json
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore the last feed hash
+        uses: actions/cache/restore@v4
+        with:
+          path: .feed-state
+          key: insights-feed-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: insights-feed-
+
+      - name: Read the live feed
+        id: feed
+        env:
+          ATTEMPTS: ${{ github.event_name == 'push' && 40 || 1 }}   # 40 x 15s: up to 10 minutes
+        run: |
+          last=$(cat .feed-state/insights.sha 2>/dev/null || true)
+          sha=""
+          for i in $(seq "$ATTEMPTS"); do
+            if curl -fsSL "$FEED_URL" -o feed.json; then
+              sha=$(python3 -c "import json,hashlib; d=json.load(open('feed.json',encoding='utf-8')); d.pop('generated',None); print(hashlib.sha256(json.dumps(d,sort_keys=True).encode()).hexdigest())") || sha=""
+              if [ -n "$sha" ] && [ "$sha" != "$last" ]; then break; fi
+            fi
+            if [ "$i" -lt "$ATTEMPTS" ]; then sleep 15; fi
+          done
+          if [ -z "$sha" ]; then
+            echo "Could not read $FEED_URL" >&2
+            exit 1
+          fi
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          if [ "$sha" != "$last" ]; then changed=true; else changed=false; fi
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
+          echo "Feed changed: $changed"
+
+      - name: Check the feed
+        if: steps.feed.outputs.changed == 'true'
+        run: python3 scripts/check-insights-feed feed.json
+
+      - name: Trigger the cronky.net deploy
+        if: steps.feed.outputs.changed == 'true'
+        env:
+          CRONKY_DEPLOY_HOOK: ${{ secrets.CRONKY_DEPLOY_HOOK }}
+        run: curl --fail --silent --show-error -X POST "$CRONKY_DEPLOY_HOOK"
+
+      # Saved only after the hook succeeds, so a failed trigger is retried by the next run
+      - name: Remember the hash
+        if: steps.feed.outputs.changed == 'true'
+        env:
+          SHA: ${{ steps.feed.outputs.sha }}
+        run: |
+          mkdir -p .feed-state
+          echo "$SHA" > .feed-state/insights.sha
+
+      - name: Save the hash
+        if: steps.feed.outputs.changed == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .feed-state
+          key: insights-feed-${{ github.run_id }}-${{ github.run_attempt }}

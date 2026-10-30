@@ -130,7 +130,7 @@ Each article gives `slug`, `title`, `date` (byline date, `YYYY-MM-DD`), `url` (a
 
 - **Every article needs `topics` from cronky.net's vocabulary**: architecture, ai, sustainability, open-source, software-engineering, apis, events-podcasting, nature, cycling, photography. Anything else fails the `hugo` build (`articleTopics` in `hugo.toml`), and cronky.net's CI would fail on it too. Our themes (AI Sleepwalking and so on) go in `series`, not `topics`. If the vocabulary changes, update `hugo.toml` and `scripts/check-insights-feed`.
 - `.github/workflows/insights-feed.yml` runs `scripts/check-insights-feed` on the built file for pull requests and pushes to `main`. It checks only; Cloudflare Pages still does the deploy.
-- cronky.net only sees new articles when it rebuilds. There is no automatic trigger yet, so rebuild it by hand after publishing an article.
+- cronky.net only sees new articles when it rebuilds. `.github/workflows/cronky-net-rebuild.yml` handles that: after a push that touches articles, and once a day, it reads the live feed, hashes it without `generated` and compares that with the last hash in `actions/cache`. If it changed, it POSTs to cronky.net's Cloudflare Pages deploy hook (secret `CRONKY_DEPLOY_HOOK`), the mirror of `CA_DEPLOY_HOOK` on the cronky.net side. An article dated in the future joins the feed only at the first Cloudflare build on or after its date, so it needs a deploy of this site that day.
 
 There are no tests. Before finishing a change:
 
