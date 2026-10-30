@@ -19,6 +19,16 @@ enableRobotsTXT = true
   linkedin         = "https://www.linkedin.com/in/cronky/"
   personalSite     = "https://cronky.net/"
   insightsFeed     = "https://cronky.net/feeds/advisory.json"   # fetched at build; data/insights-snapshot.json is the fallback
+  # cronky.net's controlled vocabulary: an article topic outside this list fails the build
+  articleTopics    = ["architecture", "ai", "sustainability", "open-source", "software-engineering", "apis", "events-podcasting", "nature", "cycling", "photography"]
+
+# /feeds/insights.json, published from content/insights.md for cronky.net to read at build time
+[outputFormats.insightsfeed]
+  mediaType    = "application/json"
+  baseName     = "insights"
+  path         = "feeds"
+  isPlainText  = true
+  notAlternative = true
 
 # Remote resources (the cronky.net feed and its images) are fetched at build time.
 # Hugo's default keeps them forever, so expire them to pick up feed changes on local builds.

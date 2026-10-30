@@ -2,7 +2,7 @@
 title: "A Reference Architecture for Consequential AI"
 date: 2026-10-28
 description: "A pragmatic, opinionated reference architecture for deploying generative and agentic AI where there are serious consequences from getting it wrong."
-topics: [architecture, ai, governance]
+topics: [architecture, ai]
 series: "Dynamic Architecture"
 canonical: ""  # TODO: if cross-posted
 draft: false

@@ -1,0 +1,2 @@
+{{- /* Articles, newest first: the one list behind /insights/ and /feeds/insights.json. */ -}}
+{{- return (where site.RegularPages "Section" "articles").ByDate.Reverse -}}

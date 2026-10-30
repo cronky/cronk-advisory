@@ -14,8 +14,7 @@
     {{ end }}
 
     {{/* Articles appear here once published (draft: false); with hugo server -D drafts show too */}}
-    {{ $articles := where site.RegularPages "Section" "articles" }}
-    {{ with $articles.ByDate.Reverse }}
+    {{ with partial "published-articles.html" . }}
     <div class="service-block">
       <h2>Articles</h2>
       <div class="engagement-grid">

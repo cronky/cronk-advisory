@@ -25,6 +25,7 @@ The same session built Phase 2 of the v2 spec: the multi-page structure, page te
 The Pragmatic Ecosystems page, its interactive ecosystem map and four articles were drafted with Claude (claude.ai) under the owner's direction; the same Claude Code session ported the map into Hugo (shortcode, script, styles, no-JS fallback) and added the article layouts (with human review).
 When the owner published the articles, the same session added the context-stack diagram, cross-links between the articles and the Pragmatic Ecosystems page, typo and consistency fixes, and the AI-use footnotes on each article; for the reference architecture piece it also cleaned the three diagrams (Claude-generated SVGs, metadata and inline styles removed), checked the protocol dates and added the lethal trifecta reference. The owner wrote and edited the article text.
 The same session drafted the Pragmatic AI service copy from the owner's articles and the Speaking page from cronky.net, added related reading to the service pages and a 2026 engagements list, and drafted the DIST categories overview on the Sustainable Technology page from dist.greenweb.org, for the owner to review and approve before merging. It then built the Cronk Advisory side of the cronky.net content feed (build-time fetch with a snapshot fallback, local talk images, and the talk lists on Speaking, Insights and the service pages), drafted the Responsible Technology section of the Sustainable Technology page from the articles, and turned the Speaking formats and topics into icon cards.
+A further Claude Code session (Claude Opus 5.5) built the `/feeds/insights.json` articles feed for cronky.net and its CI check (with human review).
 
 ---
 
@@ -115,6 +116,8 @@ Talks, writing and podcasts aren't edited here: they come from [cronky.net](http
 ```bash
 sh scripts/refresh-insights
 ```
+
+Articles go the other way: the build publishes them at `/feeds/insights.json`, generated from the same list as `/insights/`, for cronky.net to read when it builds. Each article's `topics` must come from cronky.net's vocabulary (architecture, ai, sustainability, open-source, software-engineering, apis, events-podcasting, nature, cycling, photography), or the build fails. Our own themes go in `series`, which the feed publishes as `category`. A GitHub Actions workflow checks the built feed on every pull request and push to `main`. The feed's shape and rules are in [`AGENTS.md`](AGENTS.md).
 
 ---
 

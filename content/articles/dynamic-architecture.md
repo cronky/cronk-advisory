@@ -2,7 +2,7 @@
 title: "Dynamic Architecture: The Governed Response to Vibed Code and Agent Proliferation"
 date: 2026-10-27
 description: "Vibe coding and agentic AI are creating a Cambrian explosion of point solutions. Dynamic Architecture is the governed, ecosystem-aware response."
-topics: [architecture, ai, sustainability, governance]
+topics: [architecture, ai, sustainability]
 series: "Dynamic Architecture"
 canonical: ""  # TODO: original URL if first published elsewhere (LinkedIn, Substack)
 draft: false
