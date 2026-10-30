@@ -1,7 +1,7 @@
 ---
 title: "The AI Efficiency Fallacy"
-date: 2026-10-28
-description: "AI is sold as an efficiency play. The technology is brute-forced and expensive, the language we use about it is doing work the technology isn't, and the human oversight we rely on to make it safe is the thing automation erodes first."
+date: 2026-10-30
+description: "As incredible as AI can be, it is sold as an efficiency play. However the underlying tech can be brute-forced and expensive, the language we use about it is doing work the tech isn't, and the human oversight we rely on to make it safe is the thing automation erodes"
 topics: [ai, architecture, sustainability]
 series: "AI Sleepwalking"
 canonical: ""  # TODO: if cross-posted to LinkedIn
