@@ -1,0 +1,30 @@
+name: Insights feed check
+
+# Cloudflare Pages builds and deploys the site. This only checks /feeds/insights.json,
+# which cronky.net's build (and its topic validation) depends on.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: "0.158.0"   # keep in step with HUGO_VERSION in the Cloudflare Pages settings
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Hugo
+        run: |
+          curl -fsSL "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz" | tar -xz -C "$RUNNER_TEMP" hugo
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+
+      - name: Build
+        run: hugo
+
+      - name: Check the feed
+        run: python3 scripts/check-insights-feed public/feeds/insights.json

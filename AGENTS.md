@@ -37,7 +37,7 @@ The site practises what the business preaches: sustainable, secure, minimal tech
 | Talks, writing and podcasts | Owned by cronky.net and read from its feed (see "The cronky.net feed" below). Don't copy them into this repo |
 | Speaking page lists | `{{< featured-talks >}}` and `{{< speaking-year 2026 >}}` in `content/speaking.md`; `talk_articles` in its front matter links a talk (by feed slug) to an article here; role labels and count wording in `layouts/partials/speaking-roles.html` |
 | Cards with icons | `{{< icon-cards formats >}}` renders a front matter list (`title`, `icon`, `body`) as cards; Speaking uses it for `formats` and `topics`. Icons are inline SVG in `layouts/partials/icon.html` (add new ones there, drawn as simple line icons; no icon libraries or fonts). `wide: true` in front matter lets card grids on a plain page use the full width |
-| Articles | `content/articles/<name>.md` (`title`, `date`, `description` as the standfirst, `series`, `topics`, `canonical` if first published elsewhere), rendered by `layouts/articles/single.html` |
+| Articles | `content/articles/<name>.md` (`title`, `date`, `description` as the standfirst, `series`, `topics` from the feed vocabulary, `canonical` if first published elsewhere), rendered by `layouts/articles/single.html` and published in `/feeds/insights.json` (see "The articles feed" below) |
 | Pragmatic Ecosystems map | Data in `data/ecosystem-map.json`; markup and no-JS fallback in `layouts/shortcodes/ecosystem-map.html`; script `static/js/ecosystem-map.js`; styles under `.eco-` in `main.css`. The Copernican diagram is `layouts/shortcodes/copernican-shift.html` |
 | Markdown links | `layouts/_default/_markup/render-link.html`: links to unpublished pages render as plain text; http(s) links open in a new tab |
 | Header / nav | `layouts/partials/header.html` |
@@ -121,6 +121,16 @@ Talks, writing and podcasts come from `https://cronky.net/feeds/advisory.json` (
 - `insight-list.html` renders a filtered list (type, topics, advisory, featured, limit) as `talk-card.html` cards or a link list; service pages use it for "Related talks" and "Related writing" by `related_topics`.
 - Only items cronky.net flags `advisory: true` show, except role counts, which use every talk. Talks before March 2026 predate the company: present them as Oliver's track record, not Cronk Advisory work.
 - Remote fetches are cached for 15 minutes locally (`[caches.getresource]` in `hugo.toml`). A failed image fetch warns, which fails `--panicOnWarning`; rerun when cronky.net is back.
+
+### The articles feed (`/feeds/insights.json`)
+
+This site also publishes a feed the other way, so cronky.net's build can list our articles on its `/writing/` page. It is an output format of `content/insights.md` (`layouts/_default/insights.insightsfeed.json`), and `layouts/partials/published-articles.html` supplies the same list as `/insights/`, so the two can't drift. Don't hand-build its strings.
+
+Each article gives `slug`, `title`, `date` (byline date, `YYYY-MM-DD`), `url` (absolute, on this site), `summary` (`description`, plain text), `topics`, `category` (`series`) and `first_published_at` (`canonical`, or `null`), under `schema_version: 1` and `generated`. Newest first; drafts and future dates are left out.
+
+- **Every article needs `topics` from cronky.net's vocabulary**: architecture, ai, sustainability, open-source, software-engineering, apis, events-podcasting, nature, cycling, photography. Anything else fails the `hugo` build (`articleTopics` in `hugo.toml`), and cronky.net's CI would fail on it too. Our themes (AI Sleepwalking and so on) go in `series`, not `topics`. If the vocabulary changes, update `hugo.toml` and `scripts/check-insights-feed`.
+- `.github/workflows/insights-feed.yml` runs `scripts/check-insights-feed` on the built file for pull requests and pushes to `main`. It checks only; Cloudflare Pages still does the deploy.
+- cronky.net only sees new articles when it rebuilds. `.github/workflows/cronky-net-rebuild.yml` handles that: after a push that touches articles, and once a day, it reads the live feed, hashes it without `generated` and compares that with the last hash in `actions/cache`. If it changed, it POSTs to cronky.net's Cloudflare Pages deploy hook (secret `CRONKY_DEPLOY_HOOK`), the mirror of `CA_DEPLOY_HOOK` on the cronky.net side. An article dated in the future joins the feed only at the first Cloudflare build on or after its date, so it needs a deploy of this site that day.
 
 There are no tests. Before finishing a change:
 

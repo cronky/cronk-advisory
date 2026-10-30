@@ -1,0 +1,30 @@
+{{- /* The articles feed cronky.net reads at build time. Drafts and future dates are skipped
+  even under hugo -D or -F, so a local build matches production. */ -}}
+{{- $articles := slice -}}
+{{- range partial "published-articles.html" . -}}
+  {{- if and (not .Draft) (not (.Date.After now)) -}}
+    {{- $page := . -}}
+    {{- if .Date.IsZero -}}{{- errorf "%s: an article needs a date for /feeds/insights.json" .File.Path -}}{{- end -}}
+    {{- if not .Params.topics -}}{{- errorf "%s: an article needs topics for /feeds/insights.json" .File.Path -}}{{- end -}}
+    {{- range .Params.topics -}}
+      {{- if not (in site.Params.articleTopics .) -}}
+        {{- errorf "%s: topic %q is not in cronky.net's vocabulary (articleTopics in hugo.toml)" $page.File.Path . -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $articles = $articles | append (dict
+      "slug" (path.Base .RelPermalink)
+      "title" .Title
+      "date" (.Date.Format "2006-01-02")
+      "url" .Permalink
+      "summary" (.Description | plainify | htmlUnescape)
+      "topics" .Params.topics
+      "category" .Params.series
+      "first_published_at" (.Params.canonical | default nil)
+    ) -}}
+  {{- end -}}
+{{- end -}}
+{{- jsonify (dict "indent" "  " "noHTMLEscape" true) (dict
+  "schema_version" 1
+  "generated" (now.UTC.Format "2006-01-02T15:04:05Z")
+  "articles" $articles
+) -}}

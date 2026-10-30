@@ -1,6 +1,7 @@
 ---
 title: "Insights"
 layout: insights
+outputs: [html, insightsfeed]   # also publishes /feeds/insights.json
 label: "Insights"
 summary: "Our thinking on enterprise architecture, AI and sustainable technology."
 description: "Insights from Cronk Advisory: the Pragmatic Ecosystems approach, articles, and Oliver Cronk's talks, writing and podcasts."

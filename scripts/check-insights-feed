@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+# Check the built /feeds/insights.json against what cronky.net relies on. Run after hugo,
+# from the repo root: python3 scripts/check-insights-feed public/feeds/insights.json
+import json
+import re
+import sys
+from datetime import date
+
+TOPICS = {"architecture", "ai", "sustainability", "open-source", "software-engineering",
+          "apis", "events-podcasting", "nature", "cycling", "photography"}
+BASE = "https://cronkadvisory.com/articles/"
+
+path = sys.argv[1] if len(sys.argv) > 1 else "public/feeds/insights.json"
+with open(path, encoding="utf-8") as f:
+    feed = json.load(f)  # raises, and so fails CI, if the JSON is invalid
+
+problems = []
+if feed.get("schema_version") != 1:
+    problems.append("schema_version must be 1")
+if not re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z", str(feed.get("generated"))):
+    problems.append("generated must be ISO 8601 UTC")
+articles = feed.get("articles")
+if not isinstance(articles, list):
+    problems.append("articles must be a list")
+    articles = []
+
+dates = []
+for a in articles:
+    slug = a.get("slug") or "(no slug)"
+    for key in ("title", "summary", "category"):
+        if not (isinstance(a.get(key), str) and a[key].strip()):
+            problems.append(f"{slug}: {key} is missing or empty")
+    try:
+        day = date.fromisoformat(a.get("date", ""))
+        dates.append(day)
+        if day > date.today():
+            problems.append(f"{slug}: dated in the future")
+    except ValueError:
+        problems.append(f"{slug}: date must be YYYY-MM-DD")
+    if a.get("url") != f"{BASE}{slug}/":
+        problems.append(f"{slug}: url must be {BASE}{slug}/")
+    topics = a.get("topics")
+    if not (isinstance(topics, list) and topics):
+        problems.append(f"{slug}: topics must be a non-empty list")
+    else:
+        for topic in topics:
+            if topic not in TOPICS:
+                problems.append(f"{slug}: unknown topic {topic!r}")
+    first = a.get("first_published_at", "missing")
+    if first is not None and not re.match(r"https?://", str(first)):
+        problems.append(f"{slug}: first_published_at must be a URL or null")
+
+if dates != sorted(dates, reverse=True):
+    problems.append("articles must be newest first")
+
+for problem in problems:
+    print(problem, file=sys.stderr)
+if problems:
+    sys.exit(1)
+print(f"{path}: {len(articles)} articles OK")
