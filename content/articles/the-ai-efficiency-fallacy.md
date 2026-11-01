@@ -1,7 +1,7 @@
 ---
 title: "The AI Efficiency Fallacy"
-date: 2026-10-28
-description: "AI is sold as an efficiency play. The technology is brute-forced and expensive, the language we use about it is doing work the technology isn't, and the human oversight we rely on to make it safe is the thing automation erodes first."
+date: 2026-10-30
+description: "AI is sold as an efficiency play. But the tech is brute-forced and expensive, the language we use about it is misleading, and the human oversight we rely on to make it safe is the thing automation erodes"
 topics: [ai, architecture, sustainability]
 series: "AI Sleepwalking"
 canonical: ""  # TODO: if cross-posted to LinkedIn
@@ -22,7 +22,9 @@ I open the talk with a photograph of a Swiss train crossing the Landwasser Viadu
 
 Then I show the same scene with the frame widened: power stations belching upstream, e-waste piled at the foot of the arches, the far span of the viaduct crumbling while people scramble to shore it up.
 
-The train has not become less efficient. The boundary has moved. This is the core move in [Ecosystem Architecture](/articles/dynamic-architecture/) and it is the one most AI business cases never make. Efficiency is not a property of a system. It is a property of a system *and the boundary you drew around it*. Draw it tightly enough and almost anything looks efficient.
+![The reality of the train as AI metaphor image](/images/articles/train-2.jpg)
+
+The train has not become less efficient. The boundary has moved to include the ecosystems it relies on. This is core to [Ecosystem Architecture](/approach)
 
 ## Fallacy one: the technology itself is efficient
 
