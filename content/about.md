@@ -1,7 +1,6 @@
 ---
 title: "About Cronk Advisory"
 layout: about
-label: "About"
 description: "About Cronk Advisory, a technology leadership and architecture consultancy founded by Oliver Cronk, and how this website is built."
 
 # 1. The company

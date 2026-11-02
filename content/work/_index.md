@@ -1,7 +1,6 @@
 ---
 title: "Experience"
 linkTitle: "Work"
-label: "Work"
 summary: "Client engagements, talks and earlier work: the evidence behind what Cronk Advisory offers."
 description: "What Cronk Advisory and Oliver Cronk have delivered: fractional CTO and architecture engagements, sustainable technology work, and speaking."
 # The entries come from data/experience.yaml (rendered by layouts/work/list.html).

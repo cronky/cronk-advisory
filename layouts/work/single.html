@@ -10,12 +10,9 @@
 <section class="page-header">
   <div class="section-inner">
     {{ partial "breadcrumbs.html" . }}
-    <div class="label">Case study</div>
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="page-summary">{{ . }}</p>{{ end }}
-    {{ with $entry }}
-    <p class="article-meta case-meta">{{ with .client.label }}{{ . }} · {{ end }}{{ .period_label }}</p>
-    {{ end }}
+    <p class="article-meta case-meta">Case study{{ with $entry }}{{ with .client.label }} · {{ . }}{{ end }} · {{ .period_label }}{{ end }}</p>
   </div>
 </section>
 <section class="section section-cream page-section">

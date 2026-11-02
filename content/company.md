@@ -1,6 +1,5 @@
 ---
 title: "Company information"
-label: "Company"
 draft: false   # built in Phase 1
 description: "Legal and registration details for Cronk Advisory Limited."
 summary: "Registration details for Cronk Advisory, as held at Companies House."
