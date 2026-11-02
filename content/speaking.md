@@ -8,23 +8,38 @@ description: "Book Oliver Cronk to speak, chair or facilitate on architecture, p
 related_topics: [speaking]
 wide: true   # lets the card grids use the full page width
 # Formats and Topics render as cards with {{< icon-cards formats >}} and {{< icon-cards topics >}}.
-# icon: a name from layouts/partials/icon.html. TODO: Claude's one-line format descriptions, for Ollie to review.
+# icon: a name from layouts/partials/icon.html. photo (optional): src, alt and pictured (event and year,
+# shown under the card text); 800 x 600 WebP in static/images/photos/speaking/. Cards with photos go first.
+# TODO: Claude's one-line format descriptions, for Ollie to review.
 formats:
   - title: "Keynote"
     icon: presentation
     body: "A headline talk that sets the theme for the event."
+    photo: { src: "/images/photos/speaking/keynote.webp", alt: "Oliver Cronk presenting, with slides projected behind him" }
   - title: "Talk"
     icon: speech
     body: "A focused talk for a conference, community or meetup."
+    photo: { src: "/images/photos/speaking/keynote-stage.webp", alt: "Oliver Cronk speaking from a lectern on a conference stage", pictured: "New Statesman Fintech Summit, 2021" }
   - title: "Panel chair"
     icon: panel
     body: "Drawing out the panellists and keeping the audience involved."
-  - title: "MC and host"
-    icon: microphone
-    body: "Holding the day together, from the opening welcome to the close."
+    photo: { src: "/images/photos/speaking/panel-chair.webp", alt: "Oliver Cronk chairing a panel of three speakers on stage", pictured: "Sustainability Delivery Summit London, 2026" }
+  # TODO: Claude's descriptions for Panellist and Filmed interviews, for Ollie to review
+  - title: "Panellist"
+    icon: conversation
+    body: "A practitioner's view on architecture, AI and sustainability, alongside other experts."
+    photo: { src: "/images/photos/speaking/panellist.webp", alt: "Oliver Cronk speaking on a panel with two other panellists" }
   - title: "Roundtable facilitation"
     icon: roundtable
     body: "Making sure every voice is heard and the discussion gets somewhere useful."
+    photo: { src: "/images/photos/speaking/roundtable.webp", alt: "Oliver Cronk standing to lead a roundtable discussion with guests seated at tables" }
+  - title: "Filmed interviews"
+    icon: camera
+    body: "Interviews for documentaries, films and video features."
+    photo: { src: "/images/photos/speaking/documentary.webp", alt: "Oliver Cronk being interviewed in a green-screen film studio" }
+  - title: "MC and host"
+    icon: microphone
+    body: "Holding the day together, from the opening welcome to the close."
   - title: "Workshop"
     icon: workshop
     body: "Hands-on sessions that work through a framework or problem with the group, such as DIST."
@@ -50,26 +65,6 @@ topics:
   - title: "Open source and responsible technology"
     icon: code
     body: "The role of open source in sustainable technology, and building technology that serves people."
-# Photos for {{< photo-grid photos >}}: 800 × 600 WebP in static/images/photos/speaking/
-photos:
-  - src: "/images/photos/speaking/panel-chair.webp"
-    alt: "Oliver Cronk chairing a panel of three speakers on stage"
-    caption: "Chairing a panel at the Sustainability Delivery Summit, London, 2026"
-  - src: "/images/photos/speaking/keynote.webp"
-    alt: "Oliver Cronk presenting, with slides projected behind him"
-    caption: "Keynote"
-  - src: "/images/photos/speaking/panellist.webp"
-    alt: "Oliver Cronk speaking on a panel with two other panellists"
-    caption: "Panellist"
-  - src: "/images/photos/speaking/roundtable.webp"
-    alt: "Oliver Cronk standing to lead a roundtable discussion with guests seated at tables"
-    caption: "Leading a roundtable"
-  - src: "/images/photos/speaking/keynote-stage.webp"
-    alt: "Oliver Cronk speaking from a lectern on a conference stage"
-    caption: "Speaking at the New Statesman Fintech Summit, 2021"
-  - src: "/images/photos/speaking/documentary.webp"
-    alt: "Oliver Cronk being interviewed in a green-screen film studio"
-    caption: "Filmed interview"
 # Articles on this site that go with a talk, by the talk's slug in the cronky.net feed
 talk_articles:
   2026-baf-summit-keynote: "/articles/the-ai-efficiency-fallacy"
@@ -78,8 +73,6 @@ talk_articles:
 Oliver speaks, chairs and facilitates on architecture, AI and sustainable technology. The aim on stage is the same as in client work: cut through the hype, make the trade-offs visible, and leave the room with something it can act on.
 
 He has been speaking since 2008. Running the [Architect Tomorrow](https://architecttomorrow.com) podcast led to more chairing and facilitation, which is a related but different skill: drawing out other people's contributions, keeping the conversation moving and keeping the audience with it.
-
-{{< photo-grid photos >}}
 
 ## Formats
 

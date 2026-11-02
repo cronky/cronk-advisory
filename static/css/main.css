@@ -636,7 +636,7 @@ a:hover { text-decoration: underline; }
   gap: 16px;
   margin: 0 0 24px;
 }
-.icon-grid-formats { grid-template-columns: repeat(3, 1fr); }   /* nine formats: a 3 x 3 grid */
+.icon-grid-formats { grid-template-columns: repeat(3, 1fr); }   /* six photo cards, then the rest */
 .icon-grid-topics  { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 @media (max-width: 900px) { .icon-grid-formats { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .icon-grid-formats { grid-template-columns: 1fr; } }
@@ -658,6 +658,17 @@ a:hover { text-decoration: underline; }
   background: var(--cream);
   color: var(--forest);
 }
+/* A card with a photo: the photo runs edge to edge, with the icon over its lower edge */
+.icon-card.has-photo { padding-top: 0; overflow: hidden; }
+.prose .icon-card-photo {
+  width: calc(100% + 44px);
+  max-width: none;
+  margin: 0 -22px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.has-photo .icon-badge { margin-top: -36px; position: relative; border: 3px solid white; width: 54px; height: 54px; }
+.prose .icon-card p.icon-card-pictured { margin-top: auto; font-family: var(--heading); font-size: 13px; font-weight: 600; color: var(--ink-m); }
 .prose .icon-card h3 { margin: 4px 0 0; font-size: 17px; color: var(--navy); }
 .prose .icon-card p { margin: 0; font-size: 15px; line-height: 1.55; }
 
@@ -865,13 +876,6 @@ a:hover { text-decoration: underline; }
   .exp-filter-name { min-width: 100%; }
 }
 
-/* Photo grid (speaking page) */
-.photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 28px 0 8px; }
-.photo-grid figure { margin: 0; }
-.photo-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; }
-.photo-grid figcaption { font-family: var(--heading); font-size: 14px; font-weight: 600; color: var(--ink-m); margin-top: 8px; line-height: 1.4; }
-@media (max-width: 900px) { .photo-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .photo-grid { grid-template-columns: 1fr; } }
 
 .contact-page-grid {
   display: grid;
