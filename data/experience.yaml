@@ -143,8 +143,8 @@ entries:
       display: named
       name: "Environment Analyst"
       sector_label: "Environmental consultancy market intelligence and events"
-      url: null                 # TODO: confirm URL, then link_permitted: true
-      link_permitted: false
+      url: "https://environment-analyst.com/"
+      link_permitted: true
       logo: "/images/logos/environment-analyst.webp"
       logo_permitted: true
       approval_status: approved
@@ -200,7 +200,7 @@ entries:
     type: speaking
     feed_slug: 2026-sustainability-delivery-summit
     era: cronk-advisory
-    client: { display: named, name: "Environment Analyst", link_permitted: false, logo: "/images/logos/environment-analyst.webp", logo_permitted: true }
+    client: { display: named, name: "Environment Analyst", url: "https://environment-analyst.com/", link_permitted: true, logo: "/images/logos/environment-analyst.webp", logo_permitted: true }
     summary: "Chairing a panel on harnessing AI and digital tools to transform infrastructure delivery."
     services: [speaking, ai-governance, sustainable-technology]
     photo:
@@ -224,7 +224,7 @@ entries:
     location: "Birmingham, UK"
     speaking_role: panel
     era: cronk-advisory
-    client: { display: named, name: "Environment Analyst", link_permitted: false, logo: "/images/logos/environment-analyst.webp", logo_permitted: true }
+    client: { display: named, name: "Environment Analyst", url: "https://environment-analyst.com/", link_permitted: true, logo: "/images/logos/environment-analyst.webp", logo_permitted: true }
     summary: "A one-off expert panel and roundtable on harnessing AI in consulting."
     services: [speaking, ai-governance, sustainable-technology]
     links:
