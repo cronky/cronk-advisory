@@ -156,7 +156,7 @@ layouts/
   services/ list, single
   articles/ single
   partials/ header, footer, head, schema, breadcrumbs, page-header, cta-band, content,
-            service-card, service-pages, service-number, article-card, talk-card, insight-list,
+            service-card, service-pages, article-card, talk-card, insight-list,
             insights-feed, feed-image, speaking-roles, icon, ecosystem-stack,
             logo-strip and video-facade (to do)
   shortcodes/ ecosystem-map, copernican-shift, company-details, featured-talks, speaking-year, icon-cards
