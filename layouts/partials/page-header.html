@@ -1,6 +1,8 @@
-{{- /* Navy band at the top of every inner page: breadcrumbs, optional label, title and summary. */ -}}
+{{- /* Navy band at the top of every inner page: breadcrumbs, optional label, title and summary.
+  Service pages (and Speaking) have an amber title. */ -}}
 {{- $label := .Params.label }}
-<section class="page-header">
+{{- $service := in (partial "service-pages.html" .) . }}
+<section class="page-header{{ if $service }} page-header-service{{ end }}">
   <div class="section-inner">
     {{ partial "breadcrumbs.html" . }}
     {{ with $label }}<div class="label">{{ . }}</div>{{ end }}
