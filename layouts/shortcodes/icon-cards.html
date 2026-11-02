@@ -1,7 +1,7 @@
 {{- /* A grid of cards with icons, from a list in the page's front matter.
   Usage: {{< icon-cards formats >}}. Each item has title, icon (a name from
   layouts/partials/icon.html), an optional body, which accepts inline Markdown, and an optional
-  photo (src, alt, pictured) shown across the top of the card with the icon over its edge. */ -}}
+  photo (src, alt) shown across the top of the card with the icon over its edge. */ -}}
 {{- $key := .Get 0 }}
 {{- with index .Page.Params $key }}
 <div class="icon-grid icon-grid-{{ $key }}">
@@ -15,9 +15,6 @@
     {{- with .body }}
     <p>{{ . | markdownify }}</p>
     {{- end }}
-    {{- with .photo }}{{ with .pictured }}
-    <p class="icon-card-pictured">Pictured: {{ . }}</p>
-    {{- end }}{{ end }}
   </div>
   {{- end }}
 </div>

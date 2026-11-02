@@ -281,8 +281,7 @@ entries:
     era: personal
     role: "Founder and host"
     client: { display: named, name: "Architect Tomorrow", url: "https://architecttomorrow.com", link_permitted: true, logo_permitted: false }
-    # TODO: the year the podcast started, to add to the summary
-    summary: "Founded the Architect Tomorrow community in 2019, which later added a podcast on architecture, emerging technology and sustainability."
+    summary: "Founded the Architect Tomorrow community and podcast in 2019, on architecture, emerging technology and sustainability."
     services: [speaking, architecture]
     links:
       evidence:

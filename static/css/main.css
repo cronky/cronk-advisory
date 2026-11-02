@@ -668,7 +668,6 @@ a:hover { text-decoration: underline; }
   object-fit: cover;
 }
 .has-photo .icon-badge { margin-top: -36px; position: relative; border: 3px solid white; width: 54px; height: 54px; }
-.prose .icon-card p.icon-card-pictured { margin-top: auto; font-family: var(--heading); font-size: 13px; font-weight: 600; color: var(--ink-m); }
 .prose .icon-card h3 { margin: 4px 0 0; font-size: 17px; color: var(--navy); }
 .prose .icon-card p { margin: 0; font-size: 15px; line-height: 1.55; }
 
