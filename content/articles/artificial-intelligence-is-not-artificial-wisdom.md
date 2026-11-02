@@ -10,29 +10,25 @@ draft: false
 
 At the Industry Studies Association's conference in Oxford, [Jennifer Woolley](https://www.scu.edu/execed/custom/faculty/jennifer-l-woolley) was on a panel with me and she made an observation that really made me think. We keep saying artificial intelligence when what we actually want/assume we are buying, is artificial knowledge. Perhaps even artificial wisdom?
 
-Confusing these things is not minor semantics; but a massive category and architectural error.
+This also inspired one of the visuals in a recent talk [The AI efficiency Fallacy that you can read about here](/articles/the-ai-efficiency-fallacy/)
 
-## Where intelligence actually sits
+## Where does intelligence fit?
 
 Most who have worked in knowledge management know the DIKW hierarchy: data, information, knowledge, wisdom, popularised by [Russell Ackoff in 1989](https://isko.org/cyclo/dikw) and by Milan Zeleny. It is not a perfect model. But it separates what we accumulate from what we earn.
 
-Treating intelligence, understanding or purpose as *levels* implies you arrive at them by processing enough of the level below. You do not. They are faculties applied to the material, not products of it. Wisdom requires judgement, that judgement is inseparable from the actor and their values, and that *wisdom-generating systems are ones that man will never be able to assign to automata* 
+Treating intelligence, understanding or purpose as *levels* implies you arrive at them by processing enough of the level below. I'd argue they are faculties applied to the material, not products of it. Wisdom requires judgement, that judgement is inseparable from the actor and their values, and that *wisdom-generating systems are ones that man will not be be able to assign to automation* 
 
 A related distinction I had to think through. **Reasoning is not judgement.** Reasoning is a faculty: deriving conclusions from premises. It can be formalised, taught, and done rather well by machines. Judgement is an act: committing to a position when the premises are incomplete, the values conflict, and someone has to live with the outcome. Reasoning runs out precisely where judgement starts. So reasoning belongs with the engine, alongside computation and recall, not on the stack.
 
 ## Drawing a revised stack
 
-Nine layers, building on each other, technology leading at the base and humans leading at the top.
-
 ![The context stack. Nine layers, bottom to top: Infrastructure, Data, Information and Knowledge (technology-led capabilities), then a dashed judgement line, then Judgement, Empathy, Wisdom, Accountability and Trusted Relationships (human capabilities). Context runs from generic at the base, through nuanced and situated, to non-transferable at the top. Risk and governance on the right: controls (security, privacy, resilience); quality and provenance (verification, sourcing, IP); decision rights (human escalation, care, nuance, sensemaking); assurance (transparency, audit, redress). After Ackoff (1989) and Zeleny (1987).](/images/articles/context-stack-judgement-line.webp)
 
-**Context increases as you climb.** Data is portable: it travels anywhere and means roughly the same. Wisdom is situated, non-transferable, and expires when the circumstances change. Plenty of people have now observed that AI is strong at the base of the stack and weak at the top, including [TMAP](https://www.tmap.net/building-blocks/dikw-hierarchy/) in the quality engineering world and a recent knowledge management literature that concludes AI dominates the lower layers while wisdom remains the domain of human judgement. Fewer say *why*. The reason is that the upper layers do not generalise, and generalisation is exactly what these models were trained to do. Your situated context is, by definition, not in the training data.
+**Context increases as you climb.** Data is portable: it travels anywhere and means roughly the same. Wisdom is situated, non-transferable, and expires when the circumstances change. Plenty of people have now observed that AI is strong at the base of the stack and weak at the top, including [TMAP](https://www.tmap.net/building-blocks/dikw-hierarchy/) in the quality engineering world and a recent knowledge management literature that concludes AI dominates the lower layers while wisdom remains the domain of human judgement. The reason is that the upper layers do not generalise, and generalisation is exactly what these models were trained to do. Your situated context is, by definition, not in the training data.
 
 **Trust is an output, not an input.** It sits at the top because it is what everything underneath produces when it holds. Provenance at the base is necessary. It is not sufficient, and calling it trust flatters it.
 
-## Five asymmetries that matter in practice
-
-Hese are the key differences:
+## Five asymmetries to think about
 
 1. **Provenance.** Knowledge can be traced back to how it was earned. Model output is plausible before it is sourced, which is exactly the wrong way round for anything you will later have to defend.
 2. **Tacitness.** Models are trained on the tellable. The rest is where your people remain valuable, and it is usually what made them worth hiring.
@@ -42,9 +38,9 @@ Hese are the key differences:
 
 ## Finding the line
 
-Stop asking "where can we use AI". Ask instead: **where in this process does the line fall?** Above it, a named human owns the output. Below it, the machine can run.
+We probably need to stop asking "where can we use AI". And ask: **where in this process does the line fall?** Above it, a named human owns the output. Below it, the machine is effective (arguably more so than humans in many cases).
 
-I make no claim to originality here, but the fact that so many people reached the same metaphor is validating. Marina Cortazzo writes in CIO about [the decision line](https://www.cio.com/article/4212022/the-decision-line.html), separating where AI should decide, advise, or defer to human experience. Ed Molyneux has been writing about the judgment line dividing intelligence work from judgement work. The security world has settled on *judgment boundary* for the control point between decision support and delegated action. Everyone can see the line. The harder question is how you locate it in your own processes.
+I make no claim to full originality here (I came up with the initial stack on my own and then went looking for similar work done by others), but the fact that so many people reached the same metaphor is quite validating. Marina Cortazzo writes in CIO about [the decision line](https://www.cio.com/article/4212022/the-decision-line.html), separating where AI should decide, advise, or defer to human experience. Ed Molyneux has been writing about the judgment line dividing intelligence work from judgement work. The security world has settled on *judgment boundary* for the control point between decision support and delegated action. Everyone can see the line. The harder question is how you locate it in your own processes.
 
 Three postures you can map to the stack:
 
