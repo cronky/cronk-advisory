@@ -75,7 +75,10 @@
       {{- $period = $t.Format $fmt }}
       {{- with .end }}
         {{- $end := . | string }}
-        {{- $period = printf "%s to %s" $period ((time (cond (eq (len $end) 4) (printf "%s-01-01" $end) (printf "%s-01" $end))).Format (cond (eq (len $end) 4) "2006" "January 2006")) }}
+        {{- $te := time (cond (eq (len $end) 4) (printf "%s-01-01" $end) (printf "%s-01" $end)) }}
+        {{- $endLabel := $te.Format (cond (eq (len $end) 4) "2006" "January 2006") }}
+        {{- /* Within one year, name the year once: "June to July 2026" */}}
+        {{- if and (eq $t.Year $te.Year) (ne (len $start) 4) (ne (len $end) 4) }}{{ $period = printf "%s to %s" ($t.Format "January") $endLabel }}{{ else }}{{ $period = printf "%s to %s" $period $endLabel }}{{ end }}
       {{- else }}
         {{- if .ongoing }}{{ $period = printf "Since %s" $period }}{{ end }}
       {{- end }}

@@ -52,7 +52,7 @@ entries:
     type: engagement
     featured: true
     title: "Digital Impacts Schema and Taxonomy (DIST)"
-    period: { start: "2026-05", ongoing: true }
+    period: { start: "2026-04", ongoing: true }
     era: cronk-advisory
     # TODO: role, e.g. "Architecture contributor and workshop lead"
     client:
@@ -81,7 +81,7 @@ entries:
     type: engagement
     featured: true
     title: "Fractional CTO for a climate and nature risk initiative"
-    period: { start: "2026" }   # TODO: start month, and ongoing: true if it continues
+    period: { start: "2026-09", ongoing: true }
     era: cronk-advisory
     role: "Fractional CTO"
     client:
@@ -107,8 +107,9 @@ entries:
     type: engagement
     featured: true
     title: "Product-market fit and architecture roadmap"
-    period: { start: "2026" }   # TODO: start and end months
+    period: { start: "2026-06", end: "2026-07" }
     era: cronk-advisory
+    role: "Fractional CTO"
     client:
       display: named
       name: "Sustain3"
@@ -122,7 +123,7 @@ entries:
       approval_note: "Logo and link approved by the founder"
     summary: "Refining product-market fit and setting out an architecture roadmap."
     outcomes: []                # TODO: factual outcomes
-    services: [strategy, architecture]
+    services: [fractional-cto, strategy, architecture]
     links:
       evidence: []
       reference: null
@@ -157,7 +158,7 @@ entries:
   - id: enterprise-architecture-governance-property
     type: engagement
     title: "Enterprise architecture and architecture governance"
-    period: { start: "2026" }   # TODO: start month, and ongoing: true if it continues
+    period: { start: "2026-05", end: "2027-04" }
     era: cronk-advisory
     client:
       display: sector
