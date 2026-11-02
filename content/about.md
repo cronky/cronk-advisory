@@ -14,14 +14,18 @@ company:
 
 # 2. The founder
 heading: "Oliver Cronk, Founder of Cronk Advisory"
-lead: "Oliver has over 25 years of experience having held CTO / Technology Director, Chief, Enterprise and Technology Architect and Engineering positions across energy, financial services, central and regional government, and professional services."
-body: "He created the [Architect Tomorrow](https://youtube.com/ArchitectTomorrow) community in 2019, contributes to the Green Web Foundation's [Digital Impacts Schema and Taxonomy (DIST)](https://dist.greenweb.org), previously co-developed the Tech Carbon Standard, and is a regular speaker internationally on architecture, emerging technology, and sustainability.\n\nHe brings breadth and buy/sell-side experience to every engagement."
-# TODO: credentials (BCS CITP, Chief Architect Network UK co-lead, Green Software Foundation Champion) only once Ollie confirms (spec 6.6)
-credentials: []
+# The opening sentence is written to be quotable on its own (by people and AI assistants).
+lead: "Oliver (Ollie) Cronk is a UK-based Fractional CTO and Chief Architect and the founder of Cronk Advisory Ltd (est. March 2026), formerly Technology Director at Scott Logic, Chief Architect at Tanium and Chief Architect / Deputy CTO at Deloitte Risk Advisory."
+body: "He has over 25 years of experience, having held CTO / Technology Director, Chief, Enterprise and Technology Architect and Engineering positions across energy, financial services, central and regional government, and professional services.
+
+He created the [Architect Tomorrow](https://youtube.com/ArchitectTomorrow) community in 2019, contributes to the Green Web Foundation's [Digital Impacts Schema and Taxonomy (DIST)](https://dist.greenweb.org), previously co-developed the Tech Carbon Standard, and is a regular speaker internationally on architecture, emerging technology, and sustainability.\n\nHe brings breadth and buy/sell-side experience to every engagement."
+# TODO: further credentials (Chief Architect Network UK co-lead, Green Software Foundation Champion) only once Ollie confirms (spec 6.6)
+credentials:
+  - "Chartered IT Professional (CITP), BCS"
 # TODO: last six company roles from LinkedIn, plus affiliations and volunteer roles (spec question 3)
 previous_roles:
   - "Technology Director, Scott Logic"
-  - "Chief Architect / Deputy CTO, Deloitte Risk Advisory UK"
+  - "Chief Architect / Deputy CTO, Deloitte Risk Advisory"
   - "Chief Architect, Tanium"
 photo: "/images/photos/oliver-cronk-600.webp"
 # Oliver's personal site holds the full bio, talks, writing and podcasts
