@@ -96,11 +96,13 @@ Client logos show in colour, at a uniform height on a white tile (or navy, with 
 
 ### Photos (`static/images/photos/`)
 
-All photos are Ollie's own or of Ollie. Before committing one:
+All photos are Ollie's own or of Ollie, including event photos of him speaking (owner decision, November 2026).
+Before committing one:
 
 - strip all metadata, including camera and GPS (`magick in.jpg -auto-orient -strip ...`);
 - convert to WebP at the sizes the template uses (the hero uses `<name>-800.webp` and `<name>-1600.webp`; aim for under 160 KB at 1600px);
-- don't commit originals, and don't publish photos where other people can be identified without their agreement.
+- don't commit originals;
+- event photos are fine to use: most events, Environment Analyst's included, have attendees opt in to being photographed, and most have already been shared on LinkedIn. For older photos where someone else is clearly identifiable, consider cropping or blurring them, and don't name other people in captions or alt text without their agreement.
 
 The home hero photo is set by `hero.photo` in `content/_index.md`. The navy shade over it (`.hero::after`) is what keeps the hero text at 4.5:1 or better, so re-measure contrast if you lighten the shade or pick a brighter photo.
 

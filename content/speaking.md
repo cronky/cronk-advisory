@@ -51,8 +51,6 @@ topics:
     icon: code
     body: "The role of open source in sustainable technology, and building technology that serves people."
 # Photos for {{< photo-grid photos >}}: 800 × 600 WebP in static/images/photos/speaking/
-# TODO: Ollie to confirm the event photos can be published (photographer's permission or credit,
-# and other people in shot), per the photo rules in AGENTS.md.
 photos:
   - src: "/images/photos/speaking/panel-chair.webp"
     alt: "Oliver Cronk chairing a panel of three speakers on stage"
