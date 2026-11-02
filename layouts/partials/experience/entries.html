@@ -3,10 +3,10 @@
   baseof.html calls it on every build, so a bad entry fails the build on Cloudflare as well as
   locally (the confidentiality guardrail).
 
-  Returns a list of entries, featured first then newest first, without hidden entries or (in
+  Returns a list of entries, newest first by start month, without hidden entries or (in
   production) drafts. Each is the YAML entry plus:
     title, url (talk page, for speaking), event, location, date (YYYY-MM-DD for sorting),
-    period_label, type_label, era_label, client (resolved by experience/client.html),
+    period_label (the start month only), type_label, era_label, client (resolved by experience/client.html),
     case_study (a published page or nil), evidence (only links that resolve), anchor */ -}}
 {{- $data := index site.Data "experience" | default dict }}
 {{- $feed := index (partialCached "insights-feed.html" . "feed") "speaking" | default slice }}
@@ -15,8 +15,7 @@
 {{- range $data.services }}{{ $serviceIds = $serviceIds | append .id }}{{ end }}
 {{- $eras := dict "cronk-advisory" "Cronk Advisory" "scott-logic" "Scott Logic" "tanium" "Tanium" "deloitte" "Deloitte" "personal" "Personal" }}
 {{- $seen := slice }}
-{{- $featured := slice }}
-{{- $rest := slice }}
+{{- $all := slice }}
 
 {{- range $e := $data.entries }}
   {{- $id := $e.id | default "" }}
@@ -73,15 +72,6 @@
       {{- $t := time (cond (eq (len $start) 4) (printf "%s-01-01" $start) (printf "%s-01" $start)) }}
       {{- $date = $t.Format "2006-01-02" }}
       {{- $period = $t.Format $fmt }}
-      {{- with .end }}
-        {{- $end := . | string }}
-        {{- $te := time (cond (eq (len $end) 4) (printf "%s-01-01" $end) (printf "%s-01" $end)) }}
-        {{- $endLabel := $te.Format (cond (eq (len $end) 4) "2006" "January 2006") }}
-        {{- /* Within one year, name the year once: "June to July 2026" */}}
-        {{- if and (eq $t.Year $te.Year) (ne (len $start) 4) (ne (len $end) 4) }}{{ $period = printf "%s to %s" ($t.Format "January") $endLabel }}{{ else }}{{ $period = printf "%s to %s" $period $endLabel }}{{ end }}
-      {{- else }}
-        {{- if .ongoing }}{{ $period = printf "Since %s" $period }}{{ end }}
-      {{- end }}
     {{- end }}
 
     {{- if not $title }}{{ errorf "%s: needs a title (or a feed_slug that is in the feed)" $where }}{{ end }}
@@ -128,10 +118,7 @@
       "reference" $reference
       "anchor" (printf "exp-%s" $id)
     ) }}
-    {{- if $e.featured }}{{ $featured = $featured | append $r }}{{ else }}{{ $rest = $rest | append $r }}{{ end }}
+    {{- $all = $all | append $r }}
   {{- end }}
 {{- end }}
-{{- $out := slice }}
-{{- range sort $featured "date" "desc" }}{{ $out = $out | append . }}{{ end }}
-{{- range sort $rest "date" "desc" }}{{ $out = $out | append . }}{{ end }}
-{{- return $out }}
+{{- return sort $all "date" "desc" }}

@@ -12,10 +12,10 @@
 #   id          stable, neutral slug (never derived from an anonymised client's name)
 #   type        engagement | speaking | prior
 #   draft       true keeps the entry out of production builds (shown with hugo server -D)
-#   featured    true pins it to the top of /work/; the first four also show on the home page
+#   featured    true shows it in the home page strip (the newest four)
 #   title       for speaking entries, leave out to use the talk's title from the cronky.net feed
 #   feed_slug   speaking only: the talk's slug in the cronky.net feed (title, date, event, url)
-#   period      start and end as "YYYY" or "YYYY-MM"; ongoing: true for current work
+#   period      start as "YYYY" or "YYYY-MM": the month the work started (no end dates are shown)
 #   era         cronk-advisory | scott-logic | tanium | deloitte | personal
 #   role        optional, plain text
 #   client      display: named | sector | hidden
@@ -52,7 +52,7 @@ entries:
     type: engagement
     featured: true
     title: "Digital Impacts Schema and Taxonomy (DIST)"
-    period: { start: "2026-04", ongoing: true }
+    period: { start: "2026-04" }
     era: cronk-advisory
     # TODO: role, e.g. "Architecture contributor and workshop lead"
     client:
@@ -81,7 +81,7 @@ entries:
     type: engagement
     featured: true
     title: "Fractional CTO for a climate and nature risk initiative"
-    period: { start: "2026-09", ongoing: true }
+    period: { start: "2026-09" }
     era: cronk-advisory
     role: "Fractional CTO"
     client:
@@ -107,7 +107,7 @@ entries:
     type: engagement
     featured: true
     title: "Product-market fit and architecture roadmap"
-    period: { start: "2026-06", end: "2026-07" }
+    period: { start: "2026-06" }
     era: cronk-advisory
     role: "Fractional CTO"
     client:
@@ -133,7 +133,7 @@ entries:
   - id: environment-analyst-ai-working-group
     type: engagement
     title: "Co-chair, working group on AI in environmental consultancy"
-    period: { start: "2026" }   # TODO: start month, and ongoing: true if it continues
+    period: { start: "2026" }   # TODO: start month
     era: cronk-advisory
     role: "Co-chair"
     client:
@@ -158,7 +158,7 @@ entries:
   - id: enterprise-architecture-governance-property
     type: engagement
     title: "Enterprise architecture and architecture governance"
-    period: { start: "2026-05", end: "2027-04" }
+    period: { start: "2026-05" }
     era: cronk-advisory
     client:
       display: sector
@@ -278,7 +278,7 @@ entries:
   - id: architect-tomorrow
     type: prior
     title: "Founded Architect Tomorrow"
-    period: { start: "2019", ongoing: true }
+    period: { start: "2019" }
     era: personal
     role: "Founder and host"
     client: { display: named, name: "Architect Tomorrow", url: "https://architecttomorrow.com", link_permitted: true, logo_permitted: false }
