@@ -840,6 +840,7 @@ a:hover { text-decoration: underline; }
   object-fit: cover;
   border-bottom: 1px solid var(--rule);
 }
+.exp-photo-wide { aspect-ratio: 16 / 9; }
 .exp-meta { font-family: var(--heading); font-size: 15px; font-weight: 600; color: var(--ink-m); display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
 .exp-card p + p { margin-top: 0; }
 .exp-role { font-family: var(--heading); font-size: 14px; font-weight: 500; color: var(--ink-m); margin-top: -6px; }

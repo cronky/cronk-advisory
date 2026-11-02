@@ -30,7 +30,7 @@
 #   summary     one or two sentences, plain text
 #   outcomes    short factual strings; leave empty rather than invent
 #   services    tags from the services list below
-#   photo       optional: path under static/ and alt text
+#   photo       optional: src (under static/), alt, and wide: true for a 16:9 image (default 4:3)
 #   links       evidence: list of {label, url}; reference: {quote, attribution, permitted};
 #               case_study: path to a page under /work/ (linked once it is published);
 #               related: ids of other entries
@@ -247,8 +247,17 @@ entries:
     feed_slug: 2026-perfect-storm-documentary
     era: cronk-advisory
     client: { display: named, name: "Dark Matter", link_permitted: false, logo_permitted: false }
-    summary: "Contributor to a documentary film on the UK's infrastructure."
+    summary: "Contributor to The Perfect Storm: The UK Infrastructure Story, a documentary on the resilience, digital future and systemic pressures facing UK infrastructure, from climate shocks and AI hype to data sovereignty. Produced by Dark Matter in association with Hewlett Packard Enterprise and released in October 2026."
     services: [speaking, architecture]
+    # The film's key art (YouTube thumbnail): 16:9, so wide
+    photo:
+      src: "/images/photos/speaking/perfect-storm.webp"
+      alt: "Poster for The Perfect Storm, a Dark Matter film in association with HPE: a glass cube holding a lightning storm"
+      wide: true
+    links:
+      evidence:
+        - { label: "Watch the film on YouTube", url: "https://www.youtube.com/watch?v=bnm-QdyU4B0" }
+        - { label: "Trailer on HPE's resource library", url: "https://www.hpe.com/int/en/resource-library.video.perfect-storm-trailer.v100017914.html" }
 
   - id: baf-regenerative-architecture-2026
     type: speaking
@@ -277,32 +286,3 @@ entries:
     client: { display: named, name: "Industry Studies Association", link_permitted: false, logo_permitted: false }
     summary: "Panel on ethics, control and responsibility in agentic AI."
     services: [speaking, ai-governance]
-
-  # ── Before Cronk Advisory ────────────────────────────────────────────
-
-  - id: technology-carbon-standard
-    type: prior
-    title: "Technology Carbon Standard"
-    period: { start: "2024-02" }   # TODO: confirm the period; February 2024 is the launch
-    era: scott-logic
-    role: "Technology Director"
-    client: { display: named, name: "Scott Logic", link_permitted: false, logo_permitted: false }
-    # Exact wording agreed with Ollie. Never "created by Cronk Advisory", and no link (see AGENTS.md).
-    summary: "Co-developed and launched (State of Open Con 2024) while leading Scott Logic's Sustainable Technology practice."
-    services: [sustainable-technology, standards]
-    links:
-      evidence:
-        - { label: "State of Open Con 2024 talk", url: "https://cronky.net/speaking/2024-state-of-open-con/" }
-
-  - id: architect-tomorrow
-    type: prior
-    title: "Founded Architect Tomorrow"
-    period: { start: "2019" }
-    era: personal
-    role: "Founder and host"
-    client: { display: named, name: "Architect Tomorrow", url: "https://architecttomorrow.com", link_permitted: true, logo_permitted: false }
-    summary: "Founded the Architect Tomorrow community and podcast in 2019, on architecture, emerging technology and sustainability."
-    services: [speaking, architecture]
-    links:
-      evidence:
-        - { label: "Architect Tomorrow on YouTube", url: "https://youtube.com/ArchitectTomorrow" }
