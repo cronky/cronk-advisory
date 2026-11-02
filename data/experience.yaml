@@ -189,7 +189,7 @@ entries:
     featured: true
     feed_slug: 2026-baf-summit-keynote
     era: cronk-advisory
-    client: { display: named, name: "Business Architecture Forum", link_permitted: false, logo_permitted: false }
+    client: { display: named, name: "Business Architecture Forum", link_permitted: false, logo: "/images/logos/business-architecture-forum.webp", logo_on_dark: true, logo_permitted: true }
     summary: "Keynote on why AI's promised efficiency is a fallacy: the technology is brute-forced and expensive, and the human oversight that makes it safe is what automation erodes."
     services: [speaking, ai-governance, architecture]
     links:
@@ -258,18 +258,6 @@ entries:
       evidence:
         - { label: "Watch the film on YouTube", url: "https://www.youtube.com/watch?v=bnm-QdyU4B0" }
         - { label: "Trailer on HPE's resource library", url: "https://www.hpe.com/int/en/resource-library.video.perfect-storm-trailer.v100017914.html" }
-
-  - id: baf-regenerative-architecture-2026
-    type: speaking
-    feed_slug: 2026-baf-regenerative-architecture
-    era: cronk-advisory
-    client: { display: named, name: "Business Architecture Forum", link_permitted: false, logo_permitted: false }
-    summary: "An introduction to regenerative architecture for business and enterprise architects."
-    services: [speaking, architecture, sustainable-technology]
-    links:
-      evidence:
-        - { label: "Principles for Regenerative Architecture", url: "https://architecttomorrow.com/resources/regenerative-architecture-principles/" }
-        - { label: "The Pragmatic Ecosystems approach", url: "/approach" }
 
   - id: can-architecting-intelligence-2026
     type: speaking

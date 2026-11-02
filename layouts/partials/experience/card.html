@@ -12,7 +12,7 @@
   <span class="label">{{ $e.type_label }} · {{ $e.period_label }}</span>
   <h3>{{ if and (not $full) $workPage }}<a href="{{ $workPage.RelPermalink }}#{{ $e.anchor }}">{{ $e.title }}</a>{{ else }}{{ $e.title }}{{ end }}</h3>
   <p class="exp-meta">
-    {{- if eq $e.type "speaking" }}{{ $e.event }}{{ with $e.location }}{{ if ne . "Online" }}, {{ . }}{{ else }} (online){{ end }}{{ end }}
+    {{- if eq $e.type "speaking" }}{{ if $e.client.logo }}{{ partial "experience/client-name.html" $e.client }} {{ end }}{{ $e.event }}{{ with $e.location }}{{ if ne . "Online" }}, {{ . }}{{ else }} (online){{ end }}{{ end }}
     {{- else }}{{ partial "experience/client-name.html" $e.client }}{{ end -}}
   </p>
   {{- with $e.role }}<p class="exp-role">Role: {{ . }}</p>{{ end }}
