@@ -1,8 +1,8 @@
 ---
 title: "Why I set up Cronk Advisory"
-date: 2026-04-02
-description: "After years as an intrapreneur, I have started my own business, with one mission: to align technology with holistic sustainability."
-topics: [sustainability, architecture]
+date: 2026-04-06
+description: "After years as an intrapreneur, I have started my own business, with the core mission: to align technology with holistic sustainability."
+topics: [sustainability, architecture, ai]
 series: "Company news"
 draft: false
 # A variant of Ollie's LinkedIn announcement (25 March 2026), so no canonical: the link is in the footnote.
@@ -14,11 +14,11 @@ draft: false
 
 After many years of considering starting something, and being an intrapreneur at heart throughout my career, I have started my own business. I am proud to introduce Cronk Advisory.
 
-## The mission
+## The core mission
 
 You probably won't be surprised by it: **to align technology with holistic sustainability.**
 
-Not just green or carbon, but a pragmatic balance of the many dimensions of a sustainable business, including the societal, ethical, responsible and people dimensions. Business considerations matter too, like cost reduction, efficiency and risk mitigation, because so often these things can be aligned and silos can be busted. Ultimately, the aim is to be regenerative rather than just sustainable.
+Not just green or carbon, but a pragmatic balance of the many dimensions of a sustainable business, including the societal, ethical, responsible and people dimensions. Business considerations matter too, like cost reduction, efficiency and risk mitigation, because so often these things can be aligned and silos can be busted. Ultimately, the aim is to be regenerative and responsible rather than just sustainable.
 
 ## Why now
 
@@ -28,7 +28,7 @@ In this era of an explosion of tech innovation, and a polycrisis of energy, cost
 
 ## What comes next
 
-To start with I will mostly be taking on [fractional CTO and architect roles](/services/chief-architecture/), and I plan to draw on my network as much as I can on this journey. Cronk Advisory Ltd is a [proper UK limited company](/company/) and everything!
+I will mostly be delivering [fractional CTO and architect](/services/chief-architecture/) related services, and I plan to draw on my network as much as I can on this journey. Cronk Advisory Ltd is a [proper UK limited company](/company/) and everything!
 
 It feels very grown-up, but also (in spite of having an amazingly supportive network) somewhat lonely to be doing this. I'm not going to lie: I am equal parts almost scared to death and excited.
 
