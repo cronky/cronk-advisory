@@ -50,6 +50,28 @@ topics:
   - title: "Open source and responsible technology"
     icon: code
     body: "The role of open source in sustainable technology, and building technology that serves people."
+# Photos for {{< photo-grid photos >}}: 800 × 600 WebP in static/images/photos/speaking/
+# TODO: Ollie to confirm the event photos can be published (photographer's permission or credit,
+# and other people in shot), per the photo rules in AGENTS.md.
+photos:
+  - src: "/images/photos/speaking/panel-chair.webp"
+    alt: "Oliver Cronk chairing a panel of three speakers on stage"
+    caption: "Chairing a panel at the Sustainability Delivery Summit, London, 2026"
+  - src: "/images/photos/speaking/keynote.webp"
+    alt: "Oliver Cronk presenting, with slides projected behind him"
+    caption: "Keynote"
+  - src: "/images/photos/speaking/panellist.webp"
+    alt: "Oliver Cronk speaking on a panel with two other panellists"
+    caption: "Panellist"
+  - src: "/images/photos/speaking/roundtable.webp"
+    alt: "Oliver Cronk standing to lead a roundtable discussion with guests seated at tables"
+    caption: "Leading a roundtable"
+  - src: "/images/photos/speaking/keynote-stage.webp"
+    alt: "Oliver Cronk speaking from a lectern on a conference stage"
+    caption: "Speaking at the New Statesman Fintech Summit, 2021"
+  - src: "/images/photos/speaking/documentary.webp"
+    alt: "Oliver Cronk being interviewed in a green-screen film studio"
+    caption: "Filmed interview"
 # Articles on this site that go with a talk, by the talk's slug in the cronky.net feed
 talk_articles:
   2026-baf-summit-keynote: "/articles/the-ai-efficiency-fallacy"
@@ -58,6 +80,8 @@ talk_articles:
 Oliver speaks, chairs and facilitates on architecture, AI and sustainable technology. The aim on stage is the same as in client work: cut through the hype, make the trade-offs visible, and leave the room with something it can act on.
 
 He has been speaking since 2008. Running the [Architect Tomorrow](https://architecttomorrow.com) podcast led to more chairing and facilitation, which is a related but different skill: drawing out other people's contributions, keeping the conversation moving and keeping the audience with it.
+
+{{< photo-grid photos >}}
 
 ## Formats
 
