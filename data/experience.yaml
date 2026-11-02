@@ -203,8 +203,11 @@ entries:
       src: "/images/photos/speaking/panel-chair.webp"
       alt: "Oliver Cronk chairing a panel of three speakers on stage at the Sustainability Delivery Summit"
     links:
-      # TODO: paste the quote and attribution, then set permitted: true once the author agrees
-      reference: { quote: "", attribution: "", permitted: false }
+      # Wording approved by the author by email, 28 October 2026. Use only this text.
+      reference:
+        quote: "Wanted to say a big thank you for chairing such an excellent panel at our Sustainability Delivery Summit London 2026. We have had some very positive feedback so far - your panel was cited as a highlight by attendees."
+        attribution: "Amanda Rafferty, Environment Analyst"
+        permitted: true
       related: [environment-analyst-ai-working-group]
 
   - id: green-io-london-2026-dist-workshop
