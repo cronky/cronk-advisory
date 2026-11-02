@@ -31,11 +31,11 @@ formats:
   - title: "Roundtable facilitation"
     icon: roundtable
     body: "Making sure every voice is heard and the discussion gets somewhere useful."
-    photo: { src: "/images/photos/speaking/roundtable.webp", alt: "Oliver Cronk at a long table with roundtable participants", pictured: "Sustainability Delivery Summit London, 2026" }
+    photo: { src: "/images/photos/speaking/roundtable.webp", alt: "Oliver Cronk at a table during a group exercise with cards and a worksheet", pictured: "Sustainability Delivery Summit London, 2026" }
   - title: "Workshop"
     icon: workshop
     body: "Hands-on sessions that work through a framework or problem with the group, such as DIST."
-    photo: { src: "/images/photos/speaking/workshop.webp", alt: "Oliver Cronk at a table during a group exercise with cards and a worksheet", pictured: "Sustainability Delivery Summit London, 2026" }
+    photo: { src: "/images/photos/speaking/workshop.webp", alt: "Oliver Cronk at a long table with roundtable participants", pictured: "Sustainability Delivery Summit London, 2026" }
   - title: "Live podcast recording"
     icon: broadcast
     body: "An [Architect Tomorrow](https://architecttomorrow.com) episode recorded in front of your audience."
