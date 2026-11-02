@@ -10,48 +10,44 @@ wide: true   # lets the card grids use the full page width
 # Formats and Topics render as cards with {{< icon-cards formats >}} and {{< icon-cards topics >}}.
 # icon: a name from layouts/partials/icon.html. photo (optional): src, alt and pictured (event and year,
 # shown under the card text); 800 x 600 WebP in static/images/photos/speaking/. Cards with photos go first.
-# TODO: Claude's one-line format descriptions, for Ollie to review.
 formats:
-  - title: "Keynote"
+  - title: "Keynote or talk"
     icon: presentation
-    body: "A headline talk that sets the theme for the event."
-    photo: { src: "/images/photos/speaking/keynote.webp", alt: "Oliver Cronk presenting, with slides projected behind him" }
-  - title: "Talk"
-    icon: speech
-    body: "A focused talk for a conference, community or meetup."
-    photo: { src: "/images/photos/speaking/keynote-stage.webp", alt: "Oliver Cronk speaking from a lectern on a conference stage", pictured: "New Statesman Fintech Summit, 2021" }
+    body: "A keynote sets the theme for the whole event; a talk goes deeper on one topic for a conference, community or meetup."
+    photo: { src: "/images/photos/speaking/keynote-talk.webp", alt: "Oliver Cronk speaking from a lectern on a conference stage", pictured: "New Statesman Fintech Summit, 2021" }
   - title: "Panel chair"
     icon: panel
     body: "Drawing out the panellists and keeping the audience involved."
     photo: { src: "/images/photos/speaking/panel-chair.webp", alt: "Oliver Cronk chairing a panel of three speakers on stage", pictured: "Sustainability Delivery Summit London, 2026" }
-  # TODO: Claude's descriptions for Panellist and Filmed interviews, for Ollie to review
-  - title: "Panellist"
+  - title: "MC and host"
+    icon: microphone
+    body: "Holding the day together, from the opening welcome to the close."
+    photo: { src: "/images/photos/speaking/mc-host.webp", alt: "Oliver Cronk presenting, with slides projected behind him" }
+  # TODO: Claude's merged description, for Ollie to review
+  - title: "Panellist and podcast guest"
     icon: conversation
-    body: "A practitioner's view on architecture, AI and sustainability, alongside other experts."
-    photo: { src: "/images/photos/speaking/panellist.webp", alt: "Oliver Cronk speaking on a panel with two other panellists" }
+    body: "A practitioner's view on architecture, AI and sustainability, on a panel alongside other experts or as a guest on your podcast or webinar."
+    photo: { src: "/images/photos/speaking/panellist-guest.webp", alt: "Oliver Cronk speaking on a panel with two other panellists" }
   - title: "Roundtable facilitation"
     icon: roundtable
     body: "Making sure every voice is heard and the discussion gets somewhere useful."
-    photo: { src: "/images/photos/speaking/roundtable.webp", alt: "Oliver Cronk standing to lead a roundtable discussion with guests seated at tables" }
+    photo: { src: "/images/photos/speaking/roundtable.webp", alt: "Oliver Cronk at a long table with roundtable participants", pictured: "Sustainability Delivery Summit London, 2026" }
+  - title: "Workshop"
+    icon: workshop
+    body: "Hands-on sessions that work through a framework or problem with the group, such as DIST."
+    photo: { src: "/images/photos/speaking/workshop.webp", alt: "Oliver Cronk at a table during a group exercise with cards and a worksheet", pictured: "Sustainability Delivery Summit London, 2026" }
+  - title: "Live podcast recording"
+    icon: broadcast
+    body: "An [Architect Tomorrow](https://architecttomorrow.com) episode recorded in front of your audience."
+    photo: { src: "/images/photos/speaking/live-podcast.webp", alt: "Oliver Cronk on stage hosting a live recording, with remote guests on the screen behind and an audience member asking a question", pictured: "Business Architecture Summit, Twin Cities Business Architecture Forum" }
+  - title: "In-house sessions and away days"
+    icon: building
+    body: "Sessions for leadership and technology teams, from a briefing to a facilitated away day."
+    photo: { src: "/images/photos/speaking/away-day.webp", alt: "Oliver Cronk standing to lead a session with guests seated at tables" }
   - title: "Filmed interviews"
     icon: camera
     body: "Interviews for documentaries, films and video features."
     photo: { src: "/images/photos/speaking/documentary.webp", alt: "Oliver Cronk being interviewed in a green-screen film studio" }
-  - title: "MC and host"
-    icon: microphone
-    body: "Holding the day together, from the opening welcome to the close."
-  - title: "Workshop"
-    icon: workshop
-    body: "Hands-on sessions that work through a framework or problem with the group, such as DIST."
-  - title: "Live podcast recording"
-    icon: broadcast
-    body: "An [Architect Tomorrow](https://architecttomorrow.com) episode recorded in front of your audience."
-  - title: "In-house sessions and away days"
-    icon: building
-    body: "Sessions for leadership and technology teams, from a briefing to a facilitated away day."
-  - title: "Podcast guest"
-    icon: headphones
-    body: "Joining your podcast or webinar as a guest."
 topics:
   - title: "Enterprise and business architecture"
     icon: layers

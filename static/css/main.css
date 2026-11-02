@@ -636,7 +636,7 @@ a:hover { text-decoration: underline; }
   gap: 16px;
   margin: 0 0 24px;
 }
-.icon-grid-formats { grid-template-columns: repeat(3, 1fr); }   /* six photo cards, then the rest */
+.icon-grid-formats { grid-template-columns: repeat(3, 1fr); }   /* nine formats, each with a photo: a 3 x 3 grid */
 .icon-grid-topics  { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 @media (max-width: 900px) { .icon-grid-formats { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .icon-grid-formats { grid-template-columns: 1fr; } }
