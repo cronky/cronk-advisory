@@ -30,7 +30,9 @@
 #   summary     one or two sentences, plain text
 #   outcomes    short factual strings; leave empty rather than invent
 #   services    tags from the services list below
-#   photo       optional: src (under static/), alt, and wide: true for a 16:9 image (default 4:3)
+#   photo       optional: src (under static/), alt, and wide: true for a 16:9 image (default 4:3).
+#               A diagram gives diagram: { width, height } instead: shown whole, never cropped,
+#               and linked to the full-size file
 #   links       evidence: list of {label, url}; reference: {quote, attribution, permitted};
 #               case_study: path to a page under /work/ (linked once it is published);
 #               related: ids of other entries
@@ -189,7 +191,11 @@ entries:
     featured: true
     feed_slug: 2026-baf-summit-keynote
     era: cronk-advisory
-    client: { display: named, name: "Business Architecture Forum", link_permitted: false, logo: "/images/logos/business-architecture-forum.webp", logo_on_dark: true, logo_permitted: true }
+    client: { display: named, name: "Business Architecture Forum", link_permitted: false, logo_permitted: false }
+    photo:
+      src: "/images/photos/speaking/ai-efficiency-fallacy-stack.webp"
+      alt: "Diagram from the talk: a capability stack with technology-led layers (infrastructure, data, information, knowledge) below a judgement line and human capabilities (judgement, empathy, wisdom, accountability, trusted relationships) above it, each band paired with risk and governance needs from controls to assurance. After Ackoff (1989) and Zeleny (1987)."
+      diagram: { width: 1200, height: 590 }
     summary: "Keynote on why AI's promised efficiency is a fallacy: the technology is brute-forced and expensive, and the human oversight that makes it safe is what automation erodes."
     services: [speaking, ai-governance, architecture]
     links:
