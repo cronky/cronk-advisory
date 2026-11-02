@@ -680,6 +680,8 @@ a:hover { text-decoration: underline; }
 .page-list li { padding: 14px 0; border-bottom: 1px solid var(--rule); }
 .page-list a { font-family: var(--heading); font-weight: 700; }
 .page-list span { display: block; color: var(--ink-m); font-size: 15px; }
+.page-list .article-list-meta { font-family: var(--heading); font-size: 13px; font-weight: 600; color: var(--ink-m); margin: 2px 0 4px; }
+.article-topics { margin-top: 8px; }
 
 /* ══════════════════════════════════════════
    SERVICE PAGES
