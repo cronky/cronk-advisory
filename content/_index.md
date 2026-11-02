@@ -1,6 +1,7 @@
 ---
 title: "Cronk Advisory Ltd: Responsible Technology Leadership"
 description: "Aligning Technology with Sustainability"
+outputs: [html, rss, llms, llmsfull]   # also /llms.txt and /llms-full.txt
 
 # TODO: new hero copy from Ollie (spec 6.1). This is the existing hero.
 hero:
@@ -12,7 +13,7 @@ hero:
   photo: "/images/photos/bark-moss"
   card_photo: "/images/photos/oliver-cronk-160.webp"
   card_name: "Oliver Cronk"
-  card_title: "Fractional CTO & Chief Architect"
+  card_title: "Fractional CTO and Chief Architect"
   card_points:
     - "25+ years as a practitioner and tech leader"
     - "Energy, environment, telco, finance, government, professional services, cybersecurity"
@@ -33,6 +34,13 @@ approach:
   # The ecosystem stack thumbnail beside the teaser links to /approach/
   thumb_title: "Pragmatic Ecosystems"
   thumb_body: "Explore the stack and the interactive map →"
+
+# Featured entries from data/experience.yaml (featured: true), linking to /work/
+experience:
+  label: "Selected experience"
+  heading: "Recent work."
+  count: 4
+  cta: "All experience"
 
 # The newest articles plus the latest talk flagged for Cronk Advisory on cronky.net (spec 6.1)
 latest:

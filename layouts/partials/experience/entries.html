@@ -1,0 +1,134 @@
+{{- /* The experience entries from data/experience.yaml, checked and resolved: the only way
+  templates read that file. Call it with partialCached "experience/entries.html" . "experience".
+  baseof.html calls it on every build, so a bad entry fails the build on Cloudflare as well as
+  locally (the confidentiality guardrail).
+
+  Returns a list of entries, featured first then newest first, without hidden entries or (in
+  production) drafts. Each is the YAML entry plus:
+    title, url (talk page, for speaking), event, location, date (YYYY-MM-DD for sorting),
+    period_label, type_label, era_label, client (resolved by experience/client.html),
+    case_study (a published page or nil), evidence (only links that resolve), anchor */ -}}
+{{- $data := index site.Data "experience" | default dict }}
+{{- $feed := index (partialCached "insights-feed.html" . "feed") "speaking" | default slice }}
+{{- $roles := partialCached "speaking-roles.html" "roles" }}
+{{- $serviceIds := slice }}
+{{- range $data.services }}{{ $serviceIds = $serviceIds | append .id }}{{ end }}
+{{- $eras := dict "cronk-advisory" "Cronk Advisory" "scott-logic" "Scott Logic" "tanium" "Tanium" "deloitte" "Deloitte" "personal" "Personal" }}
+{{- $seen := slice }}
+{{- $featured := slice }}
+{{- $rest := slice }}
+
+{{- range $e := $data.entries }}
+  {{- $id := $e.id | default "" }}
+  {{- $where := printf "data/experience.yaml entry %q" $id }}
+  {{- if not $id }}{{ errorf "data/experience.yaml: every entry needs an id" }}{{ end }}
+  {{- if in $seen $id }}{{ errorf "%s: duplicate id" $where }}{{ end }}
+  {{- $seen = $seen | append $id }}
+  {{- if not (in (slice "engagement" "speaking" "prior") $e.type) }}{{ errorf "%s: type must be engagement, speaking or prior" $where }}{{ end }}
+  {{- with $e.era }}{{ if not (isset $eras .) }}{{ errorf "%s: unknown era %q" $where . }}{{ end }}{{ end }}
+
+  {{/* Confidentiality guardrail: an anonymised or hidden entry may not carry anything identifying */}}
+  {{- $c := $e.client | default dict }}
+  {{- if not (in (slice "named" "sector" "hidden") $c.display) }}{{ errorf "%s: client.display must be named, sector or hidden" $where }}{{ end }}
+  {{- if in (slice "sector" "hidden") $c.display }}
+    {{- range $field := slice "name" "url" "logo" }}
+      {{/* The message names the field, never its value, so build logs don't repeat it */}}
+      {{- if index $c $field }}{{ errorf "%s: client.display is %s, so client.%s must be empty. Keep the real name out of the repository until the client approves it." $where $c.display $field }}{{ end }}
+    {{- end }}
+    {{- if or $c.link_permitted $c.logo_permitted }}{{ errorf "%s: an anonymised client cannot have link_permitted or logo_permitted" $where }}{{ end }}
+  {{- end }}
+  {{- if and (eq $c.display "sector") (not $c.sector_label) }}{{ errorf "%s: display: sector needs a sector_label" $where }}{{ end }}
+  {{- if and (eq $c.display "named") (not $c.name) }}{{ errorf "%s: display: named needs a name" $where }}{{ end }}
+  {{- if and $c.logo_permitted $c.logo }}
+    {{- if not (os.FileExists (path.Join "static" $c.logo)) }}{{ errorf "%s: logo %s is not in static/" $where $c.logo }}{{ end }}
+  {{- end }}
+  {{- range $e.services }}{{ if not (in $serviceIds .) }}{{ errorf "%s: unknown service tag %q (add it to services in data/experience.yaml)" $where . }}{{ end }}{{ end }}
+
+  {{- if and (ne $c.display "hidden") (or (not $e.draft) site.BuildDrafts) }}
+    {{- $r := $e }}
+    {{- $title := $e.title | default "" }}
+    {{- $date := "" }}
+    {{- $period := "" }}
+    {{- $typeLabel := index (dict "engagement" "Client engagement" "speaking" "Speaking" "prior" "Before Cronk Advisory") $e.type }}
+    {{- $talk := dict }}
+
+    {{- if eq $e.type "speaking" }}
+      {{- with $e.feed_slug }}
+        {{- with where $feed "slug" . }}{{ $talk = index . 0 }}{{ else }}{{ warnf "%s: talk %q is not in the cronky.net feed" $where . }}{{ end }}
+      {{- end }}
+      {{- with $talk }}
+        {{- $title = $title | default .title }}
+        {{- $date = .date }}
+        {{- $period = (time .date).Format "January 2006" }}
+        {{- $role := .role }}
+        {{- $typeLabel = $role | humanize }}
+        {{- range $roles }}{{ if eq .id $role }}{{ $typeLabel = .label }}{{ end }}{{ end }}
+        {{- $r = merge $r (dict "url" .url "event" .event "location" (.location | default "")) }}
+      {{- end }}
+    {{- end }}
+
+    {{- with $e.period }}
+      {{- $start := .start | string }}
+      {{- $fmt := cond (eq (len $start) 4) "2006" "January 2006" }}
+      {{- $t := time (cond (eq (len $start) 4) (printf "%s-01-01" $start) (printf "%s-01" $start)) }}
+      {{- $date = $t.Format "2006-01-02" }}
+      {{- $period = $t.Format $fmt }}
+      {{- with .end }}
+        {{- $end := . | string }}
+        {{- $period = printf "%s to %s" $period ((time (cond (eq (len $end) 4) (printf "%s-01-01" $end) (printf "%s-01" $end))).Format (cond (eq (len $end) 4) "2006" "January 2006")) }}
+      {{- else }}
+        {{- if .ongoing }}{{ $period = printf "Since %s" $period }}{{ end }}
+      {{- end }}
+    {{- end }}
+
+    {{- if not $title }}{{ errorf "%s: needs a title (or a feed_slug that is in the feed)" $where }}{{ end }}
+    {{- if not $date }}{{ errorf "%s: needs period.start (or a feed_slug that is in the feed)" $where }}{{ end }}
+
+    {{- $client := partial "experience/client.html" $c }}
+    {{- if and (eq $e.type "speaking") (not $client.named) }}{{ $client = merge $client (dict "label" "") }}{{ end }}
+
+    {{/* Links: internal ones only when the page is published */}}
+    {{- $links := $e.links | default dict }}
+    {{- $evidence := slice }}
+    {{- range $links.evidence }}
+      {{- if hasPrefix .url "/" }}
+        {{- $label := .label }}
+        {{- with site.GetPage .url }}{{ $evidence = $evidence | append (dict "label" $label "url" .RelPermalink "permalink" .Permalink) }}{{ end }}
+      {{- else }}
+        {{- $evidence = $evidence | append (dict "label" .label "url" .url "permalink" .url "external" true) }}
+      {{- end }}
+    {{- end }}
+    {{- $caseStudy := false }}
+    {{- with $links.case_study }}{{ with site.GetPage . }}{{ $caseStudy = . }}{{ end }}{{ end }}
+    {{- $reference := false }}
+    {{- with $links.reference }}{{ if and .permitted .quote }}{{ $reference = . }}{{ end }}{{ end }}
+
+    {{/* Nothing marked TODO may reach a production page */}}
+    {{- if not site.BuildDrafts }}
+      {{- $text := slice $title ($e.summary | default "") ($e.role | default "") $client.label }}
+      {{- range $e.outcomes }}{{ $text = $text | append . }}{{ end }}
+      {{- range $evidence }}{{ $text = $text | append .label }}{{ end }}
+      {{- with $reference }}{{ $text = $text | append .quote .attribution }}{{ end }}
+      {{- with $e.photo }}{{ $text = $text | append (.alt | default "") }}{{ end }}
+      {{- range $text }}{{ if in . "TODO" }}{{ errorf "%s: %q still says TODO. Fill it in, move the note to a YAML comment, or set draft: true." $where . }}{{ end }}{{ end }}
+    {{- end }}
+
+    {{- $r = merge $r (dict
+      "title" $title
+      "date" $date
+      "period_label" $period
+      "type_label" $typeLabel
+      "era_label" (index $eras ($e.era | default "cronk-advisory"))
+      "client" $client
+      "evidence" $evidence
+      "case_study" $caseStudy
+      "reference" $reference
+      "anchor" (printf "exp-%s" $id)
+    ) }}
+    {{- if $e.featured }}{{ $featured = $featured | append $r }}{{ else }}{{ $rest = $rest | append $r }}{{ end }}
+  {{- end }}
+{{- end }}
+{{- $out := slice }}
+{{- range sort $featured "date" "desc" }}{{ $out = $out | append . }}{{ end }}
+{{- range sort $rest "date" "desc" }}{{ $out = $out | append . }}{{ end }}
+{{- return $out }}

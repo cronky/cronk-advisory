@@ -1,0 +1,78 @@
+{{- /* /llms.txt (https://llmstxt.org): a plain summary of the site for AI assistants, built from
+  the site's own content so it can't drift. Experience goes through experience/entries.html, so
+  hidden and anonymised clients follow the same display rules as the pages. */ -}}
+{{- $p := site.Params -}}
+# {{ site.Title }}
+
+> Cronk Advisory Ltd is a UK technology leadership and architecture consultancy, founded in March 2026 by Oliver Cronk ({{ $p.founderTitle }}), that helps business and sustainability leaders align technology with sustainability goals: balancing business performance, efficiency and holistic sustainability across people, planet and profitability.
+
+{{ $p.legalName }} is registered in {{ $p.registeredIn }} (company number {{ $p.companyNumber }}), is based in Newbury, Berkshire, and works across the UK and internationally. It is independent: it has no product to sell and no preferred vendor.
+
+Contact: {{ $p.email }}{{ with site.GetPage "/contact" }} ([contact page]({{ .Permalink }})){{ end }}
+{{- with site.GetPage "/about" }}
+
+## About
+
+- [{{ .Title }}]({{ .Permalink }}): {{ .Params.lead | plainify }} Previous positions: {{ delimit .Params.previous_roles "; " }}.
+{{- end }}
+
+## Services
+{{ range partial "service-pages.html" . }}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Params.summary | plainify }}
+{{- end }}
+{{- with site.GetPage "/approach" }}
+
+## Approach
+
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description | plainify }}
+- [Principles for Regenerative Architecture](https://architecttomorrow.com/resources/regenerative-architecture-principles/): principles for technology and enterprise architecture (not building design), developed by the Architect Tomorrow community that Oliver founded.
+{{- end }}
+{{- with site.GetPage "/work" }}
+{{- $entries := partialCached "experience/entries.html" . "experience" }}
+
+## Experience
+
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description | plainify }} Work before March 2026 is Oliver's, not Cronk Advisory's, and is labelled as such.
+{{- range $entries }}
+- {{ .title }} ({{ .type_label }}, {{ .period_label }}){{ if eq .type "speaking" }}, {{ .event }}{{ else }}{{ with .client.label }}, {{ . }}{{ end }}{{ end }}: {{ .summary }}{{ with .case_study }} [Case study]({{ .Permalink }}){{ end }}
+{{- end }}
+{{- with where .RegularPages "Draft" false }}
+
+## Case studies
+{{ range . }}
+- [{{ .Title }}]({{ .Permalink }}){{ with .Description }}: {{ . | plainify }}{{ end }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- with site.GetPage "/insights" }}
+
+## Insights
+
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description | plainify }}
+{{- range first 5 (partial "published-articles.html" .) }}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description | plainify }}
+{{- end }}
+{{- end }}
+{{- with site.GetPage "/speaking" }}
+
+## Speaking
+
+- [{{ .Title }}]({{ .Permalink }}): {{ .Params.summary | plainify }} Full speaking history: https://cronky.net/speaking/
+{{- end }}
+
+## Contact
+
+- Email: {{ $p.email }}
+{{- with site.GetPage "/contact" }}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description | plainify }}
+{{- end }}
+
+## Optional
+
+- [Full text of About, Services and Experience]({{ "llms-full.txt" | absURL }})
+- [Digital Impacts Schema and Taxonomy (DIST)](https://dist.greenweb.org): open-source guidance from the Green Web Foundation for categorising, structuring and reporting digital technology sustainability data. Oliver contributes to it.
+- [Architect Tomorrow](https://architecttomorrow.com): community and podcast on architecture, emerging technology and sustainability, founded by Oliver in 2019.
+- [Oliver Cronk's personal site]({{ $p.personalSite }}): full biography, talks, writing and podcasts.
+{{- range slice "/company" "/privacy" }}{{ with site.GetPage . }}
+- [{{ .Title }}]({{ .Permalink }}){{ with .Description }}: {{ . | plainify }}{{ end }}
+{{- end }}{{ end }}

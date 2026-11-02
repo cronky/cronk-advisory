@@ -18,7 +18,7 @@ The site practises what the business preaches: sustainable, secure, minimal tech
 - **Mind the bytes.** Optimise images before committing (palette PNGs or WebP/SVG where possible). Avoid adding web fonts or font weights.
 - **British English** throughout content (organisation, colour, licence).
 - **Don't invent claims.** Biography, client sectors, roles and credentials are factual statements about a real person and company. Never add or embellish them; ask the owner.
-- **DIST, not the Tech Carbon Standard.** For technology footprint work, reference the Green Web Foundation's [Digital Impacts Schema and Taxonomy (DIST)](https://dist.greenweb.org). The Tech Carbon Standard is a Scott Logic project kept for the archive: mention it only as a past achievement in Oliver's biography, without a link.
+- **DIST, not the Tech Carbon Standard.** For technology footprint work, reference and link the Green Web Foundation's [Digital Impacts Schema and Taxonomy (DIST)](https://dist.greenweb.org) wherever it fits. The Tech Carbon Standard is a Scott Logic project kept for the archive: mention it only as a past achievement of Oliver's, without a link, worded as "Co-developed and launched (State of Open Con 2024) while leading Scott Logic's Sustainable Technology practice". Never present it as Cronk Advisory work.
 - **AI use is disclosed.** If you make a material contribution, add a line to the "AI Use Disclosure" section of `README.md` (tool, model, rough scope).
 
 ## Where things live
@@ -44,12 +44,15 @@ The site practises what the business preaches: sustainable, secure, minimal tech
 | Footer | `layouts/partials/footer.html` |
 | Page title band and breadcrumbs | `layouts/partials/page-header.html`, `breadcrumbs.html` |
 | `<head>` meta, favicon, fonts | `layouts/partials/head.html` |
-| Organization JSON-LD | `layouts/partials/schema.html` (built from params; never add the address) |
+| Experience (`/work/`) and the home "Selected experience" strip | Entries in `data/experience.yaml` (see "Experience and client confidentiality" below); page intro in `content/work/_index.md`; markup in `layouts/work/list.html` and `layouts/partials/experience/`; filter script `static/js/experience-filter.js` |
+| Case studies | `content/work/<slug>.md` with `experience_id` pointing at its entry, rendered by `layouts/work/single.html`; also listed on `/insights/` |
+| JSON-LD | `layouts/partials/schema/graph.html`: one `@graph` on every page (`#org`, `#oliver-cronk`, `#website`), plus `Article` for articles and case studies and `Event` for talks on `/work/`. Built from `hugo.toml` params and the experience data; no `Review` markup |
+| The one job title for Oliver | `founderTitle` in `hugo.toml` ("Fractional CTO and Chief Architect"): use it in copy, JSON-LD and llms.txt |
 | 404 page | `layouts/404.html` |
 | Styles | `static/css/main.css` (design tokens are CSS custom properties in `:root`) |
 | Site-wide params (legal name, email, company number, LinkedIn, description) | `hugo.toml` |
 | HTTP headers / caching | `static/_headers` (Cloudflare Pages format) |
-| Summary for LLMs that read the site | `static/llms.txt` |
+| Summary for LLMs that read the site | `/llms.txt` and `/llms-full.txt`, built by `layouts/index.llms.txt` and `layouts/index.llmsfull.txt` (output formats of the home page) |
 
 ### Content model
 
@@ -87,6 +90,10 @@ All logos are transparent PNGs (8-bit palette with alpha).
 The white circuit lines inside the green mark are part of the logo and must stay opaque. The original white-background masters are in git history before October 2026 if a re-export is ever needed.
 Brand assets are **not** covered by the MIT licence; don't redistribute or alter the mark's design.
 
+### Logos (`static/images/logos/`)
+
+Client logos show in colour, at a uniform height on a white tile (or navy, with `logo_on_dark: true`, for light logos), and only when the entry allows it (see below). Convert to WebP or SVG and keep them small.
+
 ### Photos (`static/images/photos/`)
 
 All photos are Ollie's own or of Ollie. Before committing one:
@@ -102,6 +109,18 @@ Brand colours (from `main.css`): forest `#3B6352`, navy `#1C2C3A`, amber `#C9893
 Text must meet WCAG AA contrast (at least 4.5:1). Amber `#C9893A` fails as text on cream or white, so labels on light backgrounds use `--amber-text` (`#935F1E`); keep `--amber` for bars, accents and text on navy. Semi-transparent white text needs at least 60% opacity on navy (65% on the translucent cards) and at least 80% on forest. Check any new colour pair with a contrast checker.
 
 No inline `style=""` attributes or `<style>` blocks in layouts: put styles in `main.css` (a strict Content Security Policy is planned).
+
+## Experience and client confidentiality
+
+`data/experience.yaml` is the single source for client engagements, talks and earlier work. Everything that shows a client (the `/work/` page, the home strip, case studies, JSON-LD, llms.txt) reads it through `layouts/partials/experience/entries.html`, and the display rules live in `layouts/partials/experience/client.html`:
+
+- `display: named` shows the name; it is linked only with `link_permitted: true` and a `url`, and the logo shows only with `logo_permitted: true` and a `logo`.
+- `display: sector` shows only `sector_label`. `display: hidden` shows nothing anywhere.
+- `approval_status` and `approval_note` are never rendered. A `reference` quote shows only with `permitted: true`.
+
+**Never put an unapproved client's name in the repository**: not in YAML, comments, ids, slugs, file names, alt text or commit messages. Store only the sector label and use a neutral id. The build fails (on Cloudflare too) if a `sector` or `hidden` entry has a `name`, `url` or `logo`, if a rendered field still says `TODO`, or if a published case study points at a hidden entry. After building, `python3 scripts/check-private-names` checks `public/` against the names in `docs/private-names.txt` (git-ignored).
+
+Speaking entries take their title, date and event from the cronky.net feed by `feed_slug`, so talk details aren't duplicated here. Work before March 2026 is `type: prior` and is always labelled "Before Cronk Advisory".
 
 ## Working locally
 

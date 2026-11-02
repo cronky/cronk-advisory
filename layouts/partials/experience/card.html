@@ -1,0 +1,43 @@
+{{- /* One experience entry as a card. Takes a dict: entry (from experience/entries.html),
+  full (true on /work/: outcomes, links, reference, related) and all (every visible entry, to
+  resolve related ids). */ -}}
+{{- $e := .entry }}
+{{- $full := .full }}
+{{- $services := index (index site.Data "experience") "services" }}
+{{- $workPage := site.GetPage "/work" }}
+<article class="engagement-card exp-card{{ if $e.photo }} has-photo{{ end }}" id="{{ $e.anchor }}" data-type="{{ $e.type }}" data-services="{{ delimit ($e.services | default slice) " " }}">
+  {{- with $e.photo }}
+  <img src="{{ .src }}" alt="{{ .alt }}" width="800" height="600" loading="lazy" class="exp-photo">
+  {{- end }}
+  <span class="label">{{ $e.type_label }} · {{ $e.period_label }}</span>
+  <h3>{{ if and (not $full) $workPage }}<a href="{{ $workPage.RelPermalink }}#{{ $e.anchor }}">{{ $e.title }}</a>{{ else }}{{ $e.title }}{{ end }}</h3>
+  <p class="exp-meta">
+    {{- if eq $e.type "speaking" }}{{ $e.event }}{{ with $e.location }}{{ if ne . "Online" }}, {{ . }}{{ else }} (online){{ end }}{{ end }}
+    {{- else }}{{ partial "experience/client-name.html" $e.client }}{{ end -}}
+  </p>
+  {{- with $e.role }}<p class="exp-role">Role: {{ . }}</p>{{ end }}
+  {{- with $e.summary }}<p class="service-body">{{ . }}</p>{{ end }}
+  {{- if $full }}
+    {{- with $e.outcomes }}
+    <ul class="exp-outcomes">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+    {{- end }}
+    {{- with $e.reference }}
+    <blockquote class="exp-quote"><p>“{{ .quote }}”</p>{{ with .attribution }}<footer>{{ . }}</footer>{{ end }}</blockquote>
+    {{- end }}
+    {{- with $e.services }}
+    <ul class="exp-tags" aria-label="Services">
+      {{- range . }}{{ $id := . }}{{ range where $services "id" $id }}<li>{{ .label }}</li>{{ end }}{{ end }}
+    </ul>
+    {{- end }}
+    {{- $links := slice }}
+    {{- with $e.case_study }}{{ $links = $links | append (dict "label" "Read the case study" "url" .RelPermalink) }}{{ end }}
+    {{- with $e.url }}{{ $links = $links | append (dict "label" "More on cronky.net" "url" . "external" true) }}{{ end }}
+    {{- $links = $links | append $e.evidence }}
+    {{- range $e.links.related }}{{ $rid := . }}{{ range where $.all "id" $rid }}{{ $links = $links | append (dict "label" (printf "See also: %s" .title) "url" (printf "#%s" .anchor)) }}{{ end }}{{ end }}
+    {{- with $links }}
+    <ul class="exp-links">
+      {{- range . }}<li><a href="{{ .url }}"{{ if .external }} target="_blank" rel="noopener"{{ end }}>{{ .label }}{{ if .external }} ↗{{ end }}</a></li>{{ end }}
+    </ul>
+    {{- end }}
+  {{- end }}
+</article>

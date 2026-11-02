@@ -1,0 +1,286 @@
+# Experience: the evidence behind /work/, the home page "Selected experience" strip, the
+# JSON-LD and llms.txt. Every template reads it through layouts/partials/experience/entries.html,
+# which checks it on every build and applies the client display rules.
+#
+# CONFIDENTIALITY. This repository and the built site may become public. For a client who has
+# not approved being named, store ONLY sector_label: never their name, url, logo, a slug or id
+# derived from their name, or anything identifying in a comment. Keep the real name in your
+# private notes and add it when approval lands. The build fails if a sector or hidden entry has
+# a name, url or logo.
+#
+# Fields
+#   id          stable, neutral slug (never derived from an anonymised client's name)
+#   type        engagement | speaking | prior
+#   draft       true keeps the entry out of production builds (shown with hugo server -D)
+#   featured    true pins it to the top of /work/; the first four also show on the home page
+#   title       for speaking entries, leave out to use the talk's title from the cronky.net feed
+#   feed_slug   speaking only: the talk's slug in the cronky.net feed (title, date, event, url)
+#   period      start and end as "YYYY" or "YYYY-MM"; ongoing: true for current work
+#   era         cronk-advisory | scott-logic | tanium | deloitte | personal
+#   role        optional, plain text
+#   client      display: named | sector | hidden
+#                 named:  name renders as text; linked only if link_permitted and url;
+#                         logo (under static/) only if logo_permitted; logo_on_dark for light logos
+#                 sector: only sector_label renders
+#                 hidden: the entry is not rendered anywhere
+#               approval_status and approval_note are private reminders and never rendered
+#   summary     one or two sentences, plain text
+#   outcomes    short factual strings; leave empty rather than invent
+#   services    tags from the services list below
+#   photo       optional: path under static/ and alt text
+#   links       evidence: list of {label, url}; reference: {quote, attribution, permitted};
+#               case_study: path to a page under /work/ (linked once it is published);
+#               related: ids of other entries
+#
+# Any rendered field containing "TODO" fails a production build, so placeholders either stay
+# in YAML comments or the entry stays draft: true.
+
+services:
+  - { id: fractional-cto,          label: "Fractional CTO",                page: "/services/chief-architecture" }
+  - { id: architecture,            label: "Architecture",                  page: "/services/chief-architecture" }
+  - { id: strategy,                label: "Technology strategy",           page: "/services/chief-architecture" }
+  - { id: ai-governance,           label: "AI adoption and governance",    page: "/services/pragmatic-ai" }
+  - { id: sustainable-technology,  label: "Sustainable technology",        page: "/services/sustainable-technology" }
+  - { id: standards,               label: "Open standards",                page: "/services/sustainable-technology" }
+  - { id: speaking,                label: "Speaking and facilitation",     page: "/speaking" }
+
+entries:
+
+  # ── Client engagements ──────────────────────────────────────────────
+
+  - id: dist
+    type: engagement
+    featured: true
+    title: "Digital Impacts Schema and Taxonomy (DIST)"
+    period: { start: "2026-05", ongoing: true }
+    era: cronk-advisory
+    # TODO: role, e.g. "Architecture contributor and workshop lead"
+    client:
+      display: named
+      name: "Green Web Foundation"
+      sector_label: "Non-profit, digital sustainability"
+      url: "https://www.thegreenwebfoundation.org/"
+      link_permitted: true
+      logo: null                # TODO: add a GWF logo file; permission is already given
+      logo_permitted: false
+      approval_status: approved
+      approval_note: "GWF names Oliver on its website"
+    summary: "Pro bono contribution to the Green Web Foundation's open-source schema and taxonomy for categorising, structuring and reporting the environmental impacts of digital technology."
+    outcomes: []                # TODO: factual outcomes, e.g. releases or adopters, if any
+    services: [sustainable-technology, architecture, standards]
+    links:
+      evidence:
+        - { label: "DIST website", url: "https://dist.greenweb.org" }
+        - { label: "DIST on GitHub", url: "https://github.com/thegreenwebfoundation/DIST" }
+        - { label: "Introducing DIST (Green Web Foundation)", url: "https://www.thegreenwebfoundation.org/news/introducing-our-new-project-dist/" }
+      reference: null
+      case_study: null
+      related: [green-io-london-2026-dist-workshop]
+
+  - id: planetary-solvency-fractional-cto
+    type: engagement
+    featured: true
+    title: "Fractional CTO for a climate and nature risk initiative"
+    period: { start: "2026" }   # TODO: start month, and ongoing: true if it continues
+    era: cronk-advisory
+    role: "Fractional CTO"
+    client:
+      display: named
+      name: "Planetary Solvency"
+      sector_label: "An early-stage planetary risk and sustainability initiative"
+      url: null                 # TODO: their website URL once it launches; then link_permitted: true
+      link_permitted: false
+      logo: "/images/logos/planetary-solvency.webp"
+      logo_permitted: true
+      approval_status: approved
+      approval_note: "Name and logo usable from 2 November 2026; website launch delayed pending review"
+    summary: "Fractional CTO services, including the architecture, design and deployment of the initiative's domain, email and website."
+    outcomes: []                # TODO: factual outcomes
+    services: [fractional-cto, architecture]
+    links:
+      evidence: []
+      reference: null
+      case_study: null
+      related: []
+
+  - id: sustain3-product-architecture
+    type: engagement
+    featured: true
+    title: "Product-market fit and architecture roadmap"
+    period: { start: "2026" }   # TODO: start and end months
+    era: cronk-advisory
+    client:
+      display: named
+      name: "Sustain3"
+      sector_label: "Sustainability technology start-up"
+      url: "https://sustain3.io"
+      link_permitted: true
+      logo: "/images/logos/sustain3.webp"
+      logo_permitted: true
+      logo_on_dark: true        # the supplied logo is light, for dark backgrounds
+      approval_status: approved
+      approval_note: "Logo and link approved by the founder"
+    summary: "Refining product-market fit and setting out an architecture roadmap."
+    outcomes: []                # TODO: factual outcomes
+    services: [strategy, architecture]
+    links:
+      evidence: []
+      reference: null
+      case_study: null
+      related: []
+
+  - id: environment-analyst-ai-working-group
+    type: engagement
+    title: "Co-chair, working group on AI in environmental consultancy"
+    period: { start: "2026" }   # TODO: start month, and ongoing: true if it continues
+    era: cronk-advisory
+    role: "Co-chair"
+    client:
+      display: named
+      name: "Environment Analyst"
+      sector_label: "Environmental consultancy market intelligence and events"
+      url: null                 # TODO: confirm URL, then link_permitted: true
+      link_permitted: false
+      logo: null
+      logo_permitted: false
+      approval_status: approved
+      approval_note: ""
+    summary: "Co-chairing Environment Analyst's working group on the use of AI in environmental consultancy."
+    outcomes: []                # TODO: factual outcomes
+    services: [ai-governance, sustainable-technology]
+    links:
+      evidence: []              # TODO: link to the working group page if public
+      reference: null
+      case_study: null
+      related: [sustainability-delivery-summit-2026-chair]
+
+  - id: enterprise-architecture-governance-property
+    type: engagement
+    title: "Enterprise architecture and architecture governance"
+    period: { start: "2026" }   # TODO: start month, and ongoing: true if it continues
+    era: cronk-advisory
+    client:
+      display: sector
+      name: null
+      sector_label: "A major UK commercial property company"
+      url: null
+      link_permitted: false
+      logo: null
+      logo_permitted: false
+      approval_status: pending
+      approval_note: ""
+    summary: "Enterprise architecture and architecture governance services."
+    outcomes: []
+    services: [architecture]
+    links:
+      evidence: []
+      reference: null
+      case_study: null
+      related: []
+
+  # ── Speaking (title, date, event and link come from the cronky.net feed) ──
+
+  - id: baf-summit-2026-keynote
+    type: speaking
+    featured: true
+    feed_slug: 2026-baf-summit-keynote
+    era: cronk-advisory
+    client: { display: named, name: "Business Architecture Forum", link_permitted: false, logo_permitted: false }
+    summary: "Keynote on why AI's promised efficiency is a fallacy: the technology is brute-forced and expensive, and the human oversight that makes it safe is what automation erodes."
+    services: [speaking, ai-governance, architecture]
+    links:
+      evidence:
+        - { label: "Read the article", url: "/articles/the-ai-efficiency-fallacy" }
+
+  - id: sustainability-delivery-summit-2026-chair
+    type: speaking
+    feed_slug: 2026-sustainability-delivery-summit
+    era: cronk-advisory
+    client: { display: named, name: "Environment Analyst", link_permitted: false, logo_permitted: false }
+    summary: "Chairing a panel on harnessing AI and digital tools to transform infrastructure delivery."
+    services: [speaking, ai-governance, sustainable-technology]
+    photo:
+      src: "/images/photos/speaking/panel-chair.webp"
+      alt: "Oliver Cronk chairing a panel of three speakers on stage at the Sustainability Delivery Summit"
+    links:
+      # TODO: paste the quote and attribution, then set permitted: true once the author agrees
+      reference: { quote: "", attribution: "", permitted: false }
+      related: [environment-analyst-ai-working-group]
+
+  - id: green-io-london-2026-dist-workshop
+    type: speaking
+    feed_slug: 2026-green-io-london
+    era: cronk-advisory
+    client: { display: named, name: "Green IO", link_permitted: false, logo_permitted: false }
+    summary: "A hands-on DIST workshop with the Green Web Foundation."
+    services: [speaking, sustainable-technology, standards]
+    links:
+      evidence:
+        - { label: "Read about the workshop", url: "/articles/dist-workshop-greenio-london" }
+      related: [dist]
+
+  - id: perfect-storm-documentary-2026
+    type: speaking
+    feed_slug: 2026-perfect-storm-documentary
+    era: cronk-advisory
+    client: { display: named, name: "Dark Matter", link_permitted: false, logo_permitted: false }
+    summary: "Contributor to a documentary film on the UK's infrastructure."
+    services: [speaking, architecture]
+
+  - id: baf-regenerative-architecture-2026
+    type: speaking
+    feed_slug: 2026-baf-regenerative-architecture
+    era: cronk-advisory
+    client: { display: named, name: "Business Architecture Forum", link_permitted: false, logo_permitted: false }
+    summary: "An introduction to regenerative architecture for business and enterprise architects."
+    services: [speaking, architecture, sustainable-technology]
+    links:
+      evidence:
+        - { label: "Principles for Regenerative Architecture", url: "https://architecttomorrow.com/resources/regenerative-architecture-principles/" }
+        - { label: "The Pragmatic Ecosystems approach", url: "/approach" }
+
+  - id: can-architecting-intelligence-2026
+    type: speaking
+    feed_slug: 2026-can-architecting-intelligence
+    era: cronk-advisory
+    client: { display: named, name: "Chief Architect Network", link_permitted: false, logo_permitted: false }
+    summary: "Panel on AI readiness versus human readiness."
+    services: [speaking, ai-governance, architecture]
+
+  - id: isa-oxford-2026-panel
+    type: speaking
+    feed_slug: 2026-isa-oxford-panel
+    era: cronk-advisory
+    client: { display: named, name: "Industry Studies Association", link_permitted: false, logo_permitted: false }
+    summary: "Panel on ethics, control and responsibility in agentic AI."
+    services: [speaking, ai-governance]
+
+  # ── Before Cronk Advisory ────────────────────────────────────────────
+
+  - id: technology-carbon-standard
+    type: prior
+    title: "Technology Carbon Standard"
+    period: { start: "2024-02" }   # TODO: confirm the period; February 2024 is the launch
+    era: scott-logic
+    role: "Technology Director"
+    client: { display: named, name: "Scott Logic", link_permitted: false, logo_permitted: false }
+    # Exact wording agreed with Ollie. Never "created by Cronk Advisory", and no link (see AGENTS.md).
+    summary: "Co-developed and launched (State of Open Con 2024) while leading Scott Logic's Sustainable Technology practice."
+    services: [sustainable-technology, standards]
+    links:
+      evidence:
+        - { label: "State of Open Con 2024 talk", url: "https://cronky.net/speaking/2024-state-of-open-con/" }
+
+  - id: architect-tomorrow
+    type: prior
+    title: "Founded Architect Tomorrow"
+    period: { start: "2019", ongoing: true }
+    era: personal
+    role: "Founder and host"
+    client: { display: named, name: "Architect Tomorrow", url: "https://architecttomorrow.com", link_permitted: true, logo_permitted: false }
+    # TODO: the year the podcast started, to add to the summary
+    summary: "Founded the Architect Tomorrow community in 2019, which later added a podcast on architecture, emerging technology and sustainability."
+    services: [speaking, architecture]
+    links:
+      evidence:
+        - { label: "Architect Tomorrow on YouTube", url: "https://youtube.com/ArchitectTomorrow" }

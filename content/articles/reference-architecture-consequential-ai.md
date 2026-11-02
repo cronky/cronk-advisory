@@ -137,7 +137,7 @@ The diagrams in this piece are © 2026 Cronk Advisory Ltd and released under a [
 
 ---
 
-*Oliver Cronk is an independent chief architect and the founder of [Cronk Advisory](/about/). He coined Ecosystem Architecture in 2017 and founded the [Architect Tomorrow](https://architecttomorrow.com) community in 2019, which informed and validated much of this thinking. An earlier and much simpler version of this was [published in 2023](https://www.architectureandgovernance.com/artificial-intelligence/generative-ai-solution-architecture-for-complex-enterprises/), before harnesses, agent protocols and machine-speed demand made most of it insufficient; this piece replaces it.*
+*Oliver Cronk is a fractional CTO and chief architect and the founder of [Cronk Advisory](/about/). He coined Ecosystem Architecture in 2017 and founded the [Architect Tomorrow](https://architecttomorrow.com) community in 2019, which informed and validated much of this thinking. An earlier and much simpler version of this was [published in 2023](https://www.architectureandgovernance.com/artificial-intelligence/generative-ai-solution-architecture-for-complex-enterprises/), before harnesses, agent protocols and machine-speed demand made most of it insufficient; this piece replaces it.*
 
 *Where does the judgement line fall in your own processes, and does your architecture respect it? Feel free to [get in touch](/contact/).*
 

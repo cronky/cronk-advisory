@@ -17,3 +17,5 @@ resources/_gen/
 # Private spec notes (testimonials, personal addresses)
 docs/v2-spec-private.md
 .claude/prompt-for-claude-code.md
+_import/
+docs/private-names.txt

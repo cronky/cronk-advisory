@@ -1,6 +1,6 @@
-{{- /* An article as a card: series, title, standfirst and month. Used on Insights and service pages. */ -}}
+{{- /* An article or case study as a card: series (or "Case study"), title, standfirst and month. Used on Insights, /work/ and service pages. */ -}}
 <a class="engagement-card insight-card" href="{{ .RelPermalink }}">
-  {{ with .Params.series }}<span class="label">{{ . }}</span>{{ end }}
+  {{ with .Params.series }}<span class="label">{{ . }}</span>{{ else }}{{ if eq .Section "work" }}<span class="label">Case study</span>{{ end }}{{ end }}
   <h3>{{ .Title }}</h3>
   {{ with .Description }}<p class="service-body">{{ . }}</p>{{ end }}
   {{ if not .Date.IsZero }}<span class="insight-date">{{ .Date.Format "January 2006" }}</span>{{ end }}

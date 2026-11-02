@@ -1,0 +1,24 @@
+{{- /* The client display rules, in one place. Every template that shows a client (the /work/
+  page, the home strip, case studies, JSON-LD and llms.txt) goes through this partial.
+  Takes an entry's client block; returns a dict:
+    named   true only for display: named
+    label   the text to show: the client's name, or only the sector label for display: sector
+    url     set only when named, link_permitted and a url are all present
+    logo    set only when named, logo_permitted and a logo are all present
+    on_dark the logo is light and needs a dark tile
+  display: hidden entries never reach here (entries.html drops them).
+  approval_status and approval_note are never read. */ -}}
+{{- $c := . | default dict }}
+{{- $out := dict "named" false "label" "" "url" "" "logo" "" "on_dark" false }}
+{{- if eq $c.display "named" }}
+  {{- $out = dict
+    "named" true
+    "label" ($c.name | default "")
+    "url" (cond (and $c.link_permitted $c.url) ($c.url | default "") "")
+    "logo" (cond (and $c.logo_permitted $c.logo) ($c.logo | default "") "")
+    "on_dark" ($c.logo_on_dark | default false)
+  }}
+{{- else if eq $c.display "sector" }}
+  {{- $out = merge $out (dict "label" ($c.sector_label | default "")) }}
+{{- end }}
+{{- return $out }}

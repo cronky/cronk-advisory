@@ -1,0 +1,83 @@
+{{- /* /llms-full.txt: plain-text versions of About, Services and Experience, for AI assistants.
+  Linked from /llms.txt. Experience follows the client display rules (experience/entries.html). */ -}}
+{{- $p := site.Params -}}
+# {{ site.Title }}: About, Services and Experience
+
+> Plain-text versions of the main pages of {{ site.Home.Permalink }}. The short summary is at {{ "llms.txt" | absURL }}.
+{{- with site.GetPage "/about" }}
+
+## About ({{ .Permalink }})
+{{- with .Params.company }}
+
+### {{ .heading }}
+
+{{ .lead | plainify }}
+
+{{ .body | markdownify | plainify | htmlUnescape }}
+{{- end }}
+
+### {{ .Params.heading }}
+
+{{ .Params.lead | plainify }}
+
+{{ .Params.body | markdownify | plainify | htmlUnescape }}
+{{- with .Params.credentials }}
+
+Credentials: {{ delimit . "; " }}.
+{{- end }}
+
+Previous positions: {{ delimit .Params.previous_roles "; " }}.
+{{- end }}
+
+## Services
+{{- range partial "service-pages.html" . }}
+
+### {{ .Title }} ({{ .Permalink }})
+
+{{ .Params.summary | plainify }}
+{{- range .Params.engagements }}
+
+{{ .title }}: {{ .body | markdownify | plainify | htmlUnescape }}{{ with .note }} {{ . | markdownify | plainify | htmlUnescape }}{{ end }}
+{{- end }}
+{{- with .Params.outcomes }}
+
+Outcomes:
+{{- range . }}
+- {{ . | markdownify | plainify | htmlUnescape }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- with site.GetPage "/work" }}
+
+## Experience ({{ .Permalink }})
+
+{{ .Params.intro }}
+{{- range $e := partialCached "experience/entries.html" . "experience" }}
+
+### {{ .title }}
+
+- Type: {{ .type_label }}
+- When: {{ .period_label }}
+{{- if eq .type "speaking" }}
+- Event: {{ .event }}{{ with .location }}, {{ . }}{{ end }}
+{{- else }}{{ with .client.label }}
+- {{ cond (eq $e.type "engagement") "Client" "Organisation" }}: {{ . }}
+{{- end }}{{ end }}
+{{- with .role }}
+- Role: {{ . }}
+{{- end }}
+- Summary: {{ .summary }}
+{{- with .outcomes }}
+- Outcomes: {{ delimit . "; " }}
+{{- end }}
+{{- with .url }}
+- Details: {{ . }}
+{{- end }}
+{{- range .evidence }}
+- {{ .label }}: {{ .permalink }}
+{{- end }}
+{{- with .case_study }}
+- Case study: {{ .Permalink }}
+{{- end }}
+{{- end }}
+{{- end }}
