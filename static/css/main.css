@@ -564,8 +564,7 @@ a:hover { text-decoration: underline; }
   padding: 40px 48px 56px;
 }
 .page-header .label { color: var(--amber); margin-bottom: 12px; }
-.page-header h1 { color: white; font-size: clamp(32px, 4.5vw, 52px); }
-.page-header-service h1 { color: var(--amber); }   /* 4.8:1 on navy */
+.page-header h1 { color: var(--amber); font-size: clamp(32px, 4.5vw, 52px); }   /* 4.8:1 on navy */
 .page-summary {
   font-size: 18px;
   font-style: italic;
