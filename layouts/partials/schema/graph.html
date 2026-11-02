@@ -80,12 +80,12 @@
         "@type" "Event"
         "name" .title
         "startDate" .date
-        "url" .url
         "eventStatus" "https://schema.org/EventScheduled"
         "eventAttendanceMode" (cond $online "https://schema.org/OnlineEventAttendanceMode" "https://schema.org/OfflineEventAttendanceMode")
-        "location" (cond $online (dict "@type" "VirtualLocation" "url" .url) (dict "@type" "Place" "name" .event "address" .location))
+        "location" (cond $online (dict "@type" "VirtualLocation" "url" (.url | default site.Home.Permalink)) (dict "@type" "Place" "name" .event "address" .location))
         "performer" (dict "@id" $personId)
       }}
+      {{- with .url }}{{ $event = merge $event (dict "url" .) }}{{ end }}
       {{- with .summary }}{{ $event = merge $event (dict "description" .) }}{{ end }}
       {{- if .client.named }}{{ $event = merge $event (dict "organizer" (dict "@type" "Organization" "name" .client.label)) }}{{ end }}
       {{- $graph = $graph | append $event }}

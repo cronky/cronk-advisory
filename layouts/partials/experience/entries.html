@@ -50,6 +50,7 @@
     {{- $period := "" }}
     {{- $typeLabel := index (dict "engagement" "Client engagement" "speaking" "Speaking" "prior" "Before Cronk Advisory") $e.type }}
     {{- $talk := dict }}
+    {{- with $e.speaking_role }}{{ $sr := . }}{{ $typeLabel = $sr | humanize }}{{ range $roles }}{{ if eq .id $sr }}{{ $typeLabel = .label }}{{ end }}{{ end }}{{ end }}
 
     {{- if eq $e.type "speaking" }}
       {{- with $e.feed_slug }}
@@ -69,7 +70,8 @@
     {{- with $e.period }}
       {{- $start := .start | string }}
       {{- $fmt := cond (eq (len $start) 4) "2006" "January 2006" }}
-      {{- $t := time (cond (eq (len $start) 4) (printf "%s-01-01" $start) (printf "%s-01" $start)) }}
+      {{- /* "YYYY", "YYYY-MM" or "YYYY-MM-DD": the day only sorts, the page shows the month */}}
+      {{- $t := time (cond (eq (len $start) 4) (printf "%s-01-01" $start) (cond (eq (len $start) 7) (printf "%s-01" $start) $start)) }}
       {{- $date = $t.Format "2006-01-02" }}
       {{- $period = $t.Format $fmt }}
     {{- end }}

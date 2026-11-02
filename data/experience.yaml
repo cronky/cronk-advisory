@@ -14,8 +14,11 @@
 #   draft       true keeps the entry out of production builds (shown with hugo server -D)
 #   featured    true shows it in the home page strip (the newest four)
 #   title       for speaking entries, leave out to use the talk's title from the cronky.net feed
-#   feed_slug   speaking only: the talk's slug in the cronky.net feed (title, date, event, url)
-#   period      start as "YYYY" or "YYYY-MM": the month the work started (no end dates are shown)
+#   feed_slug   speaking only: the talk's slug in the cronky.net feed (title, date, event, url).
+#               A talk not in the feed gives title, period, event, location and speaking_role
+#               (a role id from layouts/partials/speaking-roles.html) itself.
+#   period      start as "YYYY", "YYYY-MM" or "YYYY-MM-DD": when the work started. The page shows the
+#               month (no end dates); a day only refines the order
 #   era         cronk-advisory | scott-logic | tanium | deloitte | personal
 #   role        optional, plain text
 #   client      display: named | sector | hidden
@@ -132,8 +135,8 @@ entries:
 
   - id: environment-analyst-ai-working-group
     type: engagement
-    title: "Co-chair, working group on AI in environmental consultancy"
-    period: { start: "2026" }   # TODO: start month
+    title: "Co-chair, Harnessing AI in Environmental Consulting working group"
+    period: { start: "2026-09-24" }
     era: cronk-advisory
     role: "Co-chair"
     client:
@@ -146,14 +149,14 @@ entries:
       logo_permitted: false
       approval_status: approved
       approval_note: ""
-    summary: "Co-chairing Environment Analyst's working group on the use of AI in environmental consultancy."
+    summary: "Co-chairing Environment Analyst's virtual working group series, Harnessing AI in Environmental Consulting."
     outcomes: []                # TODO: factual outcomes
     services: [ai-governance, sustainable-technology]
     links:
       evidence: []              # TODO: link to the working group page if public
       reference: null
       case_study: null
-      related: [sustainability-delivery-summit-2026-chair]
+      related: [sustainability-delivery-summit-2026-chair, environment-analyst-business-leaders-forum-2026]
 
   - id: enterprise-architecture-governance-property
     type: engagement
@@ -209,7 +212,23 @@ entries:
         quote: "Wanted to say a big thank you for chairing such an excellent panel at our Sustainability Delivery Summit London 2026. We have had some very positive feedback so far - your panel was cited as a highlight by attendees."
         attribution: "Amanda Rafferty, Environment Analyst"
         permitted: true
-      related: [environment-analyst-ai-working-group]
+      related: [environment-analyst-business-leaders-forum-2026, environment-analyst-ai-working-group]
+
+  # Not in the cronky.net feed yet: once it is, replace title, period, event, location and
+  # speaking_role with its feed_slug
+  - id: environment-analyst-business-leaders-forum-2026
+    type: speaking
+    title: "UK Business Leaders' Forum: Harnessing AI in Consulting"
+    period: { start: "2026-06-03" }
+    event: "Environment Analyst UK Business Leaders' Forum"
+    location: "Birmingham, UK"
+    speaking_role: panel
+    era: cronk-advisory
+    client: { display: named, name: "Environment Analyst", link_permitted: false, logo_permitted: false }
+    summary: "A one-off expert panel and roundtable on harnessing AI in consulting."
+    services: [speaking, ai-governance, sustainable-technology]
+    links:
+      related: [sustainability-delivery-summit-2026-chair, environment-analyst-ai-working-group]
 
   - id: green-io-london-2026-dist-workshop
     type: speaking
