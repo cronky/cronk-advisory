@@ -944,6 +944,9 @@ a:hover { text-decoration: underline; }
 .exp-filter-group button:hover, .exp-reset:hover { border-color: var(--ink-lt); }
 .exp-filter-group button[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: white; }
 .exp-count { font-size: 15px; color: var(--ink-m); }
+.exp-count a { color: var(--forest); }
+.exp-more { margin-top: 28px; }
+.exp-more a { font-family: var(--heading); font-weight: 600; color: var(--forest); }
 .exp-empty { color: var(--ink-m); }
 .exp-credit { margin-top: 28px; font-size: 14px; color: var(--ink-m); }
 .exp-strip { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }

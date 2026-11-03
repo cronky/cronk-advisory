@@ -42,8 +42,10 @@
     </div>
     {{ end }}
 
-    <div class="service-block">
-      <h2 id="experience">Experience</h2>
+    {{- $speaking := site.GetPage "/speaking" }}
+    <div class="service-block" id="experience">
+      {{/* Kept for screen readers (the cards are h3s); the filters say enough on screen */}}
+      <h2 class="visually-hidden">Experience</h2>
       {{/* Filters work only with JavaScript (static/js/experience-filter.js shows them); without
         it the full list shows. Types and services are listed only when an entry uses them. */}}
       {{- $types := slice }}
@@ -64,7 +66,7 @@
           <button type="button" aria-pressed="true" data-value="">All</button>
           {{- range $services }}{{ if in $used .id }}<button type="button" aria-pressed="false" data-value="{{ .id }}">{{ .label }}</button>{{ end }}{{ end }}
         </div>
-        <p class="exp-count" aria-live="polite" data-exp-count></p>
+        <p class="exp-count"><span aria-live="polite" data-exp-count></span>{{ with $speaking }} <a href="{{ .RelPermalink }}">(see all speaking engagements)</a>{{ end }}</p>
       </div>
       <div class="engagement-grid exp-grid" data-exp-list>
         {{- range $entries }}
@@ -72,6 +74,7 @@
         {{- end }}
       </div>
       <p class="exp-empty" data-exp-empty hidden>Nothing matches those filters. <button type="button" class="exp-reset" data-exp-reset>Show everything</button></p>
+      {{ with $speaking }}<p class="exp-more"><a href="{{ .RelPermalink }}">See all speaking engagements →</a></p>{{ end }}
       {{ if where $entries "client.logo" "!=" "" }}{{ with .Params.logo_credit }}<p class="exp-credit">{{ . }}</p>{{ end }}{{ end }}
     </div>
   </div>
