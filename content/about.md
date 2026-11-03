@@ -28,23 +28,23 @@ body: "In over 25 years he has held CTO / Technology Director, Chief, Enterprise
 # TODO: further credentials (Green Software Foundation Champion) only once Ollie confirms (spec 6.6)
 # logo (optional): a file under static/images/logos/
 credentials:
-  - { name: "Chartered Engineer (CEng)" }
-  - { name: "Chartered IT Professional (CITP)", detail: "BCS, The Chartered Institute for IT" }
-  - { name: "BSc Computer Science (Hons)" }
+  - { name: "BSc Computer Science (Hons) CEng" }
+  - { name: "Chartered IT Professional (CITP)", detail: "BCS, The Chartered Institute for IT", logo: "/images/logos/citp.webp" }
 # TODO: last six company roles from LinkedIn, plus affiliations and volunteer roles (spec question 3)
 previous_roles:
   - { title: "Technology Director", org: "Scott Logic" }
   - { title: "Chief Architect", org: "Tanium" }
   - { title: "Chief Architect / Deputy CTO", org: "Deloitte Risk Advisory" }
-# Shown as tiles: the logo when there is one (logo_on_dark for white logos), otherwise the name.
+# Shown as tiles: the logo when there is one (logo_on_dark for white logos, logo_fill for an
+# image with its own background that should fill the tile), otherwise the name.
 communities_heading: "Communities and open source"
 communities:
-  - { name: "Architect Tomorrow", role: "Founder and host, since 2019", url: "https://architecttomorrow.com" }
-  - { name: "Chief Architect Network", role: "UK co-lead", url: "https://chiefarchitectnetwork.com" }
-  - { name: "Business Architecture Forum", role: "Keynote speaker, 2026", url: "https://tcbaf.org/", logo: "/images/logos/business-architecture-forum.webp", logo_on_dark: true }
+  - { name: "Architect Tomorrow", role: "Founder and host, since 2019", url: "https://architecttomorrow.com", logo: "/images/logos/architect-tomorrow.webp", logo_fill: true }
+  - { name: "Chief Architect Network", role: "UK co-lead", url: "https://chiefarchitectnetwork.com", logo: "/images/logos/chief-architect-network.webp" }
+  - { name: "Business Architecture Forum", role: "Advisor and speaker", url: "https://tcbaf.org/", logo: "/images/logos/business-architecture-forum.webp", logo_on_dark: true }
   - { name: "Green Web Foundation", role: "DIST contributor", url: "https://dist.greenweb.org", logo: "/images/logos/green-web-foundation.webp" }
 # Oliver's personal site holds the full bio, talks, writing and podcasts
-more_heading: "More on cronky.net"
+more_heading: "More on Oliver's personal site"
 more_links:
   - { label: "Full biography", url: "https://cronky.net/about/" }
   - { label: "Talks and speaking", url: "https://cronky.net/speaking/" }

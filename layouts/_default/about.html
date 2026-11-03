@@ -68,7 +68,7 @@
       <div class="about-card">
         <div class="label">Credentials</div>
         <ul class="about-roles founder-list">
-          {{ range . }}<li><strong>{{ .name }}</strong>{{ with .detail }}<span>{{ . }}</span>{{ end }}</li>{{ end }}
+          {{ range . }}<li{{ if .logo }} class="has-logo"{{ end }}>{{ with .logo }}<img src="{{ . }}" alt="" width="290" height="135" loading="lazy" class="credential-logo">{{ end }}<span><strong>{{ .name }}</strong>{{ with .detail }}<span>{{ . }}</span>{{ end }}</span></li>{{ end }}
         </ul>
       </div>
       {{ end }}
@@ -88,7 +88,7 @@
       {{ range . }}
       <li>
         <a class="community-card" href="{{ .url }}" target="_blank" rel="noopener">
-          <span class="community-logo{{ if .logo_on_dark }} community-logo-dark{{ end }}">
+          <span class="community-logo{{ if .logo_on_dark }} community-logo-dark{{ end }}{{ if .logo_fill }} community-logo-fill{{ end }}">
             {{- with .logo }}<img src="{{ . }}" alt="" loading="lazy">{{ else }}<span class="community-wordmark">{{ .name }}</span>{{ end -}}
           </span>
           <span class="community-name">{{ .name }} ↗</span>
