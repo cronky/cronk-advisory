@@ -36,42 +36,77 @@
 {{ end }}
 
 {{/* 2. The founder */}}
+{{- $fp := .Params }}
 <section class="section section-white" id="founder">
   <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-content">
-        <div class="label">The founder</div>
-        <h2 class="about-name">{{ .Params.heading }}</h2>
-        <div class="amber-bar"></div>
-        <p class="about-lead">{{ .Params.lead }}</p>
-        <div class="about-body">{{ .Params.body | markdownify }}</div>
-        {{ with trim (partial "content.html" .) " \n" }}<div class="about-body">{{ . | safeHTML }}</div>{{ end }}
-        {{ with .Params.location }}<p class="about-location">{{ . }}</p>{{ end }}
-      </div>
+    <div class="founder-intro">
+      {{ with $fp.photo }}<img src="{{ . }}" alt="Oliver Cronk" width="300" height="300" class="founder-photo">{{ end }}
       <div>
-        {{ with .Params.photo }}<img src="{{ . }}" alt="Oliver Cronk" width="300" height="300" class="about-photo">{{ end }}
-        <div class="about-card">
-          {{ with .Params.more_links }}
-          <div class="label">{{ $.Params.more_heading }}</div>
-          <ul class="about-roles">
-            {{ range . }}<li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .label }}</a></li>{{ end }}
-          </ul>
-          {{ end }}
-          {{ with .Params.credentials }}
-          <div class="label">Credentials</div>
-          <ul class="about-roles">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
-          {{ end }}
-          <div class="label">Previous positions</div>
-          <ul class="about-roles">
-            {{ range .Params.previous_roles }}<li>{{ . }}</li>{{ end }}
-          </ul>
-          <div class="label">Community &amp; Open Source</div>
-          <ul class="about-roles">
-            {{ range .Params.links }}<li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .label }}</a></li>{{ end }}
-          </ul>
-        </div>
+        <div class="label">The founder</div>
+        <h2 class="about-name">{{ $fp.heading }}</h2>
+        {{ with $fp.role }}<p class="founder-role">{{ . }}</p>{{ end }}
+        <p class="about-lead">{{ $fp.lead }}</p>
+        <ul class="profile-links">
+          {{ with site.Params.linkedin }}<li><a href="{{ . }}" target="_blank" rel="noopener">LinkedIn ↗</a></li>{{ end }}
+          {{ range $fp.profile_links }}<li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .label }} ↗</a></li>{{ end }}
+        </ul>
       </div>
     </div>
+
+    {{ with $fp.stats }}
+    <ul class="founder-stats">
+      {{ range . }}<li><span class="stat-value">{{ .value }}</span><span class="stat-label">{{ .label }}</span></li>{{ end }}
+    </ul>
+    {{ end }}
+
+    <div class="founder-cols">
+      <div class="about-content">
+        <div class="about-body">{{ $fp.body | markdownify }}</div>
+        {{ with trim (partial "content.html" .) " \n" }}<div class="about-body">{{ . | safeHTML }}</div>{{ end }}
+      </div>
+      {{ with $fp.credentials }}
+      <div class="about-card">
+        <div class="label">Credentials</div>
+        <ul class="about-roles founder-list">
+          {{ range . }}<li><strong>{{ .name }}</strong>{{ with .detail }}<span>{{ . }}</span>{{ end }}</li>{{ end }}
+        </ul>
+      </div>
+      {{ end }}
+      {{ with $fp.previous_roles }}
+      <div class="about-card">
+        <div class="label">Previous positions</div>
+        <ul class="about-roles founder-list">
+          {{ range . }}<li><strong>{{ .title }}</strong><span>{{ .org }}</span></li>{{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </div>
+
+    {{ with $fp.communities }}
+    <h3 class="founder-communities-heading">{{ $fp.communities_heading }}</h3>
+    <ul class="community-grid">
+      {{ range . }}
+      <li>
+        <a class="community-card" href="{{ .url }}" target="_blank" rel="noopener">
+          <span class="community-logo{{ if .logo_on_dark }} community-logo-dark{{ end }}">
+            {{- with .logo }}<img src="{{ . }}" alt="" loading="lazy">{{ else }}<span class="community-wordmark">{{ .name }}</span>{{ end -}}
+          </span>
+          <span class="community-name">{{ .name }} ↗</span>
+          {{ with .role }}<span class="community-role">{{ . }}</span>{{ end }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+    {{ end }}
+
+    {{ with $fp.more_links }}
+    <div class="founder-more">
+      <p class="label">{{ $fp.more_heading }}</p>
+      <ul class="profile-links">
+        {{ range . }}<li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .label }} ↗</a></li>{{ end }}
+      </ul>
+    </div>
+    {{ end }}
   </div>
 </section>
 

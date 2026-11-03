@@ -42,7 +42,10 @@
   "familyName" "Cronk"
   "jobTitle" $p.founderTitle
   "worksFor" (dict "@id" $orgId)
-  "hasCredential" (dict "@type" "EducationalOccupationalCredential" "name" "Chartered IT Professional (CITP)" "credentialCategory" "Professional registration" "recognizedBy" (dict "@type" "Organization" "name" "BCS, The Chartered Institute for IT" "url" "https://www.bcs.org/"))
+  "hasCredential" (slice
+    (dict "@type" "EducationalOccupationalCredential" "name" "Chartered Engineer (CEng)" "credentialCategory" "Professional registration" "recognizedBy" (dict "@type" "Organization" "name" "Engineering Council" "url" "https://www.engc.org.uk/"))
+    (dict "@type" "EducationalOccupationalCredential" "name" "Chartered IT Professional (CITP)" "credentialCategory" "Professional registration" "recognizedBy" (dict "@type" "Organization" "name" "BCS, The Chartered Institute for IT" "url" "https://www.bcs.org/"))
+    (dict "@type" "EducationalOccupationalCredential" "name" "BSc Computer Science (Hons)" "credentialCategory" "degree"))
   "knowsAbout" (slice "Enterprise architecture" "Ecosystem architecture" "AI strategy and architecture" "Sustainable technology" "Open source" "Systems thinking")
   "sameAs" $p.founderSameAs
 }}

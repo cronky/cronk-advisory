@@ -23,10 +23,16 @@
 {{ .Params.body | markdownify | plainify | htmlUnescape }}
 {{- with .Params.credentials }}
 
-Credentials: {{ delimit . "; " }}.
+Credentials: {{ $c := slice }}{{ range . }}{{ $c = $c | append (cond (isset . "detail") (printf "%s, %s" .name .detail) .name) }}{{ end }}{{ delimit $c "; " }}.
 {{- end }}
+{{- with .Params.previous_roles }}
 
-Previous positions: {{ delimit .Params.previous_roles "; " }}.
+Previous positions: {{ $r := slice }}{{ range . }}{{ $r = $r | append (printf "%s, %s" .title .org) }}{{ end }}{{ delimit $r "; " }}.
+{{- end }}
+{{- with .Params.communities }}
+
+Communities: {{ $m := slice }}{{ range . }}{{ $m = $m | append (printf "%s (%s)" .name .role) }}{{ end }}{{ delimit $m "; " }}.
+{{- end }}
 {{- end }}
 
 ## Services
