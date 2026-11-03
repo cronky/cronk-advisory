@@ -3,12 +3,11 @@ title: "Cronk Advisory Ltd: Responsible Technology Leadership"
 description: "Aligning Technology with Sustainability"
 outputs: [html, rss, llms, llmsfull]   # also /llms.txt and /llms-full.txt
 
-# TODO: new hero copy from Ollie (spec 6.1). This is the existing hero.
 hero:
   label: "Technology leadership · Architecture · Sustainability"
-  heading: "Innovative Tech"
-  heading_em: "Aligned with Sustainability Goals"
-  body: "Working with leaders, sustainability, architecture and delivery teams to balance performance & holistic sustainability (people, planet & profitability)"
+  heading: "Balancing innovative tech"
+  heading_em: "with sustainability and responsibility"
+  body: "Working with business, sustainability, architecture and delivery teams so that performance and holistic sustainability (people, planet and profit) work together."
   # Background photo: path prefix of the -800.webp and -1600.webp files in static/images/photos/ (Ollie's own photo)
   photo: "/images/photos/bark-moss"
   card_photo: "/images/photos/oliver-cronk-160.webp"
