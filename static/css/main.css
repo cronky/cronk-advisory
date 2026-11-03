@@ -821,13 +821,22 @@ a:hover { text-decoration: underline; }
 /* Insights page */
 .insight-feature {
   display: grid;
-  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px;
+  align-items: center;
   background: var(--navy);
   border-radius: 8px;
   padding: 40px;
   color: white;
   text-decoration: none;
   max-width: 860px;
+}
+.insight-feature-text { display: grid; gap: 10px; }
+/* The Pragmatic Ecosystems stack, as on the home page */
+.insight-feature-art svg { display: block; width: 180px; height: auto; }
+@media (max-width: 640px) {
+  .insight-feature { grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; }
+  .insight-feature-art svg { width: 140px; }
 }
 .insight-feature:hover { text-decoration: none; background: var(--navy-m); }
 .insight-feature .label { color: var(--amber); margin-bottom: 0; }
