@@ -1,0 +1,17 @@
+{{- /* Up to three examples of work for a service page. Takes the page. Entries tagged with any
+  service id whose page is this one qualify; entries that list one of those ids in highlight
+  come first, then client engagements, then talks, each newest first. */ -}}
+{{- $page := . }}
+{{- $ids := slice }}
+{{- range $s := index (index site.Data "experience") "services" }}
+  {{- with site.GetPage $s.page }}{{ if eq . $page }}{{ $ids = $ids | append $s.id }}{{ end }}{{ end }}
+{{- end }}
+{{- $highlighted := slice }}{{ $engagements := slice }}{{ $other := slice }}
+{{- range partialCached "experience/entries.html" $page "experience" }}
+  {{- if intersect $ids (.services | default slice) }}
+    {{- if intersect $ids (.highlight | default slice) }}{{ $highlighted = $highlighted | append . }}
+    {{- else if eq .type "engagement" }}{{ $engagements = $engagements | append . }}
+    {{- else }}{{ $other = $other | append . }}{{ end }}
+  {{- end }}
+{{- end }}
+{{- return dict "ids" $ids "entries" (first 3 ($highlighted | append $engagements | append $other)) }}

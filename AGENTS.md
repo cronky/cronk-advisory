@@ -45,6 +45,8 @@ The site practises what the business preaches: sustainable, secure, minimal tech
 | Page title band and breadcrumbs | `layouts/partials/page-header.html`, `breadcrumbs.html` |
 | `<head>` meta, favicon, fonts | `layouts/partials/head.html` |
 | Experience (`/work/`) and the home "Selected experience" strip | Entries in `data/experience.yaml` (see "Experience and client confidentiality" below); page intro in `content/work/_index.md`; markup in `layouts/work/list.html` and `layouts/partials/experience/`; filter script `static/js/experience-filter.js` |
+| Recent work on service pages | `layouts/partials/experience/service-examples.html`: up to three entries tagged with that page's services, `highlight`ed ones first, then engagements, then talks |
+| Testimonials on Speaking | `{{< testimonials >}}`: every permitted `reference` on a speaking entry in `data/experience.yaml` |
 | Case studies | `content/work/<slug>.md` with `experience_id` pointing at its entry, rendered by `layouts/work/single.html`; also listed on `/insights/` |
 | JSON-LD | `layouts/partials/schema/graph.html`: one `@graph` on every page (`#org`, `#oliver-cronk`, `#website`), plus `Article` for articles and case studies and `Event` for talks on `/work/`. Built from `hugo.toml` params and the experience data; no `Review` markup |
 | The one job title for Oliver | `founderTitle` in `hugo.toml` ("Fractional CTO and Chief Architect"): use it in copy, JSON-LD and llms.txt |

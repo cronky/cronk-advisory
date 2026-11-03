@@ -36,6 +36,9 @@
 #   links       evidence: list of {label, url}; reference: {quote, attribution, permitted};
 #               case_study: path to a page under /work/ (linked once it is published);
 #               related: ids of other entries
+#   highlight   optional: service ids (from the list below) whose service page should show this
+#               entry first under "Recent work". Otherwise a page shows its client engagements,
+#               then talks, newest first, three at most
 #
 # Any rendered field containing "TODO" fails a production build, so placeholders either stay
 # in YAML comments or the entry stays draft: true.
@@ -59,7 +62,7 @@ entries:
     title: "Digital Impacts Schema and Taxonomy (DIST)"
     period: { start: "2026-04" }
     era: cronk-advisory
-    # TODO: role, e.g. "Architecture contributor and workshop lead"
+    role: "Enterprise Architect"
     client:
       display: named
       name: "Green Web Foundation"
@@ -76,11 +79,10 @@ entries:
     links:
       evidence:
         - { label: "DIST website", url: "https://dist.greenweb.org" }
-        - { label: "DIST on GitHub", url: "https://github.com/thegreenwebfoundation/DIST" }
         - { label: "Introducing DIST (Green Web Foundation)", url: "https://www.thegreenwebfoundation.org/news/introducing-our-new-project-dist/" }
       reference: null
       case_study: null
-      related: [green-io-london-2026-dist-workshop]
+      related: []
 
   - id: planetary-solvency-fractional-cto
     type: engagement
@@ -126,9 +128,9 @@ entries:
       logo_on_dark: true        # the supplied logo is light, for dark backgrounds
       approval_status: approved
       approval_note: "Logo and link approved by the founder"
-    summary: "Refining product-market fit and setting out an architecture roadmap."
+    summary: "Refining product-market fit, setting out an architecture and AI roadmap and advising on the technology stack for a sustainability SaaS platform."
     outcomes: []                # TODO: factual outcomes
-    services: [fractional-cto, strategy, architecture]
+    services: [strategy, architecture]
     links:
       evidence: []
       reference: null
@@ -158,24 +160,50 @@ entries:
       evidence: []              # TODO: link to the working group page if public
       reference: null
       case_study: null
-      related: [sustainability-delivery-summit-2026-chair, environment-analyst-business-leaders-forum-2026]
+      related: [sustainability-delivery-summit-2026-chair]
 
-  - id: enterprise-architecture-governance-property
+  - id: enterprise-architecture-governance
     type: engagement
     title: "Enterprise architecture and architecture governance"
     period: { start: "2026-05" }
     era: cronk-advisory
+    role: "Chief Architect"
     client:
       display: sector
       name: null
-      sector_label: "A major UK commercial property company"
+      sector_label: "Confidential UK client"
       url: null
       link_permitted: false
       logo: null
       logo_permitted: false
       approval_status: pending
       approval_note: ""
-    summary: "Enterprise architecture and architecture governance services."
+    summary: "Enterprise architecture, Technical Architecture and governance services. Responsible AI. Coach and Advisor"
+    outcomes: []
+    services: [architecture]
+    links:
+      evidence: []
+      reference: null
+      case_study: null
+      related: []
+
+  - id: enterprise-architecture-manda
+    type: engagement
+    title: "Acquisition Digital PMO Enterprise Architecture Advisory"
+    period: { start: "2026-08" }
+    era: cronk-advisory
+    role: "Chief Architect"
+    client:
+      display: sector
+      name: null
+      sector_label: "Confidential UK client"
+      url: null
+      link_permitted: false
+      logo: null
+      logo_permitted: false
+      approval_status: pending
+      approval_note: ""
+    summary: "Advisor to CIO and Tech Leadership Team on upcoming acquisition."
     outcomes: []
     services: [architecture]
     links:
@@ -218,7 +246,6 @@ entries:
         quote: "Wanted to say a big thank you for chairing such an excellent panel at our Sustainability Delivery Summit London 2026. We have had some very positive feedback so far - your panel was cited as a highlight by attendees."
         attribution: "Amanda Rafferty, Environment Analyst"
         permitted: true
-      related: [environment-analyst-business-leaders-forum-2026, environment-analyst-ai-working-group]
 
   # Not in the cronky.net feed yet: once it is, replace title, period, event, location and
   # speaking_role with its feed_slug
@@ -236,18 +263,6 @@ entries:
     links:
       related: [sustainability-delivery-summit-2026-chair, environment-analyst-ai-working-group]
 
-  - id: green-io-london-2026-dist-workshop
-    type: speaking
-    feed_slug: 2026-green-io-london
-    era: cronk-advisory
-    client: { display: named, name: "Green IO", link_permitted: false, logo_permitted: false }
-    summary: "A hands-on DIST workshop with the Green Web Foundation."
-    services: [speaking, sustainable-technology, standards]
-    links:
-      evidence:
-        - { label: "Read about the workshop", url: "/articles/dist-workshop-greenio-london" }
-      related: [dist]
-
   - id: perfect-storm-documentary-2026
     type: speaking
     feed_slug: 2026-perfect-storm-documentary
@@ -264,14 +279,6 @@ entries:
       evidence:
         - { label: "Watch the film on YouTube", url: "https://www.youtube.com/watch?v=bnm-QdyU4B0" }
         - { label: "Trailer on HPE's resource library", url: "https://www.hpe.com/int/en/resource-library.video.perfect-storm-trailer.v100017914.html" }
-
-  - id: can-architecting-intelligence-2026
-    type: speaking
-    feed_slug: 2026-can-architecting-intelligence
-    era: cronk-advisory
-    client: { display: named, name: "Chief Architect Network", link_permitted: false, logo_permitted: false }
-    summary: "Panel on AI readiness versus human readiness."
-    services: [speaking, ai-governance, architecture]
 
   - id: isa-oxford-2026-panel
     type: speaking

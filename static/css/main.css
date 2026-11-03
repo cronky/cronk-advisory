@@ -874,6 +874,9 @@ a:hover { text-decoration: underline; }
 .exp-empty { color: var(--ink-m); }
 .exp-credit { margin-top: 28px; font-size: 14px; color: var(--ink-m); }
 .exp-strip { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+blockquote.testimonial { margin: 0 0 20px; padding: 20px 24px; background: white; border-left: 3px solid var(--amber); border-radius: 0 8px 8px 0; }
+.testimonial p { font-size: 18px; font-style: italic; }
+.testimonial footer { margin-top: 10px; font-family: var(--heading); font-size: 15px; font-weight: 600; color: var(--ink-m); font-style: normal; }
 .case-meta { font-family: var(--heading); }
 @media (max-width: 560px) {
   .exp-card.has-photo .exp-photo { width: calc(100% + 48px); margin: 0 -24px 6px; }

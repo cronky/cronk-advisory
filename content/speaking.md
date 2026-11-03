@@ -92,7 +92,11 @@ Current talks include [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fa
 
 {{< speaking-year 2026 >}}
 
-<!-- TODO (Phase 5): "Spoken at" logo strip, and testimonials once permission to publish is confirmed. Playing recordings in the page (video facades, spec 8.5) needs a privacy policy update and Ollie's sign-off first; until then the cards link to cronky.net. -->
+<!-- TODO (Phase 5): "Spoken at" logo strip. Playing recordings in the page (video facades, spec 8.5) needs a privacy policy update and Ollie's sign-off first; until then the cards link to cronky.net. -->
+
+## What organisers say
+
+{{< testimonials >}}
 
 ## Fees
 
