@@ -76,6 +76,7 @@ entries:
     summary: "Pro bono contribution to the Green Web Foundation's open-source schema and taxonomy for categorising, structuring and reporting the environmental impacts of digital technology."
     outcomes: []                # TODO: factual outcomes, e.g. releases or adopters, if any
     services: [sustainable-technology, architecture, standards]
+    highlight: [sustainable-technology]
     links:
       evidence:
         - { label: "DIST website", url: "https://dist.greenweb.org" }
@@ -269,7 +270,7 @@ entries:
     era: cronk-advisory
     client: { display: named, name: "Dark Matter", link_permitted: false, logo_permitted: false }
     summary: "Contributor to The Perfect Storm: The UK Infrastructure Story, a documentary on the resilience, digital future and systemic pressures facing UK infrastructure, from climate shocks and AI hype to data sovereignty. Produced by Dark Matter in association with Hewlett Packard Enterprise and released in October 2026."
-    services: [speaking, architecture]
+    services: [fractional-cto, speaking, architecture]
     # The film's key art (YouTube thumbnail): 16:9, so wide
     photo:
       src: "/images/photos/speaking/perfect-storm.webp"

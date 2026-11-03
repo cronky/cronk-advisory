@@ -141,7 +141,7 @@ Talks, writing and podcasts come from `https://cronky.net/feeds/advisory.json` (
 
 - If cronky.net is unreachable or the feed is invalid, the build uses `data/insights-snapshot.json` and prints a warning, so it still deploys. Refresh the snapshot with `sh scripts/refresh-insights` and commit it when it changes.
 - Item images and YouTube thumbnails are fetched at build time and published under `/images/feed/` as 480px WebP (`feed-image.html`), so visitors make no third-party requests. Don't hotlink feed images.
-- `insight-list.html` renders a filtered list (type, topics, advisory, featured, limit) as `talk-card.html` cards or a link list; service pages use it for "Related talks" and "Related writing" by `related_topics`.
+- `insight-list.html` renders a filtered list (type, topics, advisory, featured, limit) as `talk-card.html` cards or a link list; service pages use it for "Related talks" by `related_topics`.
 - Only items cronky.net flags `advisory: true` show, except role counts, which use every talk. Talks before March 2026 predate the company: present them as Oliver's track record, not Cronk Advisory work.
 - Remote fetches are cached for 15 minutes locally (`[caches.getresource]` in `hugo.toml`). A failed image fetch warns, which fails `--panicOnWarning`; rerun when cronky.net is back.
 
