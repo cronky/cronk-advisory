@@ -36,7 +36,8 @@
 #   photo       optional: src (under static/), alt, and wide: true for a 16:9 image (default 4:3).
 #               A diagram gives diagram: { width, height } instead: shown whole, never cropped,
 #               and linked to the full-size file
-#   links       evidence: list of {label, url}; reference: {quote, attribution, permitted, pull_quote};
+#   links       evidence: list of {label, url}; reference: {quote, attribution, permitted, pull_quote, year};
+#               year (optional) dates the quote; it defaults to the year the work started.
 #               pull_quote is an optional excerpt, copied word for word from quote, shown beside the
 #               intro on /work/ when the full quote is too long (over 320 characters) to show there;
 #               case_study: path to a page under /work/ (linked once it is published);

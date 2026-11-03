@@ -13,7 +13,8 @@
     {{- $quotes := slice }}
     {{- range $e := $entries }}{{ with $e.reference }}
       {{- $text := .pull_quote | default (cond (le (len .quote) 320) .quote "") }}
-      {{- with $text }}{{ $quotes = $quotes | append (dict "text" . "attribution" $e.reference.attribution "anchor" $e.anchor) }}{{ end }}
+      {{- $year := $e.reference.year | default (substr $e.date 0 4) | string }}
+      {{- with $text }}{{ $quotes = $quotes | append (dict "text" . "attribution" $e.reference.attribution "context" $year "anchor" $e.anchor) }}{{ end }}
     {{- end }}{{ end }}
     {{- range $t := index site.Data.experience "testimonials" }}{{ if $t.permitted }}
       {{- if and $t.pull_quote (not (in $t.quote $t.pull_quote)) }}{{ errorf "data/experience.yaml testimonial from %q: pull_quote must be copied word for word from quote" $t.attribution }}{{ end }}
