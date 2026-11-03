@@ -1,0 +1,28 @@
+{{- /* A "Recent work" strip of featured entries from data/experience.yaml, linking to /work/.
+  Takes a dict: page (for the cached entries), block (front matter: label, heading, cta, count,
+  and optional type to show only engagements, say), id (the section id) and class (section
+  colour). Shows nothing if /work/ is a draft or no entry matches. */ -}}
+{{- $x := .block }}
+{{- $id := .id }}
+{{- $class := .class | default "section-white" }}
+{{- with site.GetPage "/work" }}
+{{- $work := . }}
+{{- $entries := where (partialCached "experience/entries.html" . "experience") "featured" true }}
+{{- with $x.type }}{{ $entries = where $entries "type" . }}{{ end }}
+{{- with first ($x.count | default 4) $entries }}
+<section{{ with $id }} id="{{ . }}"{{ end }} class="section {{ $class }}">
+  <div class="section-inner">
+    <div class="section-header section-header-tight">
+      <div>
+        <div class="label">{{ $x.label }}</div>
+        <h2>{{ $x.heading }}</h2>
+      </div>
+      <a href="{{ $work.RelPermalink }}{{ with $x.type }}?type={{ . }}{{ end }}" class="service-link">{{ $x.cta }} →</a>
+    </div>
+    <div class="engagement-grid exp-strip">
+      {{ range . }}{{ partial "experience/card.html" (dict "entry" . "full" false) }}{{ end }}
+    </div>
+  </div>
+</section>
+{{- end }}
+{{- end }}
