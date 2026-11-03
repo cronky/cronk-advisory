@@ -75,13 +75,10 @@
 {{- end }}
 {{- end }}
 
-<!-- ═══ LATEST: newest articles and talk ═══ -->
+<!-- ═══ LATEST: newest articles (talks are in Selected experience) ═══ -->
 {{- $l := .Params.latest }}
-{{- $articles := first ($l.articles | default 2) (where site.RegularPages "Section" "articles").ByDate.Reverse }}
-{{- $talks := where (index (partialCached "insights-feed.html" . "feed") "speaking" | default slice) "advisory" true }}
-{{- $talk := false }}
-{{- with first 1 (sort $talks "date" "desc") }}{{ $talk = index . 0 }}{{ end }}
-{{ if or $articles $talk }}
+{{- $articles := first ($l.articles | default 3) (where site.RegularPages "Section" "articles").ByDate.Reverse }}
+{{ with $articles }}
 <section id="latest" class="section section-cream">
   <div class="section-inner">
     <div class="section-header section-header-tight">
@@ -93,7 +90,6 @@
     </div>
     <div class="engagement-grid latest-grid">
       {{ range $articles }}{{ partial "article-card.html" . }}{{ end }}
-      {{ with $talk }}{{ partial "talk-card.html" (dict "item" . "kind" "talk") }}{{ end }}
     </div>
   </div>
 </section>

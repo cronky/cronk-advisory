@@ -42,17 +42,17 @@ experience:
   count: 4
   cta: "All experience"
 
-# The newest articles plus the latest talk flagged for Cronk Advisory on cronky.net (spec 6.1)
+# The newest articles. Talks are left out: they already show in "Selected experience" above.
 latest:
   label: "Latest"
   heading: "New thinking."
-  articles: 2
+  articles: 3
   cta: "All insights"
 
 # Used by the "Start a conversation" band on every page (layouts/partials/cta-band.html).
 contact:
   label: "Want to Discuss Further?"
   heading: "Let's Talk!"
-  body: "If you are figuring out whether fractional CTO support, an architecture review, or a sustainability assessment makes sense for your organisation - lets chat!"
+  body: "If you are figuring out whether fractional CTO support, an architecture review, or a sustainability assessment makes sense for your organisation, let's chat!"
   location: "Based in Newbury, Berkshire · Working across the UK and internationally"
 ---
