@@ -5,7 +5,7 @@
 {{- $full := .full }}
 {{- $services := index (index site.Data "experience") "services" }}
 {{- $workPage := site.GetPage "/work" }}
-<article class="engagement-card exp-card{{ if $e.photo }} has-photo{{ end }}" id="{{ $e.anchor }}" data-type="{{ $e.type }}" data-services="{{ delimit ($e.services | default slice) " " }}">
+<article class="engagement-card exp-card{{ if $e.photo }} has-photo{{ end }}{{ if and $full $e.reference (gt (len $e.reference.quote) 400) }} has-long-quote{{ end }}" id="{{ $e.anchor }}" data-type="{{ $e.type }}" data-services="{{ delimit ($e.services | default slice) " " }}">
   {{- with $e.photo }}
   {{- with .diagram }}
   <a href="{{ $e.photo.src }}" class="exp-photo-link"><img src="{{ $e.photo.src }}" alt="{{ $e.photo.alt }}" width="{{ .width }}" height="{{ .height }}" loading="lazy" class="exp-photo exp-photo-diagram"></a>
@@ -19,14 +19,14 @@
     {{- if eq $e.type "speaking" }}{{ if $e.client.logo }}{{ partial "experience/client-name.html" $e.client }} {{ end }}{{ $e.event }}{{ with $e.location }}{{ if ne . "Online" }}, {{ . }}{{ else }} (online){{ end }}{{ end }}
     {{- else }}{{ partial "experience/client-name.html" $e.client }}{{ end -}}
   </p>
-  {{- with $e.role }}<p class="exp-role">Role: {{ . }}</p>{{ end }}
+  {{- with $e.delivered_as }}<p class="exp-role">Service: {{ . }}</p>{{ end }}
   {{- with $e.summary }}<p class="service-body">{{ . }}</p>{{ end }}
   {{- if $full }}
     {{- with $e.outcomes }}
     <ul class="exp-outcomes">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
     {{- end }}
     {{- with $e.reference }}
-    <blockquote class="exp-quote"><p>“{{ .quote }}”</p>{{ with .attribution }}<footer>{{ . }}</footer>{{ end }}</blockquote>
+    <blockquote class="exp-quote">{{ partial "experience/quote.html" .quote }}{{ with .attribution }}<footer>{{ . }}</footer>{{ end }}</blockquote>
     {{- end }}
     {{- with $e.services }}
     <ul class="exp-tags" aria-label="Services">

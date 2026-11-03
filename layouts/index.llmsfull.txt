@@ -69,8 +69,8 @@ Outcomes:
 {{- else }}{{ with .client.label }}
 - {{ cond (eq $e.type "engagement") "Client" "Organisation" }}: {{ . }}
 {{- end }}{{ end }}
-{{- with .role }}
-- Role: {{ . }}
+{{- with .delivered_as }}
+- Service: {{ . }}
 {{- end }}
 - Summary: {{ .summary }}
 {{- with .outcomes }}

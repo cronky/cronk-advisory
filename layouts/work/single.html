@@ -22,7 +22,7 @@
       {{ with $entry }}
       {{ with .reference }}
       <h2>What the client said</h2>
-      <blockquote><p>“{{ .quote }}”</p>{{ with .attribution }}<p>{{ . }}</p>{{ end }}</blockquote>
+      <blockquote>{{ partial "experience/quote.html" .quote }}{{ with .attribution }}<p>{{ . }}</p>{{ end }}</blockquote>
       {{ end }}
       {{ with .services }}
       <h2>Related services</h2>
