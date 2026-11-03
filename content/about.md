@@ -28,7 +28,9 @@ body: "In over 25 years he has held CTO / Technology Director, Chief, Enterprise
 # TODO: further credentials (Green Software Foundation Champion) only once Ollie confirms (spec 6.6)
 # logo (optional): a file under static/images/logos/
 credentials:
-  - { name: "BSc Computer Science (Hons) CEng" }
+  # The degree is accredited for full CEng (Engineering Council course listing). That is not CEng
+  # registration: only add "Chartered Engineer (CEng)" once Ollie is on the Engineering Council register.
+  - { name: "BSc Computer Science (Hons)", detail: "University of Essex, accredited for full CEng" }
   - { name: "Chartered IT Professional (CITP)", detail: "BCS, The Chartered Institute for IT", logo: "/images/logos/citp.webp" }
 # TODO: last six company roles from LinkedIn, plus affiliations and volunteer roles (spec question 3)
 previous_roles:

@@ -43,9 +43,8 @@
   "jobTitle" $p.founderTitle
   "worksFor" (dict "@id" $orgId)
   "hasCredential" (slice
-    (dict "@type" "EducationalOccupationalCredential" "name" "Chartered Engineer (CEng)" "credentialCategory" "Professional registration" "recognizedBy" (dict "@type" "Organization" "name" "Engineering Council" "url" "https://www.engc.org.uk/"))
     (dict "@type" "EducationalOccupationalCredential" "name" "Chartered IT Professional (CITP)" "credentialCategory" "Professional registration" "recognizedBy" (dict "@type" "Organization" "name" "BCS, The Chartered Institute for IT" "url" "https://www.bcs.org/"))
-    (dict "@type" "EducationalOccupationalCredential" "name" "BSc Computer Science (Hons)" "credentialCategory" "degree"))
+    (dict "@type" "EducationalOccupationalCredential" "name" "BSc Computer Science (Hons)" "credentialCategory" "degree" "recognizedBy" (dict "@type" "CollegeOrUniversity" "name" "University of Essex" "url" "https://www.essex.ac.uk/")))
   "knowsAbout" (slice "Enterprise architecture" "Ecosystem architecture" "AI strategy and architecture" "Sustainable technology" "Open source" "Systems thinking")
   "sameAs" $p.founderSameAs
 }}
