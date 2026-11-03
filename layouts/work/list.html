@@ -1,0 +1,54 @@
+{{ define "main" }}
+{{ partial "page-header.html" . }}
+{{- $entries := partialCached "experience/entries.html" . "experience" }}
+{{- $services := index (index site.Data "experience") "services" }}
+{{- $caseStudies := where .RegularPages "Draft" false }}
+{{- if site.BuildDrafts }}{{ $caseStudies = .RegularPages }}{{ end }}
+<section class="section section-cream">
+  <div class="section-inner">
+    {{ with .Params.intro }}<p class="feed-intro exp-intro">{{ . }}</p>{{ end }}
+
+    {{ with $caseStudies.ByDate.Reverse }}
+    <div class="service-block">
+      <h2>Case studies</h2>
+      <div class="engagement-grid">{{ range . }}{{ partial "article-card.html" . }}{{ end }}</div>
+    </div>
+    {{ end }}
+
+    <div class="service-block">
+      <h2 id="experience">Experience</h2>
+      {{/* Filters work only with JavaScript (static/js/experience-filter.js shows them); without
+        it the full list shows. Types and services are listed only when an entry uses them. */}}
+      {{- $types := slice }}
+      {{- range slice (dict "id" "engagement" "label" "Client engagements") (dict "id" "speaking" "label" "Speaking") (dict "id" "prior" "label" "Before Cronk Advisory") }}
+        {{- if where $entries "type" .id }}{{ $types = $types | append . }}{{ end }}
+      {{- end }}
+      {{- $used := slice }}
+      {{- range $entries }}{{ $used = $used | append .services }}{{ end }}
+      <div class="exp-filters" data-exp-filters hidden>
+        <p class="exp-filters-title">{{ .Params.filters_label }}</p>
+        <div class="exp-filter-group" role="group" aria-label="By type" data-filter="type">
+          <span class="exp-filter-name">Type</span>
+          <button type="button" aria-pressed="true" data-value="">All</button>
+          {{- range $types }}<button type="button" aria-pressed="false" data-value="{{ .id }}">{{ .label }}</button>{{ end }}
+        </div>
+        <div class="exp-filter-group" role="group" aria-label="By service" data-filter="service">
+          <span class="exp-filter-name">Service</span>
+          <button type="button" aria-pressed="true" data-value="">All</button>
+          {{- range $services }}{{ if in $used .id }}<button type="button" aria-pressed="false" data-value="{{ .id }}">{{ .label }}</button>{{ end }}{{ end }}
+        </div>
+        <p class="exp-count" aria-live="polite" data-exp-count></p>
+      </div>
+      <div class="engagement-grid exp-grid" data-exp-list>
+        {{- range $entries }}
+        {{ partial "experience/card.html" (dict "entry" . "full" true "all" $entries) }}
+        {{- end }}
+      </div>
+      <p class="exp-empty" data-exp-empty hidden>Nothing matches those filters. <button type="button" class="exp-reset" data-exp-reset>Show everything</button></p>
+      {{ if where $entries "client.logo" "!=" "" }}{{ with .Params.logo_credit }}<p class="exp-credit">{{ . }}</p>{{ end }}{{ end }}
+    </div>
+  </div>
+</section>
+{{ partial "cta-band.html" . }}
+<script src="/js/experience-filter.js?v={{ os.ReadFile "static/js/experience-filter.js" | md5 | truncate 10 "" }}" defer></script>
+{{ end }}

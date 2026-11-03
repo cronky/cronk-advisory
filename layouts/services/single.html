@@ -33,6 +33,19 @@
 
     {{ with trim (partial "content.html" .) " \n" }}<div class="service-block prose">{{ . | safeHTML }}</div>{{ end }}
 
+    {{- $examples := partial "experience/service-examples.html" . }}
+    {{ with $examples.entries }}
+    <div class="service-block">
+      <div class="section-header section-header-tight">
+        <h2>Recent work</h2>
+        {{ with site.GetPage "/work" }}<a href="{{ .RelPermalink }}?service={{ index $examples.ids 0 }}" class="service-link">All experience →</a>{{ end }}
+      </div>
+      <div class="engagement-grid exp-strip">
+        {{ range . }}{{ partial "experience/card.html" (dict "entry" . "full" false) }}{{ end }}
+      </div>
+    </div>
+    {{ end }}
+
     {{- $seeAlso := slice }}
     {{- range .Params.see_also }}{{ $item := . }}{{ with site.GetPage .page }}{{ $seeAlso = $seeAlso | append (dict "page" . "item" $item) }}{{ end }}{{ end }}
     {{ with $seeAlso }}
@@ -63,10 +76,11 @@
     </div>
     {{ end }}
 
-    {{/* Related talks and writing from the cronky.net feed, matched on related_topics (spec 5.3) */}}
+    {{/* Related talks from the cronky.net feed, matched on related_topics (spec 5.3). External
+      writing was dropped in November 2026: Recent work and Related reading cover it. */}}
     {{ with .Params.related_topics }}
     {{ $topics := . }}
-    {{ range $block := slice (dict "type" "speaking" "heading" "Related talks by Oliver") (dict "type" "writing" "heading" "Related external writing by Oliver") }}
+    {{ range $block := slice (dict "type" "speaking" "heading" "Related talks by Oliver") }}
     {{ with trim (partial "insight-list.html" (dict "type" $block.type "topics" $topics "limit" 3)) " \n" }}
     <div class="service-block">
       <h2>{{ $block.heading }}</h2>

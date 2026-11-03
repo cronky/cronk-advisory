@@ -10,8 +10,8 @@
       <span></span><span></span><span></span>
     </button>
     <div class="nav-links" id="nav-links">
-      {{- /* Approach and Work are linked from About and the footer, not the top nav */}}
-      {{- range slice "/services" "/speaking" "/insights" "/about" }}
+      {{- /* Approach is linked from About, Insights and the footer, not the top nav */}}
+      {{- range slice "/services" "/speaking" "/work" "/insights" "/about" }}
       {{- with site.GetPage . }}
       {{- $parent := partial "breadcrumb-parent.html" $current }}
       {{- $inSection := or (eq . $current) (.IsAncestor $current) (and $parent (eq $parent .)) }}

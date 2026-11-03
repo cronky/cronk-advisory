@@ -1,0 +1,11 @@
+{{- /* Approved quotes from speaking entries in data/experience.yaml (links.reference with
+  permitted: true), newest first, each linked to its entry on /work/. */ -}}
+{{- $work := site.GetPage "/work" }}
+{{- range $e := where (partialCached "experience/entries.html" . "experience") "type" "speaking" }}
+{{- with $e.reference }}
+<blockquote class="testimonial">
+  <p>“{{ .quote }}”</p>
+  <footer>{{ .attribution }}{{ with $work }}, on <a href="{{ .RelPermalink }}#{{ $e.anchor }}">{{ $e.title }}</a>{{ end }}</footer>
+</blockquote>
+{{- end }}
+{{- end }}

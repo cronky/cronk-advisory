@@ -2,7 +2,6 @@
 title: "Pragmatic Ecosystems"
 linkTitle: "Pragmatic Ecosystems"
 breadcrumb_parent: "/insights"
-label: "Our Approach"
 layout: approach
 draft: false
 description: "Cronk Advisory's approach to technology decisions: seeing where your organisation sits in the wider system, focusing on what is material, and designing for viability."

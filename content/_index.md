@@ -1,18 +1,18 @@
 ---
 title: "Cronk Advisory Ltd: Responsible Technology Leadership"
 description: "Aligning Technology with Sustainability"
+outputs: [html, rss, llms, llmsfull]   # also /llms.txt and /llms-full.txt
 
-# TODO: new hero copy from Ollie (spec 6.1). This is the existing hero.
 hero:
   label: "Technology leadership · Architecture · Sustainability"
   heading: "Innovative Tech"
-  heading_em: "Aligned with Sustainability Goals"
-  body: "Working with leaders, sustainability, architecture and delivery teams to balance performance & holistic sustainability (people, planet & profitability)"
+  heading_em: "That's Sustainable & Responsible"
+  body: "Visionary strategy and architecture that balances performance, people, planet and profit pragmatically."
   # Background photo: path prefix of the -800.webp and -1600.webp files in static/images/photos/ (Ollie's own photo)
   photo: "/images/photos/bark-moss"
   card_photo: "/images/photos/oliver-cronk-160.webp"
   card_name: "Oliver Cronk"
-  card_title: "Fractional CTO & Chief Architect"
+  card_title: "Fractional CTO and Chief Architect"
   card_points:
     - "25+ years as a practitioner and tech leader"
     - "Energy, environment, telco, finance, government, professional services, cybersecurity"
@@ -34,17 +34,24 @@ approach:
   thumb_title: "Pragmatic Ecosystems"
   thumb_body: "Explore the stack and the interactive map →"
 
-# The newest articles plus the latest talk flagged for Cronk Advisory on cronky.net (spec 6.1)
+# Featured entries from data/experience.yaml (featured: true), linking to /work/
+experience:
+  label: "Selected experience"
+  heading: "Recent work."
+  count: 4
+  cta: "All experience"
+
+# The newest articles. Talks are left out: they already show in "Selected experience" above.
 latest:
   label: "Latest"
   heading: "New thinking."
-  articles: 2
+  articles: 3
   cta: "All insights"
 
 # Used by the "Start a conversation" band on every page (layouts/partials/cta-band.html).
 contact:
   label: "Want to Discuss Further?"
   heading: "Let's Talk!"
-  body: "If you are figuring out whether fractional CTO support, an architecture review, or a sustainability assessment makes sense for your organisation - lets chat!"
+  body: "If you are figuring out whether fractional CTO support, an architecture review, or a sustainability assessment makes sense for your organisation, let's chat!"
   location: "Based in Newbury, Berkshire · Working across the UK and internationally"
 ---

@@ -18,7 +18,6 @@ This is a discussion on architectures for the consequential end. It will not sui
 
 ![The context stack. Nine layers, bottom to top: Infrastructure, Data, Information and Knowledge (technology-led capabilities), then a dashed judgement line, then Judgement, Empathy, Wisdom, Accountability and Trusted Relationships (human capabilities). Context runs from generic at the base, through nuanced and situated, to non-transferable at the top. Risk and governance on the right: controls (security, privacy, resilience); quality and provenance (verification, sourcing, IP); decision rights (human escalation, care, nuance, sensemaking); assurance (transparency, audit, redress). After Ackoff (1989) and Zeleny (1987).](/images/articles/context-stack-judgement-line.webp)
 
-<!-- TODO: publish "Artificial intelligence is not artificial wisdom" at /articles/artificial-intelligence-is-not-artificial-wisdom/ (keep that file name or set slug, whatever the final title), or update the two links to it. Until then they render as plain text. -->
 In the [companion conceptual piece](/articles/artificial-intelligence-is-not-artificial-wisdom/) where the diagram above comes from, I argue that intelligence is not a rung on the knowledge ladder. It is the engine that moves you up it. The practical consequence is that every process has a point where the work stops being the accumulation and transformation of information and starts being judgement: committing to a position when the premises are incomplete, the values conflict and somebody has to live with the result.
 
 Call it the judgement line. Above it, a named human owns the output. Below it, the machine can run (in many cases autonomously).
@@ -137,7 +136,7 @@ The diagrams in this piece are © 2026 Cronk Advisory Ltd and released under a [
 
 ---
 
-*Oliver Cronk is an independent chief architect and the founder of [Cronk Advisory](/about/). He coined Ecosystem Architecture in 2017 and founded the [Architect Tomorrow](https://architecttomorrow.com) community in 2019, which informed and validated much of this thinking. An earlier and much simpler version of this was [published in 2023](https://www.architectureandgovernance.com/artificial-intelligence/generative-ai-solution-architecture-for-complex-enterprises/), before harnesses, agent protocols and machine-speed demand made most of it insufficient; this piece replaces it.*
+*Oliver Cronk is a fractional CTO and chief architect and the founder of [Cronk Advisory](/about/). He coined Ecosystem Architecture in 2017 and founded the [Architect Tomorrow](https://architecttomorrow.com) community in 2019, which informed and validated much of this thinking. An earlier and much simpler version of this was [published in 2023](https://www.architectureandgovernance.com/artificial-intelligence/generative-ai-solution-architecture-for-complex-enterprises/), before harnesses, agent protocols and machine-speed demand made most of it insufficient; this piece replaces it.*
 
 *Where does the judgement line fall in your own processes, and does your architecture respect it? Feel free to [get in touch](/contact/).*
 

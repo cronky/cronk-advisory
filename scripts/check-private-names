@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+# Check the built site for names that must not be public yet. Run after hugo, from the repo root:
+#   python3 scripts/check-private-names [public]
+# Names come from docs/private-names.txt, one per line, which is git-ignored so the names never
+# enter the repository. Anonymised clients (display: sector in data/experience.yaml) belong there.
+import pathlib
+import sys
+
+root = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "public")
+names_file = pathlib.Path("docs/private-names.txt")
+if not names_file.exists():
+    print(f"{names_file} not found: nothing to check. Add one name per line.")
+    sys.exit(0)
+names = [n.strip() for n in names_file.read_text(encoding="utf-8").splitlines()
+         if n.strip() and not n.startswith("#")]
+
+hits = []
+for path in root.rglob("*"):
+    if path.is_file() and path.suffix in {".html", ".xml", ".txt", ".json", ".js", ".css", ".svg"}:
+        text = path.read_text(encoding="utf-8", errors="ignore").lower()
+        hits += [(path, i + 1) for i, n in enumerate(names) if n.lower() in text]
+    # File names count too
+    hits += [(path, i + 1) for i, n in enumerate(names) if n.lower().replace(" ", "-") in path.name.lower()]
+
+for path, line in sorted(set(hits)):
+    # Report the position in the names list, not the name, so logs don't repeat it
+    print(f"{path}: contains name #{line} from {names_file}")
+print(f"Checked {len(names)} names in {root}: {'FAILED' if hits else 'none found'}.")
+sys.exit(1 if hits else 0)

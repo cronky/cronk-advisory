@@ -37,7 +37,7 @@
 
 | Topic | Decision |
 |---|---|
-| Registered office | Show the home registered office in the footer only, in small print that still meets WCAG AA contrast. Label it "Registered office (not a trading address)". Do not put it in JSON-LD, maps or contact page. |
+| Registered office | Show the home registered office in the footer only, in small print that still meets WCAG AA contrast. Label it "Registered office (not a trading address)". Owner decision (2 November 2026): it is public on Companies House, so it may also go in the Organization JSON-LD and on `/company/`, but not in prominent page copy, maps or the contact page. |
 | VAT | Not registered yet. Add an optional `vatNumber` param that renders in the footer only when set. |
 | Organisations | Three groups, clearly labelled: **Clients** (logos, with written permission), **Oliver's previous roles** (text list), **Spoken at** (logos, text-only for HM Treasury and Gartner). |
 | SEGRO | Not named anywhere. Anonymised mention only if Ollie confirms the NDA allows it. |
@@ -156,7 +156,7 @@ layouts/
   services/ list, single
   articles/ single
   partials/ header, footer, head, schema, breadcrumbs, page-header, cta-band, content,
-            service-card, service-pages, service-number, article-card, talk-card, insight-list,
+            service-card, service-pages, article-card, talk-card, insight-list,
             insights-feed, feed-image, speaking-roles, icon, ecosystem-stack,
             logo-strip and video-facade (to do)
   shortcodes/ ecosystem-map, copernican-shift, company-details, featured-talks, speaking-year, icon-cards
@@ -239,7 +239,7 @@ clients:
 
 previous_roles:               # text only, no logos
   - { organisation: Scott Logic, role: Technology Director }
-  - { organisation: Deloitte Risk Advisory UK, role: "Chief Architect / Deputy CTO" }
+  - { organisation: Deloitte Risk Advisory, role: "Chief Architect / Deputy CTO" }
   - { organisation: Tanium, role: Chief Architect }
   # TODO: confirm full list with Ollie
 
@@ -494,7 +494,7 @@ Each phase is one branch and PR. Ollie reviews and merges. Every phase must pass
 | 1. Compliance and security | Footer disclosures (7.1); `/company/`; `_headers` (8.1); `security.txt`; fonts decision applied (8.3) | Registered office and number visible on every page; CSP active with no console violations; security headers check passes | **Partly done.** `/company/` is live. To do: registered office in the footer, `_headers` and CSP, `security.txt`, self-hosted fonts |
 | 2. Structure | Sections, layouts, nav, home slimmed, about, approach, contact, 404, breadcrumbs, metadata and JSON-LD (8.4), `llms.txt` | Every URL in 4.1 except governance and Insights resolves; legacy home anchors still land; JSON-LD validates without an address | **Done and live.** `/work/`, `/accessibility/` and `/governance/` wait for Phases 4 and 6; `og:image` artwork is TODO |
 | 3. Services | Four service pages and index from approved copy (5.3) | No `[COPY]` placeholders remain on published pages, or the page is `draft: true` | **Live.** Pragmatic AI, Responsible Technology and Speaking copy approved. Still TODO: new summaries for Chief Architecture and Sustainable Technology, their who-for and outcomes, the services index line and the home hero (see the note under question 9) |
-| 4. Work | `data/organisations.yml`, logo partial, `/work/` | Client logos only show with a permission date; HM Treasury and Gartner as text | **Not started** (`/work/` is a draft; add it to the header nav when published) |
+| 4. Work | `data/experience.yaml`, client display rules, `/work/` (Experience), case study templates, home "Selected experience" strip | Clients show a name or logo only when the entry permits it; the build fails if an anonymised entry carries identifying fields | **Built (November 2026)**, replacing the planned `data/organisations.yml`. To do: case study copy, "Spoken at" strip |
 | 5. Feed, Speaking and Insights | cronky.net feed (9.1) and Hugo consumption (9.2); `/speaking/` and `/insights/` | Builds with the feed and with it unreachable; counts match cronky.net; no third-party requests on page load | **Done and live.** Carried over: search, video facades (on hold, 8.5), "Spoken at" strip (with Phase 4), testimonials |
 | 6. Governance and transparency | Governance hub and policies (7.3), privacy rewrite (7.2), accessibility statement, about this site, `carbon.txt`, CI (8.7) | Modern slavery reporting route fixed; carbon.txt validates; CI green | **Not started** (About this site has its first section, written by Ollie) |
 

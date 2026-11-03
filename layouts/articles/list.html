@@ -1,0 +1,29 @@
+{{- /* /articles/: every article, newest first, with its date, series, standfirst and topics. */ -}}
+{{ define "main" }}
+{{ partial "page-header.html" . }}
+{{- /* Display names for cronky.net's topic vocabulary (articleTopics in hugo.toml) */}}
+{{- $topicNames := dict "ai" "AI" "apis" "APIs" "open-source" "Open source" "software-engineering" "Software engineering" "events-podcasting" "Events and podcasting" }}
+<section class="section section-cream page-section">
+  <div class="section-inner">
+    {{ with trim (partial "content.html" .) " \n" }}<div class="prose">{{ . | safeHTML }}</div>{{ end }}
+    <ul class="page-list article-list">
+      {{ range partial "published-articles.html" . }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span class="article-list-meta">
+          {{- if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>{{ end }}
+          {{- with .Params.series }} · {{ . }}{{ end -}}
+        </span>
+        {{ with .Description }}<span>{{ . }}</span>{{ end }}
+        {{ with .Params.topics }}
+        <ul class="exp-tags article-topics" aria-label="Topics">
+          {{- range . }}<li>{{ index $topicNames . | default (humanize .) }}</li>{{ end }}
+        </ul>
+        {{ end }}
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
+{{ partial "cta-band.html" . }}
+{{ end }}

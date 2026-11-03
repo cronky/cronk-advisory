@@ -1,0 +1,41 @@
+{{- /* A case study. Its experience_id links it to an entry in data/experience.yaml, which
+  supplies the client (through the same display rules), period, services and any permitted
+  quote. Write the body to match: an anonymised client is described by its sector throughout. */ -}}
+{{ define "main" }}
+{{- $id := .Params.experience_id }}
+{{- $entry := false }}
+{{- with where (partialCached "experience/entries.html" . "experience") "id" $id }}{{ $entry = index . 0 }}{{ end }}
+{{- if and (not $entry) (not .Draft) }}{{ errorf "%s: experience_id %q is not a visible entry in data/experience.yaml (a case study for a hidden client cannot be published)" .File.Path $id }}{{ end }}
+{{- $services := index (index site.Data "experience") "services" }}
+<section class="page-header">
+  <div class="section-inner">
+    {{ partial "breadcrumbs.html" . }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="page-summary">{{ . }}</p>{{ end }}
+    <p class="article-meta case-meta">Case study{{ with $entry }}{{ with .client.label }} · {{ . }}{{ end }} · {{ .period_label }}{{ end }}</p>
+  </div>
+</section>
+<section class="section section-cream page-section">
+  <div class="section-inner">
+    <article class="prose prose-long">
+      {{ partial "content.html" . }}
+      {{ with $entry }}
+      {{ with .reference }}
+      <h2>What the client said</h2>
+      <blockquote><p>“{{ .quote }}”</p>{{ with .attribution }}<p>{{ . }}</p>{{ end }}</blockquote>
+      {{ end }}
+      {{ with .services }}
+      <h2>Related services</h2>
+      <ul>
+        {{- range . }}{{ $sid := . }}{{ range where $services "id" $sid }}
+        <li>{{ with site.GetPage .page }}<a href="{{ .RelPermalink }}">{{ end }}{{ .label }}{{ with site.GetPage .page }}</a>{{ end }}</li>
+        {{- end }}{{ end }}
+      </ul>
+      {{ end }}
+      {{ with site.GetPage "/work" }}<p><a href="{{ .RelPermalink }}#{{ $entry.anchor }}">See this engagement in our experience</a></p>{{ end }}
+      {{ end }}
+    </article>
+  </div>
+</section>
+{{ partial "cta-band.html" . }}
+{{ end }}

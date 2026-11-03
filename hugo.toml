@@ -9,13 +9,27 @@ enableRobotsTXT = true
   legalName        = "Cronk Advisory Limited"
   companyNumber    = "17112535"
   registeredIn     = "England and Wales"
-  registeredOffice = "3 Faville Oaks, Hampstead Norreys Road, Hermitage, Thatcham, England, RG18 9RZ"    # as on Companies House. Footer and /company/ only, never in JSON-LD
+  registeredOffice = "3 Faville Oaks, Hampstead Norreys Road, Hermitage, Thatcham, England, RG18 9RZ"    # as on Companies House; shown on /company/
+  # The same address in parts, for the Organization JSON-LD. It is public on Companies House;
+  # keep it in structured data and /company/ rather than prominent page copy.
+  addressStreet    = "3 Faville Oaks, Hampstead Norreys Road, Hermitage"
+  addressLocality  = "Thatcham"
+  addressRegion    = "Berkshire"
+  postalCode       = "RG18 9RZ"
+  addressCountry   = "GB"
   vatNumber        = ""    # renders only when non-empty
   incorporated     = "24 March 2026"
   directors        = ["Oliver Cronk", "Kathryn Cronk"]
   natureOfBusiness = ["Information technology consultancy (SIC 62020)", "Management consultancy (SIC 70229)"]
   email            = "hello@cronkadvisory.com"
   founder          = "Oliver Cronk"
+  founderAlternateName = "Ollie Cronk"
+  founderTitle     = "Fractional CTO and Chief Architect"   # the one title used across the site, JSON-LD and llms.txt
+  foundingDate     = "2026-03-24"
+  # Oliver's profiles, for sameAs in the Person JSON-LD. TODO: Medium, Sessionize and the
+  # Architect Tomorrow Apple Podcasts URLs. Mirror the Person @id and sameAs on cronky.net.
+  founderSameAs    = ["https://www.linkedin.com/in/cronky/", "https://github.com/cronky", "https://cronky.net/"]
+  linkedinCompany  = ""    # TODO: the Cronk Advisory LinkedIn company page, if there is one
   linkedin         = "https://www.linkedin.com/in/cronky/"
   personalSite     = "https://cronky.net/"
   insightsFeed     = "https://cronky.net/feeds/advisory.json"   # fetched at build; data/insights-snapshot.json is the fallback
@@ -28,6 +42,18 @@ enableRobotsTXT = true
   baseName     = "insights"
   path         = "feeds"
   isPlainText  = true
+  notAlternative = true
+
+# /llms.txt and /llms-full.txt, built from the site's own content (layouts/index.llms*.txt)
+[outputFormats.llms]
+  mediaType      = "text/plain"
+  baseName       = "llms"
+  isPlainText    = true
+  notAlternative = true
+[outputFormats.llmsfull]
+  mediaType      = "text/plain"
+  baseName       = "llms-full"
+  isPlainText    = true
   notAlternative = true
 
 # Remote resources (the cronky.net feed and its images) are fetched at build time.

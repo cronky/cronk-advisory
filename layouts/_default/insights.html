@@ -25,6 +25,16 @@
     </div>
     {{ end }}
 
+    {{/* Case studies live under /work/ (their canonical URL) and are listed here too */}}
+    {{ with site.GetPage "/work" }}{{ with where .RegularPages "Draft" false }}
+    <div class="service-block">
+      <h2>Case studies</h2>
+      <div class="engagement-grid">
+        {{ range .ByDate.Reverse }}{{ partial "article-card.html" . }}{{ end }}
+      </div>
+    </div>
+    {{ end }}{{ end }}
+
     {{/* Talks, writing and podcasts from the cronky.net feed; a block with no items is hidden */}}
     {{ range $block := .Params.feed_blocks }}
     {{ with trim (partial "insight-list.html" (dict "type" $block.type)) " \n" }}

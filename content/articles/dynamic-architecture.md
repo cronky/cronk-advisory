@@ -95,7 +95,7 @@ The organisations that understand this won't just navigate the next few years mo
 
 ---
 
-*Oliver Cronk is an independent chief architect and the founder of [Cronk Advisory](/about/). He coined Ecosystem Architecture in 2017, founded the [Architect Tomorrow](https://architecttomorrow.com) community in 2019, and is working on the [Pragmatic Ecosystems](/approach/) approach.*
+*Oliver Cronk is a fractional CTO and chief architect and the founder of [Cronk Advisory](/about/). He coined Ecosystem Architecture in 2017, founded the [Architect Tomorrow](https://architecttomorrow.com) community in 2019, and is working on the [Pragmatic Ecosystems](/approach/) approach.*
 
 *This is the first in a series exploring Dynamic Architecture.*
 

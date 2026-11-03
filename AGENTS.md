@@ -18,7 +18,7 @@ The site practises what the business preaches: sustainable, secure, minimal tech
 - **Mind the bytes.** Optimise images before committing (palette PNGs or WebP/SVG where possible). Avoid adding web fonts or font weights.
 - **British English** throughout content (organisation, colour, licence).
 - **Don't invent claims.** Biography, client sectors, roles and credentials are factual statements about a real person and company. Never add or embellish them; ask the owner.
-- **DIST, not the Tech Carbon Standard.** For technology footprint work, reference the Green Web Foundation's [Digital Impacts Schema and Taxonomy (DIST)](https://dist.greenweb.org). The Tech Carbon Standard is a Scott Logic project kept for the archive: mention it only as a past achievement in Oliver's biography, without a link.
+- **DIST, not the Tech Carbon Standard.** For technology footprint work, reference and link the Green Web Foundation's [Digital Impacts Schema and Taxonomy (DIST)](https://dist.greenweb.org) wherever it fits. The Tech Carbon Standard is a Scott Logic project kept for the archive: mention it only as a past achievement of Oliver's, without a link, worded as "Co-developed and launched (State of Open Con 2024) while leading Scott Logic's Sustainable Technology practice". Never present it as Cronk Advisory work.
 - **AI use is disclosed.** If you make a material contribution, add a line to the "AI Use Disclosure" section of `README.md` (tool, model, rough scope).
 
 ## Where things live
@@ -44,19 +44,24 @@ The site practises what the business preaches: sustainable, secure, minimal tech
 | Footer | `layouts/partials/footer.html` |
 | Page title band and breadcrumbs | `layouts/partials/page-header.html`, `breadcrumbs.html` |
 | `<head>` meta, favicon, fonts | `layouts/partials/head.html` |
-| Organization JSON-LD | `layouts/partials/schema.html` (built from params; never add the address) |
+| Experience (`/work/`) and the home "Selected experience" strip | Entries in `data/experience.yaml` (see "Experience and client confidentiality" below); page intro in `content/work/_index.md`; markup in `layouts/work/list.html` and `layouts/partials/experience/`; filter script `static/js/experience-filter.js` |
+| Recent work on service pages | `layouts/partials/experience/service-examples.html`: up to three entries tagged with that page's services, `highlight`ed ones first, then engagements, then talks |
+| Testimonials on Speaking | `{{< testimonials >}}`: every permitted `reference` on a speaking entry in `data/experience.yaml` |
+| Case studies | `content/work/<slug>.md` with `experience_id` pointing at its entry, rendered by `layouts/work/single.html`; also listed on `/insights/` |
+| JSON-LD | `layouts/partials/schema/graph.html`: one `@graph` on every page (`#org`, `#oliver-cronk`, `#website`), plus `Article` for articles and case studies and `Event` for talks on `/work/`. Built from `hugo.toml` params and the experience data; no `Review` markup |
+| The one job title for Oliver | `founderTitle` in `hugo.toml` ("Fractional CTO and Chief Architect"): use it in copy, JSON-LD and llms.txt |
 | 404 page | `layouts/404.html` |
 | Styles | `static/css/main.css` (design tokens are CSS custom properties in `:root`) |
 | Site-wide params (legal name, email, company number, LinkedIn, description) | `hugo.toml` |
 | HTTP headers / caching | `static/_headers` (Cloudflare Pages format) |
-| Summary for LLMs that read the site | `static/llms.txt` |
+| Summary for LLMs that read the site | `/llms.txt` and `/llms-full.txt`, built by `layouts/index.llms.txt` and `layouts/index.llmsfull.txt` (output formats of the home page) |
 
 ### Content model
 
 The site follows `docs/v2-spec.md`, built in phases. Pages still waiting for copy or for a later phase have `draft: true`: they build with `hugo server -D` but not in production. Nav, footer and service lists only link to pages that exist, so drafts never leave broken links.
 
-- **Home** (`content/_index.md`): `hero`, `services` (label and heading only), `latest` (the newest articles plus the latest advisory talk from the feed), `approach` (teaser, and the Pragmatic Ecosystems stack thumbnail from `layouts/partials/ecosystem-stack.html`), `contact`. The `contact` block also feeds the "Start a conversation" band on other pages (`layouts/partials/cta-band.html`).
-- **Services**: each page in `content/services/` plus `content/speaking.md` becomes a service card, ordered by `weight`. The "01", "02"… numbers come from position among published services (`layouts/partials/service-number.html`), so a draft never leaves a gap. Front matter: `title`, `weight`, `summary` (card text and page intro), `description` (meta), `who_for`, `engagements` (`title`, `body`, `note`), `outcomes`, `related_topics`, `related_articles` (up to three article paths, shown as "Related reading" cards via `layouts/partials/article-card.html`), `see_also` (`page`, optional `anchor`, `link_label`, `body`: a card pointing to a closely related service), `legacy_ids`. Empty lists hide their section.
+- **Home** (`content/_index.md`): `hero`, `services` (label and heading only), `experience` ("Selected experience": the newest featured entries in `data/experience.yaml`), `latest` (the three newest articles; talks are left out because they show in Selected experience), `approach` (teaser, and the Pragmatic Ecosystems stack thumbnail from `layouts/partials/ecosystem-stack.html`), `contact`. The `contact` block also feeds the "Start a conversation" band on other pages (`layouts/partials/cta-band.html`).
+- **Services**: each page in `content/services/` plus `content/speaking.md` becomes a service card, ordered by `weight`. Front matter: `title`, `weight`, `summary` (card text and page intro), `description` (meta), `who_for`, `engagements` (`title`, `body`, `note`), `outcomes`, `related_topics`, `related_articles` (up to three article paths, shown as "Related reading" cards via `layouts/partials/article-card.html`), `see_also` (`page`, optional `anchor`, `link_label`, `body`: a card pointing to a closely related service), `legacy_ids`. Empty lists hide their section.
 - **Legacy anchors**: `legacy_ids` keep old links such as `/#fractional-cto` working: the home page card gets the first id plus empty anchors for the rest. `id="contact"`, `id="services"`, `id="approach"` and `id="about"` also stay on the home page. Keep them stable.
 - Rendered page content goes through `layouts/partials/content.html`, which strips HTML comments, so `<!-- TODO -->` notes never reach the published source.
 - Don't use `type` in front matter (Hugo reserves it for choosing layouts); use a different name such as `article_type`.
@@ -87,13 +92,19 @@ All logos are transparent PNGs (8-bit palette with alpha).
 The white circuit lines inside the green mark are part of the logo and must stay opaque. The original white-background masters are in git history before October 2026 if a re-export is ever needed.
 Brand assets are **not** covered by the MIT licence; don't redistribute or alter the mark's design.
 
+### Logos (`static/images/logos/`)
+
+Client logos show in colour, at a uniform height on a white tile (or navy, with `logo_on_dark: true`, for light logos), and only when the entry allows it (see below). Convert to WebP or SVG and keep them small.
+
 ### Photos (`static/images/photos/`)
 
-All photos are Ollie's own or of Ollie. Before committing one:
+All photos are Ollie's own or of Ollie, including event photos of him speaking (owner decision, November 2026).
+Before committing one:
 
 - strip all metadata, including camera and GPS (`magick in.jpg -auto-orient -strip ...`);
 - convert to WebP at the sizes the template uses (the hero uses `<name>-800.webp` and `<name>-1600.webp`; aim for under 160 KB at 1600px);
-- don't commit originals, and don't publish photos where other people can be identified without their agreement.
+- don't commit originals;
+- event photos are fine to use: most events, Environment Analyst's included, have attendees opt in to being photographed, and most have already been shared on LinkedIn. For older photos where someone else is clearly identifiable, consider cropping or blurring them, and don't name other people in captions or alt text without their agreement.
 
 The home hero photo is set by `hero.photo` in `content/_index.md`. The navy shade over it (`.hero::after`) is what keeps the hero text at 4.5:1 or better, so re-measure contrast if you lighten the shade or pick a brighter photo.
 
@@ -102,6 +113,18 @@ Brand colours (from `main.css`): forest `#3B6352`, navy `#1C2C3A`, amber `#C9893
 Text must meet WCAG AA contrast (at least 4.5:1). Amber `#C9893A` fails as text on cream or white, so labels on light backgrounds use `--amber-text` (`#935F1E`); keep `--amber` for bars, accents and text on navy. Semi-transparent white text needs at least 60% opacity on navy (65% on the translucent cards) and at least 80% on forest. Check any new colour pair with a contrast checker.
 
 No inline `style=""` attributes or `<style>` blocks in layouts: put styles in `main.css` (a strict Content Security Policy is planned).
+
+## Experience and client confidentiality
+
+`data/experience.yaml` is the single source for client engagements, talks and earlier work. Everything that shows a client (the `/work/` page, the home strip, case studies, JSON-LD, llms.txt) reads it through `layouts/partials/experience/entries.html`, and the display rules live in `layouts/partials/experience/client.html`:
+
+- `display: named` shows the name; it is linked only with `link_permitted: true` and a `url`, and the logo shows only with `logo_permitted: true` and a `logo`.
+- `display: sector` shows only `sector_label`. `display: hidden` shows nothing anywhere.
+- `approval_status` and `approval_note` are never rendered. A `reference` quote shows only with `permitted: true`.
+
+**Never put an unapproved client's name in the repository**: not in YAML, comments, ids, slugs, file names, alt text or commit messages. Store only the sector label and use a neutral id. The build fails (on Cloudflare too) if a `sector` or `hidden` entry has a `name`, `url` or `logo`, if a rendered field still says `TODO`, or if a published case study points at a hidden entry. After building, `python3 scripts/check-private-names` checks `public/` against the names in `docs/private-names.txt` (git-ignored).
+
+Speaking entries take their title, date and event from the cronky.net feed by `feed_slug`, so talk details aren't duplicated here. Work before March 2026 is `type: prior` and is always labelled "Before Cronk Advisory".
 
 ## Working locally
 
@@ -118,7 +141,7 @@ Talks, writing and podcasts come from `https://cronky.net/feeds/advisory.json` (
 
 - If cronky.net is unreachable or the feed is invalid, the build uses `data/insights-snapshot.json` and prints a warning, so it still deploys. Refresh the snapshot with `sh scripts/refresh-insights` and commit it when it changes.
 - Item images and YouTube thumbnails are fetched at build time and published under `/images/feed/` as 480px WebP (`feed-image.html`), so visitors make no third-party requests. Don't hotlink feed images.
-- `insight-list.html` renders a filtered list (type, topics, advisory, featured, limit) as `talk-card.html` cards or a link list; service pages use it for "Related talks" and "Related writing" by `related_topics`.
+- `insight-list.html` renders a filtered list (type, topics, advisory, featured, limit) as `talk-card.html` cards or a link list; service pages use it for "Related talks" by `related_topics`.
 - Only items cronky.net flags `advisory: true` show, except role counts, which use every talk. Talks before March 2026 predate the company: present them as Oliver's track record, not Cronk Advisory work.
 - Remote fetches are cached for 15 minutes locally (`[caches.getresource]` in `hugo.toml`). A failed image fetch warns, which fails `--panicOnWarning`; rerun when cronky.net is back.
 

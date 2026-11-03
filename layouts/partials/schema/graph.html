@@ -1,0 +1,97 @@
+{{- /* JSON-LD for every page: one @graph with the site-wide entities (the company, Oliver and
+  the website, with stable @ids so other pages and cronky.net can refer to them) plus nodes for
+  this page: Article for articles and case studies, Event for talks on /work/.
+  Built from hugo.toml params and data/experience.yaml (through experience/entries.html, so the
+  client display rules apply). No Review or AggregateRating markup: self-serving reviews are not
+  eligible for rich results. */ -}}
+{{- $p := site.Params }}
+{{- $home := site.Home.Permalink }}
+{{- $orgId := printf "%s#org" $home }}
+{{- $personId := printf "%s#oliver-cronk" $home }}
+{{- $siteId := printf "%s#website" $home }}
+
+{{- $orgSameAs := slice (printf "https://find-and-update.company-information.service.gov.uk/company/%s" $p.companyNumber) }}
+{{- with $p.linkedinCompany }}{{ $orgSameAs = $orgSameAs | append . }}{{ end }}
+{{- $org := dict
+  "@type" (slice "Organization" "ProfessionalService")
+  "@id" $orgId
+  "name" site.Title
+  "legalName" $p.legalName
+  "alternateName" "Cronk Advisory Ltd"
+  "url" $home
+  "logo" (dict "@type" "ImageObject" "url" ("images/logo-full-logo.png" | absURL))
+  "image" ("images/logo-full-logo.png" | absURL)
+  "email" $p.email
+  "description" $p.description
+  "identifier" (dict "@type" "PropertyValue" "propertyID" "Companies House company number" "value" $p.companyNumber)
+  "foundingDate" $p.foundingDate
+  "founder" (dict "@id" $personId)
+  "address" (dict "@type" "PostalAddress" "streetAddress" $p.addressStreet "addressLocality" $p.addressLocality "addressRegion" $p.addressRegion "postalCode" $p.postalCode "addressCountry" $p.addressCountry)
+  "areaServed" (slice (dict "@type" "Country" "name" "United Kingdom") "Worldwide (remote)")
+  "knowsAbout" (slice "Fractional CTO services" "Enterprise architecture" "Architecture governance" "Technology strategy" "AI adoption and governance" "Sustainable technology" "Digital Impacts Schema and Taxonomy (DIST)" "Pragmatic Ecosystems")
+  "sameAs" $orgSameAs
+}}
+{{- with site.GetPage "/contact" }}{{ $org = merge $org (dict "contactPoint" (dict "@type" "ContactPoint" "contactType" "enquiries" "email" $p.email "url" .Permalink "areaServed" "GB" "availableLanguage" "en-GB")) }}{{ end }}
+
+{{- $person := dict
+  "@type" "Person"
+  "@id" $personId
+  "name" $p.founder
+  "alternateName" $p.founderAlternateName
+  "givenName" "Oliver"
+  "familyName" "Cronk"
+  "jobTitle" $p.founderTitle
+  "worksFor" (dict "@id" $orgId)
+  "hasCredential" (slice
+    (dict "@type" "EducationalOccupationalCredential" "name" "Chartered IT Professional (CITP)" "credentialCategory" "Professional registration" "recognizedBy" (dict "@type" "Organization" "name" "BCS, The Chartered Institute for IT" "url" "https://www.bcs.org/"))
+    (dict "@type" "EducationalOccupationalCredential" "name" "BSc Computer Science (Hons)" "credentialCategory" "degree" "recognizedBy" (dict "@type" "CollegeOrUniversity" "name" "University of Essex" "url" "https://www.essex.ac.uk/")))
+  "knowsAbout" (slice "Enterprise architecture" "Ecosystem architecture" "AI strategy and architecture" "Sustainable technology" "Open source" "Systems thinking")
+  "sameAs" $p.founderSameAs
+}}
+{{- with site.GetPage "/about" }}{{ $person = merge $person (dict "url" .Permalink "image" ("images/photos/oliver-cronk-600.webp" | absURL)) }}{{ end }}
+
+{{- $website := dict "@type" "WebSite" "@id" $siteId "url" $home "name" site.Title "inLanguage" "en-GB" "publisher" (dict "@id" $orgId) }}
+{{- $graph := slice $org $person $website }}
+
+{{/* Articles and case studies */}}
+{{- if and .IsPage (in (slice "articles" "work") .Section) }}
+  {{- $article := dict
+    "@type" "Article"
+    "@id" (printf "%s#article" .Permalink)
+    "headline" .Title
+    "url" .Permalink
+    "mainEntityOfPage" .Permalink
+    "inLanguage" "en-GB"
+    "author" (dict "@id" $personId)
+    "publisher" (dict "@id" $orgId)
+    "isPartOf" (dict "@id" $siteId)
+  }}
+  {{- with .Description }}{{ $article = merge $article (dict "description" (. | plainify | htmlUnescape)) }}{{ end }}
+  {{- if not .Date.IsZero }}{{ $article = merge $article (dict "datePublished" (.Date.Format "2006-01-02") "dateModified" (.Lastmod.Format "2006-01-02")) }}{{ end }}
+  {{- with .Params.series }}{{ $article = merge $article (dict "articleSection" .) }}{{ end }}
+  {{- if eq .Section "work" }}{{ $article = merge $article (dict "articleSection" "Case study") }}{{ end }}
+  {{- $graph = $graph | append $article }}
+{{- end }}
+
+{{/* Talks on /work/ as Events with Oliver as performer (documentaries are not events) */}}
+{{- if and (eq .Section "work") (not .IsPage) }}
+  {{- range where (partialCached "experience/entries.html" . "experience") "type" "speaking" }}
+    {{- if and .event (ne .type_label "Documentary") }}
+      {{- $online := or (eq .location "Online") (not .location) }}
+      {{- $event := dict
+        "@type" "Event"
+        "name" .title
+        "startDate" .date
+        "eventStatus" "https://schema.org/EventScheduled"
+        "eventAttendanceMode" (cond $online "https://schema.org/OnlineEventAttendanceMode" "https://schema.org/OfflineEventAttendanceMode")
+        "location" (cond $online (dict "@type" "VirtualLocation" "url" (.url | default site.Home.Permalink)) (dict "@type" "Place" "name" .event "address" .location))
+        "performer" (dict "@id" $personId)
+      }}
+      {{- with .url }}{{ $event = merge $event (dict "url" .) }}{{ end }}
+      {{- with .summary }}{{ $event = merge $event (dict "description" .) }}{{ end }}
+      {{- if .client.named }}{{ $event = merge $event (dict "organizer" (dict "@type" "Organization" "name" .client.label)) }}{{ end }}
+      {{- $graph = $graph | append $event }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+  <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify | safeJS }}</script>
