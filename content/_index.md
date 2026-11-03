@@ -5,9 +5,9 @@ outputs: [html, rss, llms, llmsfull]   # also /llms.txt and /llms-full.txt
 
 hero:
   label: "Technology leadership · Architecture · Sustainability"
-  heading: "Innovative tech"
-  heading_em: "that's sustainable and responsible"
-  body: "Working with business, sustainability, architecture and delivery teams so that performance and holistic sustainability (people, planet and profit) work together."
+  heading: "Innovative Tech"
+  heading_em: "That's Sustainable & Responsible"
+  body: "Visionary strategy and architecture that balances performance, people, planet and profit pragmatically."
   # Background photo: path prefix of the -800.webp and -1600.webp files in static/images/photos/ (Ollie's own photo)
   photo: "/images/photos/bark-moss"
   card_photo: "/images/photos/oliver-cronk-160.webp"
