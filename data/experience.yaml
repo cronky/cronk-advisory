@@ -68,7 +68,7 @@ entries:
     title: "Digital Impacts Schema and Taxonomy (DIST)"
     period: { start: "2026-04" }
     era: cronk-advisory
-    delivered_as: "Enterprise architecture advisory"
+    delivered_as: "Sustainable technology advisory"
     client:
       display: named
       name: "Green Web Foundation"
@@ -246,6 +246,10 @@ entries:
     links:
       evidence:
         - { label: "Read the article", url: "/articles/the-ai-efficiency-fallacy" }
+      reference:
+        quote: "Thank you Oliver for speaking at our Converge 2026 BAF Summit! Your keynote set the day up perfectly. Having you as part of our Community makes us better!"
+        attribution: "Linda Finley, President and Board Chair, Business Architecture Forum"
+        permitted: true
 
   - id: sustainability-delivery-summit-2026-chair
     type: speaking
