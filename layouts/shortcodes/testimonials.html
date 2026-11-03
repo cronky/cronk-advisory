@@ -4,7 +4,7 @@
 {{- range $e := where (partialCached "experience/entries.html" . "experience") "type" "speaking" }}
 {{- with $e.reference }}
 <blockquote class="testimonial">
-  <p>“{{ .quote }}”</p>
+  {{ partial "experience/quote.html" .quote }}
   <footer>{{ .attribution }}{{ with $work }}, on <a href="{{ .RelPermalink }}#{{ $e.anchor }}">{{ $e.title }}</a>{{ end }}</footer>
 </blockquote>
 {{- end }}

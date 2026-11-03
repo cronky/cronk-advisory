@@ -10,5 +10,6 @@
     </div>
   </div>
 </section>
+{{ with .Params.recent_work }}{{ partial "experience/strip.html" (dict "block" . "id" "recent-work") }}{{ end }}
 {{ partial "cta-band.html" . }}
 {{ end }}

@@ -821,13 +821,22 @@ a:hover { text-decoration: underline; }
 /* Insights page */
 .insight-feature {
   display: grid;
-  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px;
+  align-items: center;
   background: var(--navy);
   border-radius: 8px;
   padding: 40px;
   color: white;
   text-decoration: none;
   max-width: 860px;
+}
+.insight-feature-text { display: grid; gap: 10px; }
+/* The Pragmatic Ecosystems stack, as on the home page */
+.insight-feature-art svg { display: block; width: 180px; height: auto; }
+@media (max-width: 640px) {
+  .insight-feature { grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; }
+  .insight-feature-art svg { width: 140px; }
 }
 .insight-feature:hover { text-decoration: none; background: var(--navy-m); }
 .insight-feature .label { color: var(--amber); margin-bottom: 0; }
@@ -872,8 +881,31 @@ a:hover { text-decoration: underline; }
 
 /* Experience (/work/ and the home page strip), from data/experience.yaml */
 .exp-intro { margin: 0 0 40px; }
+/* Intro with a pull quote beside it (one shown at random by experience-filter.js). The intro
+   column is narrow so the quote runs wide and short, and doesn't push the list down */
+.exp-intro-wrap.has-quote { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 48px; align-items: center; margin: 0 0 40px; }
+.exp-intro-wrap.has-quote .exp-intro { margin: 0; }
+.pull-quote { position: relative; margin: 0; padding: 22px 28px 20px 64px; background: var(--white); border-left: 3px solid var(--amber); border-radius: 0 8px 8px 0; }
+.pull-quote[hidden] { display: none; }
+.pull-quote::before { content: "\201C" / ""; position: absolute; left: 16px; top: 10px; font-family: var(--serif); font-size: 84px; line-height: 1; color: var(--amber); }
+.pull-quote blockquote p { font-size: 18px; font-style: italic; color: var(--navy); }
+.pull-quote blockquote p + p { margin-top: 10px; }
+.pull-quote blockquote p:last-child::after { content: "\201D" / ""; color: var(--amber); font-style: normal; }
+.pull-quote figcaption { margin-top: 12px; font-family: var(--heading); font-size: 15px; font-weight: 600; color: var(--ink-m); }
+.pull-quote-meta { display: block; margin-top: 2px; font-size: 14px; font-weight: 500; }
+.pull-quote-meta a { color: var(--forest); }
+/* Below this the quote column gets too narrow (and tall), so the quote goes under the intro */
+@media (max-width: 1000px) {
+  .exp-intro-wrap.has-quote { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 800px) {
+  .pull-quote { padding: 24px 22px 20px 56px; }
+  .pull-quote::before { left: 12px; font-size: 68px; }
+}
 .exp-card { gap: 10px; scroll-margin-top: 96px; }
 .exp-card[hidden] { display: none; }
+/* A long client quote would make a one-column card very tall, so it takes two columns where there is room */
+@media (min-width: 900px) { .exp-grid .exp-card.has-long-quote { grid-column: span 2; } }
 .exp-card .label { margin-bottom: 0; }
 .exp-card h3 a { color: inherit; }
 .exp-card.has-photo { padding-top: 0; overflow: hidden; }
@@ -895,6 +927,11 @@ a:hover { text-decoration: underline; }
 .exp-logo { display: inline-flex; align-items: center; height: 52px; padding: 8px 12px; border-radius: 6px; background: white; border: 1px solid var(--rule); vertical-align: middle; }
 .exp-logo img { height: 34px; width: auto; }
 .exp-logo-dark { background: var(--navy); border-color: var(--navy); }
+/* Brands whose guidelines forbid a box or keyline behind the logo (SEGRO): no tile. The logo is
+   24px tall, so the 12px padding keeps half the "O" clear around it and the 24px card padding keeps
+   a whole "O" from the card edge */
+.exp-logo-plain { height: 48px; padding: 12px 12px 12px 0; background: none; border: 0; border-radius: 0; }
+.exp-logo-plain img { height: 24px; }
 .exp-outcomes { padding-left: 20px; color: var(--ink-m); font-size: 15px; }
 .exp-quote { border-left: 3px solid var(--amber); padding-left: 14px; font-style: italic; color: var(--ink-m); }
 .exp-quote footer { font-style: normal; font-family: var(--heading); font-size: 14px; margin-top: 6px; }
@@ -916,11 +953,15 @@ a:hover { text-decoration: underline; }
 .exp-filter-group button:hover, .exp-reset:hover { border-color: var(--ink-lt); }
 .exp-filter-group button[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: white; }
 .exp-count { font-size: 15px; color: var(--ink-m); }
+.exp-count a { color: var(--forest); }
+.exp-more { margin-top: 28px; }
+.exp-more a { font-family: var(--heading); font-weight: 600; color: var(--forest); }
 .exp-empty { color: var(--ink-m); }
 .exp-credit { margin-top: 28px; font-size: 14px; color: var(--ink-m); }
 .exp-strip { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 blockquote.testimonial { margin: 0 0 20px; padding: 20px 24px; background: white; border-left: 3px solid var(--amber); border-radius: 0 8px 8px 0; }
 .testimonial p { font-size: 18px; font-style: italic; }
+.exp-quote p + p, .testimonial p + p { margin-top: 10px; }
 .testimonial footer { margin-top: 10px; font-family: var(--heading); font-size: 15px; font-weight: 600; color: var(--ink-m); font-style: normal; }
 .case-meta { font-family: var(--heading); }
 @media (max-width: 560px) {

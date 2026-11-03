@@ -97,10 +97,11 @@
     {{- with $links.case_study }}{{ with site.GetPage . }}{{ $caseStudy = . }}{{ end }}{{ end }}
     {{- $reference := false }}
     {{- with $links.reference }}{{ if and .permitted .quote }}{{ $reference = . }}{{ end }}{{ end }}
+    {{- with $reference }}{{ with .pull_quote }}{{ if not (in $reference.quote .) }}{{ errorf "%s: reference.pull_quote must be copied word for word from reference.quote" $where }}{{ end }}{{ end }}{{ end }}
 
     {{/* Nothing marked TODO may reach a production page */}}
     {{- if not site.BuildDrafts }}
-      {{- $text := slice $title ($e.summary | default "") ($e.role | default "") $client.label }}
+      {{- $text := slice $title ($e.summary | default "") ($e.delivered_as | default "") $client.label }}
       {{- range $e.outcomes }}{{ $text = $text | append . }}{{ end }}
       {{- range $evidence }}{{ $text = $text | append .label }}{{ end }}
       {{- with $reference }}{{ $text = $text | append .quote .attribution }}{{ end }}

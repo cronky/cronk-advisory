@@ -5,7 +5,7 @@
 <span class="exp-client">
   {{- if $c.url }}<a href="{{ $c.url }}" target="_blank" rel="noopener">{{ end }}
   {{- if $c.logo }}
-  <span class="exp-logo{{ if $c.on_dark }} exp-logo-dark{{ end }}"><img src="{{ $c.logo }}" alt="{{ $c.label }}" loading="lazy"></span>
+  <span class="exp-logo{{ if $c.on_dark }} exp-logo-dark{{ end }}{{ if $c.plain }} exp-logo-plain{{ end }}"><img src="{{ $c.logo }}" alt="{{ $c.label }}" loading="lazy"></span>
   {{- else }}{{ $c.label }}{{ if $c.url }} ↗{{ end }}{{ end }}
   {{- if $c.url }}</a>{{ end -}}
 </span>

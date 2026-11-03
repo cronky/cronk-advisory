@@ -1,3 +1,12 @@
+// Pull quote beside the intro on /work/: every approved quote is in the page and the first shows
+// without JavaScript; this shows one at random instead.
+(function () {
+  var quotes = document.querySelectorAll('[data-pull-quote]');
+  if (quotes.length < 2) return;
+  var pick = Math.floor(Math.random() * quotes.length);
+  quotes.forEach(function (q, i) { q.hidden = i !== pick; });
+})();
+
 // Filters on /work/: shows the type and service buttons and hides cards that don't match.
 // Without JavaScript the buttons stay hidden and every entry shows. ?type= and ?service= in the
 // URL preselect a filter, so a link can open a filtered view.

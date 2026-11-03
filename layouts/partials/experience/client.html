@@ -6,10 +6,11 @@
     url     set only when named, link_permitted and a url are all present
     logo    set only when named, logo_permitted and a logo are all present
     on_dark the logo is light and needs a dark tile
+    plain   the brand forbids a box or keyline behind its logo, so it sits on the card itself
   display: hidden entries never reach here (entries.html drops them).
   approval_status and approval_note are never read. */ -}}
 {{- $c := . | default dict }}
-{{- $out := dict "named" false "label" "" "url" "" "logo" "" "on_dark" false }}
+{{- $out := dict "named" false "label" "" "url" "" "logo" "" "on_dark" false "plain" false }}
 {{- if eq $c.display "named" }}
   {{- $out = dict
     "named" true
@@ -17,6 +18,7 @@
     "url" (cond (and $c.link_permitted $c.url) ($c.url | default "") "")
     "logo" (cond (and $c.logo_permitted $c.logo) ($c.logo | default "") "")
     "on_dark" ($c.logo_on_dark | default false)
+    "plain" ($c.logo_plain | default false)
   }}
 {{- else if eq $c.display "sector" }}
   {{- $out = merge $out (dict "label" ($c.sector_label | default "")) }}

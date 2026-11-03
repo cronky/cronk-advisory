@@ -5,11 +5,15 @@
 
     {{ with site.GetPage .Params.featured }}
     <a class="insight-feature" href="{{ .RelPermalink }}">
-      <span class="label">Our approach</span>
-      <span class="insight-feature-title">{{ .LinkTitle }}</span>
-      <span class="insight-feature-heading">{{ .Params.page_heading | default .Title }}</span>
-      {{ with .Description }}<span class="insight-feature-body">{{ . }}</span>{{ end }}
-      <span class="service-link">{{ $.Params.featured_cta }} →</span>
+      <span class="insight-feature-text">
+        <span class="label">Our approach</span>
+        <span class="insight-feature-title">{{ .LinkTitle }}</span>
+        <span class="insight-feature-heading">{{ .Params.page_heading | default .Title }}</span>
+        {{ with .Description }}<span class="insight-feature-body">{{ . }}</span>{{ end }}
+        <span class="service-link">{{ $.Params.featured_cta }} →</span>
+      </span>
+      {{- /* The same stack as the home page; decorative, as the link text describes it */}}
+      {{ if eq .RelPermalink "/approach/" }}<span class="insight-feature-art">{{ partial "ecosystem-stack.html" }}</span>{{ end }}
     </a>
     {{ end }}
 

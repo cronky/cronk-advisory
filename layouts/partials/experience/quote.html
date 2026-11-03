@@ -1,0 +1,9 @@
+{{- /* An approved quote as paragraphs: a blank line ("\n\n" in YAML) starts a new one. Takes the
+  quote text, with quotation marks on the first and last paragraphs, or a dict of "text" and
+  "marks" (false where CSS draws the marks, as on the /work/ pull quote). */ -}}
+{{- $text := . }}
+{{- $marks := true }}
+{{- if reflect.IsMap . }}{{ $text = .text }}{{ $marks = .marks }}{{ end }}
+{{- $paras := split (trim $text "\n ") "\n\n" }}
+{{- $last := sub (len $paras) 1 }}
+{{- range $i, $p := $paras }}<p>{{ if and $marks (eq $i 0) }}“{{ end }}{{ trim $p "\n " }}{{ if and $marks (eq $i $last) }}”{{ end }}</p>{{ end }}

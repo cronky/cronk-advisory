@@ -6,7 +6,34 @@
 {{- if site.BuildDrafts }}{{ $caseStudies = .RegularPages }}{{ end }}
 <section class="section section-cream">
   <div class="section-inner">
-    {{ with .Params.intro }}<p class="feed-intro exp-intro">{{ . }}</p>{{ end }}
+    {{- /* Approved quotes for the intro: entry references (the pull_quote excerpt, or the whole
+      quote when it is short) and the standalone testimonials in data/experience.yaml. All of them
+      are in the page; static/js/experience-filter.js shows one at random, and without JavaScript
+      the first shows. */}}
+    {{- $quotes := slice }}
+    {{- range $e := $entries }}{{ with $e.reference }}
+      {{- $text := .pull_quote | default (cond (le (len .quote) 320) .quote "") }}
+      {{- $year := $e.reference.year | default (substr $e.date 0 4) | string }}
+      {{- with $text }}{{ $quotes = $quotes | append (dict "text" . "attribution" $e.reference.attribution "context" $year "anchor" $e.anchor) }}{{ end }}
+    {{- end }}{{ end }}
+    {{- range $t := index site.Data.experience "testimonials" }}{{ if $t.permitted }}
+      {{- if and $t.pull_quote (not (in $t.quote $t.pull_quote)) }}{{ errorf "data/experience.yaml testimonial from %q: pull_quote must be copied word for word from quote" $t.attribution }}{{ end }}
+      {{- with $t.pull_quote | default $t.quote }}{{ $quotes = $quotes | append (dict "text" . "attribution" $t.attribution "context" ($t.context | default "") "url" ($t.url | default "")) }}{{ end }}
+    {{- end }}{{ end }}
+    <div class="exp-intro-wrap{{ if $quotes }} has-quote{{ end }}">
+      {{ with .Params.intro }}<p class="feed-intro exp-intro">{{ . }}</p>{{ end }}
+      {{- range $i, $q := $quotes }}
+      <figure class="pull-quote" data-pull-quote{{ if $i }} hidden{{ end }}>
+        <blockquote>{{ partial "experience/quote.html" (dict "text" $q.text "marks" false) }}</blockquote>
+        <figcaption>{{ $q.attribution }}
+          <span class="pull-quote-meta">
+            {{- with $q.context }}{{ . }} · {{ end }}
+            {{- with $q.anchor }}<a href="#{{ . }}">See the work</a>{{ end }}
+            {{- with $q.url }}<a href="{{ . }}" target="_blank" rel="noopener">Read on LinkedIn ↗</a>{{ end -}}
+          </span></figcaption>
+      </figure>
+      {{- end }}
+    </div>
 
     {{ with $caseStudies.ByDate.Reverse }}
     <div class="service-block">
@@ -15,8 +42,10 @@
     </div>
     {{ end }}
 
-    <div class="service-block">
-      <h2 id="experience">Experience</h2>
+    {{- $speaking := site.GetPage "/speaking" }}
+    <div class="service-block" id="experience">
+      {{/* Kept for screen readers (the cards are h3s); the filters say enough on screen */}}
+      <h2 class="visually-hidden">Experience</h2>
       {{/* Filters work only with JavaScript (static/js/experience-filter.js shows them); without
         it the full list shows. Types and services are listed only when an entry uses them. */}}
       {{- $types := slice }}
@@ -37,7 +66,7 @@
           <button type="button" aria-pressed="true" data-value="">All</button>
           {{- range $services }}{{ if in $used .id }}<button type="button" aria-pressed="false" data-value="{{ .id }}">{{ .label }}</button>{{ end }}{{ end }}
         </div>
-        <p class="exp-count" aria-live="polite" data-exp-count></p>
+        <p class="exp-count"><span aria-live="polite" data-exp-count></span>{{ with $speaking }} <a href="{{ .RelPermalink }}">(see all speaking engagements)</a>{{ end }}</p>
       </div>
       <div class="engagement-grid exp-grid" data-exp-list>
         {{- range $entries }}
@@ -45,6 +74,7 @@
         {{- end }}
       </div>
       <p class="exp-empty" data-exp-empty hidden>Nothing matches those filters. <button type="button" class="exp-reset" data-exp-reset>Show everything</button></p>
+      {{ with $speaking }}<p class="exp-more"><a href="{{ .RelPermalink }}">See all speaking engagements →</a></p>{{ end }}
       {{ if where $entries "client.logo" "!=" "" }}{{ with .Params.logo_credit }}<p class="exp-credit">{{ . }}</p>{{ end }}{{ end }}
     </div>
   </div>

@@ -54,26 +54,7 @@
 </section>
 
 <!-- ═══ SELECTED EXPERIENCE: featured entries from data/experience.yaml ═══ -->
-{{- $x := .Params.experience }}
-{{- with site.GetPage "/work" }}
-{{- $work := . }}
-{{- with first ($x.count | default 4) (where (partialCached "experience/entries.html" . "experience") "featured" true) }}
-<section id="experience" class="section section-white">
-  <div class="section-inner">
-    <div class="section-header section-header-tight">
-      <div>
-        <div class="label">{{ $x.label }}</div>
-        <h2>{{ $x.heading }}</h2>
-      </div>
-      <a href="{{ $work.RelPermalink }}" class="service-link">{{ $x.cta }} →</a>
-    </div>
-    <div class="engagement-grid exp-strip">
-      {{ range . }}{{ partial "experience/card.html" (dict "entry" . "full" false) }}{{ end }}
-    </div>
-  </div>
-</section>
-{{- end }}
-{{- end }}
+{{ partial "experience/strip.html" (dict "block" .Params.experience "id" "experience") }}
 
 <!-- ═══ LATEST: newest articles (talks are in Selected experience) ═══ -->
 {{- $l := .Params.latest }}

@@ -20,10 +20,13 @@
 #   period      start as "YYYY", "YYYY-MM" or "YYYY-MM-DD": when the work started. The page shows the
 #               month (no end dates); a day only refines the order
 #   era         cronk-advisory | scott-logic | tanium | deloitte | personal
-#   role        optional, plain text
+#   delivered_as optional, plain text: the service Cronk Advisory delivered, shown as "Service: ...".
+#               Describe a service the company provides, never a job or position held in the
+#               client's organisation (IR35): "Chief Architect-level advisory", not "Chief Architect"
 #   client      display: named | sector | hidden
 #                 named:  name renders as text; linked only if link_permitted and url;
-#                         logo (under static/) only if logo_permitted; logo_on_dark for light logos
+#                         logo (under static/) only if logo_permitted; logo_on_dark for light logos;
+#                         logo_plain for brands that forbid a box or keyline behind their logo
 #                 sector: only sector_label renders
 #                 hidden: the entry is not rendered anywhere
 #               approval_status and approval_note are private reminders and never rendered
@@ -33,7 +36,10 @@
 #   photo       optional: src (under static/), alt, and wide: true for a 16:9 image (default 4:3).
 #               A diagram gives diagram: { width, height } instead: shown whole, never cropped,
 #               and linked to the full-size file
-#   links       evidence: list of {label, url}; reference: {quote, attribution, permitted};
+#   links       evidence: list of {label, url}; reference: {quote, attribution, permitted, pull_quote, year};
+#               year (optional) dates the quote; it defaults to the year the work started.
+#               pull_quote is an optional excerpt, copied word for word from quote, shown beside the
+#               intro on /work/ when the full quote is too long (over 320 characters) to show there;
 #               case_study: path to a page under /work/ (linked once it is published);
 #               related: ids of other entries
 #   highlight   optional: service ids (from the list below) whose service page should show this
@@ -62,7 +68,7 @@ entries:
     title: "Digital Impacts Schema and Taxonomy (DIST)"
     period: { start: "2026-04" }
     era: cronk-advisory
-    role: "Enterprise Architect"
+    delivered_as: "Sustainable technology advisory"
     client:
       display: named
       name: "Green Web Foundation"
@@ -88,10 +94,10 @@ entries:
   - id: planetary-solvency-fractional-cto
     type: engagement
     featured: true
-    title: "Fractional CTO for a climate and nature risk initiative"
+    title: "Fractional CTO services for a climate and nature risk initiative"
     period: { start: "2026-09" }
     era: cronk-advisory
-    role: "Fractional CTO"
+    delivered_as: "Fractional CTO services"
     client:
       display: named
       name: "Planetary Solvency"
@@ -117,7 +123,7 @@ entries:
     title: "Product-market fit and architecture roadmap"
     period: { start: "2026-06" }
     era: cronk-advisory
-    role: "Fractional CTO"
+    delivered_as: "Fractional CTO services"
     client:
       display: named
       name: "Sustain3"
@@ -143,7 +149,7 @@ entries:
     title: "Co-chair, Harnessing AI in Environmental Consulting working group"
     period: { start: "2026-09-24" }
     era: cronk-advisory
-    role: "Co-chair"
+    delivered_as: "Working group co-chairing"
     client:
       display: named
       name: "Environment Analyst"
@@ -165,37 +171,47 @@ entries:
 
   - id: enterprise-architecture-governance
     type: engagement
+    featured: true
     title: "Enterprise architecture and architecture governance"
-    period: { start: "2026-05" }
+    period: { start: "2026-05-14" }
     era: cronk-advisory
-    role: "Chief Architect"
+    delivered_as: "Chief Architect-level advisory"
     client:
-      display: sector
-      name: null
-      sector_label: "Confidential UK client"
-      url: null
-      link_permitted: false
-      logo: null
-      logo_permitted: false
-      approval_status: pending
-      approval_note: ""
-    summary: "Enterprise architecture, Technical Architecture and governance services. Responsible AI. Coach and Advisor"
+      display: named
+      name: "SEGRO"
+      sector_label: "FTSE 100 property company"
+      url: "https://www.segro.com/"
+      link_permitted: true
+      logo: "/images/logos/segro.webp"
+      logo_permitted: true
+      logo_plain: true          # SEGRO brand guidelines: no box or keyline behind the logo
+      approval_status: approved
+      approval_note: "Testimonial approved by Giulio Tedeschi, November 2026. Logo per https://segro-brandguidelines.sirendigital.uk/#logo"
+    # summary: "Independent architecture advice across several strategic pieces of work, including an assessment of the security risks, controls and governance of an agentic AI orchestration platform, and extra architecture capacity advising on design decisions."
     outcomes: []
-    services: [architecture]
+    services: [architecture, ai-governance]
+    highlight: [architecture, ai-governance]
     links:
       evidence: []
-      reference: null
+      # Wording approved by the author, November 2026. Use only this text.
+      reference:
+        quote: "SEGRO engaged Cronk Advisory for independent architecture advice across several strategic pieces of work. The work combined technical knowledge with commercial acumen, helping us simplify complex ideas for business and technology people alike.\n\nThe assessment of our AI orchestration platform was especially valuable. He gave us an independent view of the security risks, controls and governance questions involved in agentic AI, written for both technical and business readers, so we understood the trade-offs before going further.\n\nOliver Cronk, who led the work, has provided outcome-focused practical advice and constructive challenge which has earned the trust of our technology leadership and the architecture team. He has also given us extra architecture capacity at a busy time, advising on design decisions and helping keep key work moving."
+        attribution: "Giulio Tedeschi, Director of Technology & Architecture, SEGRO"
+        # Excerpt approved by Ollie to show on its own, November 2026
+        pull_quote: "Oliver Cronk, who led the work, has provided outcome-focused practical advice and constructive challenge which has earned the trust of our technology leadership and the architecture team."
+        permitted: true
       case_study: null
       related: []
 
+  # Hidden until later in 2026 (owner decision, November 2026)
   - id: enterprise-architecture-manda
     type: engagement
     title: "Acquisition Digital PMO Enterprise Architecture Advisory"
     period: { start: "2026-08" }
     era: cronk-advisory
-    role: "Chief Architect"
+    delivered_as: "Chief Architect-level advisory"
     client:
-      display: sector
+      display: hidden
       name: null
       sector_label: "Confidential UK client"
       url: null
@@ -204,7 +220,7 @@ entries:
       logo_permitted: false
       approval_status: pending
       approval_note: ""
-    summary: "Advisor to CIO and Tech Leadership Team on upcoming acquisition."
+    summary: "Advisory to the CIO and technology leadership team on an upcoming acquisition."
     outcomes: []
     services: [architecture]
     links:
@@ -230,6 +246,10 @@ entries:
     links:
       evidence:
         - { label: "Read the article", url: "/articles/the-ai-efficiency-fallacy" }
+      reference:
+        quote: "Thank you Oliver for speaking at our Converge 2026 BAF Summit! Your keynote set the day up perfectly. Having you as part of our Community makes us better!"
+        attribution: "Linda Finley, President and Board Chair, Business Architecture Forum"
+        permitted: true
 
   - id: sustainability-delivery-summit-2026-chair
     type: speaking
@@ -288,3 +308,45 @@ entries:
     client: { display: named, name: "Industry Studies Association", link_permitted: false, logo_permitted: false }
     summary: "Panel on ethics, control and responsibility in agentic AI."
     services: [speaking, ai-governance]
+
+# ── Testimonials not tied to an entry above (LinkedIn recommendations, for example) ──
+# Shown at random beside the intro on /work/, alongside the entry references. Fields:
+#   quote        the exact wording, as approved; \n\n inside the quoted string starts a new
+#                paragraph. Keep it under about 320 characters, or give an excerpt in pull_quote
+#   pull_quote   optional, word for word from quote
+#   attribution  "Name, job title, organisation", as LinkedIn shows the author today
+#   context      optional, plain text, e.g. "LinkedIn recommendation, 2023". Anything from before
+#                March 2026 is about Oliver's earlier roles, so say so ("Before Cronk Advisory")
+#   url          optional link to the original (the LinkedIn recommendations page, for example)
+#   permitted    true only with the owner's go-ahead (and the author's agreement where needed)
+#
+# LinkedIn recommendations: from the LinkedIn export (_import/, git-ignored), word for word with
+# only spacing tidied. Chosen by the owner, November 2026: the most recent and most relevant.
+testimonials:
+  - quote: "I’ve had the pleasure and honour to work with Oliver on several occasions throughout our careers and wouldn’t hesitate to recommend him. For Oliver is not only an extremely nice person to collaborate with, he is also a master architect who excels at exploring and realising the art of the possible. He has an extreme growth mindset combined with an encyclopaedic technical knowledge base. He is a true asset to any organisation looking to both innovate and also execute!"
+    pull_quote: "He has an extreme growth mindset combined with an encyclopaedic technical knowledge base. He is a true asset to any organisation looking to both innovate and also execute!"
+    attribution: "Tim Erridge, Vice President of Services, Europe and META, CrowdStrike"
+    context: "LinkedIn recommendation, 2020 · Before Cronk Advisory"
+    url: "https://www.linkedin.com/in/cronky/details/recommendations/"
+    permitted: true
+
+  - quote: "Oliver is one of the brightest people that I have ever worked with. He has a unique combination of highly technical knowledge and skills, and strong business acumen, which makes him a rare breed in the products and innovation space (and highly desired). In my experience, he is approachable (i.e. always gives his undivided attention and is very engaged when approached); genuine (he is honest and always provides valuable recommendations following feedback); and has great instinct in the work place (which is important for leaders in our type of business). All of these are important to have mastery level over. Oliver is a good leader, mentor and he inspires others to be their best."
+    pull_quote: "He has a unique combination of highly technical knowledge and skills, and strong business acumen, which makes him a rare breed in the products and innovation space (and highly desired)."
+    attribution: "John Chiu, Associate Director, Deloitte UK"
+    context: "LinkedIn recommendation, 2019 · Before Cronk Advisory"
+    url: "https://www.linkedin.com/in/cronky/details/recommendations/"
+    permitted: true
+
+  - quote: "Oliver was the business owner and enterprise architect on a number of my projects at Three. He provided excellent technical and business guidance on all of them demonstrating both a breadth and depth of knowledge that helped ensure the right outcome was delivered. Oliver is an innovative and pragmatic architect, expertly balancing the divide between technically possible and realistically achievable."
+    pull_quote: "Oliver is an innovative and pragmatic architect, expertly balancing the divide between technically possible and realistically achievable."
+    attribution: "Frank Long, Associate Director, Cambridge Consultants"
+    context: "LinkedIn recommendation, 2015 · Before Cronk Advisory"
+    url: "https://www.linkedin.com/in/cronky/details/recommendations/"
+    permitted: true
+
+  - quote: "Oliver was instrumental in the SharePoint Online project success - a huge asset to the Three project team. He has excellent communication skills, and is able to change his language appropriately for the audience involved, ensuring that all parties feel involved and comfortable with the decisions that have been made.\n\nOliver clearly has a keen interest in technology, and is a subject matter expert on all manner of topics. He thrives in an environment where he can learn new skills and improve his knowledge. Equally, he can be relied upon to make difficult decisions, focusing not just on the information at hand, but considering future implications.\n\nIt was a pleasure working with Oliver, and hope to again in the future."
+    pull_quote: "He has excellent communication skills, and is able to change his language appropriately for the audience involved, ensuring that all parties feel involved and comfortable with the decisions that have been made."
+    attribution: "Harriet Adams, Product Director, Red Badger"
+    context: "LinkedIn recommendation, 2015 · Before Cronk Advisory"
+    url: "https://www.linkedin.com/in/cronky/details/recommendations/"
+    permitted: true

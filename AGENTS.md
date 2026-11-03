@@ -124,6 +124,8 @@ No inline `style=""` attributes or `<style>` blocks in layouts: put styles in `m
 
 **Never put an unapproved client's name in the repository**: not in YAML, comments, ids, slugs, file names, alt text or commit messages. Store only the sector label and use a neutral id. The build fails (on Cloudflare too) if a `sector` or `hidden` entry has a `name`, `url` or `logo`, if a rendered field still says `TODO`, or if a published case study points at a hidden entry. After building, `python3 scripts/check-private-names` checks `public/` against the names in `docs/private-names.txt` (git-ignored).
 
+Describe client work as services Cronk Advisory delivers, never as a job or position Oliver holds in the client's organisation (IR35). `delivered_as` renders as "Service: ...": write "Chief Architect-level advisory" or "Fractional CTO services", not "Chief Architect" or "our CTO". Apply the same to titles, summaries and copy.
+
 Speaking entries take their title, date and event from the cronky.net feed by `feed_slug`, so talk details aren't duplicated here. Work before March 2026 is `type: prior` and is always labelled "Before Cronk Advisory".
 
 ## Working locally
