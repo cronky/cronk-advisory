@@ -8,13 +8,13 @@ canonical: ""  # TODO: if cross-posted to LinkedIn
 draft: false
 ---
 
-*This is the companion piece to my talk at the 11th Annual Business Architecture Summit, Converge 2026. Slides and the diagrams referenced below are available on request.*
+*This is the companion piece to my [talk at the 11th Annual Business Architecture Summit, Converge 2026](https://cronky.net/speaking/2026-baf-summit-keynote/).*
 
-In 1987, Robert Solow observed that you could see the computer age everywhere except in the productivity statistics. Nearly forty years on, we are running the experiment again, with better graphics.
+In 1987, Robert Solow observed that you could see the computer age everywhere except in the productivity statistics. Nearly forty years on, we are running the experiment again, this time with much more invested and at stake.
 
-Tom Fishburne drew the version everyone recognises: [one person uses AI to turn a bullet point into a long email, and the recipient uses AI to turn the long email back into a bullet point](https://marketoonist.com/2023/03/ai-written-ai-read.html). Both parties feel more productive. The system as a whole has burned energy to achieve precisely nothing, and has added a round trip of potential error for good measure.
+Tom Fishburne first drew the classic meme: [one person uses AI to turn a bullet point into a long email, and the recipient uses AI to turn the long email back into a bullet point](https://marketoonist.com/2023/03/ai-written-ai-read.html). Both parties feel more productive. The system as a whole has burned energy to achieve precisely nothing, and has added a round trip of potential error for good measure.
 
-That cartoon is funny because it is a boundary problem, and boundary problems are architecture problems. Efficiency measured inside one team's workflow can be waste measured across the organisation, and waste measured across the organisation can be something considerably worse measured across the ecosystem it sits in. This piece is about three separate fallacies that get bundled together under the word "efficiency", and what to do about them architecturally.
+That cartoon is funny because it is a boundary problem, and boundary problems are architecture problems. Efficiency measured inside one team's workflow can be waste measured across the organisation, and waste measured across the organisation can be something considerably worse measured [across the ecosystem it sits in](/approach/). This piece is about three separate fallacies that get bundled together under the word "efficiency", and what to do about them architecturally.
 
 ## The train on the viaduct
 
@@ -24,7 +24,7 @@ Then I show the same scene with the frame widened: power stations belching upstr
 
 ![The reality of the train as AI metaphor image](/images/articles/train-2.jpg)
 
-The train has not become less efficient. The boundary has moved to include the ecosystems it relies on. This is core to [Ecosystem Architecture](/approach)
+The train (which if you beleive the hype will cross the chasm if it's just given enough energy and resources) has not become less efficient. The boundary has moved to include the ecosystems it relies on. This is core to [Ecosystem Architecture](/approach)
 
 ## Fallacy one: the technology itself is efficient
 
@@ -42,9 +42,9 @@ None of this means don't use AI. It means the efficiency claim needs testing rat
 
 This one is less discussed and I think it does quite a bit of damage.
 
-We have borrowed a set of words from human cognition and attached them to statistical processes that work nothing like their namesakes. The borrowing is not neutral. It buries assumptions that can turn out to be dangerous.
+We have borrowed a set of words from human cognition and attached them to statistical processes that work nothing like their namesakes. The borrowing buries assumptions that can turn out to be dangerous.
 
-| Word | What it means for a human | What it means for a model |
+| Word | What it means for a human | What it means for an AI model |
 |---|---|---|
 | Learning | Acquiring knowledge through experience, trial, error and cognitive growth | Mathematical optimisation: adjusting numerical weights to reduce error |
 | Reasoning | The logical, conscious process of forming conclusions and judgements | Statistical pattern matching and probabilistic token selection that mimics logic through step-by-step text |
@@ -57,15 +57,15 @@ My ask here is modest: be precise in architecture documents. Say "pattern matchi
 
 ## Fallacy three: automation is a clean swap
 
-Here are the three automation fallacies as I frame them in the talk.
+Here are the three **automation** fallacies as I frame them in the talk.
 
 **The substitution fallacy.** That automation cleanly replaces human work, leaving the rest of the process untouched. It actually redistributes the work, usually to somewhere nobody budgeted for.
 
-**The productivity fallacy.** That automation investment yields measurable, proportionate gains on a forecastable timeline. Solow's observation has aged well. [Acemoglu's task-based modelling](https://economics.mit.edu/sites/default/files/2024-04/The%20Simple%20Macroeconomics%20of%20AI.pdf) puts total factor productivity gains at well under 1% over a decade. Goldman Sachs says 7% of GDP. They cannot both be right, and your business case has implicitly picked one.
+**The productivity fallacy.** That automation investment yields measurable, proportionate gains on a forecastable timeline. Solow's observation has aged well. [Acemoglu's task-based modelling](https://economics.mit.edu/sites/default/files/2024-04/The%20Simple%20Macroeconomics%20of%20AI.pdf) puts total factor productivity gains at well under 1% over a decade. Goldman Sachs says 7% of GDP. They cannot both be right.
 
-**The oversight fallacy.** That a human reviewer can meaningfully supervise an automated system whose outputs they did not generate. This is the one that should keep architects awake.
+**The oversight fallacy.** That a human reviewer can meaningfully supervise an automated system whose outputs they did not generate. This is the one that should keep architects awake at night.
 
-Lisanne Bainbridge set this out in [Ironies of Automation](https://ckrybus.com/static/papers/Bainbridge_1983_Automatica.pdf) in 1983, long before any of this. Her findings translate almost without modification:
+Lisanne Bainbridge set this out in [Ironies of Automation](https://ckrybus.com/static/papers/Bainbridge_1983_Automatica.pdf) in 1983, her findings translate to today almost without modification:
 
 - Manual skills decay under monitoring. A reviewer who rarely produces the underlying output loses the ability to evaluate it.
 - Long-term knowledge requires frequent use. Theoretical training without practical exercise does not stick.
@@ -84,7 +84,7 @@ Her findings, in brief: speed is not clarity, because AI removes the data bottle
 
 A competence illusion opens up between what you can produce and what you understand, and organisations cannot yet detect that gap. People stop deciding and start forwarding what looks acceptable enough. And the collegial exchange and mentorship that judgement grows from quietly disappears.
 
-The shift from deciding to forwarding is the one I keep returning to. The scarce resource becomes the judgement to say no to something plausible. Everything in these systems is optimised to produce plausible. Very little in them is optimised to produce the capacity to refuse it, generally you specifically need to prompt it to do so.
+The shift from deciding to forwarding is important. The scarce resource becomes the judgement to say no to something plausible. Everything in these systems is optimised to produce plausible. Very little in them is optimised to produce the capacity to refuse it, generally you specifically need to prompt it to do so.
 
 There is now hard evidence pointing the same way. [Cheng and colleagues in *Science*](https://doi.org/10.1126/science.aec8352) found that across eleven leading models, AI affirmed users' actions roughly 49% more often than humans did, and that a single interaction with a sycophantic model reduced people's willingness to take responsibility while increasing their conviction that they were right. Users trusted and preferred those models. Which gives developers every incentive to keep building them.
 
