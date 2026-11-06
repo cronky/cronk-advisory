@@ -1,16 +1,16 @@
 ---
 title: "GenAI Is Imploding. Unevenly."
 date: 2026-11-06
-description: "Two years after predicting that first-generation GenAI would implode under its own weight, the implosion is under way. Just not everywhere at once. Use cases are collapsing, infrastructure is still inflating, and the bill is landing on the grid. Here's my scorecard, and what architects should do about it."
+description: "Two years after predicting that first-generation GenAI would implode under its own weight, the implosion is under way. Just not everywhere at once. This piece is my scorecard, and what architects should consider."
 topics: [ai, architecture, sustainability]
 series: "AI Sleepwalking"
 canonical: ""  # TODO: if cross-posted to LinkedIn
-draft: false
+draft: true
 ---
 
-In July 2024 I wrote a piece for the Scott Logic blog asking whether [Generative AI would implode and become more sustainable](https://blog.scottlogic.com/2024/07/16/the-impending-implosion-of-generative-ai-and-the-potential-of-a-more-sustainable-future.html). The industry was throwing power-hungry, general-purpose LLMs at every business problem in sight and expecting silver-bullet returns. My argument was that the financial, environmental and architectural unsustainability of that brute-force approach would eventually catch up with it, and that a leaner "GenAI 2.0" would rise from the ashes. In February 2025 I followed up with [There is more than one way to do GenAI](https://blog.scottlogic.com/2025/02/20/there-is-more-than-one-way-to-do-genai.html), arguing that we didn't need ever-larger centralised data centres to get value from the technology.
+In July 2024 I wrote a piece for the Scott Logic blog asking whether [Generative AI would implode and become more sustainable](https://blog.scottlogic.com/2024/07/16/the-impending-implosion-of-generative-ai-and-the-potential-of-a-more-sustainable-future.html). My argument was that the financial, environmental and architectural unsustainability of that brute-force approach would eventually catch up with it, and that a leaner "GenAI 2.0" would rise from the ashes. In February 2025 I followed up with [There is more than one way to Architect GenAI](https://blog.scottlogic.com/2025/02/20/there-is-more-than-one-way-to-do-genai.html), arguing that we didn't need ever-larger centralised data centres to get value from the technology.
 
-It's now late 2026, so it seems only fair to mark my own homework. The short version: the implosion is happening, but it isn't arriving as one dramatic crash. It's a slow, uneven and expensive reality check, and where you sit determines whether you can see it at all. Through my work at Cronk Advisory and the conversations we have in the [Architect Tomorrow](https://youtube.com/ArchitectTomorrow) community, I'm watching it unfold layer by layer.
+It's now late 2026, so I thought I'd do an update and check the predictions. The short version: the implosion is happening, but it isn't arriving as one dramatic crash. It's a slow, uneven and expensive reality check. Through my work at Cronk Advisory and the conversations we have in the [Architect Tomorrow](https://youtube.com/ArchitectTomorrow) community, here is what I am seeing:
 
 ## Where it's imploding, and where it isn't
 
@@ -18,24 +18,30 @@ It's now late 2026, so it seems only fair to mark my own homework. The short ver
 |---|---|---|
 | Use cases and business cases | Marginal pilots culled; value concentrating in narrower, well-architected deployments | Imploding |
 | Model pricing | Still subsidised by capital that expects a return at some point | Under strain |
-| Infrastructure capex | Over $400 billion in 2025, with a further 75% rise expected in 2026 | Still inflating |
+| Infrastructure capex | Around $410 billion across the big four in 2025; roughly $730 billion guided for 2026, increasingly funded by debt | Still inflating |
 | Energy and grid | Data centre demand up 17%, AI-focused data centres up around 50%, gas filling the gap | Buckling |
 | Transparency | A handful of voluntary disclosures; regulation contested | Creeping forward |
 
-That unevenness is the story. Anyone looking only at hyperscaler capex will tell you there's no implosion. Anyone looking at the enterprise pilot graveyard will tell you it's already over. Both are looking at one layer of the stack.
+That unevenness is key. Looking only at hyperscaler capex will tell you there's no implosion. Anyone looking at the stock market falls, concerns about CDOS and the enterprise pilot graveyard tells a different story.
 
 ## The ROI reckoning
 
-The financial implosion is landing exactly where I expected: marginally valuable use cases. Paying premium per-token prices to wrap a frontier model around a simple summarisation task turned out to be a very efficient way of burning budget, and plenty of pilots quietly never made it to production. As I argued in [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fallacy/), the economics are still partly fictional: we've been trained to benchmark these tools against salaries rather than software licences, which makes almost any price look like a bargain.
+The financial implosion is landing exactly where I expected: marginally valuable use cases. Paying premium per-token prices to wrap a frontier model around a simple summarisation task turned out to be a very fast way of burning through budgets, and plenty of pilots quietly never made it to production. As I argued in [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fallacy/), the economics are still partly fictional: we've been encouraged to benchmark these tools against salaries rather than software licences, which makes almost any price look like a bargain.
 
-The infrastructure layer hasn't corrected yet. The five largest tech firms spent over $400 billion on data centres in 2025, and the [IEA expects that to rise by a further 75% in 2026](https://www.iea.org/news/data-centre-electricity-use-surged-in-2025-even-with-tightening-bottlenecks-driving-a-scramble-for-solutions). That's where the stranded asset risk now sits. Strategy& estimates that [every gigawatt of data centre capacity left idle puts up to $12 billion of data centre investment and $2 billion of power infrastructure at risk](https://www.strategyand.pwc.com/m1/en/industries/energy-chemical-utility-management/gigawatt-bubble.html), and models 50 to 60 GW of potential overbuild by 2030. If demand flattens, we'll be left with some very large monuments to the hype cycle that nobody can make pay.
+The infrastructure layer hasn't corrected; it's accelerating. Amazon, Alphabet, Microsoft and Meta spent around $410 billion on capex in 2025. After the third-quarter earnings round in late October, their [combined 2026 guidance sits at roughly $720 to $740 billion](https://www.useluminix.com/reports/industry-analysis/hyperscaler-capex-q3-2026), up nearly 80%, and every one of them has signalled more to come in 2027. Alphabet alone spent [$51.4 billion in the third quarter](https://www.xtb.com/en/market-analysis/alphabet-disappoints-wall-street-despite-record-results-shares-plunge-over-8-and-test-300), more than double a year earlier.
+ 
+What changed in 2026 is how it's being paid for. In the third quarter Alphabet's free cash flow went negative to the tune of $9.1 billion, and [Meta's was negative $2.1 billion](https://www.sec.gov/Archives/edgar/data/0001326801/000162828026066700/meta-09302026xexhibit991.htm) against $10.6 billion positive a year earlier. Amazon's long-term debt has more than doubled in nine months, and Meta is leaning on data centre joint ventures with up to $68.4 billion of loss exposure. Goldman Sachs expects [more than a third of 2027's spend to be funded with bonds](https://valueaddvc.com/blog/big-tech-ai-capex-in-2025-microsoft-google-meta-amazon-and-the-spending-race). Accounting is doing some of the lifting too: Microsoft's slightly lower 2026 figure reflects stretching the assumed life of its data centre buildings from 15 to 25 years, and Reuters Breakingviews estimates that shaving one year off assumed equipment lives would wipe around $36 billion off the big four's combined 2027 net income.
+ 
+To be fair to the hyperscalers, demand at the top of the stack is real. Google Cloud revenue doubled to $30.7 billion in the quarter, Azure grew 48%, AWS grew 39% with a $578 billion backlog, and Microsoft says demand still exceeds supply. That's the strongest evidence against my thesis, and I come back to it below. But revenue growth bankrolled by debt and longer depreciation schedules is precisely the profile that turns into stranded assets if demand flattens, and that's where the risk now sits. Strategy& estimates that [every gigawatt of data centre capacity left idle puts up to $12 billion of data centre investment and $2 billion of power infrastructure at risk](https://www.strategyand.pwc.com/m1/en/industries/energy-chemical-utility-management/gigawatt-bubble.html), and models 50 to 60 GW of potential overbuild by 2030. If demand flattens, we'll be left with some very large monuments to the hype cycle that nobody can make pay.
 
 ## The energy reality we tried to ignore
 
 If the financial picture is sobering, the environmental one is uncomfortably close to the scenario I was worried about. When I [spoke at HM Treasury's ID25 last November](https://blog.scottlogic.com/2025/11/12/balancing-ai-innovation-sustainability-hm-treasury-id25.html), the energy appetite of first-generation AI was already hard to justify. Since then the IEA has reported that data centre electricity demand rose 17% in 2025, more than five times faster than global demand, with [AI-focused data centres up around 50%](https://www.enlit.world/library/ai-and-data-centre-electricity-use-continue-to-surge-iea-finds). It projects AI-related data centre demand to triple by 2030.
-
+ 
 In 2024 I noted that operators were so short of grid connections they were eyeing small nuclear reactors, and argued for smarter options such as reusing waste heat. What we mostly got was gas. Global Energy Monitor tracked [nearly 100 GW of behind-the-meter gas capacity in development for US data centres at the start of 2026, up from around 4 GW two years earlier](https://technewsday.com/ai-data-centre-boom-drives-surge-in-u-s-gas-powered-infrastructure/), and xAI has been running [on-site turbines at its Colossus sites](https://www.datacenterdynamics.com/en/tags/behind-the-meter_1/). Put plainly, we are burning fossil fuels on site to keep chatbots and coding agents running.
-
+ 
+The hyperscalers' own sustainability reports, published over the summer, tell the same story in their own words. [Google's electricity use rose 37% in 2025](https://axios.com/2026/06/30/google-ai-boom-emissions-power-use) and its emissions rose 18%, its largest annual increase on record, with water consumption up 34%. Its chief sustainability officer conceded that the [AI build-out is accelerating faster than the grid is decarbonising](https://www.computing.co.uk/news/2026/ai/ai-emissions-lay-waste-to-climate-pledges-at-biggest-tech-firms). [Microsoft's emissions rose 25% in fiscal 2025](https://thenextweb.com/news/microsoft-emissions-25-percent-ai-data-centres), leaving them around 58% above the 2020 baseline it pledged to go carbon negative from. [Amazon's rose 16% to 80.8 million tonnes](https://www.semafor.com/article/07/01/2026/amazons-rising-carbon-footprint-not-a-one-year-story-cso-says), and its carbon intensity per dollar of revenue went up for the first time since it began tracking. The common thread is that much of the increase is embodied: chips, servers, steel and concrete. That's scope 3, precisely the part a per-prompt energy figure leaves out.
+ 
 There has been some progress on transparency, and credit where it's due. Google published a methodology putting its [median Gemini text prompt at 0.24 Wh](https://arxiv.org/abs/2508.15734), and Mistral published a [lifecycle assessment of Mistral Large 2](https://the-decoder.com/mistral-ai-publishes-the-first-comprehensive-life-cycle-assessment-of-a-large-language-model/). The trouble is that the two aren't comparable. Google's figure covers serving only, leaves out training and uses market-based emissions; Mistral's includes training and hardware. That's precisely the gap the [Digital Impacts Schema and Taxonomy (DIST)](https://dist.greenweb.org) is designed to close: a shared taxonomy, methodologies map and schema so organisations can be explicit about what's in scope, how it was measured and how confident they are in the numbers. (Disclosure: I've worked on DIST through Cronk Advisory.) And however small a per-prompt figure looks, multiply it by billions of prompts and it's still a planetary-scale problem.
 
 ## The token explosion and the rise of the agents
@@ -81,43 +87,37 @@ If I were rewriting the 2024 list today, I'd add one attribute: **sufficiency**.
 
 ## The architect's mandate
 
-The era of blindly applying LLMs to everything is ending, even if the capex hasn't had the memo yet. The organisations getting real value are treating AI as a component within a well-governed, sustainable enterprise architecture rather than as magic. In practice that means:
+The organisations getting real value are treating AI as a component within a well-governed, sustainable enterprise architecture rather than as magic. In practice that means:
 
 - **Right-size continuously.** Choose the smallest model that does the job, baseline it against the big ones, and ask whether you need a model at all.
-- **Measure the full lifecycle before you scale.** Training, inference, hardware and the agents calling other agents. [DIST](https://dist.greenweb.org) gives you the categories, a map of measurement methods and a schema for reporting what you found, including what you left out.
+- **Measure the full lifecycle before you scale.** Training, inference, hardware and the agents calling other agents. [DIST](https://dist.greenweb.org) gives you the categories, a map of measurement methods and a schema for reporting.
 - **Put sustainability into procurement.** Ask suppliers for consistent, comparable impact data and for the provenance of their training data. If they can't answer, that's an answer.
 - **Govern the agents, not just the models.** Budget tokens, cap reasoning modes where they add little, and consider rate-limiting agents to match human review capacity rather than speeding the humans up.
 - **Let consequences drive the architecture.** Reversibility and detection latency should decide where thin oversight is acceptable, not enthusiasm.
 
 ## Where I might be wrong
 
-The capex could be vindicated. If agentic workloads keep compounding, today's overbuild could look like sensible foresight by 2030, much as the fibre glut of 2001 eventually carried the modern internet. The counter-argument, made well by the Center for Public Enterprise's Advait Arun in [Utility Dive's analysis of utility risk](https://www.utilitydive.com/news/utilities-data-center-risk-buildout-bubble-ai-infrastructure-grid/812781/), is that idle GPUs are far less reusable than dark fibre ever was. I hold this one loosely.
+The capex could be vindicated. If agentic workloads keep compounding, today's overbuild could look like sensible foresight by 2030, much as the fibre glut of 2001 eventually carried the modern internet. The counter-argument, made well by the Center for Public Enterprise's Advait Arun in [Utility Dive's analysis of utility risk](https://www.utilitydive.com/news/utilities-data-center-risk-buildout-bubble-ai-infrastructure-grid/812781/), is that idle GPUs are far less reusable than dark fibre ever was. 
 
 Efficiency could also outrun demand. Inference costs per token have fallen dramatically, caching is doing more of the work than raw token counts suggest, and custom silicon is improving fast. If small and local models keep closing the capability gap, much of my brute-force critique weakens, which is a direction I'd genuinely welcome.
 
-## What I'll be watching for 2028
+## What I'll be watching for 2027-2028
 
 To keep myself honest, here's what I expect, so you can mark this homework too:
 
-1. At least one high-profile write-down or repurposing of a gigawatt-scale AI campus.
+1. At least one high-profile write-down or repurposing of a gigawatt-scale AI campus. Or government acting as the financial backstop
 2. Agent token budgets and model right-sizing becoming standard line items in enterprise architecture review boards.
 3. Comparable, schema-based AI impact disclosure (DIST or similar) appearing in procurement requirements in the UK and EU public sector.
 4. Behind-the-meter gas becoming a reputational and regulatory liability for the AI providers relying on it.
-
-As I wrote in 2024, it wouldn't be the first AI winter. This one isn't freezing the technology; it's freezing out a lot of reckless implementations, and that's no bad thing. Now we get to build what lasts.
 
 ---
 
 ## Related reading
 
+- [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fallacy/), on the three fallacies bundled under "efficiency" and the oversight problem.
 - [Will Generative AI Implode and Become More Sustainable?](https://blog.scottlogic.com/2024/07/16/the-impending-implosion-of-generative-ai-and-the-potential-of-a-more-sustainable-future.html) (Scott Logic, July 2024), the original prediction.
 - [There is more than one way to do GenAI](https://blog.scottlogic.com/2025/02/20/there-is-more-than-one-way-to-do-genai.html) (Scott Logic, February 2025), on why brute-force centralisation isn't the only path.
-- [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fallacy/), on the three fallacies bundled under "efficiency" and the oversight problem.
 - [Balancing AI Innovation and Sustainability at HM Treasury ID25](https://blog.scottlogic.com/2025/11/12/balancing-ai-innovation-sustainability-hm-treasury-id25.html).
 - [Designing Freedom in the Age of Autonomy](/articles/designing-freedom/), on Beer's cybernetics and where AI's variety amplifiers are pointing.
 
 ---
-
-*Which layer of the implosion are you closest to, and does it look the same from where you're standing? If you're trying to work out where your own AI estate sits on that table, [get in touch](/contact/).*
-
-*AI use: as with the 2024 original, AI augmented this piece rather than replacing the author. Claude helped with research, fact-checking and drafting; the ideas, framing, judgement and any errors are mine.*
