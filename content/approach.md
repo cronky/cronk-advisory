@@ -19,7 +19,7 @@ Most organisations still hold an overly "geocentric" type view of themselves. St
 
 Ecosystem Architecture starts with a similar adjustment. Things do not revolve around us. We take part in much larger ecosystems, and we depend on them. 
 
-Once you see that, different questions become obvious: What do we rely on that we do not control? What are we pushing onto systems we cannot do without? What natural capital are we dependant on yet undervaluing?
+Once you see that, different questions become obvious: What do we rely on that we do not control? What are we pushing onto systems we cannot do without? What natural capital are we dependent on yet undervaluing?
 
 {{< copernican-shift >}}
 
@@ -85,11 +85,9 @@ We draw on established traditions, adapt what is useful and drop what does not s
 
 ## What it is not
 
-- **Not techno-optimism.** Technology will not automatically solve the problems technology created.
-- **Not performative sustainability.** Offsets and distant pledges are not the work.
-- **Not idealism.** It has to work inside real organisations, with real budgets and real constraints.
-- **Not anti-technology.** We are firmly pro-technology. We are against decisions made in abstraction from their consequences.
-- **Not a certification.**
+We are firmly pro-technology, but technology will not automatically solve the problems technology created, and we are against decisions made in abstraction from their consequences. Offsets and distant pledges are not the work. The approach has to work inside real organisations, with their budgets and constraints. It is not a certification.
+
+<!-- OLLIE: this was five "Not X." bullets from Claude's draft. I kept every point and turned it into a paragraph. Say if you would rather keep the list. -->
 
 The Pragmatic Ecosystems framework is published under CC BY-NC-SA 4.0; detailed methods and client assessments are delivered through Cronk Advisory engagements.
 

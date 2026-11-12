@@ -29,6 +29,7 @@ A Claude Code session (Claude Opus 5.5) in November 2026 built the Experience se
 A further Claude Code session (Claude Opus 5.5) built the `/feeds/insights.json` articles feed for cronky.net, its CI check and the workflow that triggers a cronky.net rebuild when the feed changes (with human review).
 In November 2026 a Claude Code session (Claude Opus 5.5) added the SEGRO engagement and its approved testimonial (the quote text is the client's own), drafted that entry's summary from the testimonial, converted SEGRO's official logo following its brand guidelines, added multi-paragraph quotes and a no-tile logo style, relabelled experience roles as services delivered, and added the random pull quote beside the Experience intro (with human review).
 In November 2026 a Claude session (Claude Fable 5.2) analysed the owner's published writing from 2007 to 2026 and wrote `voice/voice-profile.md`, a description of his writing voice with drafting rules for AI-assisted editing, for the owner to review before merging. The folder is reference material only and is not part of the built site.
+A further Claude session (Claude Fable 5.2) in November 2026 reviewed the articles and site copy against `voice/voice-profile.md` and suggested edits on a branch: cuts and merges that remove machine-written patterns, typo fixes, and `<!-- OLLIE: ... -->` comments where a passage needs the owner's own words (the comments are stripped from the published pages), for the owner to review before merging.
 
 ---
 

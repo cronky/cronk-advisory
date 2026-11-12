@@ -19,7 +19,7 @@ This is a considerably more efficient and secure approach for a site of this nat
 - **No database:** nothing to query, nothing to breach.
 - **No application server:** pages aren't "generated" on each visit.
 - **Minimal energy footprint:** static files served from a CDN use a fraction of the compute of a dynamic stack (consistent with our [sustainable technology](/services/sustainable-technology/) practice).
-- **Fast:** genuinely, measurably fast.
+- **Fast:** there is no server-side work to wait for.
 
 Hosting is via [Cloudflare Pages](https://pages.cloudflare.com/), which builds and deploys automatically on push to `main`.
 

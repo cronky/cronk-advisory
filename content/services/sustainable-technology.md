@@ -32,9 +32,9 @@ The taxonomy groups impacts into five categories. Carbon is the most developed i
 
 ## Responsible Technology
 
-Sustainable technology is not only about carbon. AI that quietly wears away the human judgement it depends on is not sustainable either, however efficient it looks in the business case. We are firmly pro-innovation, and pragmatic about it: the aim is AI that still works, and is still safe, once the novelty has worn off.
+Sustainable technology is about more than carbon. AI that wears away the human judgement it depends on is not sustainable, however efficient it looks in the business case. We are firmly pro-innovation, and pragmatic about it: the aim is AI that still works, and is still safe, once the novelty has worn off.
 
-That starts with being honest about what the technology can and cannot do. AI produces plausible output at scale. It cannot hold judgement or accountability. And the human oversight we rely on to make it safe is the first thing automation erodes: people stop deciding and start forwarding whatever looks acceptable, and reviewers who no longer do the work lose the ability to check it. [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fallacy/) sets this out in more detail.
+That starts with being honest about what the technology can and cannot do. AI produces plausible output at scale, but it cannot hold judgement or accountability. And the human oversight we rely on to make it safe is the first thing automation erodes: people stop deciding and start forwarding whatever looks acceptable, and reviewers who no longer do the work lose the ability to check it. [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fallacy/) sets this out in more detail.
 
 We help organisations get the balance right:
 

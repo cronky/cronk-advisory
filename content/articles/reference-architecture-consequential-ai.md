@@ -10,7 +10,7 @@ draft: false
 
 In [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fallacy/) I argued that the architectural question stops being "where can we deploy AI" and becomes "where in this process must a named human own the output". In [Dynamic Architecture](/articles/dynamic-architecture/) I argued that governance has to be built into the places where creation happens, rather than applied after the fact. This piece is where those two arguments meet: what the architecture looks like when getting it wrong has real consequences.
 
-A marketing team using AI to generate variants of a campaign can be wrong forty times and it does not matter - iteratively testing can actually be beneficial (if we park the [cost and environmental piece](/articles/the-ai-efficiency-fallacy/#fallacy-one-the-technology-itself-is-efficient)). A system that advises on a mortgage affordability assessment, flags a safeguarding concern, or adjusts a grid balancing position cannot. Regulation is usually a proxy for consequence, but it often lags. Plenty of consequential work is not yet regulated, and some regulated work genuinely is not consequential.
+A marketing team using AI to generate variants of a campaign can be wrong forty times and it does not matter - iteratively testing can actually be beneficial (if we park the [cost and environmental piece](/articles/the-ai-efficiency-fallacy/#fallacy-one-the-technology-itself-is-efficient)). A system that advises on a mortgage affordability assessment, flags a safeguarding concern, or adjusts a grid balancing position cannot. Regulation is usually a proxy for consequence, but it often lags. Plenty of consequential work is not yet regulated, and some regulated work is not consequential.
 
 This is a discussion on architectures for the consequential end. It will not suit every use case, and it is deliberately heavier than you need for low-stakes work. If you are automating something reversible, high-volume and cheap to check, much of what follows is over-engineering and you should skip it. If not, this will hopefully be thought-provoking.
 
@@ -18,7 +18,7 @@ This is a discussion on architectures for the consequential end. It will not sui
 
 ![The context stack. Nine layers, bottom to top: Infrastructure, Data, Information and Knowledge (technology-led capabilities), then a dashed judgement line, then Judgement, Empathy, Wisdom, Accountability and Trusted Relationships (human capabilities). Context runs from generic at the base, through nuanced and situated, to non-transferable at the top. Risk and governance on the right: controls (security, privacy, resilience); quality and provenance (verification, sourcing, IP); decision rights (human escalation, care, nuance, sensemaking); assurance (transparency, audit, redress). After Ackoff (1989) and Zeleny (1987).](/images/articles/context-stack-judgement-line.webp)
 
-In the [companion conceptual piece](/articles/artificial-intelligence-is-not-artificial-wisdom/) where the diagram above comes from, I argue that intelligence is not a rung on the knowledge ladder. It is the engine that moves you up it. The practical consequence is that every process has a point where the work stops being the accumulation and transformation of information and starts being judgement: committing to a position when the premises are incomplete, the values conflict and somebody has to live with the result.
+In the [companion conceptual piece](/articles/artificial-intelligence-is-not-artificial-wisdom/) where the diagram above comes from, I argue that intelligence is the engine that moves you up the knowledge ladder, and is not a rung on it. The practical consequence is that every process has a point where the work stops being the accumulation and transformation of information and starts being judgement: committing to a position when the premises are incomplete, the values conflict and somebody has to live with the result.
 
 Call it the judgement line. Above it, a named human owns the output. Below it, the machine can run (in many cases autonomously).
 
@@ -34,7 +34,7 @@ There are now three distinct concerns with different owners, different failure m
 
 **The harness** is what replaced orchestration. Orchestration was a request-response wrapper: input goes in, model is called, output comes out. A harness is a loop. It plans, acts, observes the result and decides whether to go round again. It carries state between turns. Critically, it decides what goes into the context window and when to stop.
 
-I have given context assembly and budgeting its own box inside the harness because it has become a genuine design decision with a cost attached, rather than a plumbing detail. Every token you put in the window has a price in money, latency and energy, and more context is not monotonically better: stuff the window and relevant material gets lost in the middle. Somebody has to decide what gets included and what gets dropped. In most deployments nobody does, and the answer emerges accidentally from whatever the framework defaults to.
+I have given context assembly and budgeting its own box inside the harness because it has become a design decision with a cost attached, rather than a plumbing detail. Every token you put in the window has a price in money, latency and energy, and more context is not monotonically better: stuff the window and relevant material gets lost in the middle. Somebody has to decide what gets included and what gets dropped. In most deployments nobody does, and the answer emerges accidentally from whatever the framework defaults to.
 
 **The context plane** is everything the system knows and can retrieve. **The action plane** is everything it can do to the world. Keeping these separate matters because they fail differently. A context plane failure leaks information or grounds a response in the wrong material. An action plane failure moves money, sends a message or changes a record. Different blast radius, different controls, often different owners in the organisation.
 
@@ -46,7 +46,7 @@ I have given context assembly and budgeting its own box inside the harness becau
 
 **The knowledge graph earns its place through provenance, not accuracy.** The usual argument for graphs over vector search is retrieval quality, which is true in some workloads, contested in others, and not an argument I want to rest an architecture on. The stronger argument is structural: a graph carries typed, traceable relationships, so a claim can be traced back to a source and an assertion path. A vector store returns text that was similar and cannot tell you why. In consequential work, knowing why you retrieved something is not a nice-to-have.
 
-**Vector search and semantic caching are the cost and coverage layer.** Vectors handle the fuzzy, unstructured long tail that no ontology will ever cover. The cache is there because inference is expensive and a surprising proportion of enterprise queries are near-duplicates. Both need careful invalidation, and a stale cache in a regulated process is a compliance problem wearing a performance costume.
+**Vector search and semantic caching are the cost and coverage layer.** Vectors handle the fuzzy, unstructured long tail that no ontology will ever cover. The cache is there because inference is expensive and a surprising proportion of enterprise queries are near-duplicates. Both need careful invalidation, and in a regulated process a stale cache is a compliance problem as well as a performance one.
 
 **Memory and state are different things and should not be merged.** This is the distinction I see collapsed most often. Memory is retrieved content: what the system recalls about this user, this case, this prior interaction. It competes with the graph and the vector store for space in the context window, so it belongs in the retrieval container and needs the same entitlements, provenance and retention treatment as anything else you retrieve. State is the harness's own bookkeeping: where the task got to, what has already been done, whether it can resume after a failure. Losing state is an availability problem. Leaking memory is a compliance one. They sit in different places on the diagram for that reason.
 
@@ -62,15 +62,15 @@ Memory also carries a governance point: what should the system be allowed to rem
 
 The protocol picture settled down in 2026, which makes this easier to draw with confidence than it would have been a year ago.
 
-The division of labour between the two main standards is fairly clear. [MCP](https://modelcontextprotocol.io) defines how an agent reaches tools and data: vertical integration, inside your boundary. A2A defines how agents discover each other, delegate work and return results across framework and organisational boundaries: horizontal integration. They are complementary rather than competing, and since [A2A joined the Agentic AI Foundation in August 2026](https://aaif.io/blog/a2a-joins-aaif) they sit under the same governance alongside MCP. Two boxes, not one, because the risk profiles differ considerably.
+The division of labour between the two main standards is fairly clear. [MCP](https://modelcontextprotocol.io) defines how an agent reaches tools and data: vertical integration, inside your boundary. A2A defines how agents discover each other, delegate work and return results across framework and organisational boundaries: horizontal integration. They are complementary rather than competing, and since [A2A joined the Agentic AI Foundation in August 2026](https://aaif.io/blog/a2a-joins-aaif) they sit under the same governance alongside MCP. They are two boxes on the diagram because the risk profiles differ considerably.
 
 **The agent gateway is a super important component.** Without a single choke point for policy, authorisation, quotas and audit, every MCP server connection becomes its own governance decision made by whoever wired it up. That is [shadow IT](/articles/dynamic-architecture/#the-cambrian-explosion-of-ai-generated-point-solutions) with write access to production systems. This is not speculative tooling: [agentgateway](https://agentgateway.dev), an Apache 2.0 gateway covering MCP, A2A, LLM inference and API traffic, [joined the same foundation in June 2026](https://aaif.io/blog/agentgateway-joins-aaif-as-an-open-gateway-for-agentic-ai-infrastructure). The pattern is available. Most organisations have simply not adopted it yet.
 
-**The delegation boundary is where accountability leaks.** When your agent hands work to a third-party agent, you have made an outsourcing decision. Who is accountable when the delegated agent is wrong? What did it see of your data? What did it do with it afterwards? The honest position is that consolidating the specifications did not settle authorisation. The specs now share a foundation, but which agent may read which data still lands on the enterprise. That is the entitlements problem from the context plane showing up again on the action side, and it is yours to answer rather than the protocol's.
+**The delegation boundary is where accountability leaks.** When your agent hands work to a third-party agent, you have made an outsourcing decision. Who is accountable when the delegated agent is wrong? What did it see of your data? What did it do with it afterwards? Consolidating the specifications did not settle authorisation. The specs now share a foundation, but which agent may read which data still lands on the enterprise. That is the entitlements problem from the context plane showing up again on the action side, and it is yours to answer rather than the protocol's.
 
 **Watch for the lethal trifecta.** Simon Willison's [lethal trifecta](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) is the clearest test I know for the action plane: an agent that has access to private data, is exposed to untrusted content and can communicate externally can be tricked into sending that data to an attacker. The context plane supplies the first. MCP tools and peer agents routinely supply the other two. The gateway is where you can see all three meeting in one session, and break the combination before a prompt injection exploits it.
 
-**Every action is logged with the requesting identity.** Not the service account. Not "the agent". The human on whose behalf the chain was initiated, carried through every hop. If you cannot answer "who asked for this" at the end of a five-step agent trajectory, you have no audit trail, just a log file!
+**Every action is logged with the requesting identity.** That means the human on whose behalf the chain was initiated, carried through every hop, and not the service account or "the agent". If you cannot answer "who asked for this" at the end of a five-step agent trajectory, you have no audit trail, just a log file!
 
 ## Checking outputs, and checking actions
 
@@ -82,7 +82,7 @@ Three checks, in rough order of maturity in the market:
 
 **Groundedness** is newer and only possible if the context plane did its job. Are the claims in this response actually supported by the retrieved material, or has the model filled a gap with something fluent? This is where provenance pays for itself.
 
-**Reversibility:** before an action executes, what does undoing it look like, and who can authorise the undo? An irreversible action taken by an agent on thin evidence is the failure mode that will produce the first genuinely serious enterprise incident.
+**Reversibility:** before an action executes, what does undoing it look like, and who can authorise the undo? An irreversible action taken by an agent on thin evidence is the failure mode that will produce the first serious enterprise incident.
 
 ## Designing escalation that is not a crumple zone
 
@@ -104,7 +104,7 @@ The test I would apply is a [chaos anti-AI monkey](/articles/the-ai-efficiency-f
 
 The audit trail argument has not changed: when systems leveraging machine learning fail, you need the equivalent of a flight recorder, capturing inputs, decisions and outputs so that lessons can be learned from evidence rather than anecdote. Agentic systems make this harder, because the thing you need to reconstruct is a trajectory rather than a single call.
 
-Two additions. **Evaluations belong in the runtime picture, not just the build pipeline**, because model and prompt behaviour drifts and a quarterly eval is a quarterly guess. And **cost and energy metering belong at the same level as latency**. Every agent loop has an environmental footprint as well as a financial one, and treating that as a sustainability reporting concern rather than an architecture concern is how it ends up unmanaged. The [cybernetic and environmental arguments converge here](/articles/designing-freedom/): less unnecessary processing is both cheaper and more viable.
+Two additions. **Evaluations belong in the runtime picture, not just the build pipeline**, because model and prompt behaviour drifts, and a quarterly eval will miss it. And **cost and energy metering belong at the same level as latency**. Every agent loop has an environmental footprint as well as a financial one, and treating that as a sustainability reporting concern rather than an architecture concern is how it ends up unmanaged. The [cybernetic and environmental arguments converge here](/articles/designing-freedom/): less unnecessary processing is both cheaper and more viable.
 
 ## What I have deliberately left out
 
@@ -112,7 +112,7 @@ Two additions. **Evaluations belong in the runtime picture, not just the build p
 
 **Execution sandboxing** for tool calls that run code, which is a security architecture topic in its own right and one where the generic advice is actively dangerous.
 
-**The model layer as a layer.** I have drawn model routing as a decision inside the harness rather than a tier of the architecture, which is deliberate. In 2023 the model zoo was the centrepiece and the governance question was which models are approved. The interesting question now is which model this specific request should go to, weighing capability against cost, latency, data residency and energy. That is a routing policy, not a catalogue.
+**The model layer as a layer.** I have drawn model routing as a decision inside the harness rather than a tier of the architecture, which is deliberate. In 2023 the model zoo was the centrepiece and the governance question was which models are approved. The interesting question now is which model this specific request should go to, weighing capability against cost, latency, data residency and energy. That is a routing policy.
 
 ## This will be overkill for many use cases
 
@@ -132,7 +132,7 @@ If the honest answer is "the system", it's likely there is actually a person who
 - [Designing Freedom in the Age of Autonomy](/articles/designing-freedom/), on Beer, variety and getting your amplifiers on the right side of the equation.
 - [Why More AI Might Ultimately Equal More People](/articles/the-pendulum-swings-back/), on what happens to staffing when verification work scales with generated volume.
 
-The diagrams in this piece are © 2026 Cronk Advisory Ltd and released under a [Creative Commons Attribution 4.0 International Licence](https://creativecommons.org/licenses/by/4.0/), excluding the Cronk Advisory logo. If you use or evolve them I would genuinely like to hear about it, so they can be improved.
+The diagrams in this piece are © 2026 Cronk Advisory Ltd and released under a [Creative Commons Attribution 4.0 International Licence](https://creativecommons.org/licenses/by/4.0/), excluding the Cronk Advisory logo. If you use or evolve them I would like to hear about it, so they can be improved.
 
 ---
 
