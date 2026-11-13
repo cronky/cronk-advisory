@@ -19,7 +19,7 @@ The site practises what the business preaches: sustainable, secure, minimal tech
 - **British English** throughout content (organisation, colour, licence).
 - **Don't invent claims.** Biography, client sectors, roles and credentials are factual statements about a real person and company. Never add or embellish them; ask the owner.
 - **DIST, not the Tech Carbon Standard.** For technology footprint work, reference and link the Green Web Foundation's [Digital Impacts Schema and Taxonomy (DIST)](https://dist.greenweb.org) wherever it fits. The Tech Carbon Standard is a Scott Logic project kept for the archive: mention it only as a past achievement of Oliver's, without a link, worded as "Co-developed and launched (State of Open Con 2024) while leading Scott Logic's Sustainable Technology practice". Never present it as Cronk Advisory work.
-- **AI use is disclosed.** If you make a material contribution, add a line to the "AI Use Disclosure" section of `README.md` (tool, model, rough scope).
+- **AI use is disclosed.** If you make a material contribution, add a line to the "AI Use Disclosure" section of the article
 
 ## Where things live
 
