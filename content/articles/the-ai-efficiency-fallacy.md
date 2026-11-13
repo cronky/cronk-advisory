@@ -142,7 +142,7 @@ Architecture is the discipline that decides where the boundary goes. That makes 
 
 - [Designing Freedom in the Age of Autonomy](/articles/designing-freedom/), on Beer's cybernetics and why AI is mostly being deployed as a variety amplifier on the wrong side of the equation.
 - [Dynamic Architecture: The Governed Response to Vibed Code and Agent Proliferation](/articles/dynamic-architecture/), on what happens when creation is no longer constrained by the speed of human typing.
-- [Why More AI Might Ultimately Equal More People](/articles/the-pendulum-swings-back/), which looks at the oversight argument from the labour-economics side.
+- [Could AI ultimately require more people](/articles/the-pendulum-swings-back/), which looks at the oversight argument from the labour-economics side.
 - [Are we sleepwalking into tomorrow's AI challenges?](https://www.linkedin.com/pulse/we-sleepwalking-tomorrows-ai-challenges-oliver-cronk-4rcge/), the original risks piece.
 - [Practical, pragmatic AI principles for an AI Autumn](https://www.linkedin.com/pulse/practical-pragmatic-ai-principles-autumn-oliver-cronk-jkwfe/).
 

@@ -130,7 +130,7 @@ If the honest answer is "the system", it's likely there is actually a person who
 - [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fallacy/), on boundaries, oversight and why the human supervising an AI system is usually the weakest part of the control.
 - [Dynamic Architecture](/articles/dynamic-architecture/), on governed response to agent proliferation and why this is an ecosystem problem rather than an enterprise one.
 - [Designing Freedom in the Age of Autonomy](/articles/designing-freedom/), on Beer, variety and getting your amplifiers on the right side of the equation.
-- [Why More AI Might Ultimately Equal More People](/articles/the-pendulum-swings-back/), on what happens to staffing when verification work scales with generated volume.
+- [Could AI ultimately require more people](/articles/the-pendulum-swings-back/), on what happens to staffing when verification work scales with generated volume.
 
 The diagrams in this piece are © 2026 Cronk Advisory Ltd and released under a [Creative Commons Attribution 4.0 International Licence](https://creativecommons.org/licenses/by/4.0/), excluding the Cronk Advisory logo. If you use or evolve them I would like to hear about it, so they can be improved.
 
