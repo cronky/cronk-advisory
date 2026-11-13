@@ -70,7 +70,7 @@ talk_articles:
   2026-baf-summit-keynote: "/articles/the-ai-efficiency-fallacy"
   2026-green-io-london: "/articles/dist-workshop-greenio-london"
 ---
-Oliver and his network (including members of the Architect Tomorrow community) speak, chair and facilitate on architecture, AI, sustainable technology, cybersecurity and risk. The aim on stage is the same as in client work: cut through the hype, make the trade-offs visible, and leave the room with something it can act on.
+Oliver and his network (including members of the Architect Tomorrow community) speak, chair and facilitate on architecture, AI, sustainable technology, cybersecurity and risk. The aim on stage is the same as in client work: to leave the room with something it can act on.
 
 Our founder Oliver has been speaking since 2008, but running the [Architect Tomorrow](https://architecttomorrow.com) podcast since 2019 led to more chairing and facilitation, which is a related but different skill: drawing out other people's contributions, keeping the conversation moving and keeping the audience with it.
 

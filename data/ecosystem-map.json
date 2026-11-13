@@ -57,7 +57,7 @@
       "name": "Economy and sectors",
       "tag": "Markets and infrastructure",
       "summary": "Industries, markets, energy grids, supply chains, finance and regulation. Every sector depends on the others, and on the two layers beneath.",
-      "question": "Which other sectors does yours quietly depend on, and what happens when they are constrained?",
+      "question": "Which other sectors does yours depend on, and what happens when they are constrained?",
       "lenses": [
         {
           "name": "Circular economy",
