@@ -1,13 +1,11 @@
 ---
-title: "Why More AI Might Ultimately Equal More People"
+title: "Could AI ultimately require more people"
 date: 2026-10-26
 description: "Adopting AI aggressively may need more people, not fewer, or enshittification becomes a serious risk."
 topics: [ai, architecture]
 series: "AI Sleepwalking"
 draft: false
 ---
-
-<!-- OLLIE: of all the articles this one is furthest from your voice (about 4 first-person words per 1,000 against your baseline of 22, no asides, no questions until the end). The edits below only remove the machine patterns. It would gain more from a redraft off a voice note than from further line edits. -->
 
 The general narrative in enterprise technology today is that AI replaces people. I want to put the opposite hypothesis on the table. For the rest of this decade, many of the organisations that adopt AI most aggressively will need more people, not fewer, because of what happens to a system when you make one part of it suddenly, dramatically cheap.
 
@@ -82,13 +80,11 @@ The original [eight sleepwalking risks](https://www.linkedin.com/pulse/we-sleepw
 
 <!-- OLLIE: are "The Hollow Ladder", "Phantom Savings" and "Mean Reversion" your labels or the model's? Keep them only if you would say them on stage. I also cut "gone within two quarters" from Phantom Savings: it was a specific timescale with no source. -->
 
-**The Hollow Ladder.** If you automate the entry rung, you stop manufacturing senior judgement. A senior lawyer's instinct was built on years of discovery grunt work. A principal engineer's intuition came from fixing junior-grade bugs. Automate the bottom of the pyramid for this year's efficiency saving and you have defunded your own succession pipeline. The cost is invisible on a spreadsheet and severe over a decade. This is relevance degradation operating across careers rather than within a single task.
+**Are we destroying the experience pipeline?** If you automate the entry rung, you stop manufacturing senior judgement. A senior lawyer's instinct was built on years of discovery grunt work. A principal engineer's intuition came from fixing junior-grade bugs. Automate the bottom of the pyramid for this year's efficiency saving and you have defunded your own succession pipeline. The cost is invisible on a spreadsheet and severe over a decade. This is relevance degradation operating across careers rather than within a single task.
 
-**Phantom Savings.** This is the trap of cutting headcount in anticipation of AI savings, then being overwhelmed at the human chokepoints by the volume AI itself generates. You removed the reviewers, but agentic systems are now producing ten times the output that needs reviewing, approving and owning. It is asymmetrical overload, except the overload is self-inflicted.
+**False savings?** This is the trap of cutting headcount in anticipation of AI savings, then being overwhelmed at the human chokepoints by the volume AI itself generates. You removed the reviewers, but agentic systems are now producing ten times the output that needs reviewing, approving and owning. It is asymmetrical overload, except the overload is self-inflicted.
 
-**Mean Reversion.** Because model outputs regress towards the statistical average, an organisation where everyone leans on AI for everything will drift, gradually and unnoticed, towards sameness. Each individual artefact looks perfectly competent. The aggregate effect is the slow erosion of whatever made the organisation distinctive.
-
-I would frame all three as hypotheses. There is also an open question of housekeeping: whether these belong as risks ten, eleven and twelve, after the IP and know-how leakage risk that became the ninth, or whether the labour cluster deserves its own grouping.
+**Defaulting to average output.** Because model outputs regress towards the statistical average, an organisation where everyone leans on AI for everything will drift, gradually and unnoticed, towards sameness. Each individual artefact looks perfectly competent. The aggregate effect is the slow erosion of whatever made the organisation distinctive.
 
 ## Things that could prove this wrong
 

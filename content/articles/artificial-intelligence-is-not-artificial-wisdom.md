@@ -16,9 +16,7 @@ This also inspired one of the visuals in a recent talk [The AI efficiency Fallac
 
 Most who have worked in knowledge management know the DIKW hierarchy: data, information, knowledge, wisdom, popularised by [Russell Ackoff in 1989](https://isko.org/cyclo/dikw) and by Milan Zeleny. It is not a perfect model. But it separates what we accumulate from what we earn.
 
-Treating intelligence, understanding or purpose as *levels* implies you arrive at them by processing enough of the level below. I'd argue they are faculties applied to the material, not products of it. Wisdom requires judgement, that judgement is inseparable from the actor and their values, and that *wisdom-generating systems are ones that man will not be able to assign to automation*
-
-<!-- OLLIE: the sentence above ("Wisdom requires judgement, that judgement is ...") reads as if it lost its opening, perhaps "Ackoff argued that". The italic part looks like a quotation: check the wording against the source and attribute it. -->
+Treating intelligence, understanding or purpose as *levels* implies you arrive at them by processing enough of the level below. arguably they are faculties applied to the material, not products of it. Wisdom requires judgement, that judgement is inseparable from the actor and their values, and perhaps *wisdom-generating systems are ones that man will not be able to assign to automation*
 
 A related distinction I had to think through. **Reasoning is not judgement.** Reasoning is a faculty: deriving conclusions from premises. It can be formalised, taught, and done rather well by machines. Judgement is an act: committing to a position when the premises are incomplete, the values conflict, and someone has to live with the outcome. Reasoning runs out precisely where judgement starts. So reasoning belongs with the engine, alongside computation and recall, not on the stack.
 
@@ -76,13 +74,11 @@ The constructive framing is that value moves up the stack rather than away: fram
 
 Responsible AI adoption, then, includes deliberately preserving the routes by which humans climb, as well as guardrails and risk registers.
 
-<!-- OLLIE: I cut the last line ("Intelligence was never the top of the pyramid. We should stop buying it as though it were.") because it restates the argument (rule 7). The section heading is already a question: a question to readers about how they train people would close it in your voice. Restore the line if you prefer it. -->
-
 ---
 
 ## Credits and sources
 
-With thanks to Jennifer Woolley, whose remark at the Industry Studies Association Oxford conference on 5 September 2026 prompted this piece (and parts of my recent talk at the Business Architecture Forum). The synthesis, and any errors in it, are mine.
+With thanks to Jennifer Woolley, whose remark at the Industry Studies Association Oxford conference on 5 September 2026 prompted this piece (and parts of my recent talk at the Business Architecture Forum). I've used AI to help me research and edit this piece but  the synthesis, and any errors in it, are mine.
 
 **The hierarchy and its variants**
 

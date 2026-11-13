@@ -1,11 +1,10 @@
 ---
-# OLLIE: the title is "Topic: Subtitle In Title Case", which voice profile rule 6 advises against. Left unchanged because other pages link to it by name.
-title: "Dynamic Architecture: The Governed Response to Vibed Code and Agent Proliferation"
+title: "Dynamic Architecture - the governed response to vibed code and agent proliferation"
 date: 2026-10-27
 description: "Vibe coding and agentic AI are creating a Cambrian explosion of point solutions. Dynamic Architecture is the governed, ecosystem-aware response."
 topics: [architecture, ai, sustainability]
 series: "Dynamic Architecture"
-canonical: ""  # TODO: original URL if first published elsewhere (LinkedIn, Substack)
+canonical: ""  
 draft: false
 ---
 
@@ -19,9 +18,7 @@ If vibe coding and agentic capabilities are adopted tactically, by individual em
 
 GitClear's analysis of 211 million lines of code shows refactoring collapsing from 25% of changed lines in 2021 to under 10% by 2024, as developers accept AI output without the iterative cleaning they would apply to human-written code. Open-source maintainers are [shutting their doors](https://www.infoq.com/news/2026/02/ai-floods-close-projects/) to external contributions because the signal-to-noise ratio from AI-generated submissions has become unworkable. 
 
-The industry conversation has caught up to part of this. WaveMaker predicts a [2026 reset](https://itbrief.news/story/ai-coding-tools-face-2026-reset-towards-architecture) from vibe coding experiments to architecture-first, governed tools. Gartner projects that 40% of enterprise applications will embed AI agents by the end of 2026, up from less than 5% in 2025.
-
-<!-- OLLIE: the GitClear and Gartner figures above have no links. Add the sources or soften the numbers. -->
+The industry conversation has caught up to part of this. WaveMaker predicts a [2026 reset](https://itbrief.news/story/ai-coding-tools-face-2026-reset-towards-architecture) from vibe coding experiments to architecture-first, governed tools.
 
 The governance issue is now critical, but we'd argue it's happening at the wrong level.
 
@@ -74,8 +71,6 @@ Organisations that get this right will:
 - Maintain genuine optionality, because well-governed dynamic capabilities can be reconfigured, whereas a tangle of point solutions locks you in
 - Understand and manage their broader impacts: on data, on people, on the environment, on the ecosystem they depend on
 
-<!-- OLLIE: I removed "(costs that early evidence suggests exceed the initial development savings)" from the second bullet: no source. Restore it with a link if you have one. -->
-
 Organisations that don't will find themselves in a familiar but accelerated trap: moving fast, accumulating mess, and spending the next decade cleaning it up.
 
 ## Building on Foundations
@@ -94,9 +89,7 @@ Vibe coding and agentic AI are tools. They can be directed toward useful, effici
 
 Dynamic Architecture, grounded in Pragmatic Ecosystems, is the responsible response to where we find ourselves today. None of this is anti-innovation or anti-AI.
 
-The organisations that understand this will create agile capabilities that are truly differentiating and allow them to remain relevant in the 2030s.
-
-<!-- OLLIE: this still closes on a summary (rule 7). A question for readers, or what the next piece in the series covers, would end it in your voice. -->
+Perhaps the organisations that understand this will create agile capabilities that are truly differentiating and will be what allows them to remain relevant in the 2030s?
 
 ---
 

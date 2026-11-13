@@ -98,15 +98,13 @@ The diagram I use in the talk stacks nine layers, from infrastructure at the bas
 
 ![The context stack. Nine layers, bottom to top: Infrastructure, Data, Information and Knowledge (technology-led capabilities), then a dashed judgement line, then Judgement, Empathy, Wisdom, Accountability and Trusted Relationships (human capabilities). Context runs from generic at the base, through nuanced and situated, to non-transferable at the top. Risk and governance on the right: controls (security, privacy, resilience); quality and provenance (verification, sourcing, IP); decision rights (human escalation, care, nuance, sensemaking); assurance (transparency, audit, redress). After Ackoff (1989) and Zeleny (1987).](/images/articles/context-stack-judgement-line.webp)
 
-<!-- OLLIE: the next two paragraphs ("Context increases as you climb", "Trust is an output") also appear almost word for word in "Artificial intelligence is not artificial wisdom". Consider keeping the full version in one piece and a pointer in the other. -->
-
 **Context increases as you climb.** Data is portable and means roughly the same wherever it lands. Judgement is situated. A trusted relationship is the least transferable thing in the entire picture: you cannot hand yours to a colleague, and it does not survive being written down. This is the mechanism behind the familiar observation that AI is strong at the base of the stack and weak at the top. The upper layers do not generalise, and generalisation is exactly what these models were trained to do. Your situated context is, by definition, not in the training data.
 
 **Trust is an output, not an input.** It sits at the top because it is what everything underneath produces when it holds. Organisations keep trying to procure it directly, usually via a campaign, while degrading the layers that generate it.
 
 Risk and governance runs down the right-hand side and changes character as it climbs: controls at the base, quality and provenance in the middle, decision rights above the line, assurance at the top. Most organisations have thoroughly industrialised the bottom and have almost nothing formal in the middle two. That gap is where AI adoption actually comes unstuck.
 
-In full transparency, this stack is a synthesis of mine rather than an invention. It sits downstream of [Ackoff's 1989 DIKW hierarchy](https://isko.org/cyclo/dikw) and Zeleny's 1987 work, with the human layers around wisdom (judgement, empathy, accountability and trusted relationships) being my attempt to name what the apex of that pyramid usually gestures at and never specifies.
+For full transparency, this stack is a synthesis of mine rather than an invention. It sits downstream of [Ackoff's 1989 DIKW hierarchy](https://isko.org/cyclo/dikw) and Zeleny's 1987 work, with the human layers around wisdom (judgement, empathy, accountability and trusted relationships) being my attempt to name what the apex of that pyramid usually gestures at and never specifies.
 
 ## Possible architectural responses
 
