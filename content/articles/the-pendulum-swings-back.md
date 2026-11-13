@@ -9,13 +9,13 @@ draft: false
 
 The general narrative in enterprise technology today is that AI replaces people. I want to put the opposite hypothesis on the table. For the rest of this decade, many of the organisations that adopt AI most aggressively will need more people, not fewer, because of what happens to a system when you make one part of it suddenly, dramatically cheap.
 
-That is a deliberately provocative opening, and I am offering it as a hypothesis rather than a prediction based partly on the jagged capabilities of the technology.
+That is deliberately provocative, and I am offering it as a hypothesis rather than a prediction based on the jagged capabilities of the tech.
 
 ## The pendulum has swung
 
-Right now the pendulum sits hard over on one side. Call it tech mania, call it FOMO-driven adoption: the mood is that any function not visibly "doing AI" is behind. Anthropic's chief executive has suggested AI could remove half of entry-level white-collar jobs within one to five years. That is the high end of the range, and it sets the mood in a lot of boardrooms.
+The pendulum has been mostly on the side of tech mania/FOMO-driven adoption: any function not visibly "doing AI" is behind. Anthropic's chief executive has suggested AI could remove half of entry-level white-collar jobs within one to five years. That is the high end of the range, and it sets the mood in a lot of boardrooms.
 
-Pendulums swing back. What pushes this one back towards the middle is the success of AI colliding with constraints the hype tends to skip over.
+Pendulums swing back. What pushes this one back towards the middle is the success of AI colliding with what the hype skips over.
 
 ## Three things AI cannot do (or do cheaply)
 
@@ -30,7 +30,7 @@ There is a deeper irony here, and it is not new. As I set out in [The AI Efficie
 
 **Three: AI itself is not free.** This is the constraint most often waved away. The big four hyperscalers are on course to spend in the region of 725 billion US dollars on capital expenditure in 2026. The [IEA's work on energy and AI](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary) projects global data-centre electricity demand roughly doubling by 2030. Inference costs per token have fallen dramatically, which is real and important, but the infrastructure that makes cheap inference possible remains expensive, concentrated and increasingly constrained by power availability rather than chip supply. An organisation betting its operating model on infinite cheap compute is making an assumption. I go into why the brute-force, centralised approach has material limits in [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fallacy/#fallacy-one-the-technology-itself-is-efficient).
 
-## The bit the spreadsheets miss
+## Jevons Paradox
 
 When you make a task dramatically cheaper, you usually get *more of it*, not the same amount done by fewer people.
 
@@ -39,14 +39,6 @@ Economists call the energy version of this the Jevons paradox. Jevons himself wr
 Apply that to knowledge work. If an agentic system can draft ten times the code, ten times the legal memos or ten times the marketing variants, someone still has to verify, choose, approve and *own* each output, and that verification work scales with volume. Cheaper analysis means more decisions get analysed, so the market for the underlying service expands. And the rare, high-skill human intervention becomes more valuable per hour even as routine roles thin out.
 
 This is the controlled versus agentic architecture spectrum viewed from the staffing angle. Augmentation architectures keep humans in the loop by design and tend to *create* verification and judgement work. Full automation architectures try to remove it, and frequently just relocate it downstream, where nobody planned for it.
-
-## What the latest data potentially shows
-
-Mid-2026 employment data shows a potential reshaping. In the United States, unemployment is 4.3 per cent, stable but with [labour-force participation at its lowest since October 2021](https://www.bls.gov/news.release/empsit.nr0.htm). In the United Kingdom, unemployment is 5.0 per cent, the [highest since 2021](https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/bulletins/uklabourmarket/may2026), with vacancies at a five-year low. Neither figure is a cliff edge.
-
-The sharp signal is the entry rung. UK youth unemployment has risen to 16.2 per cent, the [highest in over a decade](https://www.hiringlab.org/uk/blog/2026/05/19/uk-employment-figures-may-2026/). US recent-graduate unemployment is running around 5.7 per cent, which is now *above* the national rate. That inversion is historically unusual: graduates normally do better than the wider market. Entry-level job postings are down by roughly a third since early 2023 on one analysis. KPMG cut its UK graduate intake by about a third in 2024.
-
-Note that these rises are not cleanly attributable to AI. UK employer tax rises, an energy-price shock and broad global uncertainty are all in the mix, and the Office for National Statistics is candid about quality problems in its underlying survey. The cleanest AI-linked signal is the thinning of the entry rung, and even that is contested. The data supports transformation, hitting the bottom of the ladder first. It does *not* support the wholesale-displacement story.
 
 ## A tiered view of exposure
 
@@ -90,11 +82,9 @@ All three of these risks are internal, but they do not stay there. Put them toge
 
 Cory Doctorow coined enshittification for platforms that get steadily worse for their users while value is extracted from them. I am using it more loosely here, for the slide in quality that follows when AI is relied on in places where a person used to notice things. The service still answers, but with something plausible and generic, and the edge cases that used to be someone's job are now nobody's.
 
-Klarna is the best-known example. After saying its AI assistant was doing the work of 700 customer service agents, its chief executive [told Bloomberg in 2025](https://www.bloomberg.com/news/articles/2025-05-08/klarna-turns-from-ai-to-real-person-customer-service) that cost had been too dominant a factor, that the result was lower quality, and that the company was hiring people again. Customers say much the same when asked. In a [Gartner survey](https://www.gartner.com/en/newsroom/press-releases/2024-07-09-gartner-survey-finds-64-percent-of-customers-would-prefer-that-companies-didnt-use-ai-for-customer-service) of 5,728 customers, 64 per cent said they would prefer companies not to use AI in customer service, and 53 per cent said they would consider switching to a competitor over it. That is what people told an analyst firm rather than what they did, so I would treat the numbers with care. And when the output is wrong, the brand still owns it: a Canadian tribunal [held Air Canada liable](https://www.americanbar.org/groups/business_law/resources/business-law-today/2024-february/bc-tribunal-confirms-companies-remain-liable-information-provided-ai-chatbot/) for what its website chatbot told a customer, after the airline argued the chatbot was responsible for its own actions.
+Klarna is a classic example. After saying its AI assistant was doing the work of 700 customer service agents, its chief executive [told Bloomberg in 2025](https://www.bloomberg.com/news/articles/2025-05-08/klarna-turns-from-ai-to-real-person-customer-service) that cost had been too dominant a factor, that the result was lower quality, and that the company was hiring people again. Customers say much the same when asked. In a [Gartner survey](https://www.gartner.com/en/newsroom/press-releases/2024-07-09-gartner-survey-finds-64-percent-of-customers-would-prefer-that-companies-didnt-use-ai-for-customer-service) of 5,728 customers, 64 per cent said they would prefer companies not to use AI in customer service, and 53 per cent said they would consider switching to a competitor over it. That is what people told an analyst firm rather than what they did, so I would treat the numbers with care. And when the output is wrong, the brand still owns it: a Canadian tribunal [held Air Canada liable](https://www.americanbar.org/groups/business_law/resources/business-law-today/2024-february/bc-tribunal-confirms-companies-remain-liable-information-provided-ai-chatbot/) for what its website chatbot told a customer, after the airline argued the chatbot was responsible for its own actions.
 
-<!-- OLLIE: an example of your own would land better than Klarna here. Is there a time an automated service cost a company your custom, or a client where quality slipped after people were removed? Doctorow is named without a link: add one to his original piece if you want it. -->
-
-Quality and reputation are slow to build and slow to show up in a business case, which is why this cost gets missed. The saving from removing people shows up in this year's numbers. The customers who leave, and the reputation for being hard to deal with, show up later and in somebody else's budget.
+Quality and reputation are slow to build and slow to show up in a business case, which is why this cost gets missed. The saving from removing people shows up in this year's numbers. The customers who leave, and the reputation for being hard to deal with, show up later.
 
 ## Things that could prove this wrong
 
@@ -112,4 +102,4 @@ If your AI business case assumes you will need fewer people, have you stress-tes
 
 *Sources are linked inline. This piece builds on [Are we sleepwalking into tomorrow's AI challenges?](https://www.linkedin.com/pulse/we-sleepwalking-tomorrows-ai-challenges-oliver-cronk-4rcge/) and connects to the [cone of possibilities](/articles/dynamic-architecture/#the-cone-of-possibilities) and the controlled-versus-agentic architecture spectrum explored in earlier [Architect Tomorrow](https://architecttomorrow.com) work. [The AI Efficiency Fallacy](/articles/the-ai-efficiency-fallacy/) takes the oversight argument further, with the sources for Bainbridge's ironies of automation and Elish's moral crumple zone.*
 
-*AI use: AI augmented this piece rather than replacing the author. Claude Opus 5.5 and Claude Fable 5.2 helped with research synthesis and drafting; the ideas, framing, judgement and any errors are mine.*
+*AI use: AI augmented this piece rather than replacing the author. Claude helped with research synthesis and drafting; the ideas, framing, judgement and any errors are mine.*
