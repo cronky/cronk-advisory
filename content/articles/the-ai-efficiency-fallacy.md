@@ -12,7 +12,7 @@ draft: false
 
 In 1987, Robert Solow observed that you could see the computer age everywhere except in the productivity statistics. Nearly forty years on, we are running the experiment again, this time with much more invested and at stake.
 
-Tom Fishburne first drew the classic meme: [one person uses AI to turn a bullet point into a long email, and the recipient uses AI to turn the long email back into a bullet point](https://marketoonist.com/2023/03/ai-written-ai-read.html). Both parties feel more productive. The system as a whole has burned energy to achieve precisely nothing, and has added a round trip of potential error for good measure.
+Tom Fishburne first drew the classic meme: [one person uses AI to turn a bullet point into a long email, and the recipient uses AI to turn the long email back into a bullet point](https://marketoonist.com/2023/03/ai-written-ai-read.html). Both parties feel more productive. The system as a whole has burned energy to achieve precisely nothing, and has added in potential error.
 
 That cartoon is funny because it is a boundary problem, and boundary problems are architecture problems. Efficiency measured inside one team's workflow can be waste measured across the organisation, and waste measured across the organisation can be something considerably worse measured [across the ecosystem it sits in](/approach/). This piece is about three separate fallacies that get bundled together under the word "efficiency", and what to do about them architecturally.
 
@@ -28,15 +28,15 @@ The train (which if you believe the hype will cross the chasm if it's just given
 
 ## Fallacy one: the technology itself is efficient
 
-Let's start with the least contentious one. Many of the AI technologies we are deploying are not efficient in any engineering sense. They are brute-forced. We are throwing enormous quantities of compute at problems, often problems that deterministic software solved adequately and cheaply, because the brute-force approach generalises.
+Many of the AI technologies we are deploying are not efficient in any engineering sense. They are brute-forced. We are throwing enormous quantities of compute at problems, often problems that deterministic software solved adequately and cheaply, because the brute-force approach generalises.
 
-**The economics are currently fictional.** The prices we pay are subsidised by capital that expects a return at some point. More subtly, we have been trained to benchmark these tools against expensive salaries rather than against SaaS licences, which makes almost any price look like a bargain. Pay 300 pounds a month for software and you will scrutinise it. Pay 300 pounds a month for "an extra team member" and you will not. 
+**The economics are rather aspirational** The prices we pay are subsidised by investors that will expect a return. I'd also argue we have been trained to benchmark these tools against salaries rather than against SaaS licences, which makes the increased prices look like a bargain. Pay 300 pounds a month for software and you will scrutinise it. Pay 300 pounds a month for "an extra team member" and you might not? 
 
-**Agentic architectures compound errors rather than cancelling them.** A single inference with 95% reliability is usually fine. Twenty chained inferences at 95% is not, and the failure mode is a confident, plausible, wrong result delivered at the end of a long chain that probably doesn't get reviewed properly rather than a crash.
+**Agentic architectures compound errors in hidden ways.** A single inference with 95% reliability might be acceptable. Twenty chained inferences at 95% leads to compounding failures as confident, plausible but incorrect results passed down a long chain that is near impossible to see where the failure happenend.
 
-**The environmental bill is real and arriving.** I have written at length about [why the brute-force centralised approach has material limits](https://blog.scottlogic.com/2024/07/16/the-impending-implosion-of-generative-ai-and-the-potential-of-a-more-sustainable-future.html) and [why there is more than one way to do GenAI](https://blog.scottlogic.com/2025/02/20/there-is-more-than-one-way-to-do-genai.html). The [IEA's work on energy and AI](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary) projects data centre electricity demand roughly doubling by 2030. Energy, water and materials are architecture concerns, not sustainability-report footnotes.
+**The environmental bill is concerning.** I have written at length about [why the brute-force centralised approach has material limits](https://blog.scottlogic.com/2024/07/16/the-impending-implosion-of-generative-ai-and-the-potential-of-a-more-sustainable-future.html) and [why there is more than one way to do GenAI](https://blog.scottlogic.com/2025/02/20/there-is-more-than-one-way-to-do-genai.html). The [IEA's work on energy and AI](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary) projects data centre electricity demand roughly doubling by 2030. Energy, water and materials are architecture concerns, not sustainability-report footnotes.
 
-None of this means don't use AI. It means the efficiency claim needs testing rather than assuming, and the cost comparison needs to be honest about what it is comparing against.
+None of this means don't use AI. It means the efficiency claim needs testing rather than assuming, and the cost comparison needs to be honest and compare apples with apples.
 
 ## Fallacy two: the words mean what you think they mean
 
