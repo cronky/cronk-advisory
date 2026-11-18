@@ -135,7 +135,7 @@ entries:
       logo_on_dark: true        # the supplied logo is light, for dark backgrounds
       approval_status: approved
       approval_note: "Logo and link approved by the founder"
-    summary: "Refining product-market fit, setting out an architecture and AI roadmap and advising on the technology stack for a sustainability SaaS platform."
+    summary: "Refining product-market fit, setting out an architecture and roadmap for a sustainability SaaS platform."
     outcomes: []                # TODO: factual outcomes
     services: [strategy, architecture]
     links:
