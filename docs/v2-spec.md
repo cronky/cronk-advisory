@@ -40,7 +40,7 @@
 | Registered office | Show the home registered office in the footer only, in small print that still meets WCAG AA contrast. Label it "Registered office (not a trading address)". Owner decision (2 November 2026): it is public on Companies House, so it may also go in the Organization JSON-LD and on `/company/`, but not in prominent page copy, maps or the contact page. |
 | VAT | Not registered yet. Add an optional `vatNumber` param that renders in the footer only when set. |
 | Organisations | Three groups, clearly labelled: **Clients** (logos, with written permission), **Oliver's previous roles** (text list), **Spoken at** (logos, text-only for HM Treasury and Gartner). |
-| SEGRO | Not named anywhere. Anonymised mention only if Ollie confirms the NDA allows it. |
+| SEGRO | Now have a named testionial so can reference |
 | Modern slavery policy | Publish (HTML page plus PDF) once the reporting route is fixed (see section 7.3). |
 | Content source of truth | cronky.net owns talks, writing and podcasts. This site shows a curated, flagged subset via a JSON feed. |
 | Footprint framework | Promote DIST (Digital Impacts Schema and Taxonomy, Green Web Foundation). The Tech Carbon Standard is a Scott Logic project kept for the archive: mention only as a past achievement in the biography, without a link. |
@@ -64,7 +64,7 @@ Answer: a dedicated reporting address for Kathryn (in `docs/v2-spec-private.md`,
 7. **Speaking fees:** "on request", or also mention a community and charity rate? 
 Answer - community and charity - no fee, travel costs appreciated, commercial events POA but note a discount if sustainability related.
 8. **Testimonials:** any quotes from clients or event organisers, with permission to publish and attribute.
-Answer: an event organiser quote (Environment Analyst, attribution pending) and a set of LinkedIn recommendations are recorded in `docs/v2-spec-private.md` (git-ignored, ask Ollie if missing). Only publish a quote once its author has agreed to it being published and attributed.
+Answer: an event organiser quote (Environment Analyst - approved) and a set of LinkedIn recommendations are recorded in `docs/v2-spec-private.md` (git-ignored, ask Ollie if missing). Only publish a quote once its author has agreed to it being published and attributed.
 
 9. **Hero and services copy:** to be drafted in claude.ai and approved by Ollie before Phase 3 merges. DONE.
    *Check (29 October 2026): Pragmatic AI, Responsible Technology and Speaking copy is approved. The repo still has TODO notes saying the current text is old site copy for: the home hero (`content/_index.md`); the Chief Architecture and Sustainable Technology summaries and descriptions; Chief Architecture's who-for, outcomes and body; Sustainable Technology's who-for, engagements and outcomes; and the services index summary. If the current text is final, remove those TODOs; if not, this isn't done yet.*
